@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="css/mwcog-a.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
+    <link rel="stylesheet" href="js/lib/fullcalendar.css"/>
+    <link rel="stylesheet" href="js/lib/jquery.jgrowl.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+
+    <script language="JavaScript" type="text/javascript" src="js/CommuterValidations.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/GRHValidations.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/PoolValidations.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/SpecialEventsValidations.js?uuid=8"></script>
+    <script language="JavaScript" type="text/javascript" src="js/IncentivesValidations.js"></script>
+
+
+    <!--<script language="JavaScript" type="text/javascript" src="js/Calendar.js"></script>-->
+    <script type="text/javascript">
+        var imageSite_Id = 10001;
+        var imageSysAdmin = false;
+    </script>
+    <script type="text/javascript" src="js/ClickHandlers.js"></script>
+
+    <script type="text/javascript">
+        //        $(document).live( 'pagebeforechange', function() {
+        //          // hide footer
+        //          $('[data-role=footer]').hide();
+        //      });
+        //
+        //        $(document).live( 'pagechange', function() {
+        //          // show footer
+        //          $('[data-role=footer]').show();
+        //      });
+    </script>
+
+
+    <style type="text/css">
+        html, body, [data-role=tabs] {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        [data-role=tabs] {
+            background-color: #000;
+        }
+
+        #map, #list {
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 300px;
+            min-height: 100%;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-role=footer] {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+        }
+
+        ul li {
+            display: inline;
+        }
+    </style>
+
+
+    <title>Commuter Connections</title>
+
+</head>
+<!--<body onload="initialize();" onunload="GUnload()">-->
+<body onload="initialize();">
+<div data-role="page" id="commute_log" data-theme="b">
+    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed"><a href="#" onClick="logout()"
+                                                                                            class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"
+                                                                                            style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>
+        <h1>Commute Log Calendar</h1>
+    </div>
+    <div data-role="content" role="main" class="ui-content">
+        <!--<a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="display: none; visibility: hidden;" id="btn_welcome">Options</a> </div>-->
+        <div class="ui-body ui-body-a ui-corner-all">
+            Click a date in the calendar below to log trips for that date.
+            <div id="calendar">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var today = new Date();
+    var today_string = today.getMonth() + '/' + today.getDay()
+</script>
+
+<div data-role="page" id="commute_log_entry_page" data-theme="b">
+    <div data-role="header">
+        <h2>Edit Commute Log</h2>
+    </div>
+    <div role="main" class="ui-content" data-theme="b">
+        <form name="TripDiaryList" class="tripdiarycontrol.action">
+            <input type="hidden" value="" name="idPool" class="idPool">
+            <table width="100%" class="ui-table-reflow">
+                <tbody>
+                <tr>
+                    <td class="cur_date" style="font-size:1.6em"></td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td align="left">If you are a Pool Rewards applicant, please note your pool must be approved by
+                        Commuter Connections staff before you can start logging trips to earn incentive payments.
+                        <br><br>
+                        Once your carpool partners have joined your carpool and your application is approved, you
+                        will receive an email with a start date and additional instructions for logging your
+                        commute.
+                        <br><br>
+                        You will not be eligible to earn rewards before the designated start date.
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr class="left">
+                    <td class="data">
+                        <div class="TripHeader"
+                             style="background-color:#fcc920; padding:5px; font-size:15px; font-weight:700"><b>Trip
+                            1: Home To Work</b></div>
+                        <table class="ui-table-reflow" id="LegCommuteTable1" width="99%" bgcolor="#ffffff">
+                            <tbody>
+                            <thead>
+                            <tr style="height:30px; line-height:30px;">
+                                <th style="background-color:white; font-weight:normal; text-align:center">Leg</th>
+                                <th style="background-color:white; font-weight:normal; padding-left:35px">From</th>
+                                <th style="background-color:white; font-weight:normal; padding-left:45px">To</th>
+                                <th style="background-color:white; font-weight:normal">Travel Mode</th>
+                                <th style="background-color:white; font-weight:normal">Distance</th>
+                            </tr>
+                            </thead>
+
+                            <tr style="line-height:30px">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
+                                <td class="data">
+                                    <b class="ui-table-cell-label">From</b>
+                                    <select name="T1L1From" id="T1L1From" class="select1"
+                                            onchange="checkSecondLeg(this, '1')">
+                                        <option value="0"></option>
+
+                                        <option value="101" selected="">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">To</b>
+                                    <select name="T1L1To" id="T1L1To"
+                                            class="select1" onchange="checkSecondLeg(this, '1');">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102" selected="">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
+                                    <select name="T1L1Mode" id="T1L1Mode"
+                                            class="select1" onchange="checkCommuteMode(this, 'T1L1Distance');">
+                                        <option value="0"></option>
+
+                                        <option value="78" selected="">Drive Alone</option>
+
+                                        <option value="79">Transit</option>
+
+                                        <option value="80">Carpool</option>
+
+                                        <option value="81">Vanpool</option>
+
+                                        <option value="82">Bike</option>
+
+                                        <option value="83">Walk</option>
+
+                                        <option value="84">Telework</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
+                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                           id="T1L1Distance" name="T1L1Distance" value="2">
+                                </td>
+                            </tr>
+
+                            <tr style="line-height:30px">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">From</b>
+                                    <select name="T1L2From" id="T1L2From"
+                                            class="select1" onchange="checkSecondLeg(this, '1')">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">To</b>
+                                    <select name="T1L2To" id="T1L2To"
+                                            class="select1" onchange="checkSecondLeg(this, '1');">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
+                                    <select name="T1L2Mode" id="T1L2Mode"
+                                            class="select1" onchange="checkCommuteMode(this, 'T1L2Distance');">
+                                        <option value="0"></option>
+
+                                        <option value="78">Drive Alone</option>
+
+                                        <option value="79">Transit</option>
+
+                                        <option value="80">Carpool</option>
+
+                                        <option value="81">Vanpool</option>
+
+                                        <option value="82">Bike</option>
+
+                                        <option value="83">Walk</option>
+
+                                        <option value="84">Telework</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
+                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                           id="T1L2Distance" name="T1L2Distance" value="">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+
+                                <!-- <td class=left>
+                                    <input type="button" class="button-medium" value="Add Leg" onClick="addLeg(1, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park & Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
+                                </td> -->
+                                <td colspan="2">
+                                    <div class="addLegButton" style="color:#06c; padding-left:20px"
+                                         onclick="addLeg(1, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park &amp; Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
+                                        Add Leg
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr class="left">
+                    <td class="data">
+                        <div class="TripHeader"
+                             style="background-color:#fcc920; padding:5px; font-size:15px; font-weight:700"><b>Trip
+                            2: Work To Home</b></div>
+                        <table id="LegCommuteTable2" width="99%" bgcolor="#ffffff">
+                            <tbody>
+                            <thead>
+                            <tr style="height:30px; line-height:30px;">
+                                <th style="background-color:white; font-weight:normal; text-align:center">Leg</th>
+                                <th style="background-color:white; font-weight:normal; padding-left:35px">From</th>
+                                <th style="background-color:white; font-weight:normal; padding-left:45px">To</th>
+                                <th style="background-color:white; font-weight:normal">Travel Mode</th>
+                                <th style="background-color:white; font-weight:normal">Distance (miles)</th>
+                            </tr>
+                            </thead>
+
+                            <tr style="line-height:30px">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
+                                <td class="data"><b class="ui-table-cell-label">From</b>
+                                    <select name="T2L1From" id="T2L1From"
+                                            class="select1" onchange="checkSecondLeg(this, '2')">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102" selected="">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">To</b>
+                                    <select name="T2L1To" id="T2L1To"
+                                            class="select1" onchange="checkSecondLeg(this, '2');">
+                                        <option value="0"></option>
+
+                                        <option value="101" selected="">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
+                                    <select name="T2L1Mode" id="T2L1Mode"
+                                            class="select1" onchange="checkCommuteMode(this, 'T2L1Distance');">
+                                        <option value="0"></option>
+
+                                        <option value="78" selected="">Drive Alone</option>
+
+                                        <option value="79">Transit</option>
+
+                                        <option value="80">Carpool</option>
+
+                                        <option value="81">Vanpool</option>
+
+                                        <option value="82">Bike</option>
+
+                                        <option value="83">Walk</option>
+
+                                        <option value="84">Telework</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
+                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                           id="T2L1Distance" name="T2L1Distance" value="2">
+                                </td>
+                            </tr>
+
+                            <tr style="line-height:30px">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">From</b>
+                                    <select name="T2L2From" id="T2L2From"
+                                            class="select1" onchange="checkSecondLeg(this, '2')">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">To</b>
+                                    <select name="T2L2To" id="T2L2To"
+                                            class="select1" onchange="checkSecondLeg(this, '2');">
+                                        <option value="0"></option>
+
+                                        <option value="101">Home</option>
+
+                                        <option value="102">Work</option>
+
+                                        <option value="103">Park &amp; Ride Lot</option>
+
+                                        <option value="104">Bus Stop</option>
+
+                                        <option value="106">Telework Center</option>
+
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
+                                    <select name="T2L2Mode" id="T2L2Mode"
+                                            class="select1" onchange="checkCommuteMode(this, 'T2L2Distance');">
+                                        <option value="0"></option>
+
+                                        <option value="78">Drive Alone</option>
+
+                                        <option value="79">Transit</option>
+
+                                        <option value="80">Carpool</option>
+
+                                        <option value="81">Vanpool</option>
+
+                                        <option value="82">Bike</option>
+
+                                        <option value="83">Walk</option>
+
+                                        <option value="84">Telework</option>
+
+                                    </select>
+                                </td>
+                                <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
+                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                           id="T2L2Distance" name="T2L2Distance" value="">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+
+                                <!-- <td class=left>
+                                    <input type="button" class="button-medium" value="Add Leg" onClick="addLeg(2, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park & Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
+                                </td> -->
+                                <td colspan="2">
+                                    <div class="addLegButton" style="color:#06c; padding-left:20px"
+                                         onclick="addLeg(2, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park &amp; Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
+                                        Add Leg
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="right">
+                        <span class="red">* Required</span>&nbsp;&nbsp;
+                        <input type="button" class="button-medium" value="<< Return to Calendar"
+                               onclick="window.location.href='commute_log_calendar.html'">&nbsp;
+                        <input type="button" class="button-medium" value="Clear Log" onclick="clearLogs(this.form)">&nbsp;
+
+
+                        <input type="button" class="button-medium" value="Save Log >>"
+                               onclick="saveCommuteLogsWithAdditionalLegs(this.form)">
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+<div id="commute_log_van" data-theme="b" data-role="page">
+    <div data-role="header">
+        <h2>Pool Rewards - Commute Logs</h2>
+    </div>
+    <div role="main" class="ui-content" data-theme="b">
+        <form name="vanlog" data-action="incentivescontrol.action">
+
+            <div style="margin-top: 18px; margin-bottom: 12px; font-size:2em; text-align:left">
+                Update Van Log For: <span class="cur_date"></span>
+                <br>
+            </div>
+            <input type="hidden" name="tripDate" id="tripdDate" class="cur_date_val"> <input type="hidden" name="action"
+                                                                                             id="action"
+                                                                                             value="saveCommuteLogVIP">
+            <input type="hidden" value="153295" name="idPool" class="idPool"> <input type="hidden" class="createdDate"
+                                                                                     name="createdT" id="createdT">
+            <input type="hidden" name="createdBy" id="createdBy">
+            <input type="hidden" name="isAdmin" id="isAdmin" value="false">
+            <table id="van_log" width="100%" border="1" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td valign="top">
+                        <table id="heading" width="100%" border="0" cellspacing="0">
+                            <thead>
+                            <tr class="th-groups">
+                                <th colspan="5" style="background-color:#eee; padding:5px; font-size:13px;">Passenger Information
+                                </th>
+                            </tr>
+                            <tr class="center">
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Passenger <br> Name:
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    To <br> Work
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Present
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    To <br> Home
+                                </th>
+                                <th style="background-color:#eee;padding:5px 5px 5px 5px; font-size:13px; line-height:20px">
+                                    Present
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody id="passenger_table">
+                            <tr>
+                                <td colspan="5" align="left">
+                                    <label><input type="checkbox" name="selectAll" id="selectAll"
+                                                  onclick="selectAllPassenger()">Select All</label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" align="left"
+                                    style="padding-bottom:15px">
+                                    <label><input type="checkbox" name="noCommute" id="noCommute"
+                                                  onclick="showHideDropDown(this, 'noCommuteDropDown', 'toWork', 'toHome', 'wbMiles', 'hbMiles')">Did Not Operate</label>
+                                    <span id="noCommuteDropDown" style="display: none;">
+									<select style="font-size:8pt; line-height:25px; height:25px" name="noCommuteReason"
+                                            class="select1">
+									<option value="0"></option>
+									<option value="110">Inclement Weather</option>
+									<option value="111">Flex Day</option>
+									<option value="112">Illness / Sick Day</option>
+									<option value="113">Holiday</option>
+									</select>
+									</span>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr class="th-groups">
+                                <th colspan="3" style="background-color:#eee; padding:5px; font-size:13px;">Time Record
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Traveling <br> from
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Departed
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Arrived
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Home <br> to Work</td>
+                                <td><input maxlength="8" size="7" type="text" value="8:00"
+                                           name="twStart" id="twStart" onblur="computeTotalVanDriveTime(this.form)">
+                                </td>
+                                <td><input maxlength="8" size="7" type="text" value="8:30"
+                                           name="twEnd" id="twEnd" onblur="computeTotalVanDriveTime(this.form)"></td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Work <br> to Home</td>
+                                <td><input maxlength="8" size="7" type="text" value="5:00"
+                                           name="thStart" id="thStart" onblur="computeTotalVanDriveTime(this.form)">
+                                </td>
+                                <td><input maxlength="8" size="7" type="text" value="5:30"
+                                           name="thEnd" id="thEnd" onblur="computeTotalVanDriveTime(this.form)"></td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Total Van Driving
+                                    Time
+                                </td>
+                                <td><input size="7" type="text" value="1 hr 0 min"
+                                           name="totVanDriveTime" id="totVanDriveTime" readonly="">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <table width="100%">
+                            <tbody>
+                            <tr class="th-groups">
+                                <th colspan="3" style="background-color:#eee; padding:5px; font-size:13px;">Odometer
+                                    Record
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Traveling <br> from
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Odometer <br> Start
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Odometer <br> End
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Home to work</td>
+                                <td><input onblur="sumupvalues()" size="7" type="text" value="100"
+                                           name="owStart" id="owStart">
+                                </td>
+                                <td><input onblur="sumupvalues()" size="7" type="text" value="120"
+                                           name="owEnd" id="owEnd">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Work to home</td>
+                                <td><input onblur="sumupvalues()" size="7" type="text" value="120"
+                                           name="ohStart" id="ohStart">
+                                </td>
+                                <td><input onblur="sumupvalues()" size="7" type="text" value="140"
+                                           name="ohEnd" id="ohEnd">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Miles Driven
+                                    Today
+                                </td>
+                                <td><input size="7" type="text" value="40" name="milesDriven"
+                                           id="milesDriven" readonly="">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <table width="100%">
+                            <tbody>
+                            <tr class="th-groups">
+                                <th colspan="2" style="background-color:#eee; padding:5px; font-size:13px;">Expense
+                                    Record
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Type
+                                </th>
+                                <th style="background-color:#eee;padding:5px 0 5px 5px; font-size:13px; line-height:20px">
+                                    Amount
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Gas Total $</td>
+                                <td><input size="17" type="text" value="1.20" name="gas" id="gas">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Gallons</td>
+                                <td><input size="17" type="text" value="0.5" name="gallons"
+                                           id="gallons">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Price per Gallon $</td>
+                                <td><input size="17" type="text" value="3.20" name="pricePerGallon"
+                                           id="pricePerGallon">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Parking $</td>
+                                <td><input size="17" type="text" value="0.00" name="park" id="park">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Tolls $</td>
+                                <td><input size="17" type="text" value="0.00" name="toll" id="toll">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Other $</td>
+                                <td><input size="17" type="text" value="0.00" name="other"
+                                           id="other">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:19px; font-size:0.8em; text-align:right">Description</td>
+                                <td><input size="17" type="text" maxlength="200" value=""
+                                           name="specify" id="specify">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Update Log" class="button-medium"
+                               onclick="saveDailyVanLogs(this.form)">
+
+
+                        <input type="button" class="button-medium" value="Back"
+                               data-rel="back">
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+<script src="js/lib/moment.min.js"></script>
+<script src="js/lib/jquery.jgrowl.min.js"></script>
+<script src="js/lib/fullcalendar.min.js"></script>
+<script src="js/commutelog/TripDiaryValidations.js"></script>
+<script src="js/commute_log_calendar.js"></script>
+</html>

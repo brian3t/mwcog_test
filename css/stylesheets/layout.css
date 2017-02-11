@@ -1,0 +1,24 @@
+/* CSS Document */
+/* line 3, ../sass/layout.scss */
+.mainlogo {
+  width: 100%;
+  max-width: auto;
+  height: auto;
+  display: block;
+  padding: 0.1em 0;
+  margin: 0;
+}
+
+/* line 13, ../sass/layout.scss */
+#welcomeMsg {
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
+  z-index: 9999;
+}
+
+/* line 20, ../sass/layout.scss */
+.hidden {
+  display: none;
+}

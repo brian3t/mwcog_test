@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/mwcog-a.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/commute_log.js"></script>
+
+    <script type="text/javascript">
+        //        $(document).live( 'pagebeforechange', function() {
+        //          // hide footer
+        //          $('[data-role=footer]').hide();
+        //      });
+        //
+        //        $(document).live( 'pagechange', function() {
+        //          // show footer
+        //          $('[data-role=footer]').show();
+        //      });
+    </script>
+
+
+    <style type="text/css">
+        html, body, [data-role=tabs] {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        [data-role=tabs] {
+            background-color: #000;
+        }
+
+        #map, #list {
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 300px;
+            min-height: 100%;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-role=footer] {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+
+
+    <title>Commuter Connections</title>
+
+</head>
+<body onload="initialize();" onunload="GUnload()">
+<div data-role="page" id="commute_log" data-theme="b">
+    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed"><a href="#" onClick="logout()"
+                                                                                            class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"
+                                                                                            style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>
+        <h1>Commute Log</h1>
+    </div>
+    <div data-role="content" role="main" class="ui-content">
+        <!--<a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="display: none; visibility: hidden;" id="btn_welcome">Options</a> </div>-->
+            <div class="ui-body ui-body-a ui-corner-all">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a onclick="window.location.href ='commute_log_calendar.html'">Commute Log Calendar</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="dashboard_commute">
+                    <div class="dashboard_column hidden">
+                        <h3>Travel Mode</h3>
+                        <div id="travelmode_chart" style="width: 100%; height: 150px;">
+                            <div style="position: relative;">
+                                <div dir="ltr" style="position: relative; width: 345px; height: 150px;">
+                                    <div aria-label="A chart."
+                                         style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;">
+                                        <svg width="345" height="150" aria-label="A chart." style="overflow: hidden;">
+                                            <defs id="defs"></defs>
+                                            <rect x="0" y="0" width="345" height="150" stroke="none" stroke-width="0"
+                                                  fill="#ffffff"></rect>
+                                            <g></g>
+                                        </svg>
+                                        <div aria-label="A tabular representation of the data in the chart."
+                                             style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Commute Mode</th>
+                                                    <th>% Used</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Transit: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carpool: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Vanpool: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bike: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Walk: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Telework: 0%</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div aria-hidden="true"
+                                     style="display: none; position: absolute; top: 360px; left: 355px; white-space: nowrap; font-family: Arial; font-size: 8px;">
+                                    -._.-*^*-._.-*^*-._.-
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard_column">
+                        <h3>Savings Summary</h3>
+                        <table width="100%">
+                            <tbody>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;Total Vehicle Miles Traveled (VMT):</td>
+                                <td class="right">0</td>
+                            </tr>
+                            <tr bgcolor="#e6e6e6">
+                                <td class="left" colspan="2">•&nbsp;Total Pollution Reduced (in tonnes):</td>
+                                <td class="right">.00</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;NOx Reduced (in grams):</td>
+                                <td class="right">.00</td>
+                            </tr>
+                            <tr bgcolor="#e6e6e6">
+                                <td class="left" colspan="2">•&nbsp;VOC Reduced (in grams):</td>
+                                <td class="right">.00</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;PM Reduced (in grams):</td>
+                                <td class="right">.00</td>
+                            </tr>
+                            <tr bgcolor="#e6e6e6">
+                                <td class="left" colspan="2">•&nbsp;CO2 Emission Reduced (in grams):</td>
+                                <td class="right">.00</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;Fuel Savings in Gallons (FG1 = VMR / 25.3):</td>
+                                <td class="right">0</td>
+                            </tr>
+                            <tr bgcolor="#e6e6e6">
+                                <td class="left" colspan="2">•&nbsp;Fuel Cost Savings in Dollars (FG1 * 2.307):</td>
+                                <td class="right">0</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;Commuter Cost Savings in Dollars (VMR * 57.1
+                                    cents):
+                                </td>
+                                <td class="right">$0*</td>
+                            </tr>
+
+                            <tr bgcolor="#e6e6e6">
+                                <td class="left" colspan="2">•&nbsp;Fuel Saved (Gallons)</td>
+                                <td class="right">0.0</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td class="left" colspan="2">•&nbsp;Fuel Saved (Dollars)</td>
+                                <td class="right">$0</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@CHARSET "ISO-8859-1";
+
+<style>
+	
+/* date picker calendar */
+.dpDiv {}
+.dpTable {font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 10px; text-align: center; color: #505050; background-color: #ece9d8; border: 1px solid #AAAAAA; }
+.dpTR {}
+.dpTitleTR {}
+.dpDayTR {}
+.dpTodayButtonTR {}
+.dpTD {border: 1px solid #ece9d8;}
+.dpDayHighlightTD {background-color: #CCCCCC; border: 1px solid #AAAAAA;}
+.dpTDHover {background-color: #aca998; border: 1px solid #888888; cursor: pointer; color: red;}
+.dpTitleTD {}
+.dpButtonTD {}
+.dpTodayButtonTD {}
+.dpDayTD {background-color: #CCCCCC; border: 1px solid #AAAAAA; color: white;}
+.dpTitleText {font-size: 10px; color: gray; font-weight: bold;}
+.dpDayHighlight {color: 4060ff; font-weight: bold;}
+.dpButton {font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 10px; color: #F2F2F2; background: #6E6E6E; font-weight: bold;	padding: 0px;}
+.dpTodayButton {font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;	font-size: 10px; color: #F2F2F2; background: #6E6E6E; font-weight: bold;}
+
+
+/* commute logs calendar */
+#calcontainer {width: 220px; height: 400px; visibility: hidden;}
+#calcontainer table {width: 100%; margin: 0; border: 2px solid #acacac;}
+#calcontainer td{font: 12px Arial,Helvetica,Sans-serif; color: #000; background: #e3e3e3; text-align: center; vertical-align: middle; height: 30px; width: 45px; padding: 0; white-space: nowrap;}
+#calcontainer th {color: #fff; background-color: #666; font-weight: normal;}
+#calcontainer td.calMonth, #calcontainer td.calYear {width: 58px;}
+#calcontainer a, #calcontainer a:link, #calcontainer a:visited, #calcontainer a:active  {font: 12px Arial,Helvetica,Sans-serif; color: #000;}
+#calcontainer td a.idays {font: 12px Arial,Helvetica,Sans-serif; color: #000; background-color: #ffd; border:1px solid #e3e3e3;}
+#calcontainer td a.idays a:visited, #calcontainer td a.today a:visited {font: 12px Arial,Helvetica,Sans-serif; background-color:#FF0000; border:1px solid #e3e3e3;}  
+#calcontainer td a.today, #calcontainer td span.today {font-weight: bold; color: #000; background-color: #ffd; border:1px solid #e3e3e3;}
+#calcontainer tbody span {height: 65px;	width: 59px; line-height: 22px;	display: block;}
+#calcontainer .disabled {color: #666; cursor: pointer; height: 65px; width: 59px; border:1px solid #e3e3e3;}  
+#calcontainer tbody a, #calcontainer tbody a:link, #calcontainer tbody a:visited, #calcontainer tbody a:active {height: 65px; width: 59px; line-height: 15px; display: block; text-align: center; vertical-align: middle;}
+#calcontainer td a.idays:active, #calcontainer td a.today:active {font-family: Arial,Helvetica,Sans-serif; color: black; font-weight: bold; background-color: #FFFF99;}
+#calcontainer tfoot td {width: 220px; background: #c7c7c7;}
+#calcontainer thead {width: 220px;}
+#calcontainer thead ul {list-style-type: none; margin: 0; padding: 0;}
+#calcontainer thead ul li {font: 12px/1.2 Arial,Helvetica,Sans-serif; display: inline; float: left; padding-left:80px;}
+#calcontainer thead li a, #calcontainer thead li a:link, #calcontainer thead li a:active, #calcontainer thead li a:visited {display:block; text-decoration: none; }
+#calcontainer thead li a span {text-indent: -1000px; overflow: hidden; display: block;}
+#cp_monthMenu {width:100px; float: center;}
+#calcontainer thead #cp_prevMonth a {padding-left: 0px; text-align:left;}
+#calcontainer thead #cp_nextMonth a {padding-right:0px; text-align:right;}
+
+</style>

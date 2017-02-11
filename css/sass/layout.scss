@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+.mainlogo
+{
+  width: 100%;
+  max-width: inherit;
+  height: auto;
+  display: block;
+  padding: 0.1em 0;
+  margin: 0;
+}
+
+#welcomeMsg {
+  position:absolute;
+  width:300px;
+  left:50%;
+  margin-left:-150px;
+  z-index:9999;
+}
+.hidden{display: none}
+.fc-view-container{
+  td.disabled{
+    background-color: #e3e3e3;
+    color: #666;
+  }
+}
+body.has_dialog.ui-overlay-a{
+  background-color: white;
+}
+.whirl{position:relative}.whirl:before{content:"";z-index:1;position:absolute;top:0;right:0;bottom:0;left:0;background-color:#999;opacity:.6}.whirl:after{z-index:2;content:"";height:40px;width:40px;position:absolute;top:50%;left:50%;margin:-20px 0 0 -20px;-webkit-transition:all .75s ease 0s;transition:all .75s ease 0s;border-radius:100%;border-top:4px solid #555;-webkit-animation:standard .75s infinite linear;animation:standard .75s infinite linear;-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center}.whirl.no-overlay:before{content:none;display:none}@-webkit-keyframes standard{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes standard{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
+
+.ui-checkbox input{
+  background-color: white;
+  z-index: 5;
+}
+tr.passenger span.name{font-size: 70%}
