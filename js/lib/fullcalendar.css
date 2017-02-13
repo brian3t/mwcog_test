@@ -492,7 +492,7 @@ temporary rendered events).
 	/* don't put a border between events and/or the day number */
 	border-bottom: 0;
 	text-align: center;
-	padding: 3px;
+	padding: 2px;
 }
 
 .fc-row .fc-content-skeleton tbody td, /* cells with events inside (so NOT the day number cell) */
