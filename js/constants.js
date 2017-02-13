@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-const IS_DEBUG = true;
-// const USE_MWCOG3 = true;
-const USE_MWCOG3 = false;
+var IS_DEBUG = true;
+var USE_MWCOG3 = true;
+// var USE_MWCOG3 = false;
 
 var baseUrl='https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG3) {

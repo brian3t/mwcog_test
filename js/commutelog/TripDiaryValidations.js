@@ -332,11 +332,11 @@ function saveCommuteLogsWithAdditionalLegs(formObj) {
 
 //now submit to calendar API service
 function save_commute_logs_ajax(formObj, is_update) {
+    var form_array = $(formObj).serializeArray(), success = false;
     if (typeof is_update == "undefined") {
         is_update = false;
     }
-    var form_array = $(formObj).serializeArray();
-    for (var i = 0; i<form_array.length; i++) {
+    for (var i = 0; i < form_array.length; i++) {
         var v = form_array[i];
         if (typeof v != "undefined") {
             if (v.name == 'idPool' || v.name == 'logType') {
@@ -367,9 +367,21 @@ function save_commute_logs_ajax(formObj, is_update) {
     var params = build_query(extra_params) + '&' + $.param(form_array);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-    },'json').fail(function (error) {
+        if (result.status === 200){
+            app_toast('Your commute log has been saved. Taking you back to the calendar...');
+            setTimeout(function () {
+                $.mobile.back();
+            }, 4000);
+        }
+    }, 'json').fail(function (error) {
         console.info(error);
-        console.info(error.responseText);
+        window.error = error.responseText;
+        if (error.status === 200){
+            app_toast('Your commute log has been saved. Taking you back to the calendar...');
+            setTimeout(function () {
+                $.mobile.back();
+            }, 4000);
+        }
     });
 
     //fix weird validation

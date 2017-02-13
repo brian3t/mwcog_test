@@ -121,7 +121,7 @@
     <div role="main" class="ui-content" data-theme="b">
         <form name="TripDiaryList" class="tripdiarycontrol.action">
             <input type="hidden" value="" name="idPool" class="idPool">
-            <table width="100%" class="ui-table-reflow">
+            <table class="ui-table-reflow">
                 <tbody>
                 <tr>
                     <td class="cur_date" style="font-size:1.6em"></td>
@@ -146,163 +146,105 @@
                     <td>&nbsp;</td>
                 </tr>
 
-                <tr class="left">
+                <tr>
                     <td class="data">
-                        <div class="TripHeader"
-                             style="background-color:#fcc920; padding:5px; font-size:15px; font-weight:700"><b>Trip
+                        <div class="TripHeader"><b>Trip
                             1: Home To Work</b></div>
-                        <table class="ui-table-reflow" id="LegCommuteTable1" width="99%" bgcolor="#ffffff">
-                            <tbody>
-                            <thead>
-                            <tr style="height:30px; line-height:30px;">
-                                <th style="background-color:white; font-weight:normal; text-align:center">Leg</th>
-                                <th style="background-color:white; font-weight:normal; padding-left:35px">From</th>
-                                <th style="background-color:white; font-weight:normal; padding-left:45px">To</th>
-                                <th style="background-color:white; font-weight:normal">Travel Mode</th>
-                                <th style="background-color:white; font-weight:normal">Distance</th>
-                            </tr>
-                            </thead>
-
-                            <tr style="line-height:30px">
-                                <td class="center" bgcolor="#CEE3F6"><b
-                                        class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
-                                <td class="data">
+                        <table class="ui-table-reflow tall_table"  id="LegCommuteTable1" width="100%">
+                            <tbody id="home_to_work_wrapper" class="trip_table" data-trip-index= "1">
+                            <tr class="leg" data-leg-index="1">
+                                <td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">1</span>&nbsp;<span class="red">*</span></b>
+                                </td>
+                                <td>
                                     <b class="ui-table-cell-label">From</b>
-                                    <select name="T1L1From" id="T1L1From" class="select1"
+                                    <select name="T1L1From" id="T1L1From" class="select1 from"
                                             onchange="checkSecondLeg(this, '1')">
                                         <option value="0"></option>
-
                                         <option value="101" selected="">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
-                                <td class="data"><b class="ui-table-cell-label">To</b>
+                                <td><b class="ui-table-cell-label">To</b>
                                     <select name="T1L1To" id="T1L1To"
-                                            class="select1" onchange="checkSecondLeg(this, '1');">
+                                            class="select1 to" onchange="checkSecondLeg(this, '1');">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102" selected="">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
-                                <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
+                                <td><b class="ui-table-cell-label">Travel Mode</b>
                                     <select name="T1L1Mode" id="T1L1Mode"
-                                            class="select1" onchange="checkCommuteMode(this, 'T1L1Distance');">
+                                            class="select1 mode" onchange="checkCommuteMode(this, 'T1L1Distance');">
                                         <option value="0"></option>
-
                                         <option value="78" selected="">Drive Alone</option>
-
                                         <option value="79">Transit</option>
-
                                         <option value="80">Carpool</option>
-
                                         <option value="81">Vanpool</option>
-
                                         <option value="82">Bike</option>
-
                                         <option value="83">Walk</option>
-
                                         <option value="84">Telework</option>
-
                                     </select>
                                 </td>
-                                <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
-                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
-                                           id="T1L1Distance" name="T1L1Distance" value="2">
+                                <td><b class="ui-table-cell-label">Distance (miles)</b>
+                                    <input class="textsm distance" type="text" size="1" maxlength="3" id="T1L1Distance" name="T1L1Distance" value="2">
                                 </td>
                             </tr>
-
-                            <tr style="line-height:30px">
+                            <tr class="leg"  data-leg-index="2">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">From</b>
                                     <select name="T1L2From" id="T1L2From"
-                                            class="select1" onchange="checkSecondLeg(this, '1')">
+                                            class="select1 from" onchange="checkSecondLeg(this, '1')">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
 
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">To</b>
                                     <select name="T1L2To" id="T1L2To"
-                                            class="select1" onchange="checkSecondLeg(this, '1');">
+                                            class="select1 to" onchange="checkSecondLeg(this, '1');">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
                                     <select name="T1L2Mode" id="T1L2Mode"
-                                            class="select1" onchange="checkCommuteMode(this, 'T1L2Distance');">
+                                            class="select1 mode" onchange="checkCommuteMode(this, 'T1L2Distance');">
                                         <option value="0"></option>
-
                                         <option value="78">Drive Alone</option>
-
                                         <option value="79">Transit</option>
-
                                         <option value="80">Carpool</option>
-
                                         <option value="81">Vanpool</option>
-
                                         <option value="82">Bike</option>
-
                                         <option value="83">Walk</option>
-
                                         <option value="84">Telework</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
-                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                    <input class="textsm distance" style="height: 25px" type="text" size="1" maxlength="3"
                                            id="T1L2Distance" name="T1L2Distance" value="">
                                 </td>
                             </tr>
-
-
                             <tr>
-
                                 <!-- <td class=left>
                                     <input type="button" class="button-medium" value="Add Leg" onClick="addLeg(1, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park & Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
                                 </td> -->
@@ -313,7 +255,7 @@
                                     </div>
                                 </td>
                             </tr>
-
+                            </tbody>
                         </table>
                     </td>
                 </tr>
@@ -322,156 +264,97 @@
                     <td>&nbsp;</td>
                 </tr>
 
-                <tr class="left">
+                <tr>
                     <td class="data">
-                        <div class="TripHeader"
-                             style="background-color:#fcc920; padding:5px; font-size:15px; font-weight:700"><b>Trip
+                        <div class="TripHeader"><b>Trip
                             2: Work To Home</b></div>
-                        <table id="LegCommuteTable2" width="99%" bgcolor="#ffffff">
-                            <tbody>
-                            <thead>
-                            <tr style="height:30px; line-height:30px;">
-                                <th style="background-color:white; font-weight:normal; text-align:center">Leg</th>
-                                <th style="background-color:white; font-weight:normal; padding-left:35px">From</th>
-                                <th style="background-color:white; font-weight:normal; padding-left:45px">To</th>
-                                <th style="background-color:white; font-weight:normal">Travel Mode</th>
-                                <th style="background-color:white; font-weight:normal">Distance (miles)</th>
-                            </tr>
-                            </thead>
-
-                            <tr style="line-height:30px">
+                        <table id="LegCommuteTable2" width="100%">
+                            <tbody id="work_to_home_wrapper" class="trip_table" data-trip-index="2">
+                            <tr class="leg" data-leg-index="1">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
                                 <td class="data"><b class="ui-table-cell-label">From</b>
                                     <select name="T2L1From" id="T2L1From"
-                                            class="select1" onchange="checkSecondLeg(this, '2')">
+                                            class="select1 from" onchange="checkSecondLeg(this, '2')">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102" selected="">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">To</b>
-                                    <select name="T2L1To" id="T2L1To"
-                                            class="select1" onchange="checkSecondLeg(this, '2');">
+                                    <select name="T2L1To" id="T2L1To"   class="select1 to" onchange="checkSecondLeg(this, '2');">
                                         <option value="0"></option>
-
                                         <option value="101" selected="">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
-                                    <select name="T2L1Mode" id="T2L1Mode"
-                                            class="select1" onchange="checkCommuteMode(this, 'T2L1Distance');">
+                                    <select name="T2L1Mode" id="T2L1Mode"     class="select1 mode" onchange="checkCommuteMode(this, 'T2L1Distance');">
                                         <option value="0"></option>
-
                                         <option value="78" selected="">Drive Alone</option>
-
                                         <option value="79">Transit</option>
-
                                         <option value="80">Carpool</option>
-
                                         <option value="81">Vanpool</option>
-
                                         <option value="82">Bike</option>
-
                                         <option value="83">Walk</option>
-
                                         <option value="84">Telework</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
-                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                    <input class="textsm mode" style="height: 25px" type="text" size="1" maxlength="3"
                                            id="T2L1Distance" name="T2L1Distance" value="2">
                                 </td>
                             </tr>
 
-                            <tr style="line-height:30px">
+                            <tr class="leg" data-leg-index="2">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">From</b>
-                                    <select name="T2L2From" id="T2L2From"
-                                            class="select1" onchange="checkSecondLeg(this, '2')">
+                                    <select name="T2L2From" id="T2L2From"  class="select1 from" onchange="checkSecondLeg(this, '2')">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">To</b>
-                                    <select name="T2L2To" id="T2L2To"
-                                            class="select1" onchange="checkSecondLeg(this, '2');">
+                                    <select name="T2L2To" id="T2L2To"   class="select1 to" onchange="checkSecondLeg(this, '2');">
                                         <option value="0"></option>
-
                                         <option value="101">Home</option>
-
                                         <option value="102">Work</option>
-
                                         <option value="103">Park &amp; Ride Lot</option>
-
                                         <option value="104">Bus Stop</option>
-
                                         <option value="106">Telework Center</option>
-
                                         <option value="107">Other</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
-                                    <select name="T2L2Mode" id="T2L2Mode"
+                                    <select name="T2L2Mode mode" id="T2L2Mode"
                                             class="select1" onchange="checkCommuteMode(this, 'T2L2Distance');">
                                         <option value="0"></option>
-
                                         <option value="78">Drive Alone</option>
-
                                         <option value="79">Transit</option>
-
                                         <option value="80">Carpool</option>
-
                                         <option value="81">Vanpool</option>
-
                                         <option value="82">Bike</option>
-
                                         <option value="83">Walk</option>
-
                                         <option value="84">Telework</option>
-
                                     </select>
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Distance (miles)</b>
-                                    <input class="textsm" style="height: 25px" type="text" size="1" maxlength="3"
+                                    <input class="textsm distance" style="height: 25px" type="text" size="1" maxlength="3"
                                            id="T2L2Distance" name="T2L2Distance" value="">
                                 </td>
                             </tr>
@@ -489,8 +372,7 @@
                                     </div>
                                 </td>
                             </tr>
-
-
+                            </tbody>
                         </table>
                     </td>
                 </tr>
@@ -549,7 +431,8 @@
                         <table id="heading" width="100%" border="0" cellspacing="0">
                             <thead>
                             <tr class="th-groups">
-                                <th colspan="5" style="background-color:#eee; padding:5px; font-size:13px;">Passenger Information
+                                <th colspan="5" style="background-color:#eee; padding:5px; font-size:13px;">Passenger
+                                    Information
                                 </th>
                             </tr>
                             <tr class="center">
@@ -582,7 +465,8 @@
                                 <td colspan="5" align="left"
                                     style="padding-bottom:15px">
                                     <label><input type="checkbox" name="noCommute" id="noCommute"
-                                                  onclick="showHideDropDown(this, 'noCommuteDropDown', 'toWork', 'toHome', 'wbMiles', 'hbMiles')">Did Not Operate</label>
+                                                  onclick="showHideDropDown(this, 'noCommuteDropDown', 'toWork', 'toHome', 'wbMiles', 'hbMiles')">Did
+                                        Not Operate</label>
                                     <span id="noCommuteDropDown" style="display: none;">
 									<select style="font-size:8pt; line-height:25px; height:25px" name="noCommuteReason"
                                             class="select1">

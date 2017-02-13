@@ -9,7 +9,7 @@
   margin: 0;
 }
 
-/* line 13, sass/layout.scss */
+/* line 12, sass/layout.scss */
 #welcomeMsg {
   position: absolute;
   width: 300px;
@@ -23,23 +23,28 @@
   display: none;
 }
 
-/* line 22, sass/layout.scss */
+/* line 25, sass/layout.scss */
 .fc-view-container td.disabled {
   background-color: #e3e3e3;
   color: #666;
 }
 
-/* line 27, sass/layout.scss */
+/* line 31, sass/layout.scss */
+.red {
+  color: red;
+}
+
+/* line 35, sass/layout.scss */
 body.has_dialog.ui-overlay-a {
   background-color: white;
 }
 
-/* line 30, sass/layout.scss */
+/* line 39, sass/layout.scss */
 .whirl {
   position: relative;
 }
 
-/* line 30, sass/layout.scss */
+/* line 43, sass/layout.scss */
 .whirl:before {
   content: "";
   z-index: 1;
@@ -49,10 +54,10 @@ body.has_dialog.ui-overlay-a {
   bottom: 0;
   left: 0;
   background-color: #999;
-  opacity: .6;
+  opacity: 0.6;
 }
 
-/* line 30, sass/layout.scss */
+/* line 55, sass/layout.scss */
 .whirl:after {
   z-index: 2;
   content: "";
@@ -73,7 +78,7 @@ body.has_dialog.ui-overlay-a {
   transform-origin: center;
 }
 
-/* line 30, sass/layout.scss */
+/* line 75, sass/layout.scss */
 .whirl.no-overlay:before {
   content: none;
   display: none;
@@ -99,15 +104,32 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg);
   }
 }
-/* line 32, sass/layout.scss */
+/* line 102, sass/layout.scss */
 .ui-checkbox input {
   background-color: white;
   z-index: 5;
 }
 
-/* line 36, sass/layout.scss */
+/* line 107, sass/layout.scss */
 tr.passenger span.name {
   font-size: 70%;
+}
+
+/* line 111, sass/layout.scss */
+.TripHeader {
+  background-color: #fcc920;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* line 119, sass/layout.scss */
+table.tall_table tr {
+  line-height: 30px;
+}
+/* line 123, sass/layout.scss */
+table.tall_table tr.leg td.header {
+  background-color: #CEE3F6;
 }
 
 /*# sourceMappingURL=layout.css.map */
