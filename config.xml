@@ -68,5 +68,4 @@
         <uses-permission name="android.permission.READ_EXTERNAL_STORAGE" />
     </config-file>
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
 </widget>
