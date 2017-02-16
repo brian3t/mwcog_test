@@ -48,15 +48,15 @@ var app = {
                 hashed = false;
 
             }
-            // if (IS_DEBUG) {
-            //     // u = 'redgar942';
-            //     // u = 'fakehemrycc';//mwcog type 0
-            //     u = 'jitubats';//mwcog type 1
-            //     // u = 'cpnowtest';//tdm type 2
-            //     // u = 'SteveOsborn';//mwcog type 2
-            //     p = 'changeme4';
-            //     hashed = false;
-            // }
+            if (IS_DEBUG) {
+                // u = 'redgar942';
+                u = 'fakehemrycc';//mwcog type 0
+                // u = 'jitubats';//mwcog type 1
+                // u = 'cpnowtest';//tdm type 2
+                // u = 'SteveOsborn';//mwcog type 2
+                p = 'changeme4';
+                hashed = false;
+            }
 
 
             if (u !== '' && p !== '') {
@@ -160,14 +160,14 @@ function startCommuteLog() {
  */
 $('document').ready(function () {
 
-    // if (IS_DEBUG) {
-    //     // $('#username').val('SteveOsborn');
-    //     // $('#username').val('fakehemrycc');
-    //     $('#username').val('jitubats');
-    //     // $('#username').val('cpnowtest');
-    //     $("#password").val('changeme4');
-    //     setTimeout(function () {
-    //         startCommuteLog();
-    //     }, 200);
-    // }
+    if (IS_DEBUG) {
+        // $('#username').val('SteveOsborn');
+        $('#username').val('fakehemrycc');
+        // $('#username').val('jitubats');
+        // $('#username').val('cpnowtest');
+        $("#password").val('changeme4');
+        setTimeout(function () {
+            startCommuteLog();
+        }, 200);
+    }
 });

@@ -64,6 +64,7 @@ function add_button_to_calendar() {
     }
 }
 function get_commute_type(log_date, is_update_html) {
+    var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_leg = false, trip_n_leg = '';
     if (typeof is_update_html === "undefined" || !is_update_html) {
         is_update_html = false;
     }
@@ -84,18 +85,21 @@ function get_commute_type(log_date, is_update_html) {
                 User.type = 0;
             }
             switch (User.type) {
+                case 0:
                 case 1: {
                     User.trips = [];
-                    var leg = {}, trip = {}, leg_index = 1;
+                    leg = {};
+                    trip = {};
+                    leg_index = 1;
                     for (var trip_num = 1; trip_num <= 2; trip_num++) {
                         trip = {
                             index: trip_num,
                             commute: (User['trip' + trip_num + 'NoCommute'] === 'N'),
                             legs: []
                         };
-                        var still_has_leg = false;
+                        still_has_leg = false;
                         do {
-                            var trip_n_leg = 'trip' + trip_num + 'leg' + leg_index;
+                            trip_n_leg = 'trip' + trip_num + 'leg' + leg_index;
                             leg = {
                                 index: leg_index,
                                 distance: User[trip_n_leg + 'Distance'],
@@ -123,18 +127,19 @@ function get_commute_type(log_date, is_update_html) {
                             var $leg = $trip.find('tr.leg[data-leg-index=' + leg_index + ']');
                             $($leg.find('.distance')).val(leg.distance);
                             $($leg.find('.from')).val(leg.from);
-                            $($leg.find('.mode')).val(leg.mode).selectmenu().selectmenu('refresh', true);
+                            $($leg.find('.mode')).val(leg.mode);
+                            setTimeout(function () {
+                                $('.select').selectmenu('refresh');
+                            }, 3000);
+                            //loop through mode, if it's not selectmenu then init, otherwise refresh it
                             $($leg.find('.to')).val(leg.to);
-                            //fix stupid jqm select
-                            // var refresh_select = function () {
-                            //     $($leg.find('select')).selectmenu('refresh');
-                            // };
-
                         }
                     }
                     break;
                 }
-                case 2: {
+                case
+                2
+                : {
                     User.pool_id = User.commuter1PoolID;
                     User.commuters = [];
                     var still_has_commuter = false;
@@ -193,11 +198,13 @@ function get_commute_type(log_date, is_update_html) {
             }
 
             $('body').removeClass('whirl');
-        },
+        }
+        ,
         function (jqXHR, textStatus, errorThrown) {
             $('body').removeClass('whirl');
             console.log('Can\'t get user type, assume 0');
-        });
+        }
+    );
 }
 function edit_log(e) {
     var $e = $($(e.target).closest('td'));
@@ -209,24 +216,24 @@ function edit_log(e) {
     $('.idPool').val(User.pool_id);
     switch (User.type) {
         case 0: {
-            $.mobile.changePage("#commute_log_entry_page", {role: "dialog"});
+            $("body").pagecontainer("change", "#commute_log_entry_page", {role: "dialog"});
             $('.addLegButton').show();
-            $('#commute_log_entry_page').on('pagechange', function (event, ui) {
+            $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
             });
             break;
         }
         case 1: {
-            $.mobile.changePage("#commute_log_entry_page", {role: "dialog"});
+            $("body").pagecontainer("change", "#commute_log_entry_page", {role: "dialog"});
             $('.addLegButton').hide();
-            $('#commute_log_entry_page').on('pagechange', function (event, ui) {
+            $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
             });
             break;
         }
         case 2: {
-            $.mobile.changePage("#commute_log_van", {role: "dialog"});
-            $('#commute_log_van').on('pagechange', function (event, ui) {
+            $("body").pagecontainer("change", "#commute_log_van", {role: "dialog"});
+            $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
             });
             break;

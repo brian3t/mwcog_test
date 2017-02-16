@@ -1,0 +1,9 @@
+{
+  "browser": true,
+  "jquery": false,
+  "devel": true,
+  "globals": {
+    "moment": true
+    ,"$": true
+  }
+}
