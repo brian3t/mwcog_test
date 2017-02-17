@@ -120,6 +120,7 @@
     </div>
     <div role="main" class="ui-content" data-theme="b">
         <form name="TripDiaryList" class="tripdiarycontrol.action">
+            <input type="hidden" name="tripDate" class="cur_date_val">
             <input type="hidden" value="" name="idPool" class="idPool">
             <table class="ui-table-reflow">
                 <tbody>
@@ -160,7 +161,7 @@
                                     <select name="T1L1From" id="T1L1From" class="select1 from"
                                             onchange="checkSecondLeg(this, '1')">
                                         <option value="0"></option>
-                                        <option value="101" selected="">Home</option>
+                                        <option value="101" selected>Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
                                         <option value="104">Bus Stop</option>
@@ -173,7 +174,7 @@
                                             class="select1 to" onchange="checkSecondLeg(this, '1');">
                                         <option value="0"></option>
                                         <option value="101">Home</option>
-                                        <option value="102" selected="">Work</option>
+                                        <option value="102" selected>Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
                                         <option value="104">Bus Stop</option>
                                         <option value="106">Telework Center</option>
@@ -184,7 +185,7 @@
                                     <select name="T1L1Mode" id="T1L1Mode"
                                             class="select1 mode" onchange="checkCommuteMode(this, 'T1L1Distance');">
                                         <option value="0"></option>
-                                        <option value="78" selected="">Drive Alone</option>
+                                        <option value="78" selected>Drive Alone</option>
                                         <option value="79">Transit</option>
                                         <option value="80">Carpool</option>
                                         <option value="81">Vanpool</option>
@@ -204,7 +205,7 @@
                                 <td class="data"><b class="ui-table-cell-label">From</b>
                                     <select name="T1L2From" id="T1L2From"
                                             class="select1 from" onchange="checkSecondLeg(this, '1')">
-                                        <option value="0"></option>
+                                        <option value="0" selected></option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -217,7 +218,7 @@
                                 <td class="data"><b class="ui-table-cell-label">To</b>
                                     <select name="T1L2To" id="T1L2To"
                                             class="select1 to" onchange="checkSecondLeg(this, '1');">
-                                        <option value="0"></option>
+                                        <option value="0" selected></option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -229,7 +230,7 @@
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
                                     <select name="T1L2Mode" id="T1L2Mode"
                                             class="select1 mode" onchange="checkCommuteMode(this, 'T1L2Distance');">
-                                        <option value="0"></option>
+                                        <option value="0" selected></option>
                                         <option value="78">Drive Alone</option>
                                         <option value="79">Transit</option>
                                         <option value="80">Carpool</option>
@@ -265,7 +266,7 @@
                     <td class="data">
                         <div class="TripHeader"><b>Trip
                             2: Work To Home</b></div>
-                        <table id="LegCommuteTable2" width="100%">
+                        <table id="LegCommuteTable2" class="tall_table" width="100%">
                             <tbody id="work_to_home_wrapper" class="trip_table" data-trip-index="2">
                             <tr class="leg" data-leg-index="1">
                                 <td class="center" bgcolor="#CEE3F6"><b
@@ -273,7 +274,7 @@
                                 <td class="data"><b class="ui-table-cell-label">From</b>
                                     <select name="T2L1From" id="T2L1From"
                                             class="select1 from" onchange="checkSecondLeg(this, '2')">
-                                        <option value="0"></option>
+                                        <option value="0" selected></option>
                                         <option value="101">Home</option>
                                         <option value="102" selected="">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -284,7 +285,7 @@
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">To</b>
                                     <select name="T2L1To" id="T2L1To"   class="select1 to" onchange="checkSecondLeg(this, '2');">
-                                        <option value="0"></option>
+                                        <option value="0" selected></option>
                                         <option value="101" selected="">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -295,8 +296,8 @@
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
                                     <select name="T2L1Mode" id="T2L1Mode"     class="select1 mode" onchange="checkCommuteMode(this, 'T2L1Distance');">
-                                        <option value="0"></option>
-                                        <option value="78" selected="">Drive Alone</option>
+                                        <option value="0" selected></option>
+                                        <option value="78">Drive Alone</option>
                                         <option value="79">Transit</option>
                                         <option value="80">Carpool</option>
                                         <option value="81">Vanpool</option>

@@ -11,8 +11,10 @@ var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontr
 if (USE_MWCOG3) {
     mwcog_root = 'http://mwcog3.mediabeef.com/mwcog/calendarservicecontrol';
 }
+var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80, CM_VANPOOL = 81
+    , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
 var COMMUTE_PLACE = {0: '', 101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
-var COMMUTE_TRAVEL_MODE = {0: '', '78': 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
+var COMMUTE_TRAVEL_MODE = {0: '', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
 function build_query(extra_params) {
     var params = extra_params || {};
     if (typeof params === 'object') {
@@ -66,7 +68,7 @@ function add_button_to_calendar() {
     }
 }
 function get_commute_type(log_date, is_update_html) {
-    var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_leg = false, trip_n_leg = '';
+    var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_trip = false, still_has_leg = false, trip_n_leg = '';
     if (typeof is_update_html === "undefined" || !is_update_html) {
         is_update_html = false;
     }
@@ -92,16 +94,17 @@ function get_commute_type(log_date, is_update_html) {
                     User.trips = [];
                     leg = {};
                     trip = {};
-                    for (var trip_num = 1; trip_num <= 2; trip_num++) {
+                    still_has_trip = User.hasOwnProperty('trip' + trip_index + 'leg' + leg_index + 'From');
+                    while (still_has_trip) {
                         trip = {
-                            index: trip_num,
-                            commute: (User['trip' + trip_num + 'NoCommute'] === 'N'),
+                            index: trip_index,
+                            commute: (User['trip' + trip_index + 'NoCommute'] === 'N'),
                             legs: []
                         };
                         still_has_leg = false;
                         leg_index = 1;
                         do {
-                            trip_n_leg = 'trip' + trip_num + 'leg' + leg_index;
+                            trip_n_leg = 'trip' + trip_index + 'leg' + leg_index;
                             leg = {
                                 index: leg_index,
                                 distance: User[trip_n_leg + 'Distance'],
@@ -111,44 +114,33 @@ function get_commute_type(log_date, is_update_html) {
                             };
                             trip.legs.push(leg);
                             leg_index++;
-                            still_has_leg = User.hasOwnProperty('trip' + trip_num + 'leg' + leg_index + 'From');
+                            still_has_leg = User.hasOwnProperty('trip' + trip_index + 'leg' + leg_index + 'From');
                         } while (still_has_leg);
                         User.trips.push(trip);
+                        trip_index++;
                     }
-                    if (User.trips.length < 2 || !is_update_html) {
-                        // || typeof User.trips.legs === 'undefined' || User.trips.legs.length < 2) {
+                    if (!is_update_html) {
                         break;
+                    }
+                    if (User.trips.length < 2 && User.type === 0) {//for this date there's no data, but this is general log, so we default some values here
+                        User.trips = [{legs: [{from: CM_HOME, to: CM_WORK, mode: CM_CARPOOL, distance: 10}]},
+                            {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: 10}]}];
                     }
                     //now assign to html
                     var $trips = $('tbody.trip_table');
-                    for (trip_num = 1; trip_num <= 2; trip_num++) {
-                        trip = User.trips[trip_num - 1];
-                        var $trip = $($trips[trip_num - 1]);
+                    for (trip_index = 1; trip_index <= User.trips.length; trip_index++) {
+                        trip = User.trips[trip_index - 1];
+                        var $trip = $($trips[trip_index - 1]);
                         $trip.find('tr.leg').remove();
                         for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
-                            $trip.find('tr:last').before(printLeg(leg_index, trip_num, trip.legs[leg_index - 1]));
+                            $trip.find('tr:last').before(printLeg(leg_index, trip_index, trip.legs[leg_index - 1]));
                         }
                         $('select').selectmenu();
                         $('input[type=number]').textinput();
-
-                        // for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
-                        //     leg = trip.legs[leg_index - 1];
-                        //     var $leg = $trip.find('tr.leg[data-leg-index=' + leg_index + ']');
-                        //     $($leg.find('.distance')).val(leg.distance);
-                        //     $($leg.find('.from')).val(leg.from);
-                        //     $($leg.find('.mode')).val(leg.mode);
-                        //     setTimeout(function () {
-                        //         $('select').selectmenu().selectmenu('refresh');
-                        //     }, 3000);
-                        //     //loop through mode, if it's not selectmenu then init, otherwise refresh it
-                        //     $($leg.find('.to')).val(leg.to);
-                        // }
                     }
                     break;
                 }
-                case
-                2
-                : {
+                case 2: {
                     User.pool_id = User.commuter1PoolID;
                     User.commuters = [];
                     var still_has_commuter = false;
@@ -207,12 +199,14 @@ function get_commute_type(log_date, is_update_html) {
             }
 
             $('body').removeClass('whirl');
-        },
+        }
+        ,
         function (jqXHR, textStatus, errorThrown) {
             $('body').removeClass('whirl');
             console.log('Can\'t get user type, assume 0');
         }
-    );
+    )
+    ;
 }
 function edit_log(e) {
     var $e = $($(e.target).closest('td'));
@@ -357,6 +351,15 @@ function showHideDropDown(box, id) {
 
 }
 function printLeg(index, trip_index, data) {
+    if (data.from === null) {
+        data.from = 0;
+    }
+    if (data.to === null) {
+        data.to = 0;
+    }
+    if (data.mode === null) {
+        data.mode = 0;
+    }
     var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0, T1L1 = 'T' + trip_index + 'L' + index;
     tr.html('<td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">' + index + '</span>&nbsp;<span class="red">*</span></b></td>');
     var td_from = $('<td>').html('<b class="ui-table-cell-label">From</b>');
@@ -389,7 +392,7 @@ function printLeg(index, trip_index, data) {
     tr.append('<td><b class="ui-table-cell-label">Distance (miles)</b><input class="textsm distance" type="number" size="1" maxlength="3" ' +
         'id="' + T1L1 + 'Distance" name="' + T1L1 + 'Distance" value="' + data.distance + '"></td>');
     $('select').on('change', function () {
-        console.info($(this));
+        $(this).selectmenu('refresh');
     });
 
     return tr;

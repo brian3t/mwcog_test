@@ -28,25 +28,38 @@ function checkSecondLeg(point, str) {
     var formName = point.form.name;
     if (formObj.T1L1From.value == '101' && formObj.T1L1To.value == '102') {
         formObj.T1L2From.value = "0";
+        $(formObj.T1L2From).selectmenu('refresh');
         formObj.T1L2To.value = "0";
+        $(formObj.T1L2To).selectmenu('refresh');
         formObj.T1L2Mode.value = "0";
+        $(formObj.T1L2Mode).selectmenu('refresh');
         formObj.T1L2Distance.value = "";
     }
     if (formObj.T2L1From.value == '102' && formObj.T2L1To.value == '101') {
         formObj.T2L2From.value = "0";
+        $(formObj.T2L2From).selectmenu('refresh');
         formObj.T2L2To.value = "0";
+        $(formObj.T2L2To).selectmenu('refresh');
         formObj.T2L2Mode.value = "0";
+        $(formObj.T2L2Mode).selectmenu('refresh');
         formObj.T2L2Distance.value = "";
     }
 
     if (formObj.T1L1From.value == '101' && formObj.T1L1To.value == '106') {
         formObj.T1L2From.value = "0";
+        $(formObj.T1L2From).selectmenu('refresh');
         formObj.T1L2To.value = "0";
+        $(formObj.T1L2To).selectmenu('refresh');
         formObj.T2L1From.value = "106";
+        $(formObj.T2L1From).selectmenu('refresh');
         formObj.T2L1To.value = "101";
+        $(formObj.T2L1To).selectmenu('refresh');
         formObj.T2L2From.value = "0";
+        $(formObj.T2L2From).selectmenu('refresh');
         formObj.T2L2To.value = "0";
+        $(formObj.T2L2To).selectmenu('refresh');
         formObj.T1L2Mode.value = "0";
+        $(formObj.T1L2Mode).selectmenu('refresh');
         formObj.T1L2Distance.value = "";
     }
     return true;
@@ -55,98 +68,62 @@ function checkSecondLeg(point, str) {
 function checkCommuteMode(cmode, str) {
     if (cmode.options[cmode.selectedIndex].value == '109' ||
         cmode.options[cmode.selectedIndex].value == '110') {
-        document.getElementByName("T1L1To").value = "102";
-        document.getElementByName("T1L2From").value = "0";
-        document.getElementByName("T1L2To").value = "0";
-        document.getElementByName("T2L1From").value = "102";
-        document.getElementByName("T2L1To").value = "101";
-        document.getElementByName("T2L2From").value = "0";
-        document.getElementByName("T2L2To").value = "0";
-        document.getElementByName("T1L2Mode").value = "0";
-        document.getElementByName("T2L2Mode").value = "0";
-        document.getElementByName("T1L2Distance").value = "";
-        document.getElementByName("T2L2Distance").value = "";
-        document.getElementByName("T2L1Mode").value = cmode.options[cmode.selectedIndex].value;
-        document.getElementByName("T1L1Distance").value = document.getElementByName("tripDist").value; //"0";
-        document.getElementByName("T2L1Distance").value = document.getElementByName("tripDist").value; //"0";
-        document.getElementByName("T2L1Mode").disabled = true; //**
-        document.getElementByName("T1L1Distance").disabled = true;
-        document.getElementByName("T1L2Distance").disabled = true;
-        document.getElementByName("T2L1Distance").disabled = true;
-        document.getElementByName("T2L2Distance").disabled = true;
+        $('[name="T1L1To"]').val(102).selectmenu('refresh');
+        $('[name="T1L2From"]').val(0).selectmenu('refresh');
+        $('[name="T1L2To"]').val(0).selectmenu('refresh');
+        $('[name="T2L1From"]').val(102).selectmenu('refresh');
+        $('[name="T2L1To"]').val(101).selectmenu('refresh');
+        $('[name="T2L2From"]').val(0).selectmenu('refresh');
+        $('[name="T2L2To"]').val(0).selectmenu('refresh');
+        $('[name="T1L2Mode"]').val(0).selectmenu('refresh');
+        $('[name="T2L2Mode"]').val(0).selectmenu('refresh');
+        $('[name="T1L2Distance"]').val();
+        $('[name="T2L2Distance"]').val();
+        $('[name="T2L1Mode"]').val(cmode.options[cmode.selectedIndex].value);
+        $('[name="T1L1Distance"]').val($('[name="tripDist"]').value); //"0).selectmenu('refresh');
+        $('[name="T2L1Distance"]').val($('[name="tripDist"]').value); //"0).selectmenu('refresh');
+        $('[name="T2L1Mode"]').prop('disabled', true); //**
+        $('[name="T1L1Distance"]').prop('disabled', true);
+        $('[name="T1L2Distance"]').prop('disabled', true);
+        $('[name="T2L1Distance"]').prop('disabled', true);
+        $('[name="T2L2Distance"]').prop('disabled', true);
     } else if (cmode.options[cmode.selectedIndex].value == '111') {
-        document.getElementByName("T1L1From").value = "101";
-        document.getElementByName("T1L1To").value = "102";
-        document.getElementByName("T1L2From").value = "0";
-        document.getElementByName("T1L2To").value = "0";
-        document.getElementByName("T2L1From").value = "102";
-        document.getElementByName("T2L1To").value = "101";
-        document.getElementByName("T2L2From").value = "0";
-        document.getElementByName("T2L2To").value = "0";
-        document.getElementByName("T1L2Mode").value = "0";
-        document.getElementByName("T2L1Mode").value = "111";
-        document.getElementByName("T2L2Mode").value = "0";
-        document.getElementByName("T1L1Distance").value = "0";
-        document.getElementByName("T1L2Distance").value = "";
-        document.getElementByName("T2L1Distance").value = "0";
-        document.getElementByName("T2L2Distance").value = "";
-        document.getElementByName("T2L1Mode").disabled = true; //**
-        document.getElementByName("T1L1Distance").disabled = true;
-        document.getElementByName("T1L2Distance").disabled = true;
-        document.getElementByName("T2L1Distance").disabled = true;
-        document.getElementByName("T2L2Distance").disabled = true;
+        $('[name="T1L1From"]').val(101).selectmenu('refresh');
+        $('[name="T1L1To"]').val(102).selectmenu('refresh');
+        $('[name="T1L2From"]').val(0).selectmenu('refresh');
+        $('[name="T1L2To"]').val(0).selectmenu('refresh');
+        $('[name="T2L1From"]').val(102).selectmenu('refresh');
+        $('[name="T2L1To"]').val(101).selectmenu('refresh');
+        $('[name="T2L2From"]').val(0).selectmenu('refresh');
+        $('[name="T2L2To"]').val(0).selectmenu('refresh');
+        $('[name="T1L2Mode"]').val(0).selectmenu('refresh');
+        $('[name="T2L1Mode"]').val(111).selectmenu('refresh');
+        $('[name="T2L2Mode"]').val(0).selectmenu('refresh');
+        $('[name="T1L1Distance"]').val(0);
+        $('[name="T1L2Distance"]').val();
+        $('[name="T2L1Distance"]').val(0);
+        $('[name="T2L2Distance"]').val();
+        $('[name="T2L1Mode"]').prop('disabled', true); //**
+        $('[name="T1L1Distance"]').prop('disabled', true);
+        $('[name="T1L2Distance"]').prop('disabled', true);
+        $('[name="T2L1Distance"]').prop('disabled', true);
+        $('[name="T2L2Distance"]').prop('disabled', true);
     } else {
-        //document.getElementByName(str).disabled = false;
-        document.getElementByName("T2L1Mode").disabled = false;
-        document.getElementByName("T1L1Distance").disabled = false;
-        document.getElementByName("T1L2Distance").disabled = false;
-        document.getElementByName("T2L1Distance").disabled = false;
-        document.getElementByName("T2L2Distance").disabled = false;
+        //$('[name=str).prop('disabled', false);
+        $('[name="T2L1Mode"]').prop('disabled', false);
+        $('[name="T1L1Distance"]').prop('disabled', false);
+        $('[name="T1L2Distance"]').prop('disabled', false);
+        $('[name="T2L1Distance"]').prop('disabled', false);
+        $('[name="T2L2Distance"]').prop('disabled', false);
     }
     return true;
 }
-
-function validateAlexTelework(formObj) {
-
-    if (formObj.T1L1Mode.value == '84' && (formObj.T1L1Distance.value == 0 || formObj.T1L1Distance.value == '')) {
-        alert('Please enter the miles that you would have traveled on days you telework.');
-        formObj.T1L1Distance.focus();
-
-        return false;
-
-    }
-
-    if (formObj.T1L2Mode.value == '84' && (formObj.T1L2Distance.value == 0 || formObj.T1L2Distance.value == '')) {
-        alert('Please enter the miles that you would have traveled on days you telework.');
-        formObj.T2L2Distance.focus();
-
-        return false;
-
-    }
-
-    if (formObj.T2L1Mode.value == '84' && (formObj.T2L1Distance.value == 0 || formObj.T2L1Distance.value == '')) {
-        alert('Please enter the miles that you would have traveled on days you telework.');
-        formObj.T2L1Distance.focus();
-        return false;
-
-    }
-    if (formObj.T2L2Mode.value == '84' && (formObj.T2L2Distance.value == 0 || formObj.T2L2Distance.value == '')) {
-        alert('Please enter the miles that you would have traveled on days you telework.');
-        formObj.T2L2Distance.focus();
-
-        return false;
-
-    }
-
-    saveCommuteLogs(formObj);
-}
-
 
 //TODO
 //add return false if failed to selection
 function saveCommuteLogsWithAdditionalLegs(formObj) {
 
-    if (document.getElementById("noCommute") != null && document.getElementById("noCommute").checked == true) {
+    if (document.getElementById("noCommute") !== null && document.getElementById("noCommute").checked === true) {
         if (formObj.noCommuteReason.value == '0') {
             alert("no commute reason must be selected");
             return false;
@@ -155,9 +132,8 @@ function saveCommuteLogsWithAdditionalLegs(formObj) {
             return true;
         }
     }
-    if (document.getElementById("T1L3From") == null && document.getElementById("T1L3To") == null && document.getElementById("T2L3From") == null && document.getElementById("T2L3To") == null) {
+    if (document.getElementById("T1L3From") === null && document.getElementById("T1L3To") === null && document.getElementById("T2L3From") === null && document.getElementById("T2L3To") === null) {
         saveCommuteLogs(formObj);
-
     } else {
         //alert("multi leg verification");
         //check for start location
@@ -172,7 +148,7 @@ function saveCommuteLogsWithAdditionalLegs(formObj) {
             return false;
         }
 
-        if (formObj.T1L2From.value == '101') {
+        if (typeof formObj.T1L2From !== 'undefined' && formObj.T1L2From.value == '101') {
             alert("Start of leg 2 of Trip 1 cannot be from 'Home'.");
             formObj.T1L2From.value = formObj.T1L1To.value;
             return false;
@@ -355,6 +331,19 @@ function save_commute_logs_ajax(formObj, is_update) {
     switch (User.type) {
         case 0:
             extra_params.action += 'General';
+            form_array.tripDate = moment(form_array.tripDate).format('MM/DD/YYYY');//must filter through form_array
+            if (User.trips[0].legs.length ==1){
+                extra_params = $.extend(extra_params, {
+                    toHomeleg2From:0,
+                    toHomeleg2To:0,
+                    toHomeleg2Mode:0,
+                    toHomeleg2Distance:0,
+                    toWorkleg2From:0,
+                    toWorkleg2To:0,
+                    toWorkleg2Mode:0,
+                    toWorkleg2Distance:0
+                });
+            }
             break;
         case 1:
             extra_params.action += 'CIP';
@@ -363,11 +352,10 @@ function save_commute_logs_ajax(formObj, is_update) {
             extra_params.action += 'VIP';
             break;
     }
-    extra_params.tripDate = moment().format('MM/DD/YYYY');
     var params = build_query(extra_params) + '&' + $.param(form_array);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        if (result.status === 200){
+        if (result.status === 200) {
             app_toast('Your commute log has been saved. Taking you back to the calendar...');
             setTimeout(function () {
                 $.mobile.back();
@@ -376,7 +364,7 @@ function save_commute_logs_ajax(formObj, is_update) {
     }, 'json').fail(function (error) {
         console.info(error);
         window.error = error.responseText;
-        if (error.status === 200){
+        if (error.status === 200) {
             app_toast('Your commute log has been saved. Taking you back to the calendar...');
             setTimeout(function () {
                 $.mobile.back();
@@ -448,39 +436,41 @@ function saveCommuteLogs(formObj) {
         return false;
     }
 
-    if ((formObj.T1L2From.value == '101' || formObj.T1L2From.value == '102') &&
-        (formObj.T1L2From.value == formObj.T1L2To.value)) {
-        alert("Start and destination for Leg 2 of Trip 1 cannot be same.");
-        formObj.T1L2From.focus();
-        return false;
+    if (typeof formObj.T1L2From !== 'undefined') {
+        if ((formObj.T1L2From.value == '101' || formObj.T1L2From.value == '102') &&
+            (formObj.T1L2From.value == formObj.T1L2To.value)) {
+            alert("Start and destination for Leg 2 of Trip 1 cannot be same.");
+            formObj.T1L2From.focus();
+            return false;
+        }
+        // added to verify leg2 validity
+        if ((formObj.T1L2From.value == '0' || formObj.T1L2To.value == '0') &&
+            (formObj.T1L2Mode.value != 0 || formObj.T1L2Distance.value != '' || formObj.T1L2Distance.value > 0)) {
+            alert("Leg 2 of Trip 1 is not valid.");
+            formObj.T1L2Mode.value = '0';
+            formObj.T1L2Distance.value = '';
+            formObj.T1L2From.focus();
+            return false;
+        }
     }
-    if ((formObj.T2L2From.value == '101' || formObj.T2L2From.value == '102') &&
-        (formObj.T2L2From.value == formObj.T2L2To.value)) {
-        alert("Start and destination for Leg 2 of Trip 2 cannot be same.");
-        formObj.T2L2From.focus();
-        return false;
-    }
+    if (typeof formObj.T2L2From !== 'undefined') {
+        if ((formObj.T2L2From.value == '101' || formObj.T2L2From.value == '102') &&
+            (formObj.T2L2From.value == formObj.T2L2To.value)) {
+            alert("Start and destination for Leg 2 of Trip 2 cannot be same.");
+            formObj.T2L2From.focus();
+            return false;
+        }
 
-    // added to verify leg2 validity
-    if ((formObj.T1L2From.value == '0' || formObj.T1L2To.value == '0') &&
-        (formObj.T1L2Mode.value != 0 || formObj.T1L2Distance.value != '' || formObj.T1L2Distance.value > 0)) {
-        alert("Leg 2 of Trip 1 is not valid.");
-        formObj.T1L2Mode.value = '0';
-        formObj.T1L2Distance.value = '';
-        formObj.T1L2From.focus();
-        return false;
+        if ((formObj.T2L2From.value == '0' || formObj.T2L2To.value == '0') &&
+            (formObj.T2L2Mode.value != 0 || formObj.T2L2Distance.value != '' || formObj.T2L2Distance.value > 0)) {
+            alert("Leg 2 of Trip 2 is not valid.");
+            formObj.T2L2Mode.value = '0';
+            formObj.T2L2Distance.value = '';
+            formObj.T2L2From.focus();
+            return false;
+        }
     }
-
-    if ((formObj.T2L2From.value == '0' || formObj.T2L2To.value == '0') &&
-        (formObj.T2L2Mode.value != 0 || formObj.T2L2Distance.value != '' || formObj.T2L2Distance.value > 0)) {
-        alert("Leg 2 of Trip 2 is not valid.");
-        formObj.T2L2Mode.value = '0';
-        formObj.T2L2Distance.value = '';
-        formObj.T2L2From.focus();
-        return false;
-    }
-
-    if (formObj.T1L1From.value == '101' && formObj.T1L1To.value != '102' && formObj.T1L1To.value != '106') {
+    if (formObj.T1L1From.value == '101' && formObj.T1L1To.value != '102' && formObj.T1L1To.value != '106' && typeof formObj.T1L2From !== 'undefined') {
         if (formObj.T1L2From.value == '101') {
             alert("Start of leg 2 of Trip 1 cannot be from 'Home'.");
             formObj.T1L2From.value = formObj.T1L1To.value;
@@ -508,7 +498,7 @@ function saveCommuteLogs(formObj) {
         }
     }
 
-    if ((formObj.T2L1From.value == '102' || formObj.T2L1From.value == '106') && formObj.T2L1To.value != '101') {
+    if ((formObj.T2L1From.value == '102' || formObj.T2L1From.value == '106') && formObj.T2L1To.value != '101' && typeof formObj.T2L2From !== 'undefined') {
         if (formObj.T2L2From.value == '102') {
             alert("Start of leg 2 of Trip 2 cannot be from 'Work'.");
             formObj.T2L2From.value = formObj.T2L1To.value;
@@ -536,15 +526,9 @@ function saveCommuteLogs(formObj) {
         }
     }
     // end of verify leg2 validity
-
-    if (formObj.T1L2Distance.value == '')
-        formObj.T1L2Distance.value = "0";
-    else
-        formObj.T1L2Distance.value = Math.round(formObj.T1L2Distance.value);
-    if (formObj.T2L2Distance.value == '')
-        formObj.T2L2Distance.value = "0";
-    else
-        formObj.T2L2Distance.value = Math.round(formObj.T2L2Distance.value);
+    $.each($(':input.distance'), function (i, v) {
+        $(v).val(Math.round(v.value));
+    });
 
     // formObj.submit();
     save_commute_logs_ajax(formObj);
