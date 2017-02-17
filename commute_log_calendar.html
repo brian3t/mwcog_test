@@ -194,7 +194,7 @@
                                     </select>
                                 </td>
                                 <td><b class="ui-table-cell-label">Distance (miles)</b>
-                                    <input class="textsm distance" type="text" size="1" maxlength="3" id="T1L1Distance" name="T1L1Distance" value="2">
+                                    <input class="textsm distance" type="number" size="1" maxlength="3" id="T1L1Distance" name="T1L1Distance" value="2">
                                 </td>
                             </tr>
                             <tr class="leg"  data-leg-index="2">
@@ -249,10 +249,7 @@
                                     <input type="button" class="button-medium" value="Add Leg" onClick="addLeg(1, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park & Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
                                 </td> -->
                                 <td colspan="2">
-                                    <div class="addLegButton" style="color:#06c; padding-left:20px"
-                                         onclick="addLeg(1, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park &amp; Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
-                                        Add Leg
-                                    </div>
+                                    <input type="button" class="addLegButton" onclick="addLeg(event)" data-mini="true" value="Add Leg"/>
                                 </td>
                             </tr>
                             </tbody>
@@ -342,7 +339,7 @@
                                 </td>
                                 <td class="data"><b class="ui-table-cell-label">Travel Mode</b>
                                     <select name="T2L2Mode mode" id="T2L2Mode"
-                                            class="select1" onchange="checkCommuteMode(this, 'T2L2Distance');">
+                                            class="select1 mode" onchange="checkCommuteMode(this, 'T2L2Distance');">
                                         <option value="0"></option>
                                         <option value="78">Drive Alone</option>
                                         <option value="79">Transit</option>
@@ -362,14 +359,8 @@
 
                             <tr>
 
-                                <!-- <td class=left>
-                                    <input type="button" class="button-medium" value="Add Leg" onClick="addLeg(2, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park & Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
-                                </td> -->
                                 <td colspan="2">
-                                    <div class="addLegButton" style="color:#06c; padding-left:20px"
-                                         onclick="addLeg(2, ['101', '102', '103', '104', '106', '107'], ['Home', 'Work', 'Park &amp; Ride Lot', 'Bus Stop', 'Telework Center', 'Other'], ['78', '79', '80', '81', '82', '83', '84'], ['Drive Alone', 'Transit', 'Carpool', 'Vanpool', 'Bike', 'Walk', 'Telework'])">
-                                        Add Leg
-                                    </div>
+                                    <input type="button" class="addLegButton" onclick="addLeg(event)" data-mini="true" value="Add Leg"/>
                                 </td>
                             </tr>
                             </tbody>

@@ -11,6 +11,8 @@ var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontr
 if (USE_MWCOG3) {
     mwcog_root = 'http://mwcog3.mediabeef.com/mwcog/calendarservicecontrol';
 }
+var COMMUTE_PLACE = {0: '', 101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
+var COMMUTE_TRAVEL_MODE = {0: '', '78': 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
 function build_query(extra_params) {
     var params = extra_params || {};
     if (typeof params === 'object') {
@@ -90,7 +92,6 @@ function get_commute_type(log_date, is_update_html) {
                     User.trips = [];
                     leg = {};
                     trip = {};
-                    leg_index = 1;
                     for (var trip_num = 1; trip_num <= 2; trip_num++) {
                         trip = {
                             index: trip_num,
@@ -98,6 +99,7 @@ function get_commute_type(log_date, is_update_html) {
                             legs: []
                         };
                         still_has_leg = false;
+                        leg_index = 1;
                         do {
                             trip_n_leg = 'trip' + trip_num + 'leg' + leg_index;
                             leg = {
@@ -129,7 +131,7 @@ function get_commute_type(log_date, is_update_html) {
                             $($leg.find('.from')).val(leg.from);
                             $($leg.find('.mode')).val(leg.mode);
                             setTimeout(function () {
-                                $('.select').selectmenu('refresh');
+                                $('select').selectmenu().selectmenu('refresh');
                             }, 3000);
                             //loop through mode, if it's not selectmenu then init, otherwise refresh it
                             $($leg.find('.to')).val(leg.to);
@@ -348,65 +350,48 @@ function showHideDropDown(box, id) {
     }
 
 }
-function addLeg(tripno, fromSelectionID, fromSelectionDesc, modeID, modeDesc) {
-    var myTable = document.getElementById("LegCommuteTable" + tripno);
-    var currentRowCount = document.getElementById("LegCommuteTable" + tripno).rows.length - 4;
+function printLeg(index, trip_index, data) {
+    var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0;
+    tr.html('<td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">' + index + '</span>&nbsp;<span class="red">*</span></b></td>');
+    var td_from = $('<td>').html('<b class="ui-table-cell-label">From</b>');
+    var select = $('<select class="select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    $.each(COMMUTE_PLACE, function (k, v) {
+        select.append('<option value="' + k + '">' + v + '</option>');
+    });
+    select.val(data.from);
+    td_from.append(select);
+    tr.append(td_from);
 
+    var td_to = $('<td>').html('<b class="ui-table-cell-label">To</b>');
+    select = $('<select class="select1 to">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    $.each(COMMUTE_PLACE, function (k, v) {
+        select.append('<option value="' + k + '">' + v + '</option>');
+    });
+    select.val(data.to);
+    td_to.append(select);
+    tr.append(td_to);
 
-    var row = myTable.insertRow(currentRowCount + 3);
-    row.setAttribute("style", "line-height:30px");
-    var cell0 = row.insertCell(0);
-    var cell1 = row.insertCell(1);
-    var cell2 = row.insertCell(2);
-    var cell3 = row.insertCell(3);
-    var cell4 = row.insertCell(4);
+    var td_mode = $('<td>').html('<b class="ui-table-cell-label">Travel Mode</b>');
+    select = $('<select class="select1 mode">').attr('onchange', 'checkCommuteMode(this,"T' + trip_index + 'L' + index + 'Distance")');
+    $.each(COMMUTE_TRAVEL_MODE, function (k, v) {
+        select.append('<option value="' + k + '">' + v + '</option>');
+    });
+    select.val(data.mode);
+    td_mode.append(select);
+    tr.append(td_mode);
 
-    cell0.setAttribute("class", "center");
-    cell0.innerHTML = "<b>" + (currentRowCount + 3) + "&nbsp;</b>";
+    tr.append('<td><b class="ui-table-cell-label">Distance (miles)</b><input class="textsm distance" type="number" size="1" maxlength="3" ' +
+        'id="T' + trip_index + 'L' + index + 'Distance" name="T' + trip_index + 'L' + index + 'Distance" value="' + data.distance + '"></td>');
 
-    var fromLength = fromSelectionID.length;
-
-    cell1.setAttribute("class", "data");
-    var cell1InnerHtml = "<select style='font-size:8pt; height:25px' name='T" + tripno + "L" + (currentRowCount + 3) + "From' id='T" + tripno + "L" + (currentRowCount + 3) + "From' class='select1' onchange='placeholder'>";
-    cell1InnerHtml += "<option value='0'></option>";
-
-    for (var i = 0; i < fromLength; i++) {
-        cell1InnerHtml += "<option value ='" + fromSelectionID[i] + "''";
-        cell1InnerHtml += ">" + fromSelectionDesc[i] + "</option>";
-    }
-    cell1InnerHtml = cell1InnerHtml + "</select>";
-    cell1.innerHTML = cell1InnerHtml;
-
-
-    cell2.setAttribute("class", "data");
-    var cell2InnerHtml = "<select style='font-size:8pt; height:25px' name='T" + tripno + "L" + (currentRowCount + 3) + "To' id='T" + tripno + "L" + (currentRowCount + 3) + "To' class='select1' onchange='placeholder'>";
-    cell2InnerHtml += "<option value='0'></option>";
-
-    for (i = 0; i < fromLength; i++) {
-        cell2InnerHtml += "<option value ='" + fromSelectionID[i] + "''";
-        cell2InnerHtml += ">" + fromSelectionDesc[i] + "</option>";
-    }
-
-    cell2InnerHtml += "</select>";
-    cell2.innerHTML = cell2InnerHtml;
-
-
-    var modeLength = modeID.length;
-    cell3.setAttribute("class", "data");
-    var cell3InnerHtml = "<select style='font-size:8pt; height:25px' name='T" + tripno + "L" + (currentRowCount + 3) + "Mode' id='T" + tripno + "L" + (currentRowCount + 3) + "Mode' class='select1' onchange='placeholder'>";
-    cell3InnerHtml += "<option value='0'></option>";
-
-    for (i = 0; i < modeLength; i++) {
-        cell3InnerHtml += "<option value ='" + modeID[i] + "''";
-        cell3InnerHtml += ">" + modeDesc[i] + "</option>";
-    }
-    cell3InnerHtml += "</select>";
-    cell3.innerHTML = cell3InnerHtml;
-
-
-    cell4.setAttribute("class", "data");
-    cell4.innerHTML = "<input class='textsm' type='text' style='height:25px' size='1' maxlength='3' name='T" + tripno + "L" + (currentRowCount + 3) + "Distance' id='T" + tripno + "L" + (currentRowCount + 3) + "Distance'> miles ";
-
+    return tr;
+}
+function addLeg(e) {
+    var $tbody = $(e.target).closest('tbody.trip_table');
+    var trip_index = $tbody.data('trip-index');
+    var num_leg = $tbody.find('tr.leg').length;//e.g. 2
+    $tbody.find('tr.leg:last').after(printLeg(num_leg + 1, trip_index, {from: 0, to: 0, mode: 0, distance: ''}));
+    $('select').selectmenu();
+    $('input[type=number]').textinput();
 }
 function selectAllPassenger() {
     var is_checked = document.getElementById("selectAll").checked;
