@@ -124,18 +124,25 @@ function get_commute_type(log_date, is_update_html) {
                     for (trip_num = 1; trip_num <= 2; trip_num++) {
                         trip = User.trips[trip_num - 1];
                         var $trip = $($trips[trip_num - 1]);
+                        $trip.find('tr.leg').remove();
                         for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
-                            leg = trip.legs[leg_index - 1];
-                            var $leg = $trip.find('tr.leg[data-leg-index=' + leg_index + ']');
-                            $($leg.find('.distance')).val(leg.distance);
-                            $($leg.find('.from')).val(leg.from);
-                            $($leg.find('.mode')).val(leg.mode);
-                            setTimeout(function () {
-                                $('select').selectmenu().selectmenu('refresh');
-                            }, 3000);
-                            //loop through mode, if it's not selectmenu then init, otherwise refresh it
-                            $($leg.find('.to')).val(leg.to);
+                            $trip.find('tr:last').before(printLeg(leg_index, trip_num, trip.legs[leg_index - 1]));
                         }
+                        $('select').selectmenu();
+                        $('input[type=number]').textinput();
+
+                        // for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
+                        //     leg = trip.legs[leg_index - 1];
+                        //     var $leg = $trip.find('tr.leg[data-leg-index=' + leg_index + ']');
+                        //     $($leg.find('.distance')).val(leg.distance);
+                        //     $($leg.find('.from')).val(leg.from);
+                        //     $($leg.find('.mode')).val(leg.mode);
+                        //     setTimeout(function () {
+                        //         $('select').selectmenu().selectmenu('refresh');
+                        //     }, 3000);
+                        //     //loop through mode, if it's not selectmenu then init, otherwise refresh it
+                        //     $($leg.find('.to')).val(leg.to);
+                        // }
                     }
                     break;
                 }
@@ -200,8 +207,7 @@ function get_commute_type(log_date, is_update_html) {
             }
 
             $('body').removeClass('whirl');
-        }
-        ,
+        },
         function (jqXHR, textStatus, errorThrown) {
             $('body').removeClass('whirl');
             console.log('Can\'t get user type, assume 0');
@@ -351,10 +357,10 @@ function showHideDropDown(box, id) {
 
 }
 function printLeg(index, trip_index, data) {
-    var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0;
+    var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0, T1L1 = 'T' + trip_index + 'L' + index;
     tr.html('<td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">' + index + '</span>&nbsp;<span class="red">*</span></b></td>');
     var td_from = $('<td>').html('<b class="ui-table-cell-label">From</b>');
-    var select = $('<select class="select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    var select = $('<select name="' + T1L1 + 'From" class="select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
     $.each(COMMUTE_PLACE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
     });
@@ -363,7 +369,7 @@ function printLeg(index, trip_index, data) {
     tr.append(td_from);
 
     var td_to = $('<td>').html('<b class="ui-table-cell-label">To</b>');
-    select = $('<select class="select1 to">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    select = $('<select name="' + T1L1 + 'To" class="select1 to">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
     $.each(COMMUTE_PLACE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
     });
@@ -372,7 +378,7 @@ function printLeg(index, trip_index, data) {
     tr.append(td_to);
 
     var td_mode = $('<td>').html('<b class="ui-table-cell-label">Travel Mode</b>');
-    select = $('<select class="select1 mode">').attr('onchange', 'checkCommuteMode(this,"T' + trip_index + 'L' + index + 'Distance")');
+    select = $('<select name="' + T1L1 + 'Mode" class="select1 mode">').attr('onchange', 'checkCommuteMode(this,"T' + trip_index + 'L' + index + 'Distance")');
     $.each(COMMUTE_TRAVEL_MODE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
     });
@@ -381,7 +387,10 @@ function printLeg(index, trip_index, data) {
     tr.append(td_mode);
 
     tr.append('<td><b class="ui-table-cell-label">Distance (miles)</b><input class="textsm distance" type="number" size="1" maxlength="3" ' +
-        'id="T' + trip_index + 'L' + index + 'Distance" name="T' + trip_index + 'L' + index + 'Distance" value="' + data.distance + '"></td>');
+        'id="' + T1L1 + 'Distance" name="' + T1L1 + 'Distance" value="' + data.distance + '"></td>');
+    $('select').on('change', function () {
+        console.info($(this));
+    });
 
     return tr;
 }
