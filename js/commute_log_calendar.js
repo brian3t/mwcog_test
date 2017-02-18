@@ -56,6 +56,7 @@ function add_button_to_calendar() {
     if (typeof User === "undefined" || !User) {
         return false;
     }
+    User.days = User.days || [];
     var _10_days_ago = moment().subtract(10, "days");
     for (var i = 0, day = _10_days_ago; i <= 10; i++, day.add(1, "days")) {
         var date_td = $('td.fc-day-top[data-date="' + day.format('YYYY-MM-DD') + '"]');
@@ -94,7 +95,7 @@ function get_commute_type(log_date, is_update_html) {
                     User.trips = [];
                     leg = {};
                     trip = {};
-                    still_has_trip = User.hasOwnProperty('trip' + trip_index + 'leg' + leg_index + 'From');
+                    still_has_trip = User.hasOwnProperty('trip' + trip_index + 'leg1From');
                     while (still_has_trip) {
                         trip = {
                             index: trip_index,
@@ -118,6 +119,7 @@ function get_commute_type(log_date, is_update_html) {
                         } while (still_has_leg);
                         User.trips.push(trip);
                         trip_index++;
+                        still_has_trip = User.hasOwnProperty('trip' + trip_index + 'leg1From');
                     }
                     if (!is_update_html) {
                         break;
@@ -128,12 +130,13 @@ function get_commute_type(log_date, is_update_html) {
                     }
                     //now assign to html
                     var $trips = $('tbody.trip_table');
+
                     for (trip_index = 1; trip_index <= User.trips.length; trip_index++) {
                         trip = User.trips[trip_index - 1];
                         var $trip = $($trips[trip_index - 1]);
                         $trip.find('tr.leg').remove();
                         for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
-                            $trip.find('tr:last').before(printLeg(leg_index, trip_index, trip.legs[leg_index - 1]));
+                            $trip.find('tr:last').before(print_leg(leg_index, trip_index, trip.legs[leg_index - 1]));
                         }
                         $('select').selectmenu();
                         $('input[type=number]').textinput();
@@ -350,7 +353,7 @@ function showHideDropDown(box, id) {
     }
 
 }
-function printLeg(index, trip_index, data) {
+function print_leg(index, trip_index, data) {
     if (data.from === null) {
         data.from = 0;
     }
@@ -401,7 +404,7 @@ function addLeg(e) {
     var $tbody = $(e.target).closest('tbody.trip_table');
     var trip_index = $tbody.data('trip-index');
     var num_leg = $tbody.find('tr.leg').length;//e.g. 2
-    $tbody.find('tr.leg:last').after(printLeg(num_leg + 1, trip_index, {from: 0, to: 0, mode: 0, distance: ''}));
+    $tbody.find('tr.leg:last').after(print_leg(num_leg + 1, trip_index, {from: 0, to: 0, mode: 0, distance: ''}));
     $('select').selectmenu();
     $('input[type=number]').textinput();
 }

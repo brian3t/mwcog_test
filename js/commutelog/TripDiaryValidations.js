@@ -324,24 +324,28 @@ function save_commute_logs_ajax(formObj, is_update) {
             v.name = v.name.replace('T2L', 'toHomeleg');
         }
     }
-    var url = mwcog_root + '/calendarservicecontrol';
+    var url = mwcog_root;
     var extra_params = {};
     extra_params.action = 'saveCommuteLog';
     extra_params.noCommute = false;
     switch (User.type) {
         case 0:
             extra_params.action += 'General';
-            form_array.tripDate = moment(form_array.tripDate).format('MM/DD/YYYY');//must filter through form_array
-            if (User.trips[0].legs.length ==1){
+            $.each(form_array, function (i, v) {
+                if (v.name == 'tripDate') {
+                    v.value = moment(v.value, 'M/DD/YYYY').format('MM/DD/YYYY');
+                }
+            });
+            if (User.trips[0].legs.length == 1) {
                 extra_params = $.extend(extra_params, {
-                    toHomeleg2From:0,
-                    toHomeleg2To:0,
-                    toHomeleg2Mode:0,
-                    toHomeleg2Distance:0,
-                    toWorkleg2From:0,
-                    toWorkleg2To:0,
-                    toWorkleg2Mode:0,
-                    toWorkleg2Distance:0
+                    toHomeleg2From: 0,
+                    toHomeleg2To: 0,
+                    toHomeleg2Mode: 0,
+                    toHomeleg2Distance: 0,
+                    toWorkleg2From: 0,
+                    toWorkleg2To: 0,
+                    toWorkleg2Mode: 0,
+                    toWorkleg2Distance: 0
                 });
             }
             break;
@@ -355,7 +359,7 @@ function save_commute_logs_ajax(formObj, is_update) {
     var params = build_query(extra_params) + '&' + $.param(form_array);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        if (result.status === 200) {
+        if (result.status === 200 || result.status.indexOf('success') !== -1) {
             app_toast('Your commute log has been saved. Taking you back to the calendar...');
             setTimeout(function () {
                 $.mobile.back();
@@ -364,7 +368,7 @@ function save_commute_logs_ajax(formObj, is_update) {
     }, 'json').fail(function (error) {
         console.info(error);
         window.error = error.responseText;
-        if (error.status === 200) {
+        if (error.status === 200 || result.status.indexOf('success') !== -1) {
             app_toast('Your commute log has been saved. Taking you back to the calendar...');
             setTimeout(function () {
                 $.mobile.back();
