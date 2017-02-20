@@ -5,7 +5,7 @@
   max-width: inherit;
   height: auto;
   display: block;
-  padding: 0.1em 0;
+  padding-bottom: 20px;
   margin: 0;
 }
 
@@ -94,7 +94,7 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg);
   }
 }
-/* line 90, sass/layout.scss */
+/* line 91, sass/layout.scss */
 .ui-content {
   padding: 0.4em;
 }
@@ -109,18 +109,18 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg);
   }
 }
-/* line 102, sass/layout.scss */
+/* line 106, sass/layout.scss */
 .ui-checkbox input {
   background-color: white;
   z-index: 5;
 }
 
-/* line 107, sass/layout.scss */
+/* line 111, sass/layout.scss */
 tr.passenger span.name {
   font-size: 70%;
 }
 
-/* line 111, sass/layout.scss */
+/* line 115, sass/layout.scss */
 .TripHeader {
   background-color: #fcc920;
   padding: 5px;
@@ -128,13 +128,36 @@ tr.passenger span.name {
   font-weight: 700;
 }
 
-/* line 119, sass/layout.scss */
+/* line 123, sass/layout.scss */
 table.tall_table tr {
   line-height: 30px;
 }
-/* line 123, sass/layout.scss */
+/* line 127, sass/layout.scss */
 table.tall_table tr.leg td.header {
   background-color: #CEE3F6;
+}
+
+/* line 133, sass/layout.scss */
+#home {
+  border-top: 1px solid #8199af;
+  padding: 12px 24px;
+}
+/* line 136, sass/layout.scss */
+#home .login {
+  margin-top: 300px;
+}
+
+/* line 141, sass/layout.scss */
+#homepage {
+  background-image: url("../img/home/original_Market-Square-and-City-Hall.jpg");
+  background-repeat: no-repeat;
+  background-position-y: 92px;
+  background-size: contain;
+}
+
+/* line 147, sass/layout.scss */
+#homepage.landscape {
+  background-position-y: 135px;
 }
 
 /*# sourceMappingURL=layout.css.map */

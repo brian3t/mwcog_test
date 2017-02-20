@@ -5,7 +5,7 @@
   max-width: inherit;
   height: auto;
   display: block;
-  padding: 0.1em 0;
+  padding-bottom: 20px;
   margin: 0;
 }
 
@@ -87,7 +87,11 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg)
   }
 }
-.ui-content{padding: 0.4em}
+
+.ui-content {
+  padding: 0.4em
+}
+
 @keyframes standard {
   from {
     -webkit-transform: rotate(0deg);
@@ -124,4 +128,22 @@ table.tall_table {
       background-color: #CEE3F6;
     }
   }
+}
+
+#home {
+  border-top: 1px solid #8199af;
+  padding: 12px 24px;
+  .login{
+    margin-top:300px;
+  }
+}
+
+#homepage {
+  background-image: url('../img/home/original_Market-Square-and-City-Hall.jpg');
+  background-repeat: no-repeat;
+  background-position-y: 92px;
+  background-size:contain;
+}
+#homepage.landscape {
+  background-position-y: 135px;
 }
