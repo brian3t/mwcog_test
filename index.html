@@ -8,8 +8,8 @@
     <!-- link rel="stylesheet" type="text/css" href="css/index.css" / -->
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
-    <link rel="stylesheet" href="css/mwcog-a.css"/>
+    <link rel="stylesheet" type="text/css" href="css/layout_home.css"/>
+    <link rel="stylesheet" href="css/mwcog-a_home.css"/>
     <!--<link rel="stylesheet" href="css/mwcog-a.min.css"/>-->
 
     <script src="js/jquery-1.10.2.min.js"></script>
@@ -40,7 +40,7 @@
         <div class="login ui-body ui-body-a ui-corner-all">
             <form id="loginForm">
                 <div class="input_wrapper">
-                    <label for="username">                      <i class="fa fa-user" aria-hidden="true"></i>
+                    <label for="username"> <i class="fa fa-user" aria-hidden="true"></i>
                     </label>
                     <input type="text" name="username" id="username" class="has_icon ui-icon-home" value="" placeholder="Username" autocapitalize="off"/>
                 </div>
@@ -51,15 +51,13 @@
                     <!--<label for="remember">Remember Password</label>-->
                     <!--<input type="checkbox" id="remember" name="remember" value="remember"/>-->
                 </div>
-                <input type="submit" value="Login" id="submitButton" class="has_icon" data-role="button">
+                <div class="ui-grid-b">
+                    <div id="links_wrapper" class="ui-block-a ui-block-span2"><a href="#" onClick='window.location = "forgot.html";' class="plain">Forgot Username/Password</a>
+                        <a href="#" onClick="register()" class="plain">Create Account</a>
+                    </div>
+                    <div class="ui-block-c"><input type="submit" value="LOG IN" id="submitButton" class="has_icon" data-role="button"></div>
+                </div>
             </form>
-        </div>
-
-        <div class="ui-grid-a">
-            <div class="ui-block-a"><a href="#" onClick='window.location = "forgot.html";' class="ui-btn ui-shadow ui-corner-all"
-                                       style="overflow: visible; text-overflow: clip; white-space: normal;">Forgot <br/>Password</a></div>
-            <div class="ui-block-b"><a href="#" onClick="register()" class="ui-btn ui-shadow ui-corner-all"
-                                       style="overflow: visible; text-overflow: clip; white-space: normal;">Create <br/>Account</a></div>
         </div>
 
     </div>

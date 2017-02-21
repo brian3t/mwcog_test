@@ -69,6 +69,7 @@
     </config-file>
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" onload="true" />
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <plugin name="cordova-plugin-screen-orientation" spec="~1.4.2" />
 </widget>

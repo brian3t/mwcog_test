@@ -128,6 +128,9 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
+        if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768){
+            window.screen.lockOrientation('portrait');
+        }
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
