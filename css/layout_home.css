@@ -3789,7 +3789,7 @@ table.tall_table tr.leg td.header {
 
 /* line 3074, sass/layout_home.scss */
 #homepage {
-  background-image: url("../img/home/original_Market-Square-and-City-Hall.jpg");
+  background-image: url("/img/home/original_Market-Square-and-City-Hall.jpg");
   background-repeat: no-repeat;
   background-position-y: 92px;
   background-size: contain;
@@ -3915,7 +3915,7 @@ table.tall_table tr.leg td.header {
 
 /* line 3158, sass/layout_home.scss */
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 /*# sourceMappingURL=layout_home.css.map */

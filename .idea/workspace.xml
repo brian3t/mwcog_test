@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/mwcog-a_home.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/mwcog-a.min.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/jquery.mobile.structure-1.4.0.min.css" afterPath="$PROJECT_DIR$/css/jquery.mobile.structure-1.4.0.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mwcog-a.css" afterPath="$PROJECT_DIR$/css/mwcog-a.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/core.js" afterPath="$PROJECT_DIR$/js/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index.js" afterPath="$PROJECT_DIR$/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css" afterPath="$PROJECT_DIR$/css/layout_home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css.map" afterPath="$PROJECT_DIR$/css/layout_home.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.min.css" afterPath="$PROJECT_DIR$/css/layout_home.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mwcog-a_home.css" afterPath="$PROJECT_DIR$/css/mwcog-a_home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mwcog-a_home.min.css" afterPath="$PROJECT_DIR$/css/mwcog-a_home.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/layout_home.scss" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,9 +36,31 @@
       <file leaf-file-name="layout_home.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66297">
-              <caret line="3157" column="122" lean-forward="false" selection-start-line="3157" selection-start-column="122" selection-end-line="3157" selection-end-column="122" />
-              <folding />
+            <state relative-caret-position="66276">
+              <caret line="3156" column="1" lean-forward="true" selection-start-line="3156" selection-start-column="1" selection-end-line="3156" selection-end-column="1" />
+              <folding>
+                <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
+                <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkcommute</find>
       <find>document.getElementByName(</find>
       <find>).value</find>
       <find>.val(</find>
@@ -122,6 +138,7 @@
       <find>#home</find>
       <find>3px</find>
       <find>.ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count</find>
+      <find>1px</find>
     </findStrings>
     <replaceStrings>
       <replace>$('[name=</replace>
@@ -189,7 +206,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -202,7 +219,161 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commutelog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog-a_home.css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog-a.css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout_home.css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -360,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487371626398</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Homepage redesign part 1/2.">
+      <created>1487700715732</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487700715732</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -375,7 +553,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -421,7 +599,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Fixing SelectMenu.. Next: populate general" />
     <MESSAGE value="Commute log general. fix bug filter form array." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commute log general. fix bug filter form array." />
+    <MESSAGE value="Homepage redesign part 1/2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Homepage redesign part 1/2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -440,7 +619,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66297">
           <caret line="3157" column="122" lean-forward="false" selection-start-line="3157" selection-start-column="122" selection-end-line="3157" selection-end-column="122" />
-          <folding />
+          <folding>
+            <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1051,9 +1252,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66297">
-          <caret line="3157" column="122" lean-forward="false" selection-start-line="3157" selection-start-column="122" selection-end-line="3157" selection-end-column="122" />
-          <folding />
+        <state relative-caret-position="66276">
+          <caret line="3156" column="1" lean-forward="true" selection-start-line="3156" selection-start-column="1" selection-end-line="3156" selection-end-column="1" />
+          <folding>
+            <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
+            <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
