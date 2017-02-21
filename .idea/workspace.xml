@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/img/home/Copy (1) original_Market-Square-and-City-Hall.jpg" afterPath="$PROJECT_DIR$/img/home/copy_original_Market-Square-and-City-Hall.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/img/home/original_Market-Square-and-City-Hall.jpg" afterPath="$PROJECT_DIR$/img/home/cityhall.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css" afterPath="$PROJECT_DIR$/css/layout_home.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css.map" afterPath="$PROJECT_DIR$/css/layout_home.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.min.css" afterPath="$PROJECT_DIR$/css/layout_home.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mwcog-a_home.css" afterPath="$PROJECT_DIR$/css/mwcog-a_home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mwcog-a_home.min.css" afterPath="$PROJECT_DIR$/css/mwcog-a_home.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/layout_home.scss" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,36 +36,28 @@
       <file leaf-file-name="layout_home.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66276">
-              <caret line="3156" column="1" lean-forward="true" selection-start-line="3156" selection-start-column="1" selection-end-line="3156" selection-end-column="1" />
-              <folding>
-                <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
-                <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
-              </folding>
+            <state relative-caret-position="338">
+              <caret line="3074" column="45" lean-forward="false" selection-start-line="3074" selection-start-column="45" selection-end-line="3074" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mwcog-a_home.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="copy_original_Market-Square-and-City-Hall.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/home/copy_original_Market-Square-and-City-Hall.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cityhall.jpg" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/img/home/cityhall.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mwcog-a_home.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/mwcog-a_home.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
@@ -109,7 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>document.getElementByName(</find>
       <find>).value</find>
       <find>.val(</find>
       <find>.value = &quot;</find>
@@ -139,6 +130,7 @@
       <find>3px</find>
       <find>.ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count</find>
       <find>1px</find>
+      <find>market</find>
     </findStrings>
     <replaceStrings>
       <replace>$('[name=</replace>
@@ -172,8 +164,8 @@
         <option value="$PROJECT_DIR$/css/mwcog-a.css" />
         <option value="$PROJECT_DIR$/css/layout_home.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/sass/layout_home.scss" />
         <option value="$PROJECT_DIR$/css/mwcog-a_home.css" />
+        <option value="$PROJECT_DIR$/css/sass/layout_home.scss" />
       </list>
     </option>
   </component>
@@ -264,6 +256,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="commutelog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mwcog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487700715732</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Try absolute path background.">
+      <created>1487701339670</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1487701339670</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -600,7 +631,8 @@
     <MESSAGE value="Fixing SelectMenu.. Next: populate general" />
     <MESSAGE value="Commute log general. fix bug filter form array." />
     <MESSAGE value="Homepage redesign part 1/2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Homepage redesign part 1/2." />
+    <MESSAGE value="Try absolute path background." />
+    <option name="LAST_COMMIT_MESSAGE" value="Try absolute path background." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -619,29 +651,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66297">
           <caret line="3157" column="122" lean-forward="false" selection-start-line="3157" selection-start-column="122" selection-end-line="3157" selection-end-column="122" />
-          <folding>
-            <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1250,42 +1260,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66276">
-          <caret line="3156" column="1" lean-forward="true" selection-start-line="3156" selection-start-column="1" selection-end-line="3156" selection-end-column="1" />
-          <folding>
-            <marker date="1487701314245" expanded="true" signature="39261:39434" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39456:39491" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39549:39573" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39598:39614" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39808:39824" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39835:39879" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39896:39923" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="39966:40006" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40041:40099" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40116:40252" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40281:40331" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40350:40419" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40439:40504" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40528:40582" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40612:40634" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40664:40681" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40711:40728" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40758:40775" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40805:40822" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="40852:40869" ph="{...}" />
-            <marker date="1487701314245" expanded="true" signature="41175:41216" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/mwcog-a_home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="3074" column="45" lean-forward="false" selection-start-line="3074" selection-start-column="45" selection-end-line="3074" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/home/copy_original_Market-Square-and-City-Hall.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/home/cityhall.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
