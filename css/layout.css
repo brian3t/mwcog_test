@@ -3810,28 +3810,33 @@ table.tall_table tr.leg td.header {
   border: 0;
 }
 
-/* line 3091, sass/layout.scss */
+/* line 3092, sass/layout.scss */
 .ui-body {
   padding-top: 12px;
 }
 
-/* line 3099, sass/layout.scss */
+/* line 3100, sass/layout.scss */
 .ui-mobile label, .ui-controlgroup-label {
   display: inline-block;
   width: 8%;
 }
 
-/* line 3104, sass/layout.scss */
+/* line 3105, sass/layout.scss */
 .ui-input-text, .ui-input-search {
   display: inline-block;
   width: 90%;
   margin: 4px 0;
 }
 
-/* line 3110, sass/layout.scss */
+/* line 3111, sass/layout.scss */
 .input_wrapper {
   border-bottom: 1px solid #c6c6cd;
   box-shadow: 0 1px 0 0 #e0e0e9,0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
+}
+
+/* line 3115, sass/layout.scss */
+.ui-header, .ui-footer {
+  padding: 3px 12px;
 }
 
 /*# sourceMappingURL=layout.css.map */

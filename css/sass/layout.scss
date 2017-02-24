@@ -3087,7 +3087,8 @@ table.tall_table {
 .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
   border: 0;
 }
-
+//2d4164
+//223d6a
 .ui-body {
   padding-top: 12px
 }
@@ -3110,4 +3111,7 @@ input.has_icon {
 .input_wrapper {
   border-bottom: 1px solid #c6c6cd;
   box-shadow: 0 1px 0 0 #e0e0e9,0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
+}
+.ui-header, .ui-footer{
+  padding: 3px 12px;
 }

@@ -5,12 +5,13 @@
     <meta name="format-detection" content="telephone=no"/>
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
-    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
-    <link rel="stylesheet" href="css/mwcog-a.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
-    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <!--<link rel="stylesheet" href="css/mwcog-a.min.css"/>-->
+    <link rel="stylesheet" href="css/mwcog-a.css"/>
     <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/constants.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
@@ -19,20 +20,33 @@
 </head>
 <body>
 <div data-role="page" id="search" data-theme="a" data-history="false">
-    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed"><a href="#" onClick="logout()" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"
-                                                                                            style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>
-        <h1>Search</h1>
-        <a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"
-           style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup" data-position-to="window"
-                                                                                                                data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"
-                                                                                                                style="display: none; visibility: hidden;" id="btn_welcome">Options</a></div>
+    <!--//logout()-->
+    <!--//#panel_welcomeuser-->
+
+    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
+        <i class="fa fa-user"></i>
+        Welcome <span id="first_name"></span>
+        <div class="pull-right popup_btn"><a href="#popover"><img class="pull-right" src="img/popup_menu.png"></a></div>
+        <!--<a href="#" onClick=""-->
+                                                                                            <!--class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"-->
+                                                                                            <!--style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>-->
+        <!--<h1>Search</h1>-->
+        <!--<a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"-->
+           <!--style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup"-->
+                                                                                                                <!--data-position-to="window" data-transition="none"-->
+                                                                                                                <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"-->
+                                                                                                                <!--style="display: none; visibility: hidden;"-->
+                                                                                                                <!--id="btn_welcome">Options</a>-->
+    </div>
     <div data-role="content" role="main" class="ui-content">
         <div id="welcomeMsg" class="ui-corner-all">
             <div class="ui-bar ui-bar-a">
-                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext" style="float:right;margin:0;" onClick="hideWelcomeMsg()">&times;</a>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext" style="float:right;margin:0;"
+                   onClick="hideWelcomeMsg()">&times;</a>
                 <h3>Welcome!</h3>
             </div>
-            <div class="ui-body ui-body-a"> Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed through your desktop profile. Park N' Ride
+            <div class="ui-body ui-body-a"> Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed
+                through your desktop profile. Park N' Ride
                 lots are suggested based on your home/work addresses. Easily contact matches on the map or list views. <br/><br/>Happy Commuting!<br/></div>
         </div>
         <form id="searchForm">
