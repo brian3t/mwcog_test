@@ -1,3 +1,7 @@
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 
 function showRidematch() {
 
@@ -69,9 +73,72 @@ function hideWelcomeMsg() {
     $('#welcomeMsg').remove();
 }
 
+$(document).ready(function () {
+
+    var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
+
+    window.localStorage.setItem("startingTime", "9:00 AM");
+    window.localStorage.setItem("endingTime", "5:00 PM");
+    $.each(addressArray, function (a, b) {
+        b.addrStreet1=toTitleCase(b.addrStreet1.toLowerCase());
+        b.addrCity=toTitleCase(b.addrCity.toLowerCase());
+        b.addrState=toTitleCase(b.addrState.toLowerCase());
+        b.addrZip=toTitleCase(b.addrZip.toLowerCase());
+        var option1 = $('<option />');
+        if (b.addrType == "HOME") {
+            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
+        } else {
+            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
+        }
+        var option2 = $('<option />');
+        if (b.addrType == "WORK") {
+            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
+        } else {
+            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
+        }
+
+        $('#startAddress').append(option1);
+        $('#endAddress').append(option2);
+    });
+
+    $('#startAddress').selectmenu('refresh');
+    $('#endAddress').selectmenu('refresh');
+
+    var enrolled = JSON.parse(window.localStorage.getItem("enrolled"));
+
+    $(function () {
+        if (enrolled) {
+            $("#panel_welcomeuser").show();
+            $("#panel_welcomeuser").popup();
+            $("#btn_welcome").trigger("click");
+        }
+
+        if (Number(window.localStorage.getItem("justLoggedIn")) == 1) {
+            window.localStorage.setItem("justLoggedIn", 0);
+        } else {
+            $('#welcomeMsg').css('display', 'none');
+        }
+
+        var mins = ['0', '5', '15', '30', '60', '90', '120'],
+            mins_options = '';
+
+        for (var i = 0; i < mins.length; i++) {
+            mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
+        }
+
+        $('#flexibility').html(mins_options).selectmenu("refresh");
+        if (User.hasOwnProperty('commuter_data') && User.commuter_data.hasOwnProperty('firstName')) {
+            $('#first_name').html(_.upperFirst(User.commuter_data.firstName.toLowerCase()));
+        }
+
+    });
+
 //todob debugging
-if (IS_DEBUG) {
-    setTimeout(function () {
-        $('#commute_log_calendar').trigger('click');
-    }, 200);
-}
+    if (IS_DEBUG) {
+        setTimeout(function () {
+            $('#commute_log_calendar').trigger('click');
+        }, 200);
+    }
+
+
+});

@@ -1,4 +1,10 @@
 isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
+var User = User || {};
+try {
+    User.commuter_data = JSON.parse(window.localStorage.getItem('commuterData'));
+} catch (e){
+    console.error('Cant get commuter data' + commuter_data);
+}
 
 document.addEventListener('deviceready', function () {
     if (window.width < 768 || window.height < 768){

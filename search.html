@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <!--<link rel="stylesheet" href="css/mwcog-a.min.css"/>-->
-    <link rel="stylesheet" href="css/mwcog-a.css"/>
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/constants.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
@@ -22,21 +22,23 @@
 <div data-role="page" id="search" data-theme="a" data-history="false">
     <!--//logout()-->
     <!--//#panel_welcomeuser-->
-
     <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
-        <i class="fa fa-user"></i>
-        Welcome <span id="first_name"></span>
-        <div class="pull-right popup_btn"><a href="#popover"><img class="pull-right" src="img/popup_menu.png"></a></div>
-        <!--<a href="#" onClick=""-->
-                                                                                            <!--class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"-->
-                                                                                            <!--style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>-->
-        <!--<h1>Search</h1>-->
-        <!--<a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"-->
-           <!--style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup"-->
-                                                                                                                <!--data-position-to="window" data-transition="none"-->
-                                                                                                                <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini"-->
-                                                                                                                <!--style="display: none; visibility: hidden;"-->
-                                                                                                                <!--id="btn_welcome">Options</a>-->
+        <div class="header_padding">
+            <i class="fa fa-user"></i>
+            &nbsp;&nbsp;Welcome <span id="first_name"></span>
+            <div class="pull-right popup_btn"><a href="#popup_menu" data-rel="popup"><img class="pull-right" src="img/popup_menu.png"></a></div>
+            <div data-role="popup" id="popup_menu">
+                <p>
+                    <br>
+                    <a href="#" onclick="logout()" class="ui-btn ui-shadow  ui-icon-arrow-l">Back</a>
+                    <a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none"
+                       class="ui-btn ui-shadow  " id="btn_options">Options</a>
+                    <br>
+                    <!--<a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none"-->
+                    <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" id="btn_welcome">Options</a></div>-->
+                </p>
+            </div>
+        </div>
     </div>
     <div data-role="content" role="main" class="ui-content">
         <div id="welcomeMsg" class="ui-corner-all">
@@ -50,19 +52,14 @@
                 lots are suggested based on your home/work addresses. Easily contact matches on the map or list views. <br/><br/>Happy Commuting!<br/></div>
         </div>
         <form id="searchForm">
-            <div class="ui-body ui-body-a ui-corner-all">
-                <div class="ui-field-contain">
-                    <label for="startAddress" class="select" style="white-space: nowrap;">Start Address:</label>
+            <div class="ui-body ui-body-a">
+                <div class="ui-field-contain no_border">
+                    <label for="startAddress" class="select" style="white-space: nowrap;">Start Address</label>
                     <select name="startAddress" id="startAddress" data-mini="true">
                     </select>
                 </div>
-                <div class="ui-field-contain">
-                    <label for="endAddress" class="select">End Address:</label>
-                    <select name="endAddress" id="endAddress" data-mini="true">
-                    </select>
-                </div>
-                <div class="ui-field-contain">
-                    <label for="startRadius" class="select">Start Radius:</label>
+                <div class="ui-field-contain no_border">
+                    <label for="startRadius" class="select">Start Radius</label>
                     <select name="startRadius" id="startRadius" data-mini="true">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -74,9 +71,14 @@
                         <option value="20">20</option>
                         <option value="25">25</option>
                     </select>
+                </div><div class="ui-field-contain no_border">
+                    <label for="endAddress" class="select">End Address</label>
+                    <select name="endAddress" id="endAddress" data-mini="true">
+                    </select>
                 </div>
-                <div class="ui-field-contain">
-                    <label for="endRadius" class="select">End Radius:</label>
+
+                <div class="ui-field-contain no_border">
+                    <label for="endRadius" class="select">End Radius</label>
                     <select name="endRadius" id="endRadius" data-mini="true">
                         <option value="1">1</option>
                         <option value="2" selected="selected">2</option>
@@ -89,25 +91,33 @@
                         <option value="25">25</option>
                     </select>
                 </div>
+                <input type="submit" data-corners="false" data-wrapper-class="col-xs-6 blue" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
+                       data-role="button"/>
+                <input type="submit" data-corners="false" data-wrapper-class="col-xs-6 blue" value="Find a Park and Ride" id="findParkAndRide"
+                       onclick="window.location = 'park_and_ride.html'" data-role="button"/>
+                <input type="button" data-corners="false" data-wrapper-class="col-xs-6 blue" value="Commute Log" id="commute_log_calendar"
+                       onclick="window.location = 'commute_log_calendar.html'"
+                       data-role="button"/>
             </div>
             <div class="ui-field-contain ui-hide-label">
-                <input type="submit" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()" data-role="button"/>
-                <input type="submit" value="Find a Park and Ride" id="findParkAndRide" onclick="window.location = 'park_and_ride.html'" data-role="button"/>
-                <input type="button" value="Commute Log" id="commute_log_calendar" onclick="window.location = 'commute_log_calendar.html'" data-role="button"/>
+
             </div>
         </form>
     </div>
 
-    <!--<div data-role="panel" id="panel_options" data-position="right" data-display="overlay" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open" style="background-color: #3388cc;">
-              <div data-role="popup" id="panel_welcomeuser_new" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">
-               <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                  <div class="ui-bar ui-bar-a">
-                          <h3>Welcome!</h3>
-                      </div>
-                      <div class="ui-body ui-body-a">
-                      Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed through your desktop profile. Park N' Ride lots are suggested based on your home/work addresses.  Easily contact matches on the map or list views.  Happy Commuting!
-                      </div>
-              </div>-->
+    <!--<div data-role="panel" id="panel_options" data-position="right" data-display="overlay"-->
+    <!--class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open" style="background-color: #3388cc;">-->
+    <!--<div data-role="popup" id="panel_welcomeuser_new" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">-->
+    <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
+    <!--<div class="ui-bar ui-bar-a">-->
+    <!--<h3>Welcome!</h3>-->
+    <!--</div>-->
+    <!--<div class="ui-body ui-body-a">-->
+    <!--Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed through your desktop profile.-->
+    <!--Park N' Ride lots are suggested based on your home/work addresses. Easily contact matches on the map or list views. Happy Commuting!-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
 
     <!-- <div data-role="popup" id="panel_welcomeuser" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px; display:none;">
                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
@@ -118,8 +128,8 @@
                       Thank you for joining our ridematching program, please click the "Options" button in the top menu to make changes to your match profile.  Additional management options are available through our website.
                       </div>
               </div>-->
-    <div data-role="popup" id="panel_options" data-theme="a" class="ui-corner-all" style="max-width:400px;"><a href="#" data-rel="back"
-                                                                                                               class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+    <div data-role="popup" id="panel_options" data-theme="a" style="max-width:400px;">
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <div class="ui-corner-all custom-corners">
             <div class="ui-bar ui-bar-a">
                 <h3>Advanced Options</h3>
@@ -157,59 +167,6 @@
             </div>
         </div>
     </div>
-</div>
-<script type="text/javascript">
 
-    var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
-
-    window.localStorage.setItem("startingTime", "9:00 AM");
-    window.localStorage.setItem("endingTime", "5:00 PM");
-    $.each(addressArray, function (a, b) {
-
-        var option1 = $('<option />');
-        if (b.addrType == "HOME") {
-            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
-        } else {
-            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
-        }
-        var option2 = $('<option />');
-        if (b.addrType == "WORK") {
-            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
-        } else {
-            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
-        }
-
-        $('#startAddress').append(option1);
-        $('#endAddress').append(option2);
-    });
-
-
-    var enrolled = JSON.parse(window.localStorage.getItem("enrolled"));
-
-    $(function () {
-        if (enrolled) {
-            $("#panel_welcomeuser").show();
-            $("#panel_welcomeuser").popup();
-            $("#btn_welcome").trigger("click");
-        }
-
-        if (Number(window.localStorage.getItem("justLoggedIn")) == 1) {
-            window.localStorage.setItem("justLoggedIn", 0);
-        } else {
-            $('#welcomeMsg').css('display', 'none');
-        }
-
-        var mins = ['0', '5', '15', '30', '60', '90', '120'],
-            mins_options = '';
-
-        for (var i = 0; i < mins.length; i++) {
-            mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
-        }
-
-        $('#flexibility').html(mins_options).selectmenu("refresh");
-
-    });
-
-</script>
 </body>
 </html>

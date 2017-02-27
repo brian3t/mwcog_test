@@ -8,7 +8,7 @@ var IS_DEBUG = false;
 var USE_MWCOG3 = true;
 // var USE_MWCOG3 = false;
 
-var baseUrl='https://tdm.commuterconnections.org/mwcog/';
+var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG3) {
     baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
 }
@@ -37,9 +37,13 @@ function goBack() {
     navigator.app.backHistory();
 }
 function logout() {
-    confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
-        window.location = "index.html";
+    var popup_active = $('.ui-popup-active>[data-role="popup"]');
+    popup_active.one("popupafterclose", function (event, ui) {
+        confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
+            window.location = "index.html";
+        });
     });
+    popup_active.popup('close');
 }
 
 function register() {
