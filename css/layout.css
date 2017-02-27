@@ -4759,4 +4759,14 @@ div.ui-btn.blue {
   color: white;
 }
 
+/* line 4150, sass/layout.scss */
+.bk_white {
+  background-color: white;
+}
+
+/* line 4153, sass/layout.scss */
+.ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
+  background: none;
+}
+
 /*# sourceMappingURL=layout.css.map */

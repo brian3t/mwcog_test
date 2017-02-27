@@ -6,7 +6,6 @@
     <meta name="format-detection" content="telephone=no"/>
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
-    <link rel="stylesheet" href="css/mwcog-a.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
     <link rel="stylesheet" href="js/lib/fullcalendar.css"/>
@@ -99,9 +98,9 @@
                                                                                             style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>
         <h1>Commute Log Calendar</h1>
     </div>
-    <div data-role="content" role="main" class="ui-content">
+    <div data-role="content" role="main" class="ui-content bk_white">
         <!--<a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="overflow: visible; text-overflow: clip; white-space: normal;" id="btn_options">Options</a> <a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" style="display: none; visibility: hidden;" id="btn_welcome">Options</a> </div>-->
-        <div class="ui-body ui-body-a ui-corner-all">
+        <div class="ui-body ui-body-a ui-corner-all bk_white">
             Click a date in the calendar below to log trips for that date.
             <div id="calendar">
 
@@ -118,7 +117,7 @@
     <div data-role="header">
         <h2>Edit Commute Log</h2>
     </div>
-    <div role="main" class="ui-content" data-theme="b">
+    <div role="main" class="ui-content bk_white" data-theme="b">
         <form name="TripDiaryList" class="tripdiarycontrol.action">
             <input type="hidden" name="tripDate" class="cur_date_val">
             <input type="hidden" value="" name="idPool" class="idPool">
@@ -402,7 +401,7 @@
     <div data-role="header">
         <h2>Pool Rewards - Commute Logs</h2>
     </div>
-    <div role="main" class="ui-content" data-theme="b">
+    <div role="main" class="ui-content bk_white" data-theme="b">
         <form name="vanlog" data-action="incentivescontrol.action">
 
             <div style="margin-top: 18px; margin-bottom: 12px; font-size:2em; text-align:left">
@@ -448,7 +447,7 @@
                             <tbody id="passenger_table">
                             <tr>
                                 <td colspan="5" align="left">
-                                    <label><input type="checkbox" name="selectAll" id="selectAll"
+                                    <label><input type="checkbox" name="selectAll" class="hidden" id="selectAll"
                                                   onclick="selectAllPassenger()">Select All</label>
                                 </td>
                             </tr>
@@ -456,7 +455,7 @@
                             <tr>
                                 <td colspan="5" align="left"
                                     style="padding-bottom:15px">
-                                    <label><input type="checkbox" name="noCommute" id="noCommute"
+                                    <label><input type="checkbox" name="noCommute" class="hidden" id="noCommute"
                                                   onclick="showHideDropDown(this, 'noCommuteDropDown', 'toWork', 'toHome', 'wbMiles', 'hbMiles')">Did
                                         Not Operate</label>
                                     <span id="noCommuteDropDown" style="display: none;">

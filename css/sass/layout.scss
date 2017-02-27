@@ -4147,3 +4147,7 @@ div.ui-select > div {
 }div.ui-btn.blue{
   color: white;
  }
+ .bk_white{background-color: white}
+
+ //quickfix
+.ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after{background: none}
