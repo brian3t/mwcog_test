@@ -53,13 +53,13 @@
         <form id="searchForm">
             <div class="ui-body ui-body-a">
                 <div class="ui-field-contain no_border">
-                    <label for="startAddress" class="select" style="white-space: nowrap;">Start Address</label>
-                    <select name="startAddress" id="startAddress" data-mini="true">
+                    <label for="startAddress" class="select" >Start Address</label>
+                    <select name="startAddress" id="startAddress" data-mini="true" data-shadow="false" data-icon="carat_down">
                     </select>
                 </div>
                 <div class="ui-field-contain no_border">
                     <label for="startRadius" class="select">Start Radius</label>
-                    <select name="startRadius" id="startRadius" data-mini="true">
+                    <select name="startRadius" id="startRadius" data-mini="true"  data-shadow="false" data-icon="carat_down">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3" selected="selected">3</option>
@@ -73,13 +73,13 @@
                 </div>
                 <div class="ui-field-contain no_border">
                     <label for="endAddress" class="select">End Address</label>
-                    <select name="endAddress" id="endAddress" data-mini="true">
+                    <select name="endAddress" id="endAddress" data-mini="true" data-shadow="false" data-icon="carat_down">
                     </select>
                 </div>
 
                 <div class="ui-field-contain no_border">
                     <label for="endRadius" class="select">End Radius</label>
-                    <select name="endRadius" id="endRadius" data-mini="true">
+                    <select name="endRadius" id="endRadius" data-mini="true" data-shadow="false" data-icon="carat_down">
                         <option value="1">1</option>
                         <option value="2" selected="selected">2</option>
                         <option value="3">3</option>
@@ -91,11 +91,11 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                <input type="submit" data-shadow="false" data-wrapper-class="wauto blue" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
+                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
                        data-role="button"/>
-                <input type="submit" data-shadow="false" data-wrapper-class="wauto blue" value="Find a Park and Ride" id="findParkAndRide"
+                <input type="submit" data-shadow="false" data-icon="pnr" data-wrapper-class="wauto blue" value="Find a Park and Ride" id="findParkAndRide"
                        onclick="window.location = 'park_and_ride.html'" data-role="button"/>
-                <input type="button" data-shadow="false" data-wrapper-class="wauto blue" value="Commute Log" id="commute_log_calendar"
+                <input type="button" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue" value="Commute Log" id="commute_log_calendar"
                        onclick="window.location = 'commute_log_calendar.html'"
                        data-role="button"/>
             </div>
