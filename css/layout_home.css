@@ -3789,7 +3789,7 @@ table.tall_table tr.leg td.header {
 
 /* line 3074, sass/layout_home.scss */
 #homepage {
-  background-image: url("../img/cityhall.jpg");
+  background-image: url("../img/cityhall.png");
   background-repeat: no-repeat;
   background-position-y: 92px;
   background-size: contain;
