@@ -25,16 +25,14 @@
         <div class="header_padding">
             <i class="fa fa-user"></i>
             &nbsp;&nbsp;Welcome <span id="first_name"></span>
-            <div class="pull-right popup_btn"><a href="#popup_menu" data-rel="popup"><img class="pull-right" src="img/popup_menu.png"></a></div>
-            <div data-role="popup" id="popup_menu">
-                <p>
-                    <br>
-                    <a href="#" onclick="logout()" class="ui-btn ui-shadow  ui-icon-arrow-l">Back</a>
+            <div class="pull-right popup_btn"><a class="inline" href="#popup_menu" data-rel="popup"><img class="pull-right" src="img/popup_menu.png"></a></div>
+            <div data-role="popup" id="popup_menu" data-corners="false" data-shadow="false" data-tolerance="50,15,30,15" >
+                <p><ul>
+                    <a href="#" onclick="logout()" class="  ui-icon-arrow-l">Back</a>
                     <a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none"
-                       class="ui-btn ui-shadow  " id="btn_options">Options</a>
-                    <br>
+                       class="  " id="btn_options">Options</a>
                     <!--<a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none"-->
-                    <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" id="btn_welcome">Options</a></div>-->
+                    <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" id="btn_welcome">Options</a></div>--></ul>
                 </p>
             </div>
         </div>
@@ -91,13 +89,12 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
+                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue big" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
                        data-role="button"/>
-                <input type="submit" data-shadow="false" data-icon="pnr" data-wrapper-class="wauto blue" value="Find a Park and Ride" id="findParkAndRide"
+                <input type="submit" data-shadow="false" data-icon="pnr" data-wrapper-class="wauto blue big" value="Find a Park and Ride" id="findParkAndRide"
                        onclick="window.location = 'park_and_ride.html'" data-role="button"/>
-                <input type="button" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue" value="Commute Log" id="commute_log_calendar"
-                       onclick="window.location = 'commute_log_calendar.html'"
-                       data-role="button"/>
+                <input type="button" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue big" value="Commute Log" id="commute_log_calendar"
+                       onclick="window.location = 'commute_log_calendar.html'" data-role="button"/>
             </div>
             <div class="ui-field-contain ui-hide-label">
 

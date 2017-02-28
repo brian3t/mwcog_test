@@ -2448,6 +2448,13 @@ button,
   padding-left: 10px;
   padding-right: 3px;
 }
+.ui-btn.big{
+  padding: 20px 18px;
+
+}
+.ui-btn.big[class*=ui-icon]{
+  padding-left: 40px;
+}
 .ui-select{
   .ui-btn, .ui-btn select{border:none;}
   border-top: 1px solid rgba(180, 180, 180, 0.5);
@@ -3390,3 +3397,5 @@ div.ui-btn.blue {
   font: normal normal normal 22px/1 FontAwesome;
   width: auto;
 }
+.ui-popup-active{background-color: #fff}
+.inline{display: inline-block}
