@@ -3650,42 +3650,33 @@
   margin: 0;
 }
 
-/* line 2946, sass/layout.scss */
-#welcomeMsg {
-  position: absolute;
-  width: 300px;
-  left: 50%;
-  margin-left: -150px;
-  z-index: 9999;
-}
-
-/* line 2954, sass/layout.scss */
+/* line 2947, sass/layout.scss */
 .hidden {
   display: none;
 }
 
-/* line 2959, sass/layout.scss */
+/* line 2952, sass/layout.scss */
 .fc-view-container td.disabled {
   background-color: #e3e3e3;
   color: #666;
 }
 
-/* line 2965, sass/layout.scss */
+/* line 2958, sass/layout.scss */
 .red {
   color: red;
 }
 
-/* line 2969, sass/layout.scss */
+/* line 2962, sass/layout.scss */
 body.has_dialog.ui-overlay-a {
   background-color: white;
 }
 
-/* line 2973, sass/layout.scss */
+/* line 2966, sass/layout.scss */
 .whirl {
   position: relative;
 }
 
-/* line 2977, sass/layout.scss */
+/* line 2970, sass/layout.scss */
 .whirl:before {
   content: "";
   z-index: 1;
@@ -3698,7 +3689,7 @@ body.has_dialog.ui-overlay-a {
   opacity: 0.6;
 }
 
-/* line 2989, sass/layout.scss */
+/* line 2982, sass/layout.scss */
 .whirl:after {
   z-index: 2;
   content: "";
@@ -3719,7 +3710,7 @@ body.has_dialog.ui-overlay-a {
   transform-origin: center;
 }
 
-/* line 3009, sass/layout.scss */
+/* line 3002, sass/layout.scss */
 .whirl.no-overlay:before {
   content: none;
   display: none;
@@ -3735,7 +3726,7 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg);
   }
 }
-/* line 3025, sass/layout.scss */
+/* line 3018, sass/layout.scss */
 .ui-content {
   padding: 0.4em;
   background-color: #e8e8ef;
@@ -3751,18 +3742,18 @@ body.has_dialog.ui-overlay-a {
     transform: rotate(360deg);
   }
 }
-/* line 3041, sass/layout.scss */
+/* line 3034, sass/layout.scss */
 .ui-checkbox input {
   background-color: white;
   z-index: 5;
 }
 
-/* line 3046, sass/layout.scss */
+/* line 3039, sass/layout.scss */
 tr.passenger span.name {
   font-size: 70%;
 }
 
-/* line 3050, sass/layout.scss */
+/* line 3043, sass/layout.scss */
 .TripHeader {
   background-color: #fcc920;
   padding: 5px;
@@ -3770,31 +3761,31 @@ tr.passenger span.name {
   font-weight: 700;
 }
 
-/* line 3058, sass/layout.scss */
+/* line 3051, sass/layout.scss */
 table.tall_table tr {
   line-height: 30px;
 }
-/* line 3062, sass/layout.scss */
+/* line 3055, sass/layout.scss */
 table.tall_table tr.leg td.header {
   background-color: #CEE3F6;
 }
 
-/* line 3068, sass/layout.scss */
+/* line 3061, sass/layout.scss */
 #home {
   border-top: 1px solid #8199af;
   padding: 12px 24px;
 }
-/* line 3071, sass/layout.scss */
+/* line 3064, sass/layout.scss */
 #home .login {
   margin-top: 344px;
 }
-/* line 3075, sass/layout.scss */
+/* line 3068, sass/layout.scss */
 #home #links_wrapper a {
   display: inline-block;
   margin: 9px 0 0 0;
 }
 
-/* line 3082, sass/layout.scss */
+/* line 3075, sass/layout.scss */
 #homepage {
   background-image: url("../img/cityhall.png");
   background-repeat: no-repeat;
@@ -3802,123 +3793,123 @@ table.tall_table tr.leg td.header {
   background-size: contain;
 }
 
-/* line 3089, sass/layout.scss */
+/* line 3082, sass/layout.scss */
 #homepage.landscape {
   background-position-y: 135px;
 }
 
-/* line 3093, sass/layout.scss */
+/* line 3086, sass/layout.scss */
 .ui-field-contain, .ui-mobile fieldset.ui-field-contain {
   padding-top: 12px;
 }
 
-/* line 3097, sass/layout.scss */
+/* line 3090, sass/layout.scss */
 .ui-input-text > input {
   border: 0;
 }
 
-/* line 3101, sass/layout.scss */
+/* line 3094, sass/layout.scss */
 .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
   border: 0;
 }
 
-/* line 3105, sass/layout.scss */
+/* line 3098, sass/layout.scss */
 .ui-body {
   padding-top: 12px;
 }
 
-/* line 3113, sass/layout.scss */
+/* line 3106, sass/layout.scss */
 .ui-mobile label, .ui-controlgroup-label {
   display: inline-block;
   color: #1a3564;
 }
 
-/* line 3118, sass/layout.scss */
+/* line 3111, sass/layout.scss */
 .ui-input-text, .ui-input-search {
   display: inline-block;
   width: 90%;
   margin: 4px 0;
 }
 
-/* line 3124, sass/layout.scss */
+/* line 3117, sass/layout.scss */
 .input_wrapper {
   border-bottom: 1px solid #c6c6cd;
   box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
 }
 
-/* line 3130, sass/layout.scss */
+/* line 3123, sass/layout.scss */
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: #6c6c6c;
 }
 
-/* line 3134, sass/layout.scss */
+/* line 3127, sass/layout.scss */
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: #6c6c6c;
   opacity: 1;
 }
 
-/* line 3139, sass/layout.scss */
+/* line 3132, sass/layout.scss */
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: #6c6c6c;
   opacity: 1;
 }
 
-/* line 3144, sass/layout.scss */
+/* line 3137, sass/layout.scss */
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #6c6c6c;
 }
 
-/* line 3148, sass/layout.scss */
+/* line 3141, sass/layout.scss */
 .ui-grid-b > .ui-block-span2 {
   width: 66.6666%;
 }
 
-/* line 3152, sass/layout.scss */
+/* line 3145, sass/layout.scss */
 .ui-grid-c > .ui-block-span2 {
   width: 50%;
 }
 
-/* line 3156, sass/layout.scss */
+/* line 3149, sass/layout.scss */
 .ui-grid-c > .ui-block-span3 {
   width: 75%;
 }
 
-/* line 3160, sass/layout.scss */
+/* line 3153, sass/layout.scss */
 .ui-grid-d > .ui-block-span2 {
   width: 40%;
 }
 
-/* line 3164, sass/layout.scss */
+/* line 3157, sass/layout.scss */
 .ui-grid-d > .ui-block-span3 {
   width: 60%;
 }
 
-/* line 3168, sass/layout.scss */
+/* line 3161, sass/layout.scss */
 .ui-grid-d > .ui-block-span4 {
   width: 80%;
 }
 
-/* line 3172, sass/layout.scss */
+/* line 3165, sass/layout.scss */
 .header_padding {
   padding: 16px 22px;
 }
 
-/* line 3176, sass/layout.scss */
+/* line 3169, sass/layout.scss */
 .ui-header, .ui-footer {
   font-size: 122%;
 }
 
-/* line 3180, sass/layout.scss */
+/* line 3173, sass/layout.scss */
 html {
   font-size: 100%;
 }
 
-/* line 3184, sass/layout.scss */
+/* line 3177, sass/layout.scss */
 body,
 input,
 select,
@@ -3933,32 +3924,32 @@ button,
   padding-bottom: 12px;
 }
 
-/* line 3198, sass/layout.scss */
+/* line 3191, sass/layout.scss */
 .ui-btn {
   text-transform: uppercase;
 }
-/* line 3200, sass/layout.scss */
+/* line 3193, sass/layout.scss */
 .ui-btn span {
   text-transform: none;
 }
 
-/* line 3205, sass/layout.scss */
+/* line 3198, sass/layout.scss */
 .ui-btn:not([class*="ui-btn-icon"]) {
   padding-left: 10px;
   padding-right: 3px;
 }
 
-/* line 3210, sass/layout.scss */
+/* line 3203, sass/layout.scss */
 .ui-btn.big {
   padding: 20px 18px;
 }
 
-/* line 3215, sass/layout.scss */
+/* line 3208, sass/layout.scss */
 .ui-btn.big[class*=ui-icon] {
   padding-left: 40px;
 }
 
-/* line 3219, sass/layout.scss */
+/* line 3212, sass/layout.scss */
 .ui-select {
   border-top: 1px solid rgba(180, 180, 180, 0.5);
   border-right: 1px solid rgba(183, 183, 183, 0.5);
@@ -3966,12 +3957,12 @@ button,
   border-left: 1px solid rgba(161, 161, 161, 0.5);
   box-shadow: 1px 1px 0 0 #D7D7D7;
 }
-/* line 3220, sass/layout.scss */
+/* line 3213, sass/layout.scss */
 .ui-select .ui-btn, .ui-select .ui-btn select {
   border: none;
 }
 
-/* line 3230, sass/layout.scss */
+/* line 3223, sass/layout.scss */
 legend,
 .ui-input-text input,
 .ui-input-search input {
@@ -3980,7 +3971,7 @@ legend,
 }
 
 /* Form labels (overrides font-weight bold in bars, and mini font-size) */
-/* line 3238, sass/layout.scss */
+/* line 3231, sass/layout.scss */
 .ui-mobile label,
 div.ui-controlgroup-label {
   font-weight: normal;
@@ -3990,7 +3981,7 @@ div.ui-controlgroup-label {
 /* Separators
 -----------------------------------------------------------------------------------------------------------*/
 /* Field contain separator (< 28em) */
-/* line 3247, sass/layout.scss */
+/* line 3240, sass/layout.scss */
 .ui-field-contain {
   border-bottom-color: #828282;
   border-bottom-color: rgba(0, 0, 0, 0.15);
@@ -4000,7 +3991,7 @@ div.ui-controlgroup-label {
 
 /* Table opt-in classes: strokes between each row, and alternating row stripes */
 /* Classes table-stroke and table-stripe are deprecated in 1.4. */
-/* line 3256, sass/layout.scss */
+/* line 3249, sass/layout.scss */
 .table-stroke thead th,
 .table-stripe thead th,
 .table-stripe tbody tr:last-child {
@@ -4009,7 +4000,7 @@ div.ui-controlgroup-label {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 3263, sass/layout.scss */
+/* line 3256, sass/layout.scss */
 .table-stroke tbody th,
 .table-stroke tbody td {
   border-bottom: 1px solid #e6e6e6;
@@ -4017,13 +4008,13 @@ div.ui-controlgroup-label {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* line 3269, sass/layout.scss */
+/* line 3262, sass/layout.scss */
 .table-stripe.table-stroke tbody tr:last-child th,
 .table-stripe.table-stroke tbody tr:last-child td {
   border-bottom: 0;
 }
 
-/* line 3274, sass/layout.scss */
+/* line 3267, sass/layout.scss */
 .table-stripe tbody tr:nth-child(odd) td,
 .table-stripe tbody tr:nth-child(odd) th {
   background-color: #eeeeee;
@@ -4033,7 +4024,7 @@ div.ui-controlgroup-label {
 
 /* Buttons
 -----------------------------------------------------------------------------------------------------------*/
-/* line 3282, sass/layout.scss */
+/* line 3275, sass/layout.scss */
 .ui-btn,
 label.ui-btn {
   font-weight: bold;
@@ -4041,12 +4032,12 @@ label.ui-btn {
   border-style: solid;
 }
 
-/* line 3289, sass/layout.scss */
+/* line 3282, sass/layout.scss */
 .ui-btn:link {
   text-decoration: none !important;
 }
 
-/* line 3293, sass/layout.scss */
+/* line 3286, sass/layout.scss */
 .ui-btn-active {
   cursor: pointer;
 }
@@ -4054,14 +4045,14 @@ label.ui-btn {
 /* Corner rounding
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-btn-corner-all deprecated in 1.4 */
-/* line 3300, sass/layout.scss */
+/* line 3293, sass/layout.scss */
 .ui-corner-all {
   -webkit-border-radius: 0.4em;
   border-radius: 2px;
 }
 
 /* Buttons */
-/* line 3308, sass/layout.scss */
+/* line 3301, sass/layout.scss */
 .ui-btn-corner-all,
 .ui-btn.ui-corner-all,
 .ui-slider-track.ui-corner-all,
@@ -4072,7 +4063,7 @@ label.ui-btn {
 }
 
 /* Icon-only buttons */
-/* line 3323, sass/layout.scss */
+/* line 3316, sass/layout.scss */
 .ui-btn-icon-notext.ui-btn-corner-all,
 .ui-btn-icon-notext.ui-corner-all {
   -webkit-border-radius: 1em;
@@ -4080,7 +4071,7 @@ label.ui-btn {
 }
 
 /* Radius clip workaround for cleaning up corner trapping */
-/* line 3330, sass/layout.scss */
+/* line 3323, sass/layout.scss */
 .ui-btn-corner-all,
 .ui-corner-all {
   -webkit-background-clip: padding;
@@ -4088,7 +4079,7 @@ label.ui-btn {
 }
 
 /* Popup arrow */
-/* line 3337, sass/layout.scss */
+/* line 3330, sass/layout.scss */
 .ui-popup.ui-corner-all > .ui-popup-arrow-guide {
   left: 0.4em;
   right: 0.4em;
@@ -4098,21 +4089,21 @@ label.ui-btn {
 
 /* Shadow
 -----------------------------------------------------------------------------------------------------------*/
-/* line 3350, sass/layout.scss */
+/* line 3343, sass/layout.scss */
 .ui-shadow {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 3362, sass/layout.scss */
+/* line 3355, sass/layout.scss */
 .ui-shadow-inset {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 3374, sass/layout.scss */
+/* line 3367, sass/layout.scss */
 .ui-overlay-shadow {
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
@@ -4121,7 +4112,7 @@ label.ui-btn {
 
 /* Icons
 -----------------------------------------------------------------------------------------------------------*/
-/* line 3382, sass/layout.scss */
+/* line 3375, sass/layout.scss */
 .ui-btn-icon-left:after,
 .ui-btn-icon-right:after,
 .ui-btn-icon-top:after,
@@ -4132,7 +4123,7 @@ label.ui-btn {
 }
 
 /* Alt icons */
-/* line 3392, sass/layout.scss */
+/* line 3385, sass/layout.scss */
 .ui-alt-icon.ui-btn:after,
 .ui-alt-icon .ui-btn:after,
 html .ui-alt-icon.ui-checkbox-off:after,
@@ -4144,14 +4135,14 @@ html .ui-alt-icon .ui-radio-off:after {
 }
 
 /* No disc */
-/* line 3404, sass/layout.scss */
+/* line 3397, sass/layout.scss */
 .ui-nodisc-icon.ui-btn:after,
 .ui-nodisc-icon .ui-btn:after {
   background-color: transparent;
 }
 
 /* Icon shadow */
-/* line 3410, sass/layout.scss */
+/* line 3403, sass/layout.scss */
 .ui-shadow-icon.ui-btn:after,
 .ui-shadow-icon .ui-btn:after {
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -4160,7 +4151,7 @@ html .ui-alt-icon .ui-radio-off:after {
 }
 
 /* Checkbox and radio */
-/* line 3421, sass/layout.scss */
+/* line 3414, sass/layout.scss */
 .ui-btn.ui-checkbox-off:after,
 .ui-btn.ui-checkbox-on:after,
 .ui-btn.ui-radio-off:after,
@@ -4171,21 +4162,21 @@ html .ui-alt-icon .ui-radio-off:after {
   margin: -9px 2px 0 2px;
 }
 
-/* line 3431, sass/layout.scss */
+/* line 3424, sass/layout.scss */
 .ui-checkbox-off:after,
 .ui-btn.ui-radio-off:after {
   filter: Alpha(Opacity=30);
   opacity: .3;
 }
 
-/* line 3437, sass/layout.scss */
+/* line 3430, sass/layout.scss */
 .ui-btn.ui-checkbox-off:after,
 .ui-btn.ui-checkbox-on:after {
   -webkit-border-radius: .1875em;
   border-radius: .1875em;
 }
 
-/* line 3443, sass/layout.scss */
+/* line 3436, sass/layout.scss */
 .ui-radio .ui-btn.ui-radio-on:after {
   background-image: none;
   background-color: #fff;
@@ -4195,14 +4186,14 @@ html .ui-alt-icon .ui-radio-off:after {
   border-style: solid;
 }
 
-/* line 3452, sass/layout.scss */
+/* line 3445, sass/layout.scss */
 .ui-alt-icon.ui-btn.ui-radio-on:after,
 .ui-alt-icon .ui-btn.ui-radio-on:after {
   background-color: #000;
 }
 
 /* Loader */
-/* line 3458, sass/layout.scss */
+/* line 3451, sass/layout.scss */
 .ui-icon-loading {
   background: url(images/ajax-loader.gif);
   background-size: 2.875em 2.875em;
@@ -4212,7 +4203,7 @@ html .ui-alt-icon .ui-radio-off:after {
 /* A
 -----------------------------------------------------------------------------------------------------------*/
 /* Bar: Toolbars, dividers, slider track */
-/* line 3467, sass/layout.scss */
+/* line 3460, sass/layout.scss */
 .ui-bar-a,
 .ui-page-theme-a .ui-bar-inherit,
 html .ui-bar-a .ui-bar-inherit,
@@ -4229,14 +4220,14 @@ html body .ui-group-theme-a .ui-bar-inherit {
   font-weight: bold;
 }
 
-/* line 3489, sass/layout.scss */
+/* line 3482, sass/layout.scss */
 .ui-bar-a {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Page and overlay */
-/* line 3495, sass/layout.scss */
+/* line 3488, sass/layout.scss */
 .ui-overlay-a,
 .ui-page-theme-a,
 .ui-page-theme-a .ui-panel-wrapper {
@@ -4256,7 +4247,7 @@ html body .ui-group-theme-a .ui-bar-inherit {
 }
 
 /* Body: Read-only lists, text inputs, collapsible content */
-/* line 3511, sass/layout.scss */
+/* line 3504, sass/layout.scss */
 .ui-body-a,
 .ui-page-theme-a .ui-body-inherit,
 html .ui-bar-a .ui-body-inherit,
@@ -4268,7 +4259,7 @@ html .ui-panel-page-container-a {
 }
 
 /* Links */
-/* line 3523, sass/layout.scss */
+/* line 3516, sass/layout.scss */
 .ui-page-theme-a a,
 html .ui-bar-a a,
 html .ui-body-a a,
@@ -4277,7 +4268,7 @@ html body .ui-group-theme-a a {
   font-weight: bold;
 }
 
-/* line 3532, sass/layout.scss */
+/* line 3525, sass/layout.scss */
 .ui-page-theme-a a:visited,
 html .ui-bar-a a:visited,
 html .ui-body-a a:visited,
@@ -4285,7 +4276,7 @@ html body .ui-group-theme-a a:visited {
   color: #3388cc;
 }
 
-/* line 3540, sass/layout.scss */
+/* line 3533, sass/layout.scss */
 .ui-page-theme-a a:hover,
 html .ui-bar-a a:hover,
 html .ui-body-a a:hover,
@@ -4293,7 +4284,7 @@ html body .ui-group-theme-a a:hover {
   color: #005599;
 }
 
-/* line 3548, sass/layout.scss */
+/* line 3541, sass/layout.scss */
 .ui-page-theme-a a:active,
 html .ui-bar-a a:active,
 html .ui-body-a a:active,
@@ -4302,7 +4293,7 @@ html body .ui-group-theme-a a:active {
 }
 
 /* Button up */
-/* line 3557, sass/layout.scss */
+/* line 3550, sass/layout.scss */
 .ui-page-theme-a .ui-btn,
 html .ui-bar-a .ui-btn,
 html .ui-body-a .ui-btn,
@@ -4319,7 +4310,7 @@ html head + body .ui-btn.ui-btn-a:visited {
 }
 
 /* Button hover */
-/* line 3577, sass/layout.scss */
+/* line 3570, sass/layout.scss */
 .ui-page-theme-a .ui-btn:hover,
 html .ui-bar-a .ui-btn:hover,
 html .ui-body-a .ui-btn:hover,
@@ -4332,7 +4323,7 @@ html head + body .ui-btn.ui-btn-a:hover {
 }
 
 /* Button down */
-/* line 3596, sass/layout.scss */
+/* line 3589, sass/layout.scss */
 .ui-page-theme-a .ui-btn:active,
 html .ui-bar-a .ui-btn:active,
 html .ui-body-a .ui-btn:active,
@@ -4345,7 +4336,7 @@ html head + body .ui-btn.ui-btn-a:active {
 }
 
 /* Active button */
-/* line 3615, sass/layout.scss */
+/* line 3608, sass/layout.scss */
 .ui-page-theme-a .ui-btn.ui-btn-active,
 html .ui-bar-a .ui-btn.ui-btn-active,
 html .ui-body-a .ui-btn.ui-btn-active,
@@ -4373,7 +4364,7 @@ html body div.ui-slider-track.ui-body-a .ui-btn-active {
 }
 
 /* Active radio button icon */
-/* line 3652, sass/layout.scss */
+/* line 3645, sass/layout.scss */
 .ui-page-theme-a .ui-radio-on:after,
 html .ui-bar-a .ui-radio-on:after,
 html .ui-body-a .ui-radio-on:after,
@@ -4383,7 +4374,7 @@ html body .ui-group-theme-a .ui-radio-on:after,
 }
 
 /* Focus */
-/* line 3662, sass/layout.scss */
+/* line 3655, sass/layout.scss */
 .ui-page-theme-a .ui-btn:focus,
 html .ui-bar-a .ui-btn:focus,
 html .ui-body-a .ui-btn:focus,
@@ -4403,7 +4394,7 @@ html head + body .ui-body-a.ui-focus {
 /* B
 -----------------------------------------------------------------------------------------------------------*/
 /* Bar: Toolbars, dividers, slider track */
-/* line 3685, sass/layout.scss */
+/* line 3678, sass/layout.scss */
 .ui-bar-b,
 .ui-page-theme-b .ui-bar-inherit,
 html .ui-bar-b .ui-bar-inherit,
@@ -4416,14 +4407,14 @@ html body .ui-group-theme-b .ui-bar-inherit {
   font-weight: bold;
 }
 
-/* line 3704, sass/layout.scss */
+/* line 3697, sass/layout.scss */
 .ui-bar-b {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Page and overlay */
-/* line 3710, sass/layout.scss */
+/* line 3703, sass/layout.scss */
 .ui-overlay-b,
 .ui-page-theme-b,
 .ui-page-theme-b .ui-panel-wrapper {
@@ -4434,7 +4425,7 @@ html body .ui-group-theme-b .ui-bar-inherit {
 }
 
 /* Body: Read-only lists, text inputs, collapsible content */
-/* line 3727, sass/layout.scss */
+/* line 3720, sass/layout.scss */
 .ui-body-b,
 .ui-page-theme-b .ui-body-inherit,
 html .ui-bar-b .ui-body-inherit,
@@ -4447,14 +4438,14 @@ html .ui-panel-page-container-b {
   text-shadow: 0 1px 0 #f3f3f3;
 }
 
-/* line 3746, sass/layout.scss */
+/* line 3739, sass/layout.scss */
 .ui-body-b {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Links */
-/* line 3752, sass/layout.scss */
+/* line 3745, sass/layout.scss */
 .ui-page-theme-b a,
 html .ui-bar-b a,
 html .ui-body-b a,
@@ -4463,7 +4454,7 @@ html body .ui-group-theme-b a {
   font-weight: bold;
 }
 
-/* line 3761, sass/layout.scss */
+/* line 3754, sass/layout.scss */
 .ui-page-theme-b a:visited,
 html .ui-bar-b a:visited,
 html .ui-body-b a:visited,
@@ -4471,7 +4462,7 @@ html body .ui-group-theme-b a:visited {
   color: #3388cc;
 }
 
-/* line 3769, sass/layout.scss */
+/* line 3762, sass/layout.scss */
 .ui-page-theme-b a:hover,
 html .ui-bar-b a:hover,
 html .ui-body-b a:hover,
@@ -4479,7 +4470,7 @@ html body .ui-group-theme-b a:hover {
   color: #005599;
 }
 
-/* line 3777, sass/layout.scss */
+/* line 3770, sass/layout.scss */
 .ui-page-theme-b a:active,
 html .ui-bar-b a:active,
 html .ui-body-b a:active,
@@ -4488,7 +4479,7 @@ html body .ui-group-theme-b a:active {
 }
 
 /* Button up */
-/* line 3786, sass/layout.scss */
+/* line 3779, sass/layout.scss */
 .ui-page-theme-b .ui-btn,
 html .ui-bar-b .ui-btn,
 html .ui-body-b .ui-btn,
@@ -4506,7 +4497,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 
 /* Button hover */
-/* line 3811, sass/layout.scss */
+/* line 3804, sass/layout.scss */
 .ui-page-theme-b .ui-btn:hover,
 html .ui-bar-b .ui-btn:hover,
 html .ui-body-b .ui-btn:hover,
@@ -4519,7 +4510,7 @@ html head + body .ui-btn.ui-btn-b:hover {
 }
 
 /* Button down */
-/* line 3830, sass/layout.scss */
+/* line 3823, sass/layout.scss */
 .ui-page-theme-b .ui-btn:active,
 html .ui-bar-b .ui-btn:active,
 html .ui-body-b .ui-btn:active,
@@ -4532,7 +4523,7 @@ html head + body .ui-btn.ui-btn-b:active {
 }
 
 /* Active button */
-/* line 3849, sass/layout.scss */
+/* line 3842, sass/layout.scss */
 .ui-page-theme-b .ui-btn.ui-btn-active,
 html .ui-bar-b .ui-btn.ui-btn-active,
 html .ui-body-b .ui-btn.ui-btn-active,
@@ -4560,7 +4551,7 @@ html body div.ui-slider-track.ui-body-b .ui-btn-active {
 }
 
 /* Active radio button icon */
-/* line 3886, sass/layout.scss */
+/* line 3879, sass/layout.scss */
 .ui-page-theme-b .ui-radio-on:after,
 html .ui-bar-b .ui-radio-on:after,
 html .ui-body-b .ui-radio-on:after,
@@ -4570,7 +4561,7 @@ html body .ui-group-theme-b .ui-radio-on:after,
 }
 
 /* Focus */
-/* line 3896, sass/layout.scss */
+/* line 3889, sass/layout.scss */
 .ui-page-theme-b .ui-btn:focus,
 html .ui-bar-b .ui-btn:focus,
 html .ui-body-b .ui-btn:focus,
@@ -4590,7 +4581,7 @@ html head + body .ui-body-b.ui-focus {
 /* C
 -----------------------------------------------------------------------------------------------------------*/
 /* Bar: Toolbars, dividers, slider track */
-/* line 3919, sass/layout.scss */
+/* line 3912, sass/layout.scss */
 .ui-bar-c,
 .ui-page-theme-c .ui-bar-inherit,
 html .ui-bar-c .ui-bar-inherit,
@@ -4603,14 +4594,14 @@ html body .ui-group-theme-c .ui-bar-inherit {
   font-weight: bold;
 }
 
-/* line 3938, sass/layout.scss */
+/* line 3931, sass/layout.scss */
 .ui-bar-c {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Page and overlay */
-/* line 3944, sass/layout.scss */
+/* line 3937, sass/layout.scss */
 .ui-overlay-c,
 .ui-page-theme-c,
 .ui-page-theme-c .ui-panel-wrapper {
@@ -4621,7 +4612,7 @@ html body .ui-group-theme-c .ui-bar-inherit {
 }
 
 /* Body: Read-only lists, text inputs, collapsible content */
-/* line 3961, sass/layout.scss */
+/* line 3954, sass/layout.scss */
 .ui-body-c,
 .ui-page-theme-c .ui-body-inherit,
 html .ui-bar-c .ui-body-inherit,
@@ -4634,14 +4625,14 @@ html .ui-panel-page-container-c {
   text-shadow: 0 1px 0 #f3f3f3;
 }
 
-/* line 3980, sass/layout.scss */
+/* line 3973, sass/layout.scss */
 .ui-body-c {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Links */
-/* line 3986, sass/layout.scss */
+/* line 3979, sass/layout.scss */
 .ui-page-theme-c a,
 html .ui-bar-c a,
 html .ui-body-c a,
@@ -4650,7 +4641,7 @@ html body .ui-group-theme-c a {
   font-weight: bold;
 }
 
-/* line 3995, sass/layout.scss */
+/* line 3988, sass/layout.scss */
 .ui-page-theme-c a:visited,
 html .ui-bar-c a:visited,
 html .ui-body-c a:visited,
@@ -4658,7 +4649,7 @@ html body .ui-group-theme-c a:visited {
   color: #3388cc;
 }
 
-/* line 4003, sass/layout.scss */
+/* line 3996, sass/layout.scss */
 .ui-page-theme-c a:hover,
 html .ui-bar-c a:hover,
 html .ui-body-c a:hover,
@@ -4666,7 +4657,7 @@ html body .ui-group-theme-c a:hover {
   color: #005599;
 }
 
-/* line 4011, sass/layout.scss */
+/* line 4004, sass/layout.scss */
 .ui-page-theme-c a:active,
 html .ui-bar-c a:active,
 html .ui-body-c a:active,
@@ -4675,7 +4666,7 @@ html body .ui-group-theme-c a:active {
 }
 
 /* Button up */
-/* line 4020, sass/layout.scss */
+/* line 4013, sass/layout.scss */
 .ui-page-theme-c .ui-btn,
 html .ui-bar-c .ui-btn,
 html .ui-body-c .ui-btn,
@@ -4693,7 +4684,7 @@ html head + body .ui-btn.ui-btn-c:visited {
 }
 
 /* Button hover */
-/* line 4045, sass/layout.scss */
+/* line 4038, sass/layout.scss */
 .ui-page-theme-c .ui-btn:hover,
 html .ui-bar-c .ui-btn:hover,
 html .ui-body-c .ui-btn:hover,
@@ -4706,7 +4697,7 @@ html head + body .ui-btn.ui-btn-c:hover {
 }
 
 /* Button down */
-/* line 4064, sass/layout.scss */
+/* line 4057, sass/layout.scss */
 .ui-page-theme-c .ui-btn:active,
 html .ui-bar-c .ui-btn:active,
 html .ui-body-c .ui-btn:active,
@@ -4719,7 +4710,7 @@ html head + body .ui-btn.ui-btn-c:active {
 }
 
 /* Active button */
-/* line 4083, sass/layout.scss */
+/* line 4076, sass/layout.scss */
 .ui-page-theme-c .ui-btn.ui-btn-active,
 html .ui-bar-c .ui-btn.ui-btn-active,
 html .ui-body-c .ui-btn.ui-btn-active,
@@ -4747,7 +4738,7 @@ html body div.ui-slider-track.ui-body-c .ui-btn-active {
 }
 
 /* Active radio button icon */
-/* line 4120, sass/layout.scss */
+/* line 4113, sass/layout.scss */
 .ui-page-theme-c .ui-radio-on:after,
 html .ui-bar-c .ui-radio-on:after,
 html .ui-body-c .ui-radio-on:after,
@@ -4757,7 +4748,7 @@ html body .ui-group-theme-c .ui-radio-on:after,
 }
 
 /* Focus */
-/* line 4130, sass/layout.scss */
+/* line 4123, sass/layout.scss */
 .ui-page-theme-c .ui-btn:focus,
 html .ui-bar-c .ui-btn:focus,
 html .ui-body-c .ui-btn:focus,
@@ -4778,7 +4769,7 @@ html head + body .ui-body-c.ui-focus {
 /* Disabled
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-disabled deprecated in 1.4. :disabled not supported by IE8 so we use [disabled] */
-/* line 4154, sass/layout.scss */
+/* line 4147, sass/layout.scss */
 .ui-disabled,
 .ui-state-disabled,
 button[disabled],
@@ -4791,14 +4782,14 @@ button[disabled],
 
 /* Focus state outline
 -----------------------------------------------------------------------------------------------------------*/
-/* line 4166, sass/layout.scss */
+/* line 4159, sass/layout.scss */
 .ui-btn:focus,
 .ui-btn.ui-focus {
   outline: 0;
 }
 
 /* Unset box-shadow in browsers that don't do it right */
-/* line 4172, sass/layout.scss */
+/* line 4165, sass/layout.scss */
 .ui-noboxshadow .ui-shadow,
 .ui-noboxshadow .ui-shadow-inset,
 .ui-noboxshadow .ui-overlay-shadow,
@@ -4813,111 +4804,111 @@ button[disabled],
   box-shadow: none !important;
 }
 
-/* line 4186, sass/layout.scss */
+/* line 4179, sass/layout.scss */
 .ui-noboxshadow .ui-btn:focus,
 .ui-noboxshadow .ui-focus {
   outline-width: 1px;
   outline-style: auto;
 }
 
-/* line 4192, sass/layout.scss */
+/* line 4185, sass/layout.scss */
 .col-xs-6 {
   width: 100%;
 }
 
-/* line 4196, sass/layout.scss */
+/* line 4189, sass/layout.scss */
 div.ui-select > div {
   width: auto;
 }
 
-/* line 4200, sass/layout.scss */
+/* line 4193, sass/layout.scss */
 .w98 {
   width: 98%;
 }
 
-/* line 4203, sass/layout.scss */
+/* line 4196, sass/layout.scss */
 .w100 {
   width: 100%;
 }
 
-/* line 4204, sass/layout.scss */
+/* line 4197, sass/layout.scss */
 .wauto {
   width: auto;
 }
 
-/* line 4208, sass/layout.scss */
+/* line 4201, sass/layout.scss */
 .ui-select .ui-btn > span:not(.ui-li-count) {
   text-align: left;
 }
 
-/* line 4212, sass/layout.scss */
+/* line 4205, sass/layout.scss */
 .no_border {
   border: none;
 }
 
-/* line 4216, sass/layout.scss */
+/* line 4209, sass/layout.scss */
 .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
   border: none;
 }
 
-/* line 4220, sass/layout.scss */
+/* line 4213, sass/layout.scss */
 .blue {
   background-color: #1b78b3 !important;
 }
 
-/* line 4224, sass/layout.scss */
+/* line 4217, sass/layout.scss */
 div.ui-btn.blue {
   color: white;
 }
 
-/* line 4228, sass/layout.scss */
+/* line 4221, sass/layout.scss */
 .bk_white {
   background-color: white;
 }
 
-/* line 4233, sass/layout.scss */
+/* line 4226, sass/layout.scss */
 .ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
   background: none;
 }
 
-/* line 4237, sass/layout.scss */
+/* line 4230, sass/layout.scss */
 .ui-input-btn input {
   text-transform: uppercase;
   border-top: 1px solid #b9ccdf;
 }
 
-/* line 4242, sass/layout.scss */
+/* line 4235, sass/layout.scss */
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
 }
 
-/* line 4249, sass/layout.scss */
+/* line 4242, sass/layout.scss */
 .ui-icon-ridematch:after {
   background-image: url("../img/icon/ridematch.png");
 }
 
-/* line 4253, sass/layout.scss */
+/* line 4246, sass/layout.scss */
 .ui-icon-pnr:after {
   background-image: url("../img/icon/pnr.png");
 }
 
-/* line 4257, sass/layout.scss */
+/* line 4250, sass/layout.scss */
 .ui-icon-commute_calendar:after {
   font: normal normal normal 22px/1 FontAwesome;
   content: "";
 }
 
-/* line 4262, sass/layout.scss */
+/* line 4255, sass/layout.scss */
 [class*=ui-icon-]:after {
   background-size: contain;
 }
 
-/* line 4266, sass/layout.scss */
+/* line 4259, sass/layout.scss */
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   width: 28px;
 }
 
-/* line 4270, sass/layout.scss */
+/* line 4263, sass/layout.scss */
 .ui-icon-carat_down:after {
   content: "\f0d7";
   color: #1b78b3;
@@ -4925,17 +4916,17 @@ div.ui-btn.blue {
   width: auto;
 }
 
-/* line 4277, sass/layout.scss */
+/* line 4270, sass/layout.scss */
 .ui-popup-active {
   background-color: #fff;
 }
 
-/* line 4281, sass/layout.scss */
+/* line 4274, sass/layout.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 4285, sass/layout.scss */
+/* line 4278, sass/layout.scss */
 div[data-role="popup"] > a.ui-btn {
   padding: 0;
   background: transparent !important;

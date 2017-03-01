@@ -117,9 +117,8 @@ $(document).ready(function () {
 
     $(function () {
         if (enrolled) {
-            $("#panel_welcomeuser").show();
-            $("#panel_welcomeuser").popup();
-            $("#btn_welcome").trigger("click");
+            $("#panel_welcomeuser").popup();$("#panel_welcomeuser").popup('open',{positionTo: 'window'});
+            $('#welcomeMsg').popup('open', {positionTo: 'window'});
         }
 
         if (Number(window.localStorage.getItem("justLoggedIn")) == 1) {
