@@ -25,15 +25,16 @@
         <div class="header_padding">
             <i class="fa fa-user"></i>
             &nbsp;&nbsp;Welcome <span id="first_name"></span>
-            <div class="pull-right popup_btn"><a class="inline" href="#popup_menu" data-rel="popup"><img class="pull-right" src="img/popup_menu.png"></a></div>
-            <div data-role="popup" id="popup_menu" data-corners="false" data-shadow="false" data-tolerance="50,15,30,15" >
-                <p><ul>
-                    <a href="#" onclick="logout()" class="  ui-icon-arrow-l">Back</a>
-                    <a href="#panel_options" data-rel="popup" data-position-to="window" data-transition="none"
-                       class="  " id="btn_options">Options</a>
+            <div class="pull-right popup_btn"><a class="inline" href="#popup_menu" data-rel="popup" data-transition="slidedown"><img class="pull-right"
+                                                                                                                                     src="img/popup_menu.png"></a>
+            </div>
+            <div data-role="popup" id="popup_menu" data-corners="false" data-shadow="false" data-tolerance="50,15,30,15">
+                <ul data-role="listview" data-inset="true">
+                    <li data-icon="false"><a href="#" onclick="logout()" class="">Back</a></li>
+                    <li data-icon="false"><a href="#" onclick="toggle_panel_options()" class="  " id="btn_options">Options</a>
+                    </li>
                     <!--<a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none"-->
                     <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" id="btn_welcome">Options</a></div>--></ul>
-                </p>
             </div>
         </div>
     </div>
@@ -51,13 +52,13 @@
         <form id="searchForm">
             <div class="ui-body ui-body-a">
                 <div class="ui-field-contain no_border">
-                    <label for="startAddress" class="select" >Start Address</label>
+                    <label for="startAddress" class="select">Start Address</label>
                     <select name="startAddress" id="startAddress" data-mini="true" data-shadow="false" data-icon="carat_down">
                     </select>
                 </div>
                 <div class="ui-field-contain no_border">
                     <label for="startRadius" class="select">Start Radius</label>
-                    <select name="startRadius" id="startRadius" data-mini="true"  data-shadow="false" data-icon="carat_down">
+                    <select name="startRadius" id="startRadius" data-mini="true" data-shadow="false" data-icon="carat_down">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3" selected="selected">3</option>
@@ -89,11 +90,13 @@
                         <option value="25">25</option>
                     </select>
                 </div>
-                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue big" value="Find a Ridematch" id="findRidematch" onclick="showRidematch()"
+                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue big" value="Find a Ridematch" id="findRidematch"
+                       onclick="showRidematch()"
                        data-role="button"/>
                 <input type="submit" data-shadow="false" data-icon="pnr" data-wrapper-class="wauto blue big" value="Find a Park and Ride" id="findParkAndRide"
                        onclick="window.location = 'park_and_ride.html'" data-role="button"/>
-                <input type="button" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue big" value="Commute Log" id="commute_log_calendar"
+                <input type="button" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue big" value="Commute Log"
+                       id="commute_log_calendar"
                        onclick="window.location = 'commute_log_calendar.html'" data-role="button"/>
             </div>
             <div class="ui-field-contain ui-hide-label">

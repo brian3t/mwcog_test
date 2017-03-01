@@ -4057,7 +4057,7 @@ label.ui-btn {
 /* line 2526, sass/layout.scss */
 .ui-corner-all {
   -webkit-border-radius: 0.4em;
-  border-radius: 0.4em;
+  border-radius: 2px;
 }
 
 /* Buttons */
@@ -4928,6 +4928,11 @@ div.ui-btn.blue {
 /* line 3401, sass/layout.scss */
 .inline {
   display: inline-block;
+}
+
+/* line 3402, sass/layout.scss */
+div[data-role="popup"] > .ui-btn {
+  padding: 0;
 }
 
 /*# sourceMappingURL=layout.css.map */

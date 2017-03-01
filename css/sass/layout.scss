@@ -2526,7 +2526,7 @@ label.ui-btn {
 .ui-corner-all {
   -webkit-border-radius: .4em /*{global-radii-blocks}*/
 ;
-  border-radius: .4em /*{global-radii-blocks}*/
+  border-radius: 2px /*{global-radii-blocks}*/
 ;
 }
 /* Buttons */
@@ -3399,3 +3399,4 @@ div.ui-btn.blue {
 }
 .ui-popup-active{background-color: #fff}
 .inline{display: inline-block}
+div[data-role="popup"]>.ui-btn{padding: 0}

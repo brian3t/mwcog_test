@@ -1,6 +1,7 @@
-function toTitleCase(str)
-{
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 function showRidematch() {
@@ -72,6 +73,14 @@ function saveCommuterProfile() {
 function hideWelcomeMsg() {
     $('#welcomeMsg').remove();
 }
+function toggle_panel_options() {
+    "use strict";
+    $('#popup_menu').popup('close');
+    $("#popup_menu").one("popupafterclose", function (event, ui) {
+        $('#panel_options').popup('open');
+    });
+
+}
 
 $(document).ready(function () {
 
@@ -80,10 +89,10 @@ $(document).ready(function () {
     window.localStorage.setItem("startingTime", "9:00 AM");
     window.localStorage.setItem("endingTime", "5:00 PM");
     $.each(addressArray, function (a, b) {
-        b.addrStreet1=toTitleCase(b.addrStreet1.toLowerCase());
-        b.addrCity=toTitleCase(b.addrCity.toLowerCase());
-        b.addrState=toTitleCase(b.addrState.toLowerCase());
-        b.addrZip=toTitleCase(b.addrZip.toLowerCase());
+        b.addrStreet1 = toTitleCase(b.addrStreet1.toLowerCase());
+        b.addrCity = toTitleCase(b.addrCity.toLowerCase());
+        b.addrState = toTitleCase(b.addrState.toLowerCase());
+        b.addrZip = toTitleCase(b.addrZip.toLowerCase());
         var option1 = $('<option />');
         if (b.addrType == "HOME") {
             option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
