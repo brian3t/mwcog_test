@@ -3898,11 +3898,11 @@ html .ui-body-b .ui-focus,
 html body .ui-group-theme-b .ui-focus,
 html head + body .ui-btn-b.ui-focus,
 html head + body .ui-body-b.ui-focus {
-  -webkit-box-shadow: 0 0 12px #000033 /*{b-active-background-color}*/
+  -webkit-box-shadow: 0 0 4px #000033 /*{b-active-background-color}*/
 ;
-  -moz-box-shadow: 0 0 12px #000033 /*{b-active-background-color}*/
+  -moz-box-shadow: 0 0 4px #000033 /*{b-active-background-color}*/
 ;
-  box-shadow: 0 0 12px #000033 /*{b-active-background-color}*/
+  box-shadow: 0 0 4px #000033 /*{b-active-background-color}*/
 ;
 }
 
@@ -4193,7 +4193,7 @@ div.ui-select > div {
 .w98 {
   width: 98%
 }
-.w100{width: 100%}
+.w100{width: 100%}.w90{width: 90%}.w80{width: 80%}.w70{width: 70%}.w60{width: 60%}.w50{width: 50%}
 .wauto {
   width: auto
 }
@@ -4279,4 +4279,29 @@ div[data-role="popup"] > a.ui-btn {
   padding: 0;
   background: transparent !important;
   border: none !important;
+}
+.text_center{text-align: center}
+.inline_block{display: inline-block}
+div.ui-tabs>.ui-navbar>.ui-tabs-nav>li{
+  padding: 0 7px;
+  :nth-child(2){
+    margin-left:20px;
+  }
+  a{
+    text-transform: none;
+    font-size:20px;
+    border-radius: 10px;
+    font-weight: lighter;
+    padding:7px 0 7px 13px;
+  }
+}
+body li[role=tab]:not(.ui-tabs-active){
+  border: none;
+  a{
+    background-color: transparent;
+    border: none;
+  }
+}
+ul.ui-tabs-nav{
+  padding:10px 80px;background-color: #1b78b3;
 }

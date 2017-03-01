@@ -4573,9 +4573,9 @@ html .ui-body-b .ui-focus,
 html body .ui-group-theme-b .ui-focus,
 html head + body .ui-btn-b.ui-focus,
 html head + body .ui-body-b.ui-focus {
-  -webkit-box-shadow: 0 0 12px #000033;
-  -moz-box-shadow: 0 0 12px #000033;
-  box-shadow: 0 0 12px #000033;
+  -webkit-box-shadow: 0 0 4px #000033;
+  -moz-box-shadow: 0 0 4px #000033;
+  box-shadow: 0 0 4px #000033;
 }
 
 /* C
@@ -4831,6 +4831,31 @@ div.ui-select > div {
   width: 100%;
 }
 
+/* line 4196, sass/layout.scss */
+.w90 {
+  width: 90%;
+}
+
+/* line 4196, sass/layout.scss */
+.w80 {
+  width: 80%;
+}
+
+/* line 4196, sass/layout.scss */
+.w70 {
+  width: 70%;
+}
+
+/* line 4196, sass/layout.scss */
+.w60 {
+  width: 60%;
+}
+
+/* line 4196, sass/layout.scss */
+.w50 {
+  width: 50%;
+}
+
 /* line 4197, sass/layout.scss */
 .wauto {
   width: auto;
@@ -4931,6 +4956,49 @@ div[data-role="popup"] > a.ui-btn {
   padding: 0;
   background: transparent !important;
   border: none !important;
+}
+
+/* line 4283, sass/layout.scss */
+.text_center {
+  text-align: center;
+}
+
+/* line 4284, sass/layout.scss */
+.inline_block {
+  display: inline-block;
+}
+
+/* line 4285, sass/layout.scss */
+div.ui-tabs > .ui-navbar > .ui-tabs-nav > li {
+  padding: 0 7px;
+}
+/* line 4287, sass/layout.scss */
+div.ui-tabs > .ui-navbar > .ui-tabs-nav > li :nth-child(2) {
+  margin-left: 20px;
+}
+/* line 4290, sass/layout.scss */
+div.ui-tabs > .ui-navbar > .ui-tabs-nav > li a {
+  text-transform: none;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: lighter;
+  padding: 7px 0 7px 13px;
+}
+
+/* line 4298, sass/layout.scss */
+body li[role=tab]:not(.ui-tabs-active) {
+  border: none;
+}
+/* line 4300, sass/layout.scss */
+body li[role=tab]:not(.ui-tabs-active) a {
+  background-color: transparent;
+  border: none;
+}
+
+/* line 4305, sass/layout.scss */
+ul.ui-tabs-nav {
+  padding: 10px 80px;
+  background-color: #1b78b3;
 }
 
 /*# sourceMappingURL=layout.css.map */

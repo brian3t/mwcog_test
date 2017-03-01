@@ -40,7 +40,7 @@ function logout() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
     popup_active.one("popupafterclose", function (event, ui) {
         confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
-            window.location = "index.html";
+            jQuery.mobile.navigate('index.html');
         });
     });
     popup_active.popup('close');

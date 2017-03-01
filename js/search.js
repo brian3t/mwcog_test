@@ -13,7 +13,8 @@ function showRidematch() {
     window.localStorage.setItem("startRadius", $("#startRadius option:selected").text());
     window.localStorage.setItem("endRadius", $("#endRadius option:selected").text());
 
-    window.location = "rideshare.html";
+    setTimeout(function(){window.location.href="/rideshare.html";}, 500);
+    // window.location="/rideshare.html";
 }
 
 function showParkAndRide() {
@@ -24,7 +25,7 @@ function showParkAndRide() {
     window.localStorage.setItem("endAddressIndex", $("#endAddress option:selected").val());
 
 
-    window.location = "park_and_ride.html";
+    jQuery.mobile.navigate('park_and_ride.html');
 }
 
 function saveCommuterProfile() {
