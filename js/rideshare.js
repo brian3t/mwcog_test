@@ -140,8 +140,8 @@ function init() {
                 var point2 = new google.maps.LatLng(match.match[6], match.match[5]);
                 var startMarker = createStartMarker(point1, matchNum);
                 var destnMarker = createDestnMarker(point2, matchNum);
-                displayInfoWindow(startMarker, matchNum, '<div style="width: 150px; height: 100px;"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
-                displayInfoWindow(destnMarker, matchNum, '<div style="width: 150px; height: 100px;"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
+                displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
+                displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
 
 
             }
@@ -160,11 +160,11 @@ function init() {
 var trafficLayer = {};
 var toggleState = 0;
 var map;
-var directionsDisplay = {}, directionsService = {}, info={};
+var directionsDisplay = {}, directionsService = {}, info = {};
 function gmap_ready() {
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
-    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers:true});
     directionsService = new google.maps.DirectionsService();
     infowindow = new google.maps.InfoWindow({size: new google.maps.Size(100, 100)});
     initialize();
@@ -174,16 +174,16 @@ function gmap_ready() {
 function createStartMarker(point, index) {
     var marker;
     var i = index + 1;
-    var imageUrl = baseUrl + "/includes/images/StartPoint" + i + ".png";
-    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl});
+    var imageUrl = "/img/marker_circle_light_blue.svg";
+    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
     return marker;
 }
 
 function createDestnMarker(point, index) {
     var marker;
     var i = index + 1;
-    var imageUrl = baseUrl + "includes/images/DestinationPoint" + i + ".png";
-    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl});
+    var imageUrl = "/img/marker_circle_blue.svg";
+    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
     return marker;
 }
 
@@ -208,7 +208,6 @@ function displayInfoWindow(marker, count, infoHtl) {
 function initialize() {
     showSpinner();
 
-    directionsDisplay = new google.maps.DirectionsRenderer();
     var lineOptions = {strokeColor: "#08088A", zIndex: google.maps.Marker.MAX_ZINDEX + 1};
     var renderOptions = {draggable: false, polylineOptions: lineOptions};
     directionsDisplay.setOptions(renderOptions);
@@ -264,7 +263,25 @@ function initialize() {
                     //uncomment if the client requests manual zoom control
                     //directionsDisplay.setOptions({ preserveViewport: true });
                     directionsDisplay.setDirections(result);
-                    //todob draw route info here
+                    //draw route info here
+                    $('#route_info').show();
+                    $('#pickup input').val(startAddress);
+                    $('#dropoff input').val(endAddress);
+                    map.pickup_marker = new google.maps.Marker({
+                        map: map,
+                        position: start,
+                        labelContent:'hey',
+                        icon: 'img/marker_ab_green.svg',
+                        label: {text:'A', color:'white', 'fontWeight': 'bold'}
+                    });
+                    map.dropoff_marker = new google.maps.Marker({
+                        map: map,
+                        position: end,
+                        labelContent:'hey',
+                        icon: 'img/marker_ab_red.svg',
+                        label: {text:'B', color:'white', 'fontWeight': 'bold'}
+                    });
+
                 }
             });
 

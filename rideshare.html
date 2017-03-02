@@ -25,36 +25,6 @@
 //      });
     </script>         
 
-    <style type="text/css">
-      html, body, [data-role=tabs] { height: 100%; width: 100%; margin: 0; padding: 0; }
-      [data-role=tabs] { background-color: #000; }
-      #map, #list 
-      {
-        min-height: 100%;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    
-    #canvas {
-        width: 100%;
-        height: 300px;
-        min-height: 100%;
-        display: block;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    [data-role=footer] {
-        position: absolute;
-        margin: 0;
-        padding: 0;
-        bottom: 0;
-        width: 100%;
-        height: 40px;
-    }
-</style>
-
 
 <title>Commuter Connections</title>
     <script type="text/javascript" src="js/rideshare.js"></script>
@@ -86,19 +56,19 @@
 
     </div>
     <div class="box float_bottom hidden" id="route_info">
-        <div class="box_title">ROUTE INFORMATION</div>
+        <div class="box_title text_no_shadow">ROUTE INFORMATION</div>
         <span class="connector-wrapper">        <span class="connector"></span></span>
-        <div id="pickup" class="place input-row">
-            <label for="pickup">Pickup</label><i class="fa fa-circle point blue" aria-hidden="true"></i>
+        <div id="pickup" class="place input-row text_no_shadow">
+            <label for="pickup">Start</label><i class="fa fa-circle point green" aria-hidden="true"></i>
             <a id="pickup_popup" href="#select_address" data-address-to-pick="pickup"
-               class="selecting_address input_wrapper"><input disabled placeholder="CHOOSE A PICKUP LOCATION"
-                                                              type="text" class="address inverse blue"
+               class="selecting_address"><input disabled placeholder="Pickup Location"
+                                                              type="text" class="address inverse"
                                                               name="pickup_address"></a>
         </div>
         <div id="dropoff" class="place input-row">
-            <label for="dropoff">Dropoff</label><i class="fa fa-circle point green" aria-hidden="true"></i>
+            <label for="dropoff">End</label><i class="fa fa-circle point red" aria-hidden="true"></i>
             <a href="#select_address_dropoff" data-address-to-pick="dropoff" class="selecting_address input_wrapper"><input
-                    disabled placeholder="CHOOSE A DESTINATION" type="text" class="address inverse green"
+                    disabled placeholder="Dropoff Location" type="text" class="address inverse"
                     name="dropoff_address">
             </a>
         </div>
