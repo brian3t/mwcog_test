@@ -174,7 +174,7 @@ function gmap_ready() {
 function createStartMarker(point, index) {
     var marker;
     var i = index + 1;
-    var imageUrl = "/img/marker_circle_light_blue.svg";
+    var imageUrl = "img/marker_circle_light_blue.svg";
     marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
     return marker;
 }
@@ -182,7 +182,7 @@ function createStartMarker(point, index) {
 function createDestnMarker(point, index) {
     var marker;
     var i = index + 1;
-    var imageUrl = "/img/marker_circle_blue.svg";
+    var imageUrl = "img/marker_circle_blue.svg";
     marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
     return marker;
 }

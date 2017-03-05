@@ -13,7 +13,7 @@ function showRidematch() {
     window.localStorage.setItem("startRadius", $("#startRadius option:selected").text());
     window.localStorage.setItem("endRadius", $("#endRadius option:selected").text());
 
-    setTimeout(function(){window.location.href="/rideshare.html";}, 500);
+    setTimeout(function(){window.location.href="rideshare.html";}, 500);
     // window.location="/rideshare.html";
 }
 
