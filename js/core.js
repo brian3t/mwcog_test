@@ -11,8 +11,8 @@ document.addEventListener('deviceready', function () {
         window.screen.lockOrientation('portrait');
     }
     try{
-        StatusBar.overlaysWebView(false);
-        StatusBar.backgroundColorByHexString('#8199af');
+        // StatusBar.overlaysWebView(false);
+        // StatusBar.backgroundColorByHexString('#8199af');
         StatusBar.hide();
     } catch (e){
         console.error("Error " + e);
