@@ -10,6 +10,14 @@ document.addEventListener('deviceready', function () {
     if (window.width < 768 || window.height < 768){
         window.screen.lockOrientation('portrait');
     }
+    try{
+        StatusBar.overlaysWebView(false);
+        StatusBar.backgroundColorByHexString('#8199af');
+        StatusBar.hide();
+    } catch (e){
+        console.error("Error " + e);
+    }
+
 }, false);
 app_alert = function (message, alertCallback, title, buttonName) {
     if (buttonName === null) {

@@ -38,12 +38,20 @@ function goBack() {
 }
 function logout() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
-    popup_active.one("popupafterclose", function (event, ui) {
+    if (popup_active.length > 0) {
+        popup_active.one("popupafterclose", function (event, ui) {
+            confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
+                jQuery.mobile.navigate('index.html');
+                setTimeout(function(){window.location.href="index.html";}, 500);
+            });
+        });
+        popup_active.popup('close');
+    } else {
         confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
             jQuery.mobile.navigate('index.html');
+            setTimeout(function(){window.location.href="index.html";}, 500);
         });
-    });
-    popup_active.popup('close');
+    }
 }
 
 function register() {
