@@ -5193,4 +5193,10 @@ html, body, [data-role=tabs] {
   overflow: scroll;
 }
 
+/* line 3594, sass/layout.scss */
+.fc-row td.has_log {
+  background-color: #e8fde7;
+  text-shadow: none;
+}
+
 /*# sourceMappingURL=layout.css.map */

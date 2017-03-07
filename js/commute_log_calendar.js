@@ -62,6 +62,7 @@ function add_button_to_calendar() {
         var date_td = $('td.fc-day-top[data-date="' + day.format('YYYY-MM-DD') + '"]');
         if (User.days.indexOf(day.format('DD-MM-YYYY')) !== -1) {
             date_td.append('<br><button class="button">Edit</button>');
+            $('td.fc-day[data-date="' + day.format('YYYY-MM-DD') + '"]').addClass('has_log');
         } else {
             date_td.append('<br><button class="button">Add</button>');
         }
