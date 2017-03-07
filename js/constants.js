@@ -45,7 +45,7 @@ function logout() {
                 setTimeout(function(){window.location.href="index.html";}, 500);
             });
         });
-        popup_active.popup('close');
+        popup_active.popup('close',{history:false});
     } else {
         confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
             jQuery.mobile.navigate('index.html');

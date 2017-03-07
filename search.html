@@ -31,21 +31,32 @@
             <div data-role="popup" id="popup_menu" data-corners="false" data-shadow="false" data-tolerance="50,15,30,15">
                 <ul data-role="listview" data-inset="true">
                     <li data-icon="false"><a href="#" onclick="logout()" class="">Back</a></li>
-                    <li data-icon="false"><a href="#" onclick="toggle_panel_options()" class="  " id="btn_options">Options</a>
-                    </li>
-                    <!--<a href="#panel_welcomeuser" data-rel="popup" data-position-to="window" data-transition="none"-->
-                    <!--class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini" id="btn_welcome">Options</a></div>--></ul>
+                    <li data-icon="false"><a href="#" onclick="toggle_panel_options()" class="  " id="btn_options">Options</a></li>
+                    <!--<li data-icon="false"><a href="#" class="  " id="welcomeMsgBtn" onclick="show_welcome_msg()">Welcome</a></li>-->
+                    <li data-icon="false"><a href="#" id="btn_welcome" onclick="show_welcome_msg()">Welcome</a></li>
+                </ul>
             </div>
         </div>
     </div>
     <div data-role="content" role="main" class="ui-content">
-        <div id="welcomeMsg" data-role="popup" class="ui-corner-all">
-            <a href="#" data-rel="back" class="ui-btn   ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div id="welcomeMsg" data-role="popup" class="ui-corner-all" >
+            <a data-rel="back" class="ui-btn   ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
             <div class="ui-bar ui-bar-a"><h3>Welcome!</h3></div>
             <div class="ui-body ui-body-a"> Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed
                 through your desktop profile. Park N' Ride
                 lots are suggested based on your home/work addresses. Easily contact matches on the map or list views. <br/><br/>Happy Commuting!<br/></div>
         </div>
+
+        <!--<div data-role="popup" id="panel_welcomeuser" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">-->
+            <!--<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
+            <!--<div class="ui-bar ui-bar-a">-->
+                <!--<h3>Welcome!</h3>-->
+            <!--</div>-->
+            <!--<div class="ui-body ui-body-a">-->
+                <!--Thank you for joining our ridematching program, please click the "Options" button in the top menu to make changes to your match profile. Additional management options are available through our-->
+                <!--website.-->
+            <!--</div>-->
+        <!--</div>-->
 
         <form id="searchForm">
             <div class="ui-body ui-body-a">
@@ -150,13 +161,3 @@
 <!--</div>-->
 <!--</div>-->
 <!--</div>-->
-
-<div data-role="popup" id="panel_welcomeuser" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">
-           <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-              <div class="ui-bar ui-bar-a">
-                      <h3>Welcome!</h3>
-                  </div>
-                  <div class="ui-body ui-body-a">
-                  Thank you for joining our ridematching program, please click the "Options" button in the top menu to make changes to your match profile.  Additional management options are available through our website.
-                  </div>
-          </div>
