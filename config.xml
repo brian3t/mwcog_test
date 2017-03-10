@@ -76,5 +76,5 @@
     <preference name="fullscreen" value="false" />
     <item name="android:windowFullscreen">false</item>
     <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
-
+    <plugin name="cordova-plugin-device" spec="~1.1.5" />
 </widget>

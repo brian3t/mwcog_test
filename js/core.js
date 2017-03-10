@@ -17,14 +17,15 @@ document.addEventListener('deviceready', function () {
     } catch (e) {
         console.error("Error " + e);
     }
-    $(':input').on('focus', function (e) {
-            $('body').addClass('offset_input');
-        }
-    ).on('blur', function (e) {
-            $('body').removeClass('offset_input');
-        }
-    );
-
+    if (typeof device !== "undefined" && device.platform === 'Android') {
+        $(':input').on('focus', function (e) {
+                $('body').addClass('offset_input');
+            }
+        ).on('blur', function (e) {
+                $('body').removeClass('offset_input');
+            }
+        );
+    }
 }, false);
 app_alert = function (message, alertCallback, title, buttonName) {
     if (buttonName === null) {
