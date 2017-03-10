@@ -1,4 +1,10 @@
 isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
+var C = {
+    TYPE_GENERAL: 0,
+    TYPE_CIP: 1,
+    TYPE_VIP: 2,
+    TYPE_VIEW_ONLY_VIP: 3
+};
 var User = User || {};
 try {
     User.commuter_data = JSON.parse(window.localStorage.getItem('commuterData'));

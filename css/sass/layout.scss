@@ -2229,7 +2229,7 @@
   margin: 0;
 }
 .hidden {
-  display: none
+  display: none !important;
 }
 .fc-view-container {
   td.disabled {
@@ -2373,7 +2373,7 @@ input.has_icon {
   width: 90%;
   margin: 4px 0
 }
-.input_wrapper{
+.input_wrapper {
   border-bottom: 1px solid #c6c6cd;
   box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
@@ -3374,10 +3374,9 @@ div.ui-select > div {
 .blue {
   background-color: #1b78b3 !important;
 }
-.green{color: #0c9648 !important;}
+.green { color: #0c9648 !important; }
 .red { color: #96120c !important; }
-
-.bk_green{ background-color: #0c9648 !important;}
+.bk_green { background-color: #0c9648 !important; }
 div.ui-btn.blue {
   color: white;
 }
@@ -3474,7 +3473,7 @@ ul.ui-tabs-nav {
     border-bottom: none
   }
   .input-row label, input {
-/*     font-size: 12px */
+    /*     font-size: 12px */
   }
   .box-center {
     position: absolute;
@@ -3508,7 +3507,7 @@ ul.ui-tabs-nav {
     padding-top: 12px;
     text-align: center;
     position: absolute;
-    font-size:90%;
+    font-size: 90%;
   }
   input {
     width: 75%;
@@ -3561,18 +3560,16 @@ ul.ui-tabs-nav {
     border: 0;
   }
 }
-.text_no_shadow{text-shadow: none}
+.text_no_shadow { text-shadow: none }
 html, body, [data-role=tabs] { height: 100%; width: 100%; margin: 0; padding: 0; }
 [data-role=tabs] { background-color: #000; }
-#map, #list
-{
+#map, #list {
   min-height: 100%;
   position: relative;
   width: 100%;
   height: 100%;
   text-shadow: none;
 }
-
 #canvas {
   width: 100%;
   height: 300px;
@@ -3581,7 +3578,6 @@ html, body, [data-role=tabs] { height: 100%; width: 100%; margin: 0; padding: 0;
   position: relative;
   overflow: hidden;
 }
-
 [data-role=footer] {
   position: absolute;
   margin: 0;
@@ -3590,9 +3586,13 @@ html, body, [data-role=tabs] { height: 100%; width: 100%; margin: 0; padding: 0;
   width: 100%;
   height: 40px;
 }
-.info_window{max-width: 250px; overflow: scroll}
-.fc-row td.has_log{background-color: #e8fde7;text-shadow: none;}
-body.offset_input{
+.info_window { max-width: 250px; overflow: scroll }
+.fc-row td.has_log { background-color: #e8fde7; text-shadow: none; }
+body.offset_input {
   position: relative;
   top: -72px;
 }
+div.banner > a.ui-btn {
+  border: none;
+}
+.ui-header .ui-title, .ui-footer .ui-title{margin: 0 20%}

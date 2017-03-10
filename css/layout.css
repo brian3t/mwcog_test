@@ -3652,7 +3652,7 @@
 
 /* line 2231, sass/layout.scss */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* line 2235, sass/layout.scss */
@@ -4891,64 +4891,64 @@ div.ui-select > div {
   color: #96120c !important;
 }
 
-/* line 3380, sass/layout.scss */
+/* line 3379, sass/layout.scss */
 .bk_green {
   background-color: #0c9648 !important;
 }
 
-/* line 3381, sass/layout.scss */
+/* line 3380, sass/layout.scss */
 div.ui-btn.blue {
   color: white;
 }
 
-/* line 3384, sass/layout.scss */
+/* line 3383, sass/layout.scss */
 .bk_white {
   background-color: white;
 }
 
-/* line 3388, sass/layout.scss */
+/* line 3387, sass/layout.scss */
 .ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
   background: none;
 }
 
-/* line 3391, sass/layout.scss */
+/* line 3390, sass/layout.scss */
 .ui-input-btn input {
   text-transform: uppercase;
   border-top: 1px solid #b9ccdf;
 }
 
-/* line 3395, sass/layout.scss */
+/* line 3394, sass/layout.scss */
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
 }
 
-/* line 3401, sass/layout.scss */
+/* line 3400, sass/layout.scss */
 .ui-icon-ridematch:after {
   background-image: url("../img/icon/ridematch.png");
 }
 
-/* line 3404, sass/layout.scss */
+/* line 3403, sass/layout.scss */
 .ui-icon-pnr:after {
   background-image: url("../img/icon/pnr.png");
 }
 
-/* line 3407, sass/layout.scss */
+/* line 3406, sass/layout.scss */
 .ui-icon-commute_calendar:after {
   font: normal normal normal 22px/1 FontAwesome;
   content: "";
 }
 
-/* line 3411, sass/layout.scss */
+/* line 3410, sass/layout.scss */
 [class*=ui-icon-]:after {
   background-size: contain;
 }
 
-/* line 3414, sass/layout.scss */
+/* line 3413, sass/layout.scss */
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   width: 28px;
 }
 
-/* line 3417, sass/layout.scss */
+/* line 3416, sass/layout.scss */
 .ui-icon-carat_down:after {
   content: "\f0d7";
   color: #1b78b3;
@@ -4956,42 +4956,42 @@ div.ui-btn.blue {
   width: auto;
 }
 
-/* line 3423, sass/layout.scss */
+/* line 3422, sass/layout.scss */
 .ui-popup-active {
   background-color: #fff;
 }
 
-/* line 3426, sass/layout.scss */
+/* line 3425, sass/layout.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 3429, sass/layout.scss */
+/* line 3428, sass/layout.scss */
 div[data-role="popup"] > a.ui-btn {
   padding: 0;
   background: transparent !important;
   border: none !important;
 }
 
-/* line 3434, sass/layout.scss */
+/* line 3433, sass/layout.scss */
 .text_center {
   text-align: center;
 }
 
-/* line 3435, sass/layout.scss */
+/* line 3434, sass/layout.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 3436, sass/layout.scss */
+/* line 3435, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li {
   padding: 0 7px;
 }
-/* line 3438, sass/layout.scss */
+/* line 3437, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li :nth-child(2) {
   margin-left: 20px;
 }
-/* line 3441, sass/layout.scss */
+/* line 3440, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li a {
   text-transform: none;
   font-size: 20px;
@@ -5000,49 +5000,49 @@ div.ui-tabs > .ui-navbar > .ui-tabs-nav > li a {
   padding: 7px 0 7px 13px;
 }
 
-/* line 3449, sass/layout.scss */
+/* line 3448, sass/layout.scss */
 body li[role=tab]:not(.ui-tabs-active) {
   border: none;
 }
-/* line 3451, sass/layout.scss */
+/* line 3450, sass/layout.scss */
 body li[role=tab]:not(.ui-tabs-active) a {
   background-color: transparent;
   border: none;
 }
 
-/* line 3456, sass/layout.scss */
+/* line 3455, sass/layout.scss */
 ul.ui-tabs-nav {
   padding: 10px 80px;
   background-color: #1b78b3;
 }
 
-/* line 3459, sass/layout.scss */
+/* line 3458, sass/layout.scss */
 .box {
   background-color: white;
   color: black;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #666;
 }
-/* line 3460, sass/layout.scss */
+/* line 3459, sass/layout.scss */
 .box * {
   background-color: white;
   color: black;
   box-sizing: border-box;
 }
-/* line 3469, sass/layout.scss */
+/* line 3468, sass/layout.scss */
 .box .input-row {
   margin-bottom: 12px;
   margin-top: 12px;
 }
-/* line 3473, sass/layout.scss */
+/* line 3472, sass/layout.scss */
 .box .input-row:last-child, .box .input-row:nth-child(4) {
   border-bottom: none;
 }
-/* line 3476, sass/layout.scss */
+/* line 3475, sass/layout.scss */
 .box .input-row label, .box input {
   /*     font-size: 12px */
 }
-/* line 3479, sass/layout.scss */
+/* line 3478, sass/layout.scss */
 .box .box-center {
   position: absolute;
   text-align: center;
@@ -5056,7 +5056,7 @@ ul.ui-tabs-nav {
   padding: 10px;
 }
 
-/* line 3493, sass/layout.scss */
+/* line 3492, sass/layout.scss */
 #route_info .box_title {
   width: auto;
   background-color: #233b64;
@@ -5065,13 +5065,13 @@ ul.ui-tabs-nav {
   padding: 12px;
   color: white;
 }
-/* line 3501, sass/layout.scss */
+/* line 3500, sass/layout.scss */
 #route_info label {
   width: 20%;
   color: #999;
   margin: 0;
 }
-/* line 3506, sass/layout.scss */
+/* line 3505, sass/layout.scss */
 #route_info .point {
   width: 5%;
   padding-top: 12px;
@@ -5079,14 +5079,14 @@ ul.ui-tabs-nav {
   position: absolute;
   font-size: 90%;
 }
-/* line 3513, sass/layout.scss */
+/* line 3512, sass/layout.scss */
 #route_info input {
   width: 75%;
   padding-left: 5px;
   height: 41px;
   padding-right: 16px;
 }
-/* line 3519, sass/layout.scss */
+/* line 3518, sass/layout.scss */
 #route_info .connector {
   margin: 0 auto;
   display: block;
@@ -5095,7 +5095,7 @@ ul.ui-tabs-nav {
   background-color: #aaa;
 }
 
-/* line 3527, sass/layout.scss */
+/* line 3526, sass/layout.scss */
 .connector-wrapper {
   position: absolute;
   top: 90px;
@@ -5106,7 +5106,7 @@ ul.ui-tabs-nav {
   background-color: white;
 }
 
-/* line 3536, sass/layout.scss */
+/* line 3535, sass/layout.scss */
 .box.float_bottom {
   height: auto;
   position: fixed;
@@ -5116,14 +5116,14 @@ ul.ui-tabs-nav {
   z-index: 2;
 }
 
-/* line 3544, sass/layout.scss */
+/* line 3543, sass/layout.scss */
 .input-row {
   margin-bottom: 12px;
   border-bottom: 1px solid #b2b1b1;
   height: 50px;
   overflow: hidden;
 }
-/* line 3549, sass/layout.scss */
+/* line 3548, sass/layout.scss */
 .input-row label {
   float: left;
   width: 25%;
@@ -5131,7 +5131,7 @@ ul.ui-tabs-nav {
   height: 36px;
   text-overflow: ellipsis;
 }
-/* line 3556, sass/layout.scss */
+/* line 3555, sass/layout.scss */
 .input-row input {
   float: right;
   width: 75%;
@@ -5140,12 +5140,12 @@ ul.ui-tabs-nav {
   border: 0;
 }
 
-/* line 3564, sass/layout.scss */
+/* line 3563, sass/layout.scss */
 .text_no_shadow {
   text-shadow: none;
 }
 
-/* line 3565, sass/layout.scss */
+/* line 3564, sass/layout.scss */
 html, body, [data-role=tabs] {
   height: 100%;
   width: 100%;
@@ -5153,12 +5153,12 @@ html, body, [data-role=tabs] {
   padding: 0;
 }
 
-/* line 3566, sass/layout.scss */
+/* line 3565, sass/layout.scss */
 [data-role=tabs] {
   background-color: #000;
 }
 
-/* line 3567, sass/layout.scss */
+/* line 3566, sass/layout.scss */
 #map, #list {
   min-height: 100%;
   position: relative;
@@ -5167,7 +5167,7 @@ html, body, [data-role=tabs] {
   text-shadow: none;
 }
 
-/* line 3576, sass/layout.scss */
+/* line 3573, sass/layout.scss */
 #canvas {
   width: 100%;
   height: 300px;
@@ -5177,7 +5177,7 @@ html, body, [data-role=tabs] {
   overflow: hidden;
 }
 
-/* line 3585, sass/layout.scss */
+/* line 3581, sass/layout.scss */
 [data-role=footer] {
   position: absolute;
   margin: 0;
@@ -5187,22 +5187,32 @@ html, body, [data-role=tabs] {
   height: 40px;
 }
 
-/* line 3593, sass/layout.scss */
+/* line 3589, sass/layout.scss */
 .info_window {
   max-width: 250px;
   overflow: scroll;
 }
 
-/* line 3594, sass/layout.scss */
+/* line 3590, sass/layout.scss */
 .fc-row td.has_log {
   background-color: #e8fde7;
   text-shadow: none;
 }
 
-/* line 3595, sass/layout.scss */
+/* line 3591, sass/layout.scss */
 body.offset_input {
   position: relative;
   top: -72px;
+}
+
+/* line 3595, sass/layout.scss */
+div.banner > a.ui-btn {
+  border: none;
+}
+
+/* line 3598, sass/layout.scss */
+.ui-header .ui-title, .ui-footer .ui-title {
+  margin: 0 20%;
 }
 
 /*# sourceMappingURL=layout.css.map */

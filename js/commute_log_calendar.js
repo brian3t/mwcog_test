@@ -1,6 +1,8 @@
 "use strict";
+var C = C || {};
 var DATE_FORMAT = 'MM/DD/YYYY';
 var DATE_FORMAT_API = 'M/DD/YYYY';
+var DATE_FORMAT_HTML = 'M/D/YYYY';
 var User = User || {
         type: -1,
         days: [],
@@ -83,7 +85,8 @@ function get_commute_type(log_date, is_update_html) {
     }
     var url = mwcog_root + "?action=getCommuteLogType&" + build_query({'log_date': log_date});
     User.type = 0;
-    $('body').addClass('whirl');
+    // $('body').addClass('whirl');
+    showSpinner();
     var type_return = $.ajax(url);
     type_return.then(function (data) {
             User = data;
@@ -91,8 +94,8 @@ function get_commute_type(log_date, is_update_html) {
                 User.type = 0;
             }
             switch (User.type) {
-                case 0:
-                case 1: {
+                case C.TYPE_GENERAL:
+                case C.TYPE_CIP: {
                     User.trips = [];
                     leg = {};
                     trip = {};
@@ -144,7 +147,7 @@ function get_commute_type(log_date, is_update_html) {
                     }
                     break;
                 }
-                case 2: {
+                case C.TYPE_VIP: {
                     User.pool_id = User.commuter1PoolID;
                     User.commuters = [];
                     var still_has_commuter = false;
@@ -201,22 +204,29 @@ function get_commute_type(log_date, is_update_html) {
                 default:
                     break;
             }
+            if (User.type == C.TYPE_CIP){
+                $('#cip_message').show();
+            } else {
+                $('#cip_message').hide();
+            }
 
-            $('body').removeClass('whirl');
+            // $('body').removeClass('whirl');
+            hideSpinner();
         }
         ,
         function (jqXHR, textStatus, errorThrown) {
-            $('body').removeClass('whirl');
+            // $('body').removeClass('whirl');
+            hideSpinner();
             console.log('Can\'t get user type, assume 0');
         }
-    )
-    ;
+    );
 }
 function edit_log(e) {
     var $e = $($(e.target).closest('td'));
     var date = moment($e.data().date, 'YYYY-MM-DD').format(DATE_FORMAT_API);
     $('body').addClass('has_dialog');
     $('.cur_date').html(date);
+    $('.cur_date_mdy').html(moment($e.data().date, 'YYYY-MM-DD').format(DATE_FORMAT_HTML));
     $('.cur_date_val').val(date);
     $('#createdBy').val(window.localStorage.getItem('userName'));
     $('.idPool').val(User.pool_id);
