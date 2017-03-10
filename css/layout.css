@@ -5199,4 +5199,10 @@ html, body, [data-role=tabs] {
   text-shadow: none;
 }
 
+/* line 3595, sass/layout.scss */
+body.offset_input {
+  position: relative;
+  top: -72px;
+}
+
 /*# sourceMappingURL=layout.css.map */

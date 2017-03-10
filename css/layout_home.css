@@ -3779,7 +3779,7 @@ table.tall_table tr.leg td.header {
 }
 /* line 3063, sass/layout_home.scss */
 #home .login {
-  margin-top: 324px;
+  margin-top: 284px;
 }
 /* line 3067, sass/layout_home.scss */
 #home #links_wrapper a {
@@ -3951,6 +3951,12 @@ table.tall_table tr.leg td.header {
 /* line 3192, sass/layout_home.scss */
 .row * {
   float: left;
+}
+
+/* line 3195, sass/layout_home.scss */
+body.offset_input {
+  position: relative;
+  top: -72px;
 }
 
 /*# sourceMappingURL=layout_home.css.map */

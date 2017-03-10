@@ -2,21 +2,28 @@ isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('http
 var User = User || {};
 try {
     User.commuter_data = JSON.parse(window.localStorage.getItem('commuterData'));
-} catch (e){
+} catch (e) {
     console.error('Cant get commuter data' + commuter_data);
 }
 
 document.addEventListener('deviceready', function () {
-    if (window.width < 768 || window.height < 768){
+    if (window.width < 768 || window.height < 768) {
         window.screen.lockOrientation('portrait');
     }
-    try{
+    try {
         // StatusBar.overlaysWebView(false);
         // StatusBar.backgroundColorByHexString('#8199af');
         StatusBar.hide();
-    } catch (e){
+    } catch (e) {
         console.error("Error " + e);
     }
+    $(':input').on('focus', function (e) {
+            $('body').addClass('offset_input');
+        }
+    ).on('blur', function (e) {
+            $('body').removeClass('offset_input');
+        }
+    );
 
 }, false);
 app_alert = function (message, alertCallback, title, buttonName) {

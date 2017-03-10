@@ -3592,3 +3592,7 @@ html, body, [data-role=tabs] { height: 100%; width: 100%; margin: 0; padding: 0;
 }
 .info_window{max-width: 250px; overflow: scroll}
 .fc-row td.has_log{background-color: #e8fde7;text-shadow: none;}
+body.offset_input{
+  position: relative;
+  top: -72px;
+}

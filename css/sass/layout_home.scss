@@ -3061,7 +3061,7 @@ table.tall_table {
   border-top: 1px solid #8199af;
   padding: 12px 24px;
   .login {
-    margin-top: 324px;
+    margin-top: 284px;
   }
   #links_wrapper {
     a {
@@ -3191,4 +3191,8 @@ input.has_icon {
 }
 .row * {
   float: left;
+}
+body.offset_input{
+  position: relative;
+  top: -72px;
 }
