@@ -3061,7 +3061,7 @@ table.tall_table {
   border-top: 1px solid #8199af;
   padding: 12px 24px;
   .login {
-    margin-top: 344px;
+    margin-top: 324px;
   }
   #links_wrapper {
     a {
@@ -3118,6 +3118,10 @@ input.has_icon {
   border-bottom: 1px solid #c6c6cd;
   box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
+}
+#remember_wrapper{
+  line-height: 42px;
+  span.switchery{margin-top: 4px;}
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -3178,7 +3182,7 @@ input.has_icon {
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
 }
-
+.w40{ width:40%;}.w60{ width:60%;}
 .w50 {
   width: 50%
 }
