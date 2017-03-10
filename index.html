@@ -8,6 +8,7 @@
     <!-- link rel="stylesheet" type="text/css" href="css/index.css" / -->
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="js/lib/switchery.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/layout_home.css"/>
     <link rel="stylesheet" href="css/mwcog-a_home.css"/>
     <!--<link rel="stylesheet" href="css/mwcog-a.min.css"/>-->
@@ -48,11 +49,21 @@
                 <div class="input_wrapper">
                     <label for="password"><i class="fa fa-lock" aria-hidden="true"></i></label>
                     <input type="password" name="password" id="password" class="has_icon" value="" placeholder="Password"/>
-                    <!--<label for="remember">Remember Password</label>-->
-                    <!--<input type="checkbox" id="remember" name="remember" value="remember"/>-->
                 </div>
-                <div class="ui-grid-b">
-                    <div id="links_wrapper" class="ui-block-a ui-block-span2"><a href="#" onClick='jQuery.mobile.navigate("forgot.html");' class="plain">Forgot Username/Password</a>
+                <div id="remember_wrapper" class="row">
+                    <span class="w50">Remember Password</span>
+                    <div class="w50">
+                        <input title="remember" id="remember" type="checkbox" data-role="none" class="js-switch" name="remember"/>
+                    </div>
+                </div>
+
+                <!--<div class="input_wrapper">-->
+                <!--<label>-->
+                <!--<input type="checkbox" id="remember" name="remember" value="remember"/>Remember Password</label>-->
+                <!--</div>-->
+                <div class="ui-grid-b row">
+                    <div id="links_wrapper" class="ui-block-a ui-block-span2"><a href="#" onClick='jQuery.mobile.navigate("forgot.html");' class="plain">Forgot
+                        Username/Password</a>
                         <a href="#" onClick="register()" class="plain">Create Account</a>
                     </div>
                     <div class="ui-block-c"><input type="submit" value="LOG IN" id="submitButton" class="has_icon" data-role="button"></div>
@@ -70,9 +81,10 @@
     -->
 </div>
 
-
+<script type="text/javascript" src="js/lib/switchery.min.js"></script>
 <script type="text/javascript">
     app.initialize();
 </script>
+
 </body>
 </html>

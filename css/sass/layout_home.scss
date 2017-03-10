@@ -3063,7 +3063,7 @@ table.tall_table {
   .login {
     margin-top: 344px;
   }
-  #links_wrapper{
+  #links_wrapper {
     a {
       display: inline-block;
       margin: 9px 0 0 0;
@@ -3095,14 +3095,15 @@ table.tall_table {
 }
 
 .ui-body {
-  padding-top: 16px;padding-bottom:16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 input.has_icon {
   //padding-left: 30px;
 }
 
-.ui-mobile label, .ui-controlgroup-label {
+.ui-mobile .input_wrapper label, .input_wrapper .ui-controlgroup-label {
   display: inline-block;
   width: 8%
 }
@@ -3113,46 +3114,77 @@ input.has_icon {
   margin: 3px 0
 }
 
-.input_wrapper {
+.input_wrapper, #remember_wrapper {
   border-bottom: 1px solid #c6c6cd;
-  box-shadow: 0 1px 0 0 #e0e0e9,0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
+  box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
 }
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color:    #6c6c6c;
+  color: #6c6c6c;
 }
+
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:    #6c6c6c;
-  opacity:  1;
+  color: #6c6c6c;
+  opacity: 1;
 }
+
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    #6c6c6c;
-  opacity:  1;
+  color: #6c6c6c;
+  opacity: 1;
 }
+
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color:    #6c6c6c;
+  color: #6c6c6c;
 }
+
 .ui-grid-b > .ui-block-span2 {
   width: 66.6666%;
 }
+
 .ui-grid-c > .ui-block-span2 {
   width: 50%;
 }
+
 .ui-grid-c > .ui-block-span3 {
   width: 75%;
 }
+
 .ui-grid-d > .ui-block-span2 {
   width: 40%;
 }
+
 .ui-grid-d > .ui-block-span3 {
   width: 60%;
 }
+
 .ui-grid-d > .ui-block-span4 {
   width: 80%;
 }
-.ui-btn{margin: 4px 0}
-.ui-input-btn input{text-transform: uppercase}
-[class*=ui-block-]>.ui-btn, [class*=ui-block-]>.ui-select, [class*=ui-block-]>.ui-checkbox, [class*=ui-block-]>.ui-radio, [class*=ui-block-]>button.ui-btn-inline, [class*=ui-block-]>button.ui-btn-icon-notext, .ui-grid-solo>[class*=ui-]{
-  margin-left: 2px;margin-right: 2px;
+
+.ui-btn {
+  margin: 4px 0
 }
-.ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count{border-radius: 1px;}
+
+.ui-input-btn input {
+  text-transform: uppercase
+}
+
+[class*=ui-block-] > .ui-btn, [class*=ui-block-] > .ui-select, [class*=ui-block-] > .ui-checkbox, [class*=ui-block-] > .ui-radio, [class*=ui-block-] > button.ui-btn-inline, [class*=ui-block-] > button.ui-btn-icon-notext, .ui-grid-solo > [class*=ui-] {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
+  border-radius: 1px;
+}
+
+.w50 {
+  width: 50%
+}
+.row{
+  float: left;width: 100%;
+}
+.row * {
+  float: left;
+}

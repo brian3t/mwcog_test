@@ -3821,101 +3821,117 @@ table.tall_table tr.leg td.header {
   padding-bottom: 16px;
 }
 
-/* line 3105, sass/layout_home.scss */
-.ui-mobile label, .ui-controlgroup-label {
+/* line 3106, sass/layout_home.scss */
+.ui-mobile .input_wrapper label, .input_wrapper .ui-controlgroup-label {
   display: inline-block;
   width: 8%;
 }
 
-/* line 3110, sass/layout_home.scss */
+/* line 3111, sass/layout_home.scss */
 .ui-input-text, .ui-input-search {
   display: inline-block;
   width: 90%;
   margin: 3px 0;
 }
 
-/* line 3116, sass/layout_home.scss */
-.input_wrapper {
+/* line 3117, sass/layout_home.scss */
+.input_wrapper, #remember_wrapper {
   border-bottom: 1px solid #c6c6cd;
-  box-shadow: 0 1px 0 0 #e0e0e9,0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
+  box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
 }
 
-/* line 3121, sass/layout_home.scss */
+/* line 3123, sass/layout_home.scss */
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: #6c6c6c;
 }
 
-/* line 3124, sass/layout_home.scss */
+/* line 3127, sass/layout_home.scss */
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: #6c6c6c;
   opacity: 1;
 }
 
-/* line 3128, sass/layout_home.scss */
+/* line 3132, sass/layout_home.scss */
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: #6c6c6c;
   opacity: 1;
 }
 
-/* line 3132, sass/layout_home.scss */
+/* line 3137, sass/layout_home.scss */
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #6c6c6c;
 }
 
-/* line 3135, sass/layout_home.scss */
+/* line 3141, sass/layout_home.scss */
 .ui-grid-b > .ui-block-span2 {
   width: 66.6666%;
 }
 
-/* line 3138, sass/layout_home.scss */
+/* line 3145, sass/layout_home.scss */
 .ui-grid-c > .ui-block-span2 {
   width: 50%;
 }
 
-/* line 3141, sass/layout_home.scss */
+/* line 3149, sass/layout_home.scss */
 .ui-grid-c > .ui-block-span3 {
   width: 75%;
 }
 
-/* line 3144, sass/layout_home.scss */
+/* line 3153, sass/layout_home.scss */
 .ui-grid-d > .ui-block-span2 {
   width: 40%;
 }
 
-/* line 3147, sass/layout_home.scss */
+/* line 3157, sass/layout_home.scss */
 .ui-grid-d > .ui-block-span3 {
   width: 60%;
 }
 
-/* line 3150, sass/layout_home.scss */
+/* line 3161, sass/layout_home.scss */
 .ui-grid-d > .ui-block-span4 {
   width: 80%;
 }
 
-/* line 3153, sass/layout_home.scss */
+/* line 3165, sass/layout_home.scss */
 .ui-btn {
   margin: 4px 0;
 }
 
-/* line 3154, sass/layout_home.scss */
+/* line 3169, sass/layout_home.scss */
 .ui-input-btn input {
   text-transform: uppercase;
 }
 
-/* line 3155, sass/layout_home.scss */
+/* line 3173, sass/layout_home.scss */
 [class*=ui-block-] > .ui-btn, [class*=ui-block-] > .ui-select, [class*=ui-block-] > .ui-checkbox, [class*=ui-block-] > .ui-radio, [class*=ui-block-] > button.ui-btn-inline, [class*=ui-block-] > button.ui-btn-icon-notext, .ui-grid-solo > [class*=ui-] {
   margin-left: 2px;
   margin-right: 2px;
 }
 
-/* line 3158, sass/layout_home.scss */
+/* line 3178, sass/layout_home.scss */
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
+}
+
+/* line 3182, sass/layout_home.scss */
+.w50 {
+  width: 50%;
+}
+
+/* line 3185, sass/layout_home.scss */
+.row {
+  float: left;
+  width: 100%;
+}
+
+/* line 3188, sass/layout_home.scss */
+.row * {
+  float: left;
 }
 
 /*# sourceMappingURL=layout_home.css.map */

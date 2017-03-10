@@ -2,13 +2,14 @@ if (typeof navigator.notification !== 'object') {
     navigator.notification = {
         alert: function () {
         }
-    }
+    };
 }
 var app = {
     // Application Constructor
     initialize: function () {
         $.support.cors = true;
         $.mobile.allowCrossDomainPages = true;
+        var remember_sw = new Switchery(document.querySelector('.js-switch'));
         var remember = window.localStorage.getItem("rememberCheckbox");
         var username = window.localStorage.getItem("username");
         var hashedPassword = window.localStorage.getItem("hashedPassword");
@@ -19,7 +20,6 @@ var app = {
             hashed = true;
             $("#password").val(hashedPassword);
         }
-
 
         $("#loginForm").on("submit", function (e) {
             if (window.is_login_and_commute_log) {
