@@ -1,0 +1,140 @@
+input[type="checkbox"].switch,
+input[type="radio"].switch {
+  display: none;
+}
+input[type="checkbox"].switch + label,
+input[type="radio"].switch + label {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 54px;
+  height: 30px;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  -webkit-border-radius: 20.000000000000007px;
+  border-radius: 20.000000000000007px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input[type="checkbox"].switch + label .js-switch-button,
+input[type="radio"].switch + label .js-switch-button,
+input[type="checkbox"].switch + label .js-switch-background,
+input[type="radio"].switch + label .js-switch-background,
+input[type="checkbox"].switch + label:before,
+input[type="radio"].switch + label:before,
+input[type="checkbox"].switch + label:after,
+input[type="radio"].switch + label:after {
+  content: "";
+  height: 28px;
+  width: 28px;
+  background: #fff;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+input[type="checkbox"].switch + label .js-switch-background,
+input[type="radio"].switch + label .js-switch-background,
+input[type="checkbox"].switch + label:before,
+input[type="radio"].switch + label:before {
+  background-color: #2ecc71;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+  box-shadow: 0 0 0 1px transparent;
+  -webkit-transition: width 0.2s ease-in-out, box-shadow 0s ease 0.2s;
+  -moz-transition: width 0.2s ease-in-out, box-shadow 0s ease 0.2s;
+  -o-transition: width 0.2s ease-in-out, box-shadow 0s ease 0.2s;
+  -ms-transition: width 0.2s ease-in-out, box-shadow 0s ease 0.2s;
+  transition: width 0.2s ease-in-out, box-shadow 0s ease 0.2s;
+}
+input[type="checkbox"].switch + label .js-switch-button,
+input[type="radio"].switch + label .js-switch-button,
+input[type="checkbox"].switch + label:after,
+input[type="radio"].switch + label:after {
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  -webkit-transition: left 0.2s ease-in-out;
+  -moz-transition: left 0.2s ease-in-out;
+  -o-transition: left 0.2s ease-in-out;
+  -ms-transition: left 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out;
+}
+input[type="checkbox"].switch:checked + label .js-switch-background,
+input[type="radio"].switch:checked + label .js-switch-background,
+input[type="checkbox"].switch:checked + label:before,
+input[type="radio"].switch:checked + label:before {
+  -webkit-box-shadow: 0 0 0 1px #2ecc71;
+  box-shadow: 0 0 0 1px #2ecc71;
+  width: 52px;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  -ms-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+input[type="checkbox"].switch:checked + label .js-switch-button,
+input[type="radio"].switch:checked + label .js-switch-button,
+input[type="checkbox"].switch:checked + label:after,
+input[type="radio"].switch:checked + label:after {
+  left: 24px;
+}
+input[type="checkbox"].switch:checked + label.js-switch-active .js-switch-background,
+input[type="radio"].switch:checked + label.js-switch-active .js-switch-background,
+input[type="checkbox"].switch + label.js-switch-active .js-switch-background,
+input[type="radio"].switch + label.js-switch-active .js-switch-background {
+  -webkit-box-shadow: 0 0 0 1px #2ecc71;
+  box-shadow: 0 0 0 1px #2ecc71;
+}
+input[type="checkbox"].switch:checked + label.js-switch-active .js-switch-background,
+input[type="radio"].switch:checked + label.js-switch-active .js-switch-background,
+input[type="checkbox"].switch + label.js-switch-active .js-switch-background,
+input[type="radio"].switch + label.js-switch-active .js-switch-background,
+input[type="checkbox"].switch:checked + label.js-switch-active .js-switch-button,
+input[type="radio"].switch:checked + label.js-switch-active .js-switch-button,
+input[type="checkbox"].switch + label.js-switch-active .js-switch-button,
+input[type="radio"].switch + label.js-switch-active .js-switch-button {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+input[type="checkbox"].switch:checked + label.js-switch-active.js-switch-minimum .js-switch-background,
+input[type="radio"].switch:checked + label.js-switch-active.js-switch-minimum .js-switch-background,
+input[type="checkbox"].switch + label.js-switch-active.js-switch-minimum .js-switch-background,
+input[type="radio"].switch + label.js-switch-active.js-switch-minimum .js-switch-background {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type="checkbox"].switch:disabled + label,
+input[type="radio"].switch:disabled + label,
+input[type="checkbox"].switch:disabled:checked + label,
+input[type="radio"].switch:disabled:checked + label {
+  cursor: default;
+  border-color: #ecf0f1;
+}
+input[type="checkbox"].switch:disabled + label,
+input[type="radio"].switch:disabled + label,
+input[type="checkbox"].switch:disabled:checked + label,
+input[type="radio"].switch:disabled:checked + label,
+input[type="checkbox"].switch:disabled + label .js-switch-background,
+input[type="radio"].switch:disabled + label .js-switch-background,
+input[type="checkbox"].switch:disabled:checked + label .js-switch-background,
+input[type="radio"].switch:disabled:checked + label .js-switch-background,
+input[type="checkbox"].switch:disabled + label:before,
+input[type="radio"].switch:disabled + label:before,
+input[type="checkbox"].switch:disabled:checked + label:before,
+input[type="radio"].switch:disabled:checked + label:before {
+  background-color: #ecf0f1;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type="checkbox"].switch.js-switch + label:after,
+input[type="radio"].switch.js-switch + label:after,
+input[type="checkbox"].switch.js-switch + label:before,
+input[type="radio"].switch.js-switch + label:before {
+  display: none;
+}
