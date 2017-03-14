@@ -4561,7 +4561,7 @@ html body .ui-group-theme-b .ui-radio-on:after,
 }
 
 /* Focus */
-/* line 3071, sass/layout.scss */
+/* line 3070, sass/layout.scss */
 .ui-page-theme-b .ui-btn:focus,
 html .ui-bar-b .ui-btn:focus,
 html .ui-body-b .ui-btn:focus,
@@ -4581,7 +4581,7 @@ html head + body .ui-body-b.ui-focus {
 /* C
 -----------------------------------------------------------------------------------------------------------*/
 /* Bar: Toolbars, dividers, slider track */
-/* line 3093, sass/layout.scss */
+/* line 3092, sass/layout.scss */
 .ui-bar-c,
 .ui-page-theme-c .ui-bar-inherit,
 html .ui-bar-c .ui-bar-inherit,
@@ -4594,14 +4594,14 @@ html body .ui-group-theme-c .ui-bar-inherit {
   font-weight: bold;
 }
 
-/* line 3111, sass/layout.scss */
+/* line 3110, sass/layout.scss */
 .ui-bar-c {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Page and overlay */
-/* line 3116, sass/layout.scss */
+/* line 3115, sass/layout.scss */
 .ui-overlay-c,
 .ui-page-theme-c,
 .ui-page-theme-c .ui-panel-wrapper {
@@ -4612,7 +4612,7 @@ html body .ui-group-theme-c .ui-bar-inherit {
 }
 
 /* Body: Read-only lists, text inputs, collapsible content */
-/* line 3132, sass/layout.scss */
+/* line 3131, sass/layout.scss */
 .ui-body-c,
 .ui-page-theme-c .ui-body-inherit,
 html .ui-bar-c .ui-body-inherit,
@@ -4625,14 +4625,14 @@ html .ui-panel-page-container-c {
   text-shadow: 0 1px 0 #f3f3f3;
 }
 
-/* line 3150, sass/layout.scss */
+/* line 3149, sass/layout.scss */
 .ui-body-c {
   border-width: 1px;
   border-style: solid;
 }
 
 /* Links */
-/* line 3155, sass/layout.scss */
+/* line 3154, sass/layout.scss */
 .ui-page-theme-c a,
 html .ui-bar-c a,
 html .ui-body-c a,
@@ -4641,7 +4641,7 @@ html body .ui-group-theme-c a {
   font-weight: bold;
 }
 
-/* line 3163, sass/layout.scss */
+/* line 3162, sass/layout.scss */
 .ui-page-theme-c a:visited,
 html .ui-bar-c a:visited,
 html .ui-body-c a:visited,
@@ -4649,7 +4649,7 @@ html body .ui-group-theme-c a:visited {
   color: #3388cc;
 }
 
-/* line 3170, sass/layout.scss */
+/* line 3169, sass/layout.scss */
 .ui-page-theme-c a:hover,
 html .ui-bar-c a:hover,
 html .ui-body-c a:hover,
@@ -4657,7 +4657,7 @@ html body .ui-group-theme-c a:hover {
   color: #005599;
 }
 
-/* line 3177, sass/layout.scss */
+/* line 3176, sass/layout.scss */
 .ui-page-theme-c a:active,
 html .ui-bar-c a:active,
 html .ui-body-c a:active,
@@ -4666,7 +4666,7 @@ html body .ui-group-theme-c a:active {
 }
 
 /* Button up */
-/* line 3185, sass/layout.scss */
+/* line 3184, sass/layout.scss */
 .ui-page-theme-c .ui-btn,
 html .ui-bar-c .ui-btn,
 html .ui-body-c .ui-btn,
@@ -4684,7 +4684,7 @@ html head + body .ui-btn.ui-btn-c:visited {
 }
 
 /* Button hover */
-/* line 3209, sass/layout.scss */
+/* line 3208, sass/layout.scss */
 .ui-page-theme-c .ui-btn:hover,
 html .ui-bar-c .ui-btn:hover,
 html .ui-body-c .ui-btn:hover,
@@ -4697,7 +4697,7 @@ html head + body .ui-btn.ui-btn-c:hover {
 }
 
 /* Button down */
-/* line 3227, sass/layout.scss */
+/* line 3226, sass/layout.scss */
 .ui-page-theme-c .ui-btn:active,
 html .ui-bar-c .ui-btn:active,
 html .ui-body-c .ui-btn:active,
@@ -4710,7 +4710,7 @@ html head + body .ui-btn.ui-btn-c:active {
 }
 
 /* Active button */
-/* line 3245, sass/layout.scss */
+/* line 3244, sass/layout.scss */
 .ui-page-theme-c .ui-btn.ui-btn-active,
 html .ui-bar-c .ui-btn.ui-btn-active,
 html .ui-body-c .ui-btn.ui-btn-active,
@@ -4738,7 +4738,7 @@ html body div.ui-slider-track.ui-body-c .ui-btn-active {
 }
 
 /* Active radio button icon */
-/* line 3281, sass/layout.scss */
+/* line 3280, sass/layout.scss */
 .ui-page-theme-c .ui-radio-on:after,
 html .ui-bar-c .ui-radio-on:after,
 html .ui-body-c .ui-radio-on:after,
@@ -4748,7 +4748,7 @@ html body .ui-group-theme-c .ui-radio-on:after,
 }
 
 /* Focus */
-/* line 3290, sass/layout.scss */
+/* line 3289, sass/layout.scss */
 .ui-page-theme-c .ui-btn:focus,
 html .ui-bar-c .ui-btn:focus,
 html .ui-body-c .ui-btn:focus,
@@ -4769,7 +4769,7 @@ html head + body .ui-body-c.ui-focus {
 /* Disabled
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-disabled deprecated in 1.4. :disabled not supported by IE8 so we use [disabled] */
-/* line 3313, sass/layout.scss */
+/* line 3312, sass/layout.scss */
 .ui-disabled,
 .ui-state-disabled,
 button[disabled],
@@ -4782,14 +4782,14 @@ button[disabled],
 
 /* Focus state outline
 -----------------------------------------------------------------------------------------------------------*/
-/* line 3324, sass/layout.scss */
+/* line 3323, sass/layout.scss */
 .ui-btn:focus,
 .ui-btn.ui-focus {
   outline: 0;
 }
 
 /* Unset box-shadow in browsers that don't do it right */
-/* line 3329, sass/layout.scss */
+/* line 3328, sass/layout.scss */
 .ui-noboxshadow .ui-shadow,
 .ui-noboxshadow .ui-shadow-inset,
 .ui-noboxshadow .ui-overlay-shadow,
@@ -4804,151 +4804,151 @@ button[disabled],
   box-shadow: none !important;
 }
 
-/* line 3342, sass/layout.scss */
+/* line 3341, sass/layout.scss */
 .ui-noboxshadow .ui-btn:focus,
 .ui-noboxshadow .ui-focus {
   outline-width: 1px;
   outline-style: auto;
 }
 
-/* line 3347, sass/layout.scss */
+/* line 3346, sass/layout.scss */
 .col-xs-6 {
   width: 100%;
 }
 
-/* line 3350, sass/layout.scss */
+/* line 3349, sass/layout.scss */
 div.ui-select > div {
   width: auto;
 }
 
-/* line 3353, sass/layout.scss */
+/* line 3352, sass/layout.scss */
 .w98 {
   width: 98%;
 }
 
-/* line 3356, sass/layout.scss */
+/* line 3355, sass/layout.scss */
 .w100 {
   width: 100%;
 }
 
-/* line 3357, sass/layout.scss */
+/* line 3356, sass/layout.scss */
 .w90 {
   width: 90%;
 }
 
-/* line 3358, sass/layout.scss */
+/* line 3357, sass/layout.scss */
 .w80 {
   width: 80%;
 }
 
-/* line 3359, sass/layout.scss */
+/* line 3358, sass/layout.scss */
 .w70 {
   width: 70%;
 }
 
-/* line 3360, sass/layout.scss */
+/* line 3359, sass/layout.scss */
 .w60 {
   width: 60%;
 }
 
-/* line 3361, sass/layout.scss */
+/* line 3360, sass/layout.scss */
 .w50 {
   width: 50%;
 }
 
-/* line 3362, sass/layout.scss */
+/* line 3361, sass/layout.scss */
 .wauto {
   width: auto;
 }
 
-/* line 3365, sass/layout.scss */
+/* line 3364, sass/layout.scss */
 .ui-select .ui-btn > span:not(.ui-li-count) {
   text-align: left;
 }
 
-/* line 3368, sass/layout.scss */
+/* line 3367, sass/layout.scss */
 .no_border {
   border: none;
 }
 
-/* line 3371, sass/layout.scss */
+/* line 3370, sass/layout.scss */
 .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
   border: none;
 }
 
-/* line 3374, sass/layout.scss */
+/* line 3373, sass/layout.scss */
 .blue {
   background-color: #1b78b3 !important;
 }
 
-/* line 3377, sass/layout.scss */
+/* line 3376, sass/layout.scss */
 .green {
   color: #0c9648 !important;
 }
 
-/* line 3378, sass/layout.scss */
+/* line 3377, sass/layout.scss */
 .red {
   color: #96120c !important;
 }
 
-/* line 3379, sass/layout.scss */
+/* line 3378, sass/layout.scss */
 .bk_green {
   background-color: #0c9648 !important;
 }
 
-/* line 3380, sass/layout.scss */
+/* line 3379, sass/layout.scss */
 div.ui-btn.blue {
   color: white;
 }
 
-/* line 3383, sass/layout.scss */
+/* line 3382, sass/layout.scss */
 .bk_white {
   background-color: white;
 }
 
-/* line 3387, sass/layout.scss */
+/* line 3386, sass/layout.scss */
 .ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
   background: none;
 }
 
-/* line 3390, sass/layout.scss */
+/* line 3389, sass/layout.scss */
 .ui-input-btn input {
   text-transform: uppercase;
   border-top: 1px solid #b9ccdf;
 }
 
-/* line 3394, sass/layout.scss */
+/* line 3393, sass/layout.scss */
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
 }
 
-/* line 3400, sass/layout.scss */
+/* line 3399, sass/layout.scss */
 .ui-icon-ridematch:after {
   background-image: url("../img/icon/ridematch.png");
 }
 
-/* line 3403, sass/layout.scss */
+/* line 3402, sass/layout.scss */
 .ui-icon-pnr:after {
   background-image: url("../img/icon/pnr.png");
 }
 
-/* line 3406, sass/layout.scss */
+/* line 3405, sass/layout.scss */
 .ui-icon-commute_calendar:after {
   font: normal normal normal 22px/1 FontAwesome;
   content: "";
 }
 
-/* line 3410, sass/layout.scss */
+/* line 3409, sass/layout.scss */
 [class*=ui-icon-]:after {
   background-size: contain;
 }
 
-/* line 3413, sass/layout.scss */
+/* line 3412, sass/layout.scss */
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   width: 28px;
 }
 
-/* line 3416, sass/layout.scss */
+/* line 3415, sass/layout.scss */
 .ui-icon-carat_down:after {
   content: "\f0d7";
   color: #1b78b3;
@@ -4956,42 +4956,42 @@ div.ui-btn.blue {
   width: auto;
 }
 
-/* line 3422, sass/layout.scss */
+/* line 3421, sass/layout.scss */
 .ui-popup-active {
   background-color: #fff;
 }
 
-/* line 3425, sass/layout.scss */
+/* line 3424, sass/layout.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 3428, sass/layout.scss */
+/* line 3427, sass/layout.scss */
 div[data-role="popup"] > a.ui-btn {
   padding: 0;
   background: transparent !important;
   border: none !important;
 }
 
-/* line 3433, sass/layout.scss */
+/* line 3432, sass/layout.scss */
 .text_center {
   text-align: center;
 }
 
-/* line 3434, sass/layout.scss */
+/* line 3433, sass/layout.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 3435, sass/layout.scss */
+/* line 3434, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li {
   padding: 0 7px;
 }
-/* line 3437, sass/layout.scss */
+/* line 3436, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li :nth-child(2) {
   margin-left: 20px;
 }
-/* line 3440, sass/layout.scss */
+/* line 3439, sass/layout.scss */
 div.ui-tabs > .ui-navbar > .ui-tabs-nav > li a {
   text-transform: none;
   font-size: 20px;
@@ -5000,49 +5000,49 @@ div.ui-tabs > .ui-navbar > .ui-tabs-nav > li a {
   padding: 7px 0 7px 13px;
 }
 
-/* line 3448, sass/layout.scss */
+/* line 3447, sass/layout.scss */
 body li[role=tab]:not(.ui-tabs-active) {
   border: none;
 }
-/* line 3450, sass/layout.scss */
+/* line 3449, sass/layout.scss */
 body li[role=tab]:not(.ui-tabs-active) a {
   background-color: transparent;
   border: none;
 }
 
-/* line 3455, sass/layout.scss */
+/* line 3454, sass/layout.scss */
 ul.ui-tabs-nav {
   padding: 10px 80px;
   background-color: #1b78b3;
 }
 
-/* line 3458, sass/layout.scss */
+/* line 3457, sass/layout.scss */
 .box {
   background-color: white;
   color: black;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #666;
 }
-/* line 3459, sass/layout.scss */
+/* line 3458, sass/layout.scss */
 .box * {
   background-color: white;
   color: black;
   box-sizing: border-box;
 }
-/* line 3468, sass/layout.scss */
+/* line 3467, sass/layout.scss */
 .box .input-row {
   margin-bottom: 12px;
   margin-top: 12px;
 }
-/* line 3472, sass/layout.scss */
+/* line 3471, sass/layout.scss */
 .box .input-row:last-child, .box .input-row:nth-child(4) {
   border-bottom: none;
 }
-/* line 3475, sass/layout.scss */
+/* line 3474, sass/layout.scss */
 .box .input-row label, .box input {
   /*     font-size: 12px */
 }
-/* line 3478, sass/layout.scss */
+/* line 3477, sass/layout.scss */
 .box .box-center {
   position: absolute;
   text-align: center;
@@ -5056,7 +5056,7 @@ ul.ui-tabs-nav {
   padding: 10px;
 }
 
-/* line 3492, sass/layout.scss */
+/* line 3491, sass/layout.scss */
 #route_info .box_title {
   width: auto;
   background-color: #233b64;
@@ -5065,13 +5065,13 @@ ul.ui-tabs-nav {
   padding: 12px;
   color: white;
 }
-/* line 3500, sass/layout.scss */
+/* line 3499, sass/layout.scss */
 #route_info label {
   width: 20%;
   color: #999;
   margin: 0;
 }
-/* line 3505, sass/layout.scss */
+/* line 3504, sass/layout.scss */
 #route_info .point {
   width: 5%;
   padding-top: 12px;
@@ -5079,14 +5079,14 @@ ul.ui-tabs-nav {
   position: absolute;
   font-size: 90%;
 }
-/* line 3512, sass/layout.scss */
+/* line 3511, sass/layout.scss */
 #route_info input {
   width: 75%;
   padding-left: 5px;
   height: 41px;
   padding-right: 16px;
 }
-/* line 3518, sass/layout.scss */
+/* line 3517, sass/layout.scss */
 #route_info .connector {
   margin: 0 auto;
   display: block;
@@ -5095,7 +5095,7 @@ ul.ui-tabs-nav {
   background-color: #aaa;
 }
 
-/* line 3526, sass/layout.scss */
+/* line 3525, sass/layout.scss */
 .connector-wrapper {
   position: absolute;
   top: 90px;
@@ -5106,7 +5106,7 @@ ul.ui-tabs-nav {
   background-color: white;
 }
 
-/* line 3535, sass/layout.scss */
+/* line 3534, sass/layout.scss */
 .box.float_bottom {
   height: auto;
   position: fixed;
@@ -5116,14 +5116,14 @@ ul.ui-tabs-nav {
   z-index: 2;
 }
 
-/* line 3543, sass/layout.scss */
+/* line 3542, sass/layout.scss */
 .input-row {
   margin-bottom: 12px;
   border-bottom: 1px solid #b2b1b1;
   height: 50px;
   overflow: hidden;
 }
-/* line 3548, sass/layout.scss */
+/* line 3547, sass/layout.scss */
 .input-row label {
   float: left;
   width: 25%;
@@ -5131,7 +5131,7 @@ ul.ui-tabs-nav {
   height: 36px;
   text-overflow: ellipsis;
 }
-/* line 3555, sass/layout.scss */
+/* line 3554, sass/layout.scss */
 .input-row input {
   float: right;
   width: 75%;
@@ -5140,12 +5140,12 @@ ul.ui-tabs-nav {
   border: 0;
 }
 
-/* line 3563, sass/layout.scss */
+/* line 3562, sass/layout.scss */
 .text_no_shadow {
   text-shadow: none;
 }
 
-/* line 3564, sass/layout.scss */
+/* line 3563, sass/layout.scss */
 html, body, [data-role=tabs] {
   height: 100%;
   width: 100%;
@@ -5153,12 +5153,12 @@ html, body, [data-role=tabs] {
   padding: 0;
 }
 
-/* line 3565, sass/layout.scss */
+/* line 3564, sass/layout.scss */
 [data-role=tabs] {
   background-color: #000;
 }
 
-/* line 3566, sass/layout.scss */
+/* line 3565, sass/layout.scss */
 #map, #list {
   min-height: 100%;
   position: relative;
@@ -5167,7 +5167,7 @@ html, body, [data-role=tabs] {
   text-shadow: none;
 }
 
-/* line 3573, sass/layout.scss */
+/* line 3572, sass/layout.scss */
 #canvas {
   width: 100%;
   height: 300px;
@@ -5177,7 +5177,7 @@ html, body, [data-role=tabs] {
   overflow: hidden;
 }
 
-/* line 3581, sass/layout.scss */
+/* line 3580, sass/layout.scss */
 [data-role=footer] {
   position: absolute;
   margin: 0;
@@ -5187,30 +5187,30 @@ html, body, [data-role=tabs] {
   height: 40px;
 }
 
-/* line 3589, sass/layout.scss */
+/* line 3588, sass/layout.scss */
 .info_window {
   max-width: 250px;
   overflow: scroll;
 }
 
-/* line 3590, sass/layout.scss */
+/* line 3589, sass/layout.scss */
 .fc-row td.has_log {
   background-color: #e8fde7;
   text-shadow: none;
 }
 
-/* line 3591, sass/layout.scss */
+/* line 3590, sass/layout.scss */
 body.offset_input {
   position: relative;
   top: -72px;
 }
 
-/* line 3595, sass/layout.scss */
+/* line 3594, sass/layout.scss */
 div.banner > a.ui-btn {
   border: none;
 }
 
-/* line 3598, sass/layout.scss */
+/* line 3597, sass/layout.scss */
 .ui-header .ui-title, .ui-footer .ui-title {
   margin: 0 20%;
 }
