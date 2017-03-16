@@ -163,9 +163,9 @@ $(document).ready(function () {
 
 //todob debugging
     if (IS_DEBUG) {
-        // setTimeout(function () {
-        //     $('#commute_log_calendar').trigger('click');
-        // }, 200);
+        setTimeout(function () {
+            $('#commute_log_calendar').trigger('click');
+        }, 200);
     }
 
     $('.popup_dismiss').click(function (e) {

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// var IS_DEBUG = true;
-var IS_DEBUG = false;
-// var USE_MWCOG3 = true;
-var USE_MWCOG3 = false;
+var IS_DEBUG = true;
+// var IS_DEBUG = false;
+var USE_MWCOG3 = true;
+// var USE_MWCOG3 = false;
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG3) {

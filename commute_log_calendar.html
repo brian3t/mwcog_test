@@ -119,13 +119,9 @@
             <input type="hidden" value="" name="idPool" class="idPool">
             <table class="ui-table-reflow">
                 <tbody>
-                <tr>
-                    <td class="cur_date_mdy" style="font-size:1.6em"></td>
+                <tr class="w100 ">
+                    <td class="cur_date_mdy text_center" style="font-size:1.6em"></td>
                     <td class="cur_date hidden" ></td>
-                </tr>
-
-                <tr>
-                    <td>&nbsp;</td>
                 </tr>
 
                 <tr id="cip_message">
@@ -144,12 +140,11 @@
                 </tr>
 
                 <tr>
-                    <td class="data">
-                        <div class="TripHeader"><b>Trip
-                            1: Home To Work</b></div>
+                    <td class="data trip_table_wrapper">
+                        <div class="TripHeader">Trip 1: Home To Work</div>
                         <table class="ui-table-reflow tall_table" id="LegCommuteTable1" width="100%">
                             <tbody id="home_to_work_wrapper" class="trip_table" data-trip-index="1">
-                            <tr class="leg" data-leg-index="1">
+                            <tr class="leg hidden" data-leg-index="1">
                                 <td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">1</span>&nbsp;<span class="red">*</span></b>
                                 </td>
                                 <td>
@@ -194,7 +189,7 @@
                                     <input class="textsm distance" type="number" size="1" maxlength="3" id="T1L1Distance" name="T1L1Distance" value="2">
                                 </td>
                             </tr>
-                            <tr class="leg" data-leg-index="2">
+                            <tr class="leg hidden" data-leg-index="2">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
                                 </td>
@@ -259,12 +254,11 @@
                 </tr>
 
                 <tr>
-                    <td class="data">
-                        <div class="TripHeader"><b>Trip
-                            2: Work To Home</b></div>
+                    <td class="data trip_table_wrapper">
+                        <div class="TripHeader">Trip 2: Work To Home</div>
                         <table id="LegCommuteTable2" class="tall_table" width="100%">
                             <tbody id="work_to_home_wrapper" class="trip_table" data-trip-index="2">
-                            <tr class="leg" data-leg-index="1">
+                            <tr class="leg hidden" data-leg-index="1">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
                                 <td class="data"><b class="ui-table-cell-label">From</b>
@@ -307,8 +301,7 @@
                                            id="T2L1Distance" name="T2L1Distance" value="2">
                                 </td>
                             </tr>
-
-                            <tr class="leg" data-leg-index="2">
+                            <tr class="leg hidden" data-leg-index="2">
                                 <td class="center" bgcolor="#CEE3F6"><b
                                         class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
                                 </td>
@@ -352,8 +345,6 @@
                                            id="T2L2Distance" name="T2L2Distance" value="">
                                 </td>
                             </tr>
-
-
                             <tr>
 
                                 <td colspan="2">

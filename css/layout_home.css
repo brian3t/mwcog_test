@@ -3977,4 +3977,10 @@ body.offset_input {
   top: -72px;
 }
 
+/* line 3208, sass/layout_home.scss */
+.ui-loading .ui-loader {
+  border: none;
+  background-color: transparent;
+}
+
 /*# sourceMappingURL=layout_home.css.map */

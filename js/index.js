@@ -51,8 +51,8 @@ var app = {
 
             }
             if (IS_DEBUG) {
-                u = 'redgar942';
-                // u = 'fakehemrycc';//mwcog type 0
+                // u = 'redgar942';//tdm only, type 0
+                u = 'fakehemrycc';//mwcog type 0
                 // u = 'jitubats';//mwcog type 1
                 // u = 'cpnowtest';//tdm type 2
                 // u = 'SteveOsborn';//mwcog type 2
@@ -173,10 +173,10 @@ $('document').ready(function () {
 
     if (IS_DEBUG) {
         // $('#username').val('SteveOsborn');
-        // $('#username').val('fakehemrycc');
+        $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');
         // $('#username').val('cpnowtest');
-        $('#username').val('redgar942');
+        // $('#username').val('redgar942');//tdm type 0
         $("#password").val('changeme4');
         setTimeout(function () {
             startCommuteLog();

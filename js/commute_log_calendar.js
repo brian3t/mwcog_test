@@ -375,7 +375,7 @@ function print_leg(index, trip_index, data) {
         data.mode = 0;
     }
     var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0, T1L1 = 'T' + trip_index + 'L' + index;
-    tr.html('<td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">' + index + '</span>&nbsp;<span class="red">*</span></b></td>');
+    tr.html('<td class="header"><b class="ui-table-cell-label">LEG <span class="index">' + index + '</span></b></td>');
     var td_from = $('<td>').html('<b class="ui-table-cell-label">From</b>');
     var select = $('<select name="' + T1L1 + 'From" class="select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
     $.each(COMMUTE_PLACE, function (k, v) {
