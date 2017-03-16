@@ -24,7 +24,7 @@ document.addEventListener('deviceready', function () {
         console.error("Error " + e);
     }
     if (typeof device !== "undefined" && device.platform === 'Android') {
-        $(':input').on('focus', function (e) {
+        $(':input[type!=submit]').on('focus', function (e) {
                 $('body').addClass('offset_input');
             }
         ).on('blur', function (e) {
