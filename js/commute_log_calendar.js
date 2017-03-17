@@ -15,8 +15,8 @@ if (USE_MWCOG3) {
 }
 var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80, CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
-var COMMUTE_PLACE = {0: '', 101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
-var COMMUTE_TRAVEL_MODE = {0: '', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
+var COMMUTE_PLACE = {101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
+var COMMUTE_TRAVEL_MODE = {0: 'TRAVEL MODE:', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
 function build_query(extra_params) {
     var params = extra_params || {};
     if (typeof params === 'object') {
@@ -376,8 +376,9 @@ function print_leg(index, trip_index, data) {
     }
     var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0, T1L1 = 'T' + trip_index + 'L' + index;
     tr.html('<td class="header"><b class="ui-table-cell-label">LEG <span class="index">' + index + '</span></b></td>');
-    var td_from = $('<td>').html('<b class="ui-table-cell-label">From</b>');
-    var select = $('<select name="' + T1L1 + 'From" class="select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    var td_from = $('<td class="w48">');
+    var select = $('<select name="' + T1L1 + 'From" class=" select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    select.append('<option value="0">FROM:</option>');
     $.each(COMMUTE_PLACE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
     });
@@ -385,8 +386,9 @@ function print_leg(index, trip_index, data) {
     td_from.append(select);
     tr.append(td_from);
 
-    var td_to = $('<td>').html('<b class="ui-table-cell-label">To</b>');
+    var td_to = $('<td class="w48 pull-right">');
     select = $('<select name="' + T1L1 + 'To" class="select1 to">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
+    select.append('<option value="0">TO:</option>');
     $.each(COMMUTE_PLACE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
     });
@@ -394,7 +396,7 @@ function print_leg(index, trip_index, data) {
     td_to.append(select);
     tr.append(td_to);
 
-    var td_mode = $('<td>').html('<b class="ui-table-cell-label">Travel Mode</b>');
+    var td_mode = $('<td class="w48">');
     select = $('<select name="' + T1L1 + 'Mode" class="select1 mode">').attr('onchange', 'checkCommuteMode(this,"T' + trip_index + 'L' + index + 'Distance")');
     $.each(COMMUTE_TRAVEL_MODE, function (k, v) {
         select.append('<option value="' + k + '">' + v + '</option>');
@@ -403,8 +405,8 @@ function print_leg(index, trip_index, data) {
     td_mode.append(select);
     tr.append(td_mode);
 
-    tr.append('<td><b class="ui-table-cell-label">Distance (miles)</b><input class="textsm distance" type="number" size="1" maxlength="3" ' +
-        'id="' + T1L1 + 'Distance" name="' + T1L1 + 'Distance" value="' + data.distance + '"></td>');
+    tr.append('<td class="w48 pull-right"><input class="textsm distance" name="' + T1L1 + 'Distance" type="number" size="1" maxlength="3" ' +
+        'id="' + T1L1 + 'Distance" value="' + data.distance + '" placeholder="Distance (miles):"></td>');
     $('select').on('change', function () {
         $(this).selectmenu('refresh');
     });
