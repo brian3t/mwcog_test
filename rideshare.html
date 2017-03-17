@@ -2,58 +2,69 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
-      <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/constants.js"></script>
 
     <script type="text/javascript">
-//        $(document).live( 'pagebeforechange', function() {
-//          // hide footer
-//          $('[data-role=footer]').hide();
-//      });
-//        
-//        $(document).live( 'pagechange', function() {
-//          // show footer
-//          $('[data-role=footer]').show();
-//      });
+        //        $(document).live( 'pagebeforechange', function() {
+        //          // hide footer
+        //          $('[data-role=footer]').hide();
+        //      });
+        //
+        //        $(document).live( 'pagechange', function() {
+        //          // show footer
+        //          $('[data-role=footer]').show();
+        //      });
     </script>
 
     <script type="text/javascript" src="js/rideshare.js"></script>
 
-<title>Commuter Connections</title>
-<!--<script type="text/javascript" src=""></script>-->
-    </head>
-    <body  onunload="GUnload()">
-    <div data-role="page" id="ridematch" data-theme="b">
-        <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
-            <div class="header_padding">
-                <i class="button fa fa-chevron-left" onclick="goBack()" aria-hidden="true"></i>
-                <span class="title text_center inline_block w90">Ridematch Results</span>
-                <!--<div class="pull-right popup_btn"><a href="#popover"><img class="pull-right" src="img/popup_menu.png"></a></div>-->
-            </div>
+    <title>Commuter Connections</title>
+    <!--<script type="text/javascript" src=""></script>-->
+</head>
+<body onunload="GUnload()">
+<div data-role="page" id="ridematch" data-theme="b">
+    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
+        <div class="header_padding">
+            <i class="button fa fa-chevron-left" onclick="goBack()" aria-hidden="true"></i>
+            <span class="title text_center inline_block w90">Ridematch Results</span>
+            <!--<div class="pull-right popup_btn"><a href="#popover"><img class="pull-right" src="img/popup_menu.png"></a></div>-->
         </div>
-        <div data-role="tabs" data-corners="false">
-            <div data-role="navbar" id="page-navbar" data-theme="b">
-                <ul>
-                    <li><a href="#map" data-theme="b" data-ajax="false"><i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></li>
-                    <li><a href="#list" data-theme="b" data-ajax="false"><i class="fa fa-list" aria-hidden="true"></i> List</a></li>
+    </div>
+    <div data-role="tabs" data-corners="false">
+        <div data-role="navbar" id="page-navbar" data-theme="b">
+            <ul>
+                <li><a href="#map" data-theme="b" data-ajax="false"><i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></li>
+                <li><a href="#list" data-theme="b" data-ajax="false"><i class="fa fa-list" aria-hidden="true"></i> List</a></li>
+            </ul>
+        </div>
+        <div id="map">
+            <div id="canvas" data-role="content" class="fullscreenelement"></div>
+        </div>
+        <div id="list" data-theme="a">
+            <ul data-role="listview" data-inset="true" id="matchlist" data-theme="a" data-corners="false"></ul>
+        </div>
+    </div>
+    <div id="contact_options" data-role="popup">
+        <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div class="ui-corner-all custom-corners">
+            <div class="ui-bar ui-bar-a">
+                <h3>Contact <span id="match_firstname">John</span></h3>
+            </div>
+            <div class="ui-body ui-body-a">
+                <ul id="contact_details" data-role="listview" data-theme="a">
                 </ul>
             </div>
-            <div id="map">
-                <div id="canvas" data-role="content" class="fullscreenelement"></div>
-            </div>
-            <div id="list" data-theme="a">
-                <ul data-role="listview" data-inset="true" id="matchlist" data-theme="a" data-corners="false"></ul>
-            </div>
         </div>
-
     </div>
     <div class="box float_bottom hidden" id="route_info">
         <div class="box_title text_no_shadow">ROUTE INFORMATION</div>
@@ -62,8 +73,8 @@
             <label for="pickup">Start</label><i class="fa fa-circle point green" aria-hidden="true"></i>
             <a id="pickup_popup" href="#select_address" data-address-to-pick="pickup"
                class="selecting_address"><input disabled placeholder="Pickup Location"
-                                                              type="text" class="address inverse"
-                                                              name="pickup_address"></a>
+                                                type="text" class="address inverse"
+                                                name="pickup_address"></a>
         </div>
         <div id="dropoff" class="place input-row">
             <label for="dropoff">End</label><i class="fa fa-circle point red" aria-hidden="true"></i>
@@ -82,8 +93,7 @@
             Have a nice ride! Please click Finish when you reach your destination
             <button id="finish" class="btn btn-block btn-outlined">Finish</button>
         </div>
-
     </div>
 
-    </body>
-    </html>
+</body>
+</html>

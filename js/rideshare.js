@@ -62,14 +62,12 @@ function init() {
                 var email = match.email;
                 var commuterName = match.commuterName;
                 var commuterId = match.idCommuter;
-                var matchlistURL = "tel:800-745-7433";
                 var sharesNothing = true;
 
 
                 if (match.shareHPhone === "Y" && text_hphone.length > 0) {
                     show_hphone = "Home: " + text_hphone + "<br />";
                     link_hphone = "Home: <a href='tel:" + text_hphone + "'>" + text_hphone + "</a><br />";
-                    matchlistURL = "tel:" + text_hphone;
                     sharesNothing = false;
                 }
                 if (match.shareWPhone === "Y" && text_wphone.length > 0) {
@@ -81,14 +79,12 @@ function init() {
                 if (match.shareCPhone === "Y" && text_cphone.length > 0) {
                     show_cphone = "Cell: " + text_cphone + "<br />";
                     link_cphone = "Cell: <a href='tel:" + text_cphone + "'>" + text_cphone + "</a><br />";
-                    matchlistURL = "tel:" + text_cphone;
                     sharesNothing = false;
                 }
 
                 if (match.shareEmail === "Y" && text_email.length > 0) {
                     show_email = "Email: " + text_email + "<br />";
                     link_email = "Email: <a href='mailto:" + text_email + "'>" + text_email + "</a><br />";
-                    matchlistURL = "mailto:" + text_email + "?subject=I found you on Commuter Connections";
                     sharesNothing = false;
                 }
                 if (match.shareName === "Y") {
@@ -106,13 +102,8 @@ function init() {
                     smokingPref = "non-smoker";
                 }
 
-                var firstLine = '<li><a href="' + matchlistURL + '">';
+                var firstLine = '<li><a class="list_item_contact" data-index="' + i + '" >';
                 var lastLine = '</p></a></li>';
-                /*if(email ==="")
-                 {
-                 firstLine = '<li>';
-                 lastLine = '</p></li>';
-                 }*/
                 var row = firstLine +
                     '<h3>' + ((show_commuterName == 'Anonymous') ? 'Commuter #' + commuterId : show_commuterName) + '</h3>' +
                     '<p id="no-ellipsis" style="font-size: .9em;">' +
@@ -129,11 +120,9 @@ function init() {
                  'Smoking pref: '+smokingPref;
                  */
 
-
                 row += lastLine;
 
                 $("#list ul").append(row);
-
 
                 var matchNum = i;
                 var point1 = new google.maps.LatLng(match.match[3], match.match[2]);
@@ -142,8 +131,6 @@ function init() {
                 var destnMarker = createDestnMarker(point2, matchNum);
                 displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
                 displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
-
-
             }
         }
 
@@ -151,6 +138,58 @@ function init() {
         $("#list ul").listview("refresh");
         $("#footer").css({position: 'relative'});
 
+        //determine what contact method to use
+        $('a.list_item_contact').on('click touch', function (e) {
+            var $e = $(e.target), contact_link = '', action = '', $ul = $('#contact_options #contact_details');
+            $e = $($e.closest('a'));
+            var index = $e.data('index');
+            if (!$.isNumeric(index)) {
+                return;
+            }
+            var match = matches[index];
+            $('#contact_options #match_firstname').html(match.firstName);
+            var contact_options = {
+                has_hphone: {is_available: (match.shareHPhone === "Y" && match.hphone.length > 2), type: 'phone', type_detail: 'Home Phone', detail: match.hphone},
+                has_wphone: {is_available: (match.shareWPhone === "Y" && match.wphone.length > 2), type: 'phone', type_detail: 'Work Phone', detail: match.wphone},
+                has_cphone: {is_available: (match.shareCPhone === "Y" && match.cphone.length > 2), type: 'phone', type_detail: 'Cell Phone', detail: match.cphone},
+                has_email: {is_available: (match.shareEmail === "Y" && match.email.length > 2), type: 'email', type_detail: 'Email', detail: match.email}
+            };
+            contact_options = _.filter(contact_options, function (v) {
+                return v.is_available;
+            });
+            if (_.size(contact_options) === 0) {
+                return;
+            }
+            if (_.size(contact_options) === 1) {
+                var contact = contact_options[Object.keys(contact_options)[0]];//get first object
+                if (contact.type == 'email') {
+                    document.location.href = 'mailto:' + contact.detail;
+                }
+                if (contact.type == 'phone') {
+                    document.location.href = 'tel:' + contact.detail;
+                }
+                return;
+            }
+            $ul.listview('destroy');
+            $ul.empty();
+            $.each(contact_options, function (i, v) {
+                if (!v.is_available) {
+                    return;
+                }
+                if (v.type == 'phone') {
+                    contact_link = 'Call ' + v.type_detail + ' ' + v.detail;
+                    action = 'tel:' + v.detail;
+                } else {
+                    contact_link = 'Email to ' + v.detail;
+                    action = 'mailto:' + v.detail;
+                }
+                $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
+            });
+            $ul.listview();
+            $ul.listview('refresh');
+            $('#contact_options').popup();
+            $('#contact_options').popup('open', {transition: 'flip', history: false});
+        });
         hideSpinner();
 
     }, "json");
@@ -164,7 +203,7 @@ var directionsDisplay = {}, directionsService = {}, info = {};
 function gmap_ready() {
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
-    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers:true});
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
     directionsService = new google.maps.DirectionsService();
     infowindow = new google.maps.InfoWindow({size: new google.maps.Size(100, 100)});
     initialize();
@@ -270,16 +309,16 @@ function initialize() {
                     map.pickup_marker = new google.maps.Marker({
                         map: map,
                         position: start,
-                        labelContent:'hey',
+                        labelContent: 'hey',
                         icon: 'img/marker_ab_green.svg',
-                        label: {text:'A', color:'white', 'fontWeight': 'bold'}
+                        label: {text: 'A', color: 'white', 'fontWeight': 'bold'}
                     });
                     map.dropoff_marker = new google.maps.Marker({
                         map: map,
                         position: end,
-                        labelContent:'hey',
+                        labelContent: 'hey',
                         icon: 'img/marker_ab_red.svg',
-                        label: {text:'B', color:'white', 'fontWeight': 'bold'}
+                        label: {text: 'B', color: 'white', 'fontWeight': 'bold'}
                     });
 
                 }
@@ -289,7 +328,6 @@ function initialize() {
             //alert("Geocode was not successful for the following reason: " + status);
         }
     });
-
 }
 
 function toggleTraffic() {
@@ -303,7 +341,6 @@ function toggleTraffic() {
 }
 
 //$(document).on("pageshow", "#ridematch", resizeMap);
-
 function resizeMap() {
     var $page = $(this),
         vSpace = $page.children('#page-navbar').outerHeight() + $page.children('#page-footer').outerHeight() + $page.children('#canvas').height();
