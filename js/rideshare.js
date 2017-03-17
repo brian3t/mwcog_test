@@ -144,7 +144,7 @@ function init() {
             $e = $($e.closest('a'));
             var index = $e.data('index');
             if (!$.isNumeric(index)) {
-                return;
+                return;b
             }
             var match = matches[index];
             $('#contact_options #match_firstname').html(match.firstName);
