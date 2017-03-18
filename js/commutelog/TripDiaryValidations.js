@@ -360,7 +360,7 @@ function save_commute_logs_ajax(formObj, is_update) {
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
         if (result.status === 200 || result.status.indexOf('success') !== -1) {
-            app_toast('Your commute log has been saved. Taking you back to the calendar...');
+            app_toast('Your commute log has been saved. Click OK to return to the Commute Calendar.');
             setTimeout(function () {
                 $.mobile.back();
             }, 4000);
@@ -369,7 +369,7 @@ function save_commute_logs_ajax(formObj, is_update) {
         console.info(error);
         window.error = error.responseText;
         if (error.status === 200 || result.status.indexOf('success') !== -1) {
-            app_toast('Your commute log has been saved. Taking you back to the calendar...');
+            app_toast('Your commute log has been saved. Click OK to return to the Commute Calendar.');
             setTimeout(function () {
                 $.mobile.back();
             }, 4000);

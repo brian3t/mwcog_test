@@ -725,7 +725,7 @@ function saveDailyVanLogs(formObj) {
     var params = build_query(form_values);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        app_toast('Your van commute log has been saved. Taking you back to the calendar...');
+        app_toast('Your van commute log has been saved. Click OK to return to the Commute Calendar.');
         setTimeout(function () {
             $.mobile.back();
         }, 4000);
