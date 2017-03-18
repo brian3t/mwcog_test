@@ -73,7 +73,7 @@
 </head>
 <body onload="initialize();" onunload="GUnload()">
 <div data-role="page" id="commute_log" data-theme="b">
-    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed"><a href="#" onClick="logout()"
+    <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed"><a href="#" onClick="window.history.go(-1); return false;"
                                                                                             class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l"
                                                                                             style="overflow: visible; text-overflow: clip; white-space: normal;">Back</a>
         <h1>Commute Log</h1>
