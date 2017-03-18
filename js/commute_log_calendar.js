@@ -376,7 +376,7 @@ function print_leg(index, trip_index, data) {
     }
     var tr = $('<tr class="leg" data-leg-index="' + index + '">'), i = 0, T1L1 = 'T' + trip_index + 'L' + index;
     tr.html('<td class="header"><b class="ui-table-cell-label">LEG <span class="index">' + index + '</span></b></td>');
-    var td_from = $('<td class="w48">');
+    var td_from = $('<td class="w48 data">');
     var select = $('<select name="' + T1L1 + 'From" class=" select1 from">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
     select.append('<option value="0">FROM:</option>');
     $.each(COMMUTE_PLACE, function (k, v) {
@@ -386,7 +386,7 @@ function print_leg(index, trip_index, data) {
     td_from.append(select);
     tr.append(td_from);
 
-    var td_to = $('<td class="w48 pull-right">');
+    var td_to = $('<td class="w48 data pull-right">');
     select = $('<select name="' + T1L1 + 'To" class="select1 to">').attr('onchange', 'checkSecondLeg(this,' + trip_index + ')');
     select.append('<option value="0">TO:</option>');
     $.each(COMMUTE_PLACE, function (k, v) {

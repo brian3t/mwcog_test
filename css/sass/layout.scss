@@ -3650,6 +3650,7 @@ div.banner > a.ui-btn {
 .trip_table_wrapper {
   background-color: #cee3f6;
   font-size: 80%;
+  width:100%;
   div.TripHeader {
     padding: 8px;
     font-size: 15px;
@@ -3693,3 +3694,8 @@ table.ui-table-reflow {
 }
 ul.ui-listview > li.ui-first-child > a.ui-btn { border-top: none !important; }
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after{height: 18px;}
+#commute_log_entry_page{
+  .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after{width: 14px;}
+  .ui-page-theme-b .ui-btn, .ui-bar-b .ui-btn, .ui-body-b .ui-btn, .ui-group-theme-b .ui-btn, .ui-btn.ui-btn-b, .ui-page-theme-b .ui-btn:visited,
+  button.ui-btn{border: none;}
+}

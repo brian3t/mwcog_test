@@ -5241,69 +5241,80 @@ div.banner > a.ui-btn {
 .trip_table_wrapper {
   background-color: #cee3f6;
   font-size: 80%;
+  width: 100%;
 }
-/* line 3653, sass/layout.scss */
+/* line 3654, sass/layout.scss */
 .trip_table_wrapper div.TripHeader {
   padding: 8px;
   font-size: 15px;
   background-color: #193564;
   color: white;
 }
-/* line 3659, sass/layout.scss */
+/* line 3660, sass/layout.scss */
 .trip_table_wrapper table {
   padding-left: 4px;
   padding-right: 8px;
 }
-/* line 3662, sass/layout.scss */
+/* line 3663, sass/layout.scss */
 .trip_table_wrapper table td {
   display: inline-block;
 }
-/* line 3666, sass/layout.scss */
+/* line 3667, sass/layout.scss */
 .trip_table_wrapper .ui-input-text {
   margin-top: .5em;
   margin-bottom: .5em;
   width: 100%;
 }
-/* line 3670, sass/layout.scss */
+/* line 3671, sass/layout.scss */
 .trip_table_wrapper .ui-input-text input {
   line-height: 30px;
 }
 
-/* line 3675, sass/layout.scss */
+/* line 3676, sass/layout.scss */
 tr.leg > td.header {
   width: 100%;
   border-bottom: 2px solid black;
 }
 
-/* line 3679, sass/layout.scss */
+/* line 3680, sass/layout.scss */
 tbody.trip_table {
   text-shadow: none;
 }
 
-/* line 3683, sass/layout.scss */
+/* line 3684, sass/layout.scss */
 div.ui-header .ui-btn-left {
   height: 100%;
   top: 0;
 }
 
-/* line 3688, sass/layout.scss */
+/* line 3689, sass/layout.scss */
 .cur_date_mdy {
   font-weight: bold;
 }
 
-/* line 3691, sass/layout.scss */
+/* line 3692, sass/layout.scss */
 table.ui-table-reflow {
   width: 100%;
 }
 
-/* line 3694, sass/layout.scss */
+/* line 3695, sass/layout.scss */
 ul.ui-listview > li.ui-first-child > a.ui-btn {
   border-top: none !important;
 }
 
-/* line 3695, sass/layout.scss */
+/* line 3696, sass/layout.scss */
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   height: 18px;
+}
+
+/* line 3698, sass/layout.scss */
+#commute_log_entry_page .ui-btn-icon-left:after, #commute_log_entry_page .ui-btn-icon-right:after, #commute_log_entry_page .ui-btn-icon-top:after, #commute_log_entry_page .ui-btn-icon-bottom:after, #commute_log_entry_page .ui-btn-icon-notext:after {
+  width: 14px;
+}
+/* line 3699, sass/layout.scss */
+#commute_log_entry_page .ui-page-theme-b .ui-btn, #commute_log_entry_page .ui-bar-b .ui-btn, #commute_log_entry_page .ui-body-b .ui-btn, #commute_log_entry_page .ui-group-theme-b .ui-btn, #commute_log_entry_page .ui-btn.ui-btn-b, #commute_log_entry_page .ui-page-theme-b .ui-btn:visited,
+#commute_log_entry_page button.ui-btn {
+  border: none;
 }
 
 /*# sourceMappingURL=layout.css.map */
