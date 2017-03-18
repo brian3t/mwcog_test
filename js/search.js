@@ -36,8 +36,6 @@ function showParkAndRide() {
 }
 
 function saveCommuterProfile() {
-
-
     var idCommuter = window.localStorage.getItem("idCommuter");
     var userName = window.localStorage.getItem("userName");
     var startTime = $("#startTime").val();
@@ -66,14 +64,17 @@ function saveCommuterProfile() {
 
 
     $.ajax({
-        url: baseUrl + 'json?action=editworkschedule&idCommuter=' + idCommuter + '&userName=' + userName + '&fromHRS=' + startHour + '&fromMNS=' + startMin
-        + '&fromAMPM=' + startAmPm + '&toHRS=' + endHour + '&toMNS=' + endMin + '&toAMPM=' + endAmPm + '&arriveBefore=' + flexibility + '&arriveAfter=' + flexibility + '&leaveBefore=' + flexibility + '&leaveAfter=' + flexibility,
+        url: baseUrl + 'json?action=editworkschedule&idCommuter=' + idCommuter + '&userName=' + userName + '&fromHRS=' + startHour + '&fromMNS=' + startMin +
+        '&fromAMPM=' + startAmPm + '&toHRS=' + endHour + '&toMNS=' + endMin + '&toAMPM=' + endAmPm + '&arriveBefore=' + flexibility + '&arriveAfter=' +
+        flexibility + '&leaveBefore=' + flexibility + '&leaveAfter=' + flexibility,
         type: 'GET',
         success: function (data) {
         },
         error: function (data) {
 
-
+        },
+        complete:function (data) {
+            $.mobile.navigate('');
         }
     });
 }
@@ -85,20 +86,19 @@ function show_welcome_msg() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
     if (popup_active.length > 0) {
         popup_active.one('popupafterclose', function () {
-            $('#welcomeMsg').popup('open',{transition: 'flip',history:false});
+            $('#welcomeMsg').popup('open',{transition: 'flip'});
         });
-        popup_active.popup('close',{transition: 'flip',history:false});
+        popup_active.popup('close',{transition: 'flip'});
     } else {
-        $('#welcomeMsg').popup('open',{transition: 'flip',history:false});
+        $('#welcomeMsg').popup('open',{transition: 'flip'});
     }
 }
 function toggle_panel_options() {
     "use strict";
-    $('#popup_menu').popup('close',{transition: 'flip',history:false});
+    $('#popup_menu').popup('close',{transition: 'flip'});
     $("#popup_menu").one("popupafterclose", function (event, ui) {
-        $('#panel_options').popup('open',{transition: 'flip',history:false});
+        $('#panel_options').popup('open',{transition: 'flip'});
     });
-
 }
 
 $(document).ready(function () {
