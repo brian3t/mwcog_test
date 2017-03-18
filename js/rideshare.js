@@ -144,7 +144,7 @@ function init() {
             $e = $($e.closest('a'));
             var index = $e.data('index');
             if (!$.isNumeric(index)) {
-                return;b
+                return;
             }
             var match = matches[index];
             $('#contact_options #match_firstname').html(match.firstName);
@@ -180,7 +180,7 @@ function init() {
                     contact_link = 'Call ' + v.type_detail + ' ' + v.detail;
                     action = 'tel:' + v.detail;
                 } else {
-                    contact_link = 'Email to ' + v.detail;
+                    contact_link = 'Email to ' + 'PAIGEKRONER12345678@GMAIL.COM';
                     action = 'mailto:' + v.detail;
                 }
                 $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
@@ -188,7 +188,7 @@ function init() {
             $ul.listview();
             $ul.listview('refresh');
             $('#contact_options').popup();
-            $('#contact_options').popup('open', {transition: 'flip', history: false});
+            $('#contact_options').popup('open', {transition: 'flip', history: false,positionTo: "window"});
         });
         hideSpinner();
 

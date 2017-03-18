@@ -164,8 +164,8 @@ $(document).ready(function () {
 //todob debugging
     if (IS_DEBUG) {
         setTimeout(function () {
-            // $('#commute_log_calendar').trigger('click');
-            $('#findRidematch').trigger('click');
+            $('#commute_log_calendar').trigger('click');
+            // $('#findRidematch').trigger('click');
         }, 200);
     }
 
