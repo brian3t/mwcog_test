@@ -178,10 +178,12 @@ function init() {
                     return;
                 }
                 if (v.type == 'phone') {
-                    contact_link = 'Call ' + v.type_detail + ' ' + v.detail;
+                    contact_link = 'CALL ' + v.type_detail + ' >';
+                    //contact_link = 'CALL ' + v.type_detail + ' ' + v.detail;
                     action = 'tel:' + v.detail;
                 } else {
-                    contact_link = 'Email to ' + 'PAIGEKRONER12345678@GMAIL.COM';
+                    contact_link = 'SEND EMAIL >';
+                    //contact_link = 'EMAIL ' + v.detail;
                     action = 'mailto:' + v.detail;
                 }
                 $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
