@@ -158,6 +158,7 @@ function init() {
                 return v.is_available;
             });
             if (_.size(contact_options) === 0) {
+                document.location.href = 'tel:8007457433';
                 return;
             }
             if (_.size(contact_options) === 1) {
