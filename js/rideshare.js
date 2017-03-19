@@ -178,11 +178,11 @@ function init() {
                     return;
                 }
                 if (v.type == 'phone') {
-                    contact_link = 'CALL ' + v.type_detail + ' >';
+                    contact_link = 'CALL ' + v.type_detail;
                     //contact_link = 'CALL ' + v.type_detail + ' ' + v.detail;
                     action = 'tel:' + v.detail;
                 } else {
-                    contact_link = 'SEND EMAIL >';
+                    contact_link = 'SEND EMAIL';
                     //contact_link = 'EMAIL ' + v.detail;
                     action = 'mailto:' + v.detail;
                 }
