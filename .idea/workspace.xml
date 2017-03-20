@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commute_log_calendar.html" afterPath="$PROJECT_DIR$/commute_log_calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout.min.css" afterPath="$PROJECT_DIR$/css/layout.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/commute_log_calendar.js" afterPath="$PROJECT_DIR$/js/commute_log_calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.mobile-1.4.5.js" afterPath="$PROJECT_DIR$/js/jquery.mobile-1.4.5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery.mobile-1.4.5.min.js" afterPath="$PROJECT_DIR$/js/jquery.mobile-1.4.5.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/search.js" afterPath="$PROJECT_DIR$/js/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.html" afterPath="$PROJECT_DIR$/search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css" afterPath="$PROJECT_DIR$/css/layout_home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css.map" afterPath="$PROJECT_DIR$/css/layout_home.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.min.css" afterPath="$PROJECT_DIR$/css/layout_home.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/layout_home.scss" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,11 +86,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commute_log_calendar.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="commute_log_calendar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="99" column="14" lean-forward="true" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="100" column="10" lean-forward="true" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_home.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="3081" column="29" lean-forward="true" selection-start-line="3081" selection-start-column="29" selection-end-line="3081" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -143,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Edit Commute</find>
       <find>Edit Commute Log</find>
       <find>header</find>
       <find>ui-header</find>
@@ -173,6 +179,7 @@
       <find>back</find>
       <find>goback</find>
       <find>error loading page</find>
+      <find>_crop</find>
     </findStrings>
     <replaceStrings>
       <replace>$('[name=</replace>
@@ -213,7 +220,6 @@
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/core.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/sass/layout_home.scss" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/edit_commute_log.html" />
         <option value="$PROJECT_DIR$/css/sass/layout.scss" />
@@ -226,6 +232,7 @@
         <option value="$PROJECT_DIR$/commute_log_calendar.html" />
         <option value="$PROJECT_DIR$/js/jquery.mobile-1.4.5.js" />
         <option value="$PROJECT_DIR$/js/jquery.mobile-1.4.5.min.js" />
+        <option value="$PROJECT_DIR$/css/sass/layout_home.scss" />
       </list>
     </option>
   </component>
@@ -729,7 +736,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489787025893</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fix android error clicking Commute Log go to blank calendar.">
+      <created>1490023812433</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1490023812433</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -833,7 +847,8 @@
     <MESSAGE value="Fix space bw links." />
     <MESSAGE value="Redesign commute log." />
     <MESSAGE value="Turn off debug mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="Turn off debug mode." />
+    <MESSAGE value="Fix android error clicking Commute Log go to blank calendar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix android error clicking Commute Log go to blank calendar." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1736,13 +1751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="3181" column="21" lean-forward="true" selection-start-line="3181" selection-start-column="21" selection-end-line="3181" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1885,8 +1893,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="99" column="14" lean-forward="true" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="100" column="10" lean-forward="true" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="3081" column="29" lean-forward="true" selection-start-line="3081" selection-start-column="29" selection-end-line="3081" selection-end-column="29" />
           <folding />
         </state>
       </provider>
