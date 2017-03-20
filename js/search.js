@@ -34,7 +34,12 @@ function showParkAndRide() {
     }, 500);
 
 }
-
+function goto_commute_log() {
+    jQuery.mobile.navigate('/commute_log_calendar.html');
+    setTimeout(function () {
+        window.location.href = "commute_log_calendar.html";
+    }, 500);
+}
 function saveCommuterProfile() {
     var idCommuter = window.localStorage.getItem("idCommuter");
     var userName = window.localStorage.getItem("userName");

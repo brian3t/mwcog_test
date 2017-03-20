@@ -29,6 +29,12 @@ function build_query(extra_params) {
     }
     return $.param(params);
 }
+function goto_search() {
+    jQuery.mobile.navigate('/search.html');
+    setTimeout(function () {
+        window.location.href = "search.html";
+    }, 500);
+}
 
 function initialize() {
     var _11_days_ago = moment().subtract(11, "days");

@@ -701,7 +701,7 @@ $.ui.plugin = {
 		defaultDialogTransition: "pop",
 
 		// Error response message - appears when an Ajax page request fails
-		pageLoadErrorMessage: "Error Loading Page",
+		pageLoadErrorMessage: "",
 
 		// For error messages, which theme does the box use?
 		pageLoadErrorMessageTheme: "a",
