@@ -91,18 +91,18 @@ function show_welcome_msg() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
     if (popup_active.length > 0) {
         popup_active.one('popupafterclose', function () {
-            $('#welcomeMsg').popup('open',{transition: 'flip'});
+            $('#welcomeMsg').popup('open',{transition: 'pop'});
         });
-        popup_active.popup('close',{transition: 'flip'});
+        popup_active.popup('close',{transition: 'pop'});
     } else {
-        $('#welcomeMsg').popup('open',{transition: 'flip'});
+        $('#welcomeMsg').popup('open',{transition: 'pop'});
     }
 }
 function toggle_panel_options() {
     "use strict";
-    $('#popup_menu').popup('close',{transition: 'flip'});
+    $('#popup_menu').popup('close',{transition: 'pop'});
     $("#popup_menu").one("popupafterclose", function (event, ui) {
-        $('#panel_options').popup('open',{transition: 'flip'});
+        $('#panel_options').popup('open',{transition: 'pop'});
     });
 }
 
@@ -141,9 +141,9 @@ $(document).ready(function () {
 
     $(function () {
         if (enrolled) {
-            $("#panel_welcomeuser").popup({transition: 'flip', history:false});
-            $("#panel_welcomeuser").popup('open', {transition: 'flip',history: false, positionTo: 'window'});
-            // $('#welcomeMsg').popup('open', {transition: 'flip',history:false, positionTo: 'window'});
+            $("#panel_welcomeuser").popup({transition: 'pop', history:false});
+            $("#panel_welcomeuser").popup('open', {transition: 'pop',history: false, positionTo: 'window'});
+            // $('#welcomeMsg').popup('open', {transition: 'pop',history:false, positionTo: 'window'});
         }
 
         if (Number(window.localStorage.getItem("justLoggedIn")) == 1) {
@@ -176,7 +176,7 @@ $(document).ready(function () {
 
     $('.popup_dismiss').click(function (e) {
         e.preventDefault();
-        $('.ui-popup-active>[data-role="popup"]').popup('close', {transition: 'flip', history: false});
+        $('.ui-popup-active>[data-role="popup"]').popup('close', {transition: 'pop', history: false});
     });
 
 });

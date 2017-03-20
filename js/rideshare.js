@@ -191,7 +191,7 @@ function init() {
             $ul.listview();
             $ul.listview('refresh');
             $('#contact_options').popup();
-            $('#contact_options').popup('open', {transition: 'flip', history: false,positionTo: "window"});
+            $('#contact_options').popup('open', {transition: 'pop', history: false,positionTo: "window"});
         });
         hideSpinner();
 

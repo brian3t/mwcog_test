@@ -5,16 +5,34 @@ if (typeof navigator.notification !== 'object') {
     };
 }
 var app = {
+    count_bg_images: 0,
+    cur_bg_image_index: 0,
+    bg_loop_id: null,
+    bg_loop: function () {
+        $('#homepage_bg').fadeOut('fast', function () {
+            app.cur_bg_image_index = 1 + (app.cur_bg_image_index + 1) % app.count_bg_images;
+            $('#homepage_bg').prop('src', '/img/bg/' + app.cur_bg_image_index + '.png').fadeIn('medium');
+        });
+    },
+    start_bg_loop: function () {
+        if (app.count_bg_images === 0) {
+            return false;
+        }
+        this.bg_loop_id = setTimeout(app.bg_loop, 2000);
+    },
+    stop_bg_loop: function () {
+        window.clearTimeout(app.bg_loop_id);
+    },
     // Application Constructor
     initialize: function () {
-        $.support.cors = true;
-        $.mobile.allowCrossDomainPages = true;
         var remember_sw = {};
-
         var remember = window.localStorage.getItem("rememberCheckbox");
         var username = window.localStorage.getItem("username");
         var hashedPassword = window.localStorage.getItem("hashedPassword");
         var hashed = false;
+        var $img_lazy_loader = $('#lazy_loader');
+        $.support.cors = true;
+        $.mobile.allowCrossDomainPages = true;
         if (remember === "true") {
             $("#remember").prop('checked', true);
             $("#username").val(username);
@@ -116,8 +134,22 @@ var app = {
             }
             return false;
         });
-
+        //get background images ready
+        //find out how many images are there in bg folder
+        for (var i = 1; i <= MAX_IMAGES_IN_BG; i++) {
+            $.ajax({
+                url: '/img/bg/' + i + '.png', //or your url
+                success: function (data) {
+                    console.info('exists');
+                    app.count_bg_images++;
+                },
+                error: function (data) {
+                    console.info('does not exist');
+                }
+            });
+        }
         this.bindEvents();
+        setTimeout(this.start_bg_loop, 500);
     },
     // Bind Event Listeners
     //
@@ -131,12 +163,12 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768){
+        if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768) {
             window.screen.lockOrientation('portrait');
         }
         try {
             StatusBar.hide();
-        } catch (e){
+        } catch (e) {
             console.error("Error: " + e);
         }
 
