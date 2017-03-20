@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css" afterPath="$PROJECT_DIR$/css/layout_home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css.map" afterPath="$PROJECT_DIR$/css/layout_home.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.min.css" afterPath="$PROJECT_DIR$/css/layout_home.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/layout_home.scss" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,8 +95,8 @@
       <file leaf-file-name="layout_home.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="3081" column="29" lean-forward="true" selection-start-line="3081" selection-start-column="29" selection-end-line="3081" selection-end-column="29" />
+            <state relative-caret-position="305">
+              <caret line="3077" column="25" lean-forward="true" selection-start-line="3077" selection-start-column="25" selection-end-line="3077" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -743,7 +739,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490023812433</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Center washington background">
+      <created>1490024185983</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1490024185983</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -823,7 +826,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Fixing SelectMenu.. Next: populate general" />
     <MESSAGE value="Commute log general. fix bug filter form array." />
     <MESSAGE value="Homepage redesign part 1/2." />
     <MESSAGE value="Try absolute path background." />
@@ -848,7 +850,8 @@
     <MESSAGE value="Redesign commute log." />
     <MESSAGE value="Turn off debug mode." />
     <MESSAGE value="Fix android error clicking Commute Log go to blank calendar." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix android error clicking Commute Log go to blank calendar." />
+    <MESSAGE value="Center washington background" />
+    <option name="LAST_COMMIT_MESSAGE" value="Center washington background" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1901,8 +1904,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="3081" column="29" lean-forward="true" selection-start-line="3081" selection-start-column="29" selection-end-line="3081" selection-end-column="29" />
+        <state relative-caret-position="305">
+          <caret line="3077" column="25" lean-forward="true" selection-start-line="3077" selection-start-column="25" selection-end-line="3077" selection-end-column="25" />
           <folding />
         </state>
       </provider>
