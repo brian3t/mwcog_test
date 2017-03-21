@@ -1,5 +1,5 @@
 //todob IMPORTANT: override use MWCOG here
-var USE_MWCOG3 = false;
+var USE_MWCOG = false;
 baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 
 
