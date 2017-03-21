@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// var IS_DEBUG = true;
 var IS_DEBUG = false;
-var USE_MWCOG = true;
-// var USE_MWCOG = false;
+var USE_MWCOG = false;
 var MAX_IMAGES_IN_BG = 3;
 // var BG_FOLDER = '/img/bg/';
+
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG) {
     baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
