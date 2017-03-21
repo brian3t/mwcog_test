@@ -5,13 +5,14 @@
  */
 // var IS_DEBUG = true;
 var IS_DEBUG = false;
-// var USE_MWCOG3 = true;
-var USE_MWCOG3 = false;
+var USE_MWCOG3 = true;
+// var USE_MWCOG3 = false;
 var MAX_IMAGES_IN_BG = 3;
 // var BG_FOLDER = '/img/bg/';
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG3) {
-    baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
+    baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
+    // baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
 }
 
 function showSpinner() {

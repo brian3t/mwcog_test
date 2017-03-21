@@ -8,7 +8,8 @@ var User = User || {
         days: [],
         pool_id: ''
     };
-var today = moment();
+var today = moment.utc(),_10_days_ago = moment.utc().subtract(10, "days");
+
 var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol';
 if (USE_MWCOG3) {
     mwcog_root = 'http://mwcog3.mediabeef.com/mwcog/calendarservicecontrol';
@@ -37,9 +38,9 @@ function goto_search() {
 }
 
 function initialize() {
-    var _11_days_ago = moment().subtract(11, "days");
     $.ajaxSetup({crossDomain: true});
-
+    var _11_days_ago = moment.utc().subtract(11, "days");
+    var yesterday = moment.utc().subtract(1, "days");
     //call API to retrieve list of the days (within the last 10 days) that have saved data so those days can be marked green on the calendar
     var url = mwcog_root + "?action=getcalendar&" + build_query();
     var days_return = $.get(url, {}, function (data) {
@@ -47,7 +48,7 @@ function initialize() {
         $('#calendar').fullCalendar({
             height: 470,
             dayRender: function (date, cell) {
-                if (date < _11_days_ago.toDate() || date > today.toDate()) {
+                if (date < _11_days_ago || date > yesterday) {
                     $(cell).addClass('disabled');
                 }
             },
@@ -65,9 +66,11 @@ function add_button_to_calendar() {
         return false;
     }
     User.days = User.days || [];
-    var _10_days_ago = moment().subtract(10, "days");
-    for (var i = 0, day = _10_days_ago; i <= 10; i++, day.add(1, "days")) {
+    for (var i = 0, day = _10_days_ago; i < 10; i++, day.add(1, "days")) {
         var date_td = $('td.fc-day-top[data-date="' + day.format('YYYY-MM-DD') + '"]');
+        if (!_.isArray(User.days)){
+            continue;
+        }
         if (User.days.indexOf(day.format('DD-MM-YYYY')) !== -1) {
             date_td.append('<br><button class="button">Edit</button>');
             $('td.fc-day[data-date="' + day.format('YYYY-MM-DD') + '"]').addClass('has_log');
@@ -135,8 +138,8 @@ function get_commute_type(log_date, is_update_html) {
                         break;
                     }
                     if (User.trips.length < 2 && User.type === 0) {//for this date there's no data, but this is general log, so we default some values here
-                        User.trips = [{legs: [{from: CM_HOME, to: CM_WORK, mode: CM_CARPOOL, distance: 10}]},
-                            {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: 10}]}];
+                        User.trips = [{legs: [{from: CM_HOME, to: CM_WORK, mode: CM_CARPOOL, distance: null}]},
+                            {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
                     }
                     //now assign to html
                     var $trips = $('tbody.trip_table');

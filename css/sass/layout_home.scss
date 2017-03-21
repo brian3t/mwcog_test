@@ -3062,6 +3062,9 @@ table.tall_table {
   padding: 12px 24px;
   .login {
     margin-top: 284px;
+    @media (min-width: 768px) {
+      margin-top: 575px;
+    }
   }
   #links_wrapper {
     a {
@@ -3086,10 +3089,11 @@ table.tall_table {
   //  background-position-y: 210px;
   //}
 }
-#homepage_bg{
+
+#homepage_bg {
   position: absolute;
-  width: 100%;
-  left:0;
+  width: 100vw;
+  left: 0;
 }
 
 #homepage.landscape {
@@ -3133,9 +3137,12 @@ input.has_icon {
   box-shadow: 0 1px 0 0 #e0e0e9, 0 0 0 0 #fff, 0 0 0 0 #fff, 0 0 0 0 #fff;
   margin-bottom: 13px;
 }
-#remember_wrapper{
+
+#remember_wrapper {
   line-height: 42px;
-  span.switchery{margin-top: 4px;}
+  span.switchery {
+    margin-top: 4px;
+  }
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -3196,18 +3203,35 @@ input.has_icon {
 .ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
   border-radius: 1px;
 }
-.w40{ width:40%;}.w60{ width:60%;}
+
+.w40 {
+  width: 40%;
+}
+
+.w60 {
+  width: 60%;
+}
+
 .w50 {
   width: 50%
 }
-.row{
-  float: left;width: 100%;
+
+.row {
+  float: left;
+  width: 100%;
 }
+
 .row * {
   float: left;
 }
-body.offset_input{
+
+body.offset_input {
   position: relative;
   top: -72px;
 }
-.ui-loading .ui-loader{border:none; background-color: transparent}
+
+.ui-loading .ui-loader {
+  border: none;
+  background-color: transparent;
+  box-shadow:none;
+}
