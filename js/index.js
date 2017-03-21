@@ -17,7 +17,7 @@ var app = {
             return false;
         }
         app.cur_bg_image_index = Math.ceil(Math.random() * app.count_bg_images);
-        $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg');
+        $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').show();
 
         this.bg_loop_id = setInterval(app.bg_loop, 5000);
     },
