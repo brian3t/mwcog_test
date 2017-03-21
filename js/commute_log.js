@@ -49,3 +49,9 @@ function init_copy_from_web() {
         drawChart();
     });
 }
+function goto_search() {
+    jQuery.mobile.navigate('/search.html');
+    setTimeout(function () {
+        window.location.href = "search.html";
+    }, 500);
+}
