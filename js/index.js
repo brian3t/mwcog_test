@@ -9,9 +9,9 @@ var app = {
     cur_bg_image_index: 0,
     bg_loop_id: null,
     bg_loop: function () {
-        $('#homepage_bg').fadeOut('medium', function () {
-            app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
-            $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
+        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
+        $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium', function() {
+            $('#homepage_bg').fadeOut('medium');
         });
     },
     start_bg_loop: function () {
