@@ -84,8 +84,16 @@ var app = {
             if (u !== '' && p !== '') {
 
                 $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
-
+                    var passwordToSave = '';
                     if (res.statusCode === 1) {
+                        // fix for saving wrong hashed pw
+                        if (hashed) {
+                            passwordToSave = p;
+                        } else {
+                            passwordToSave = res.hashedPassword;
+                        }
+                        
+
                         var addresses = res.addresses;
                         window.localStorage.setItem("idCommuter", res.commuter);
                         window.localStorage.setItem("enrolled", res.enrolled);
@@ -93,7 +101,7 @@ var app = {
                         window.localStorage.setItem("addresses", JSON.stringify(addresses));
                         window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
                         window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
-                        window.localStorage.setItem("hashedPassword", res.hashedPassword);
+                        window.localStorage.setItem("hashedPassword", passwordToSave);
                         if (rememberMe) {
                             window.localStorage.setItem("rememberCheckbox", true);
                             window.localStorage.setItem("username", u);
