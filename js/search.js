@@ -13,7 +13,7 @@ function showRidematch() {
     window.localStorage.setItem("startRadius", $("#startRadius option:selected").text());
     window.localStorage.setItem("endRadius", $("#endRadius option:selected").text());
 
-    jQuery.mobile.navigate('/rideshare.html');
+    //jQuery.mobile.navigate('/rideshare.html');
     setTimeout(function () {
         window.location.href = "rideshare.html";
     }, 500);
@@ -28,14 +28,14 @@ function showParkAndRide() {
     window.localStorage.setItem("endAddressIndex", $("#endAddress option:selected").val());
 
 
-    jQuery.mobile.navigate('/park_and_ride.html');
+    //jQuery.mobile.navigate('/park_and_ride.html');
     setTimeout(function () {
         window.location.href = "park_and_ride.html";
     }, 500);
 
 }
 function goto_commute_log() {
-    jQuery.mobile.navigate('/commute_log_calendar.html');
+    //jQuery.mobile.navigate('/commute_log_calendar.html');
     setTimeout(function () {
         window.location.href = "commute_log_calendar.html";
     }, 500);
