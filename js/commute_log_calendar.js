@@ -31,7 +31,7 @@ function build_query(extra_params) {
     return $.param(params);
 }
 function goto_search() {
-    jQuery.mobile.navigate('search.html');
+    //jQuery.mobile.navigate('search.html');
     setTimeout(function () {
         window.location.href = "search.html";
     }, 500);
