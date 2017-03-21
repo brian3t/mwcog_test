@@ -11,7 +11,7 @@ var app = {
     bg_loop: function () {
         $('#homepage_bg').fadeOut('medium', function () {
             app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
-            $('#homepage_bg').prop('src', '../img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
+            $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
         });
     },
     start_bg_loop: function () {
@@ -19,7 +19,7 @@ var app = {
             return false;
         }
         app.cur_bg_image_index = Math.ceil(Math.random() * app.count_bg_images);
-        $('#homepage_bg').prop('src', '../img/bg/' + app.cur_bg_image_index + '.jpg');
+        $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg');
 
         this.bg_loop_id = setInterval(app.bg_loop, 5000);
     },
@@ -141,7 +141,7 @@ var app = {
         //find out how many images are there in bg folder
         for (var i = 1; i <= MAX_IMAGES_IN_BG; i++) {
             $.ajax({
-                url: '../img/bg/' + i + '.jpg', //or your url
+                url: 'img/bg/' + i + '.jpg', //or your url
                 success: function (data) {
                     app.count_bg_images++;
                 },
