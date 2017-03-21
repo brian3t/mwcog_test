@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var IS_DEBUG = false;
-var USE_MWCOG = true;
+var USE_MWCOG = false;
 var MAX_IMAGES_IN_BG = 3;
 // var BG_FOLDER = '/img/bg/';
 
