@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var IS_DEBUG = false;
+// var IS_DEBUG = false;
+var IS_DEBUG = true;
+// var USE_MWCOG = false;
 var USE_MWCOG = true;
 var MAX_IMAGES_IN_BG = 3;
-// var BG_FOLDER = '/img/bg/';
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (USE_MWCOG) {
-    baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
+    baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
+    // baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
 }
 
 function showSpinner() {

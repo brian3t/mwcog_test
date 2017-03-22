@@ -8,11 +8,11 @@ var User = User || {
         days: [],
         pool_id: ''
     };
-var today = moment.utc(),_10_days_ago = moment.utc().subtract(10, "days");
+var today = moment.utc(), _10_days_ago = moment.utc().subtract(10, "days"), _11_days_ago = moment.utc().subtract(11, "days");
 
 var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol';
 if (USE_MWCOG) {
-    mwcog_root = 'http://mwcog.mediabeef.com/mwcog/calendarservicecontrol';
+    mwcog_root = baseUrl + 'calendarservicecontrol';
 }
 var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80, CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
@@ -36,39 +36,14 @@ function goto_search() {
         window.location.href = "search.html";
     }, 500);
 }
-
-function initialize() {
-    $.ajaxSetup({crossDomain: true});
-    var _11_days_ago = moment.utc().subtract(11, "days");
-    var yesterday = moment.utc().subtract(1, "days");
-    //call API to retrieve list of the days (within the last 10 days) that have saved data so those days can be marked green on the calendar
-    var url = mwcog_root + "?action=getcalendar&" + build_query();
-    var days_return = $.get(url, {}, function (data) {
-        User.days = data;
-        $('#calendar').fullCalendar({
-            height: 470,
-            dayRender: function (date, cell) {
-                if (date < _11_days_ago || date > yesterday) {
-                    $(cell).addClass('disabled');
-                }
-            },
-            viewRender: add_button_to_calendar
-            // put your options and callbacks here
-        });
-    }, 'json').fail(function (jqXHR, textStatus, errorThrown) {
-        console.log('Can\'t get days');
-    });
-    get_commute_type(today, false);//first call, don't update html yet
-
-}
 function add_button_to_calendar() {
     if (typeof User === "undefined" || !User) {
         return false;
     }
     User.days = User.days || [];
-    for (var i = 0, day = _10_days_ago; i < 10; i++, day.add(1, "days")) {
+    for (var i = 0, day = _.cloneDeep(_10_days_ago); i <= 10; i++, day.add(1, "days")) {
         var date_td = $('td.fc-day-top[data-date="' + day.format('YYYY-MM-DD') + '"]');
-        if (!_.isArray(User.days)){
+        if (!_.isArray(User.days)) {
             continue;
         }
         if (User.days.indexOf(day.format('DD-MM-YYYY')) !== -1) {
@@ -79,6 +54,36 @@ function add_button_to_calendar() {
         }
         date_td.on('click', edit_log);
     }
+}
+/**
+ * This also destroys and recreates FullCalendar
+ */
+function get_saved_days() {
+    $('#calendar').fullCalendar('destroy');
+    var url = mwcog_root + "?action=getcalendar&" + build_query();
+    var days_return = $.get(url, {}, function (data) {
+        User.days = data;
+        $('#calendar').fullCalendar({
+            height: 470,
+            dayRender: function (date, cell) {
+                if (date < _11_days_ago || date > today) {
+                    $(cell).addClass('disabled');
+                }
+            },
+            viewRender: add_button_to_calendar
+            // put your options and callbacks here
+        });
+    }, 'json').fail(function (jqXHR, textStatus, errorThrown) {
+        console.log('Can\'t get days');
+    });
+}
+function initialize() {
+    $.ajaxSetup({crossDomain: true});
+    var yesterday = moment.utc().subtract(1, "days");
+    //call API to retrieve list of the days (within the last 10 days) that have saved data so those days can be marked green on the calendar
+    get_saved_days();
+    get_commute_type(today, false);//first call, don't update html yet
+
 }
 function get_commute_type(log_date, is_update_html) {
     var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_trip = false, still_has_leg = false, trip_n_leg = '';
@@ -213,7 +218,7 @@ function get_commute_type(log_date, is_update_html) {
                 default:
                     break;
             }
-            if (User.type == C.TYPE_CIP){
+            if (User.type == C.TYPE_CIP) {
                 $('#cip_message').show();
             } else {
                 $('#cip_message').hide();
@@ -245,6 +250,7 @@ function edit_log(e) {
             $('.addLegButton').show();
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
+                get_saved_days();
             });
             break;
         }
@@ -253,6 +259,7 @@ function edit_log(e) {
             $('.addLegButton').hide();
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
+                get_saved_days();
             });
             break;
         }
@@ -260,6 +267,7 @@ function edit_log(e) {
             $("body").pagecontainer("change", "#commute_log_van", {role: "dialog"});
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
+                get_saved_days();
             });
             break;
         }
@@ -269,10 +277,10 @@ function edit_log(e) {
 
 }
 
-function save_and_close() {
-    $('#commute_log_entry_page').dialog('close');
-    $('body').removeClass('has_dialog');
-}
+// function save_and_close() {
+//     $('#commute_log_entry_page').dialog('close');
+//     $('body').removeClass('has_dialog');
+// }
 
 function showHideDropDown(box, id) {
     if (box.checked) {

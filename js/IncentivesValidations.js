@@ -725,10 +725,10 @@ function saveDailyVanLogs(formObj) {
     var params = build_query(form_values);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        app_toast('Your van commute log has been saved. Click OK to return to the Commute Calendar.');
-        setTimeout(function () {
-            $.mobile.back();
-        }, 4000);
+        app_toast('Your van commute log has been saved. Click the close button to return to the Commute Calendar.');
+        // setTimeout(function () {
+        //     $.mobile.back();
+        // }, 4000);
     }, 'json').fail(function (error) {
         app_alert('There an error while saving your log. Please contact our support team');
         console.info(error);
