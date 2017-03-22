@@ -2338,6 +2338,9 @@ table.tall_table {
     @media (max-height: 667px) {
       margin-top: 294px;
     }
+    @media (max-height: 592px) {
+      margin-top: 224px;
+    }
     @media (max-height: 568px) {
       margin-top: 204px;
     }
@@ -2354,6 +2357,7 @@ table.tall_table {
 }
 #homepage {
   overflow-y: hidden;
+  height: 100vh;
   //background-image: url('../img/bg/Washington-DC-in-Spring-627202312_4500x3000_crop_center.png');
   //background-repeat: no-repeat;
   //background-position-y: 92px;
