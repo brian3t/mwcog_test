@@ -2482,7 +2482,10 @@ input.has_icon {
 }
 body.offset_input {
   position: relative;
-  top: -88px;
+  top: -80px;
+  #homepage{
+    height: auto;
+  }
 }
 .ui-loading .ui-loader {
   border: none;
