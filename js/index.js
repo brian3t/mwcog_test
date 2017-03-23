@@ -174,11 +174,11 @@ var app = {
         if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768) {
             window.screen.lockOrientation('portrait');
         }
-        try {
-            StatusBar.hide();
-        } catch (e) {
-            console.error("Error: " + e);
-        }
+        // try {
+        //     StatusBar.hide();
+        // } catch (e) {
+        //     console.error("Error: " + e);
+        // }
 
         app.receivedEvent('deviceready');
     },
