@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="Fix bug 32 status bar back.">
+    <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout.css" afterPath="$PROJECT_DIR$/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout.css.map" afterPath="$PROJECT_DIR$/css/layout.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout.min.css" afterPath="$PROJECT_DIR$/css/layout.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css" afterPath="$PROJECT_DIR$/css/layout_home.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.css.map" afterPath="$PROJECT_DIR$/css/layout_home.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/layout_home.min.css" afterPath="$PROJECT_DIR$/css/layout_home.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/sass/layout_home.scss" afterPath="$PROJECT_DIR$/css/sass/layout_home.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/constants.js" afterPath="$PROJECT_DIR$/js/constants.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -92,8 +94,8 @@
       <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" column="47" lean-forward="true" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            <state relative-caret-position="567">
+              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -102,11 +104,21 @@
       <file leaf-file-name="layout_home.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="2347" column="24" lean-forward="true" selection-start-line="2347" selection-start-column="24" selection-end-line="2347" selection-end-column="24" />
+            <state relative-caret-position="516">
+              <caret line="2478" column="1" lean-forward="true" selection-start-line="2478" selection-start-column="1" selection-end-line="2478" selection-end-column="1" />
               <folding>
-                <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+                <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="2410" column="18" lean-forward="true" selection-start-line="2410" selection-start-column="18" selection-end-line="2410" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,7 +126,7 @@
       <file leaf-file-name="TripDiaryValidations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8694">
+            <state relative-caret-position="896">
               <caret line="414" column="31" lean-forward="false" selection-start-line="414" selection-start-column="31" selection-end-line="414" selection-end-column="31" />
               <folding>
                 <marker date="1490201478081" expanded="true" signature="32712:32733" ph="..." />
@@ -128,7 +140,7 @@
       <file leaf-file-name="IncentivesValidations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/IncentivesValidations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15267">
+            <state relative-caret-position="896">
               <caret line="727" column="66" lean-forward="false" selection-start-line="727" selection-start-column="66" selection-end-line="727" selection-end-column="66" />
               <folding>
                 <marker date="1490201478097" expanded="true" signature="4429:4435" ph=" " />
@@ -143,21 +155,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2268">
-              <caret line="108" column="50" lean-forward="false" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+            <state relative-caret-position="798">
+              <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <marker date="1490289627778" expanded="true" signature="415:491" ph="{...}" />
                 <marker date="1490289627778" expanded="true" signature="2436:2452" ph="..." />
@@ -188,13 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>back</find>
-      <find>goback</find>
-      <find>error loading page</find>
-      <find>_crop</find>
-      <find>flip</find>
-      <find>transition: 'flip'</find>
-      <find>homepage</find>
       <find>fakeh</find>
       <find>mwcog.mediabeef.com</find>
       <find>10_days</find>
@@ -218,6 +213,13 @@
       <find>stat</find>
       <find>status</find>
       <find>statusbar</find>
+      <find>has_input</find>
+      <find>has_inpu</find>
+      <find>has_inp</find>
+      <find>has_in</find>
+      <find>has_i</find>
+      <find>has_</find>
+      <find>offset_input</find>
     </findStrings>
     <replaceStrings>
       <replace>$('[name=</replace>
@@ -257,7 +259,6 @@
         <option value="$PROJECT_DIR$/park_and_ride.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/edit_commute_log.html" />
-        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/rideshare.html" />
         <option value="$PROJECT_DIR$/search.html" />
         <option value="$PROJECT_DIR$/js/jquery.mobile-1.4.5.js" />
@@ -272,6 +273,7 @@
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/js/core.js" />
         <option value="$PROJECT_DIR$/js/constants.js" />
+        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/css/sass/layout_home.scss" />
       </list>
     </option>
@@ -840,7 +842,21 @@
       <option name="project" value="LOCAL" />
       <updated>1490288386919</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Switch back to tdm. Fix android galaxy S7.">
+      <created>1490290029678</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1490290029678</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fix header padding a bit.">
+      <created>1490290361199</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1490290361199</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -920,8 +936,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Search page show rm routeinfo." />
-    <MESSAGE value="Search page rm finished." />
     <MESSAGE value="Ridematch map view finished. Next: listview." />
     <MESSAGE value="Fix Park and Ride button. Fix logout button inside CommuteLog." />
     <MESSAGE value="Green highlight calendar." />
@@ -945,7 +959,9 @@
     <MESSAGE value="Switch back to mwcog.mediabeef" />
     <MESSAGE value="Fix bug 31" />
     <MESSAGE value="Fix bug 32 status bar back." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug 32 status bar back." />
+    <MESSAGE value="Switch back to tdm. Fix android galaxy S7." />
+    <MESSAGE value="Fix header padding a bit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix header padding a bit." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -998,7 +1014,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1121,7 +1137,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1244,7 +1260,7 @@
         <state relative-caret-position="64974">
           <caret line="3094" column="11" lean-forward="false" selection-start-line="3094" selection-start-column="11" selection-end-line="3094" selection-end-column="11" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1367,7 +1383,7 @@
         <state relative-caret-position="64890">
           <caret line="3090" column="11" lean-forward="false" selection-start-line="3090" selection-start-column="11" selection-end-line="3090" selection-end-column="11" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1490,7 +1506,7 @@
         <state relative-caret-position="64890">
           <caret line="3090" column="11" lean-forward="false" selection-start-line="3090" selection-start-column="11" selection-end-line="3090" selection-end-column="11" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1605,7 +1621,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1720,7 +1736,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1901,7 +1917,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -2827,13 +2843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77385">
-          <caret line="3685" column="11" lean-forward="false" selection-start-line="3685" selection-start-column="11" selection-end-line="3685" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rideshare.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1197">
@@ -2886,34 +2895,6 @@
         <state relative-caret-position="2268">
           <caret line="108" column="50" lean-forward="false" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/IncentivesValidations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15267">
-          <caret line="727" column="66" lean-forward="false" selection-start-line="727" selection-start-column="66" selection-end-line="727" selection-end-column="66" />
-          <folding>
-            <marker date="1490201478097" expanded="true" signature="4429:4435" ph=" " />
-            <marker date="1490201478097" expanded="true" signature="5159:5165" ph=" " />
-            <marker date="1490201478097" expanded="true" signature="5390:5396" ph=" " />
-            <marker date="1490201478097" expanded="true" signature="5489:5495" ph=" " />
-            <marker date="1490201478097" expanded="true" signature="45959:45980" ph="..." />
-            <marker date="1490201478097" expanded="true" signature="45998:46004" ph=" " />
-            <marker date="1490201478097" expanded="true" signature="46004:46010" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8694">
-          <caret line="414" column="31" lean-forward="false" selection-start-line="414" selection-start-column="31" selection-end-line="414" selection-end-column="31" />
-          <folding>
-            <marker date="1490201478081" expanded="true" signature="32712:32733" ph="..." />
-            <marker date="1490201478081" expanded="true" signature="32751:32757" ph=" " />
-            <marker date="1490201478081" expanded="true" signature="32757:32763" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2976,18 +2957,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="47" lean-forward="true" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+        <state relative-caret-position="798">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <marker date="1490289627778" expanded="true" signature="415:491" ph="{...}" />
             <marker date="1490289627778" expanded="true" signature="2436:2452" ph="..." />
@@ -3005,12 +2978,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/IncentivesValidations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="727" column="66" lean-forward="false" selection-start-line="727" selection-start-column="66" selection-end-line="727" selection-end-column="66" />
+          <folding>
+            <marker date="1490201478097" expanded="true" signature="4429:4435" ph=" " />
+            <marker date="1490201478097" expanded="true" signature="5159:5165" ph=" " />
+            <marker date="1490201478097" expanded="true" signature="5390:5396" ph=" " />
+            <marker date="1490201478097" expanded="true" signature="5489:5495" ph=" " />
+            <marker date="1490201478097" expanded="true" signature="45959:45980" ph="..." />
+            <marker date="1490201478097" expanded="true" signature="45998:46004" ph=" " />
+            <marker date="1490201478097" expanded="true" signature="46004:46010" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="414" column="31" lean-forward="false" selection-start-line="414" selection-start-column="31" selection-end-line="414" selection-end-column="31" />
+          <folding>
+            <marker date="1490201478081" expanded="true" signature="32712:32733" ph="..." />
+            <marker date="1490201478081" expanded="true" signature="32751:32757" ph=" " />
+            <marker date="1490201478081" expanded="true" signature="32757:32763" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="2410" column="18" lean-forward="true" selection-start-line="2410" selection-start-column="18" selection-end-line="2410" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="2347" column="24" lean-forward="true" selection-start-line="2347" selection-start-column="24" selection-end-line="2347" selection-end-column="24" />
+        <state relative-caret-position="516">
+          <caret line="2478" column="1" lean-forward="true" selection-start-line="2478" selection-start-column="1" selection-end-line="2478" selection-end-column="1" />
           <folding>
-            <marker date="1490289983063" expanded="true" signature="38399:38426" ph="{...}" />
+            <marker date="1490292414829" expanded="true" signature="38399:38426" ph="{...}" />
           </folding>
         </state>
       </provider>

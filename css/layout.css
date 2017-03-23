@@ -3888,7 +3888,7 @@ table.tall_table tr.leg td.header {
 
 /* line 2407, sass/layout.scss */
 .header_padding {
-  padding: 16px 22px;
+  padding: 18px 22px 16px 22px;
 }
 
 /* line 2410, sass/layout.scss */

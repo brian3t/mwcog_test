@@ -3997,7 +3997,7 @@ table.tall_table tr.leg td.header {
 /* line 2483, sass/layout_home.scss */
 body.offset_input {
   position: relative;
-  top: -72px;
+  top: -88px;
 }
 
 /* line 2487, sass/layout_home.scss */
@@ -4005,6 +4005,11 @@ body.offset_input {
   border: none;
   background-color: transparent;
   box-shadow: none;
+}
+
+/* line 2492, sass/layout_home.scss */
+body, #homepage {
+  border-top: none;
 }
 
 /*# sourceMappingURL=layout_home.css.map */

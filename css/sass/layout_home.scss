@@ -2482,10 +2482,11 @@ input.has_icon {
 }
 body.offset_input {
   position: relative;
-  top: -72px;
+  top: -88px;
 }
 .ui-loading .ui-loader {
   border: none;
   background-color: transparent;
   box-shadow: none;
 }
+body, #homepage{border-top: none}
