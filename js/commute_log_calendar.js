@@ -131,7 +131,9 @@ function get_commute_type(log_date, is_update_html) {
                                 mode: User[trip_n_leg + 'Mode'],
                                 to: User[trip_n_leg + 'To']
                             };
-                            trip.legs.push(leg);
+                            if (!(leg.from === 0 || leg.to === 0 || leg.mode === '0')) {
+                                trip.legs.push(leg);
+                            }
                             leg_index++;
                             still_has_leg = User.hasOwnProperty('trip' + trip_index + 'leg' + leg_index + 'From');
                         } while (still_has_leg);
@@ -142,10 +144,10 @@ function get_commute_type(log_date, is_update_html) {
                     if (!is_update_html) {
                         break;
                     }
-                    if (User.trips.length < 2 && User.type === 0) {//for this date there's no data, but this is general log, so we default some values here
-                        User.trips = [{legs: [{from: CM_HOME, to: CM_WORK, mode: CM_CARPOOL, distance: null}]},
-                            {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
-                    }
+                    // if (User.trips.length < 2 && User.type === 0) {//for this date there's no data, but this is general log, so we default some values here
+                    //     User.trips = [{legs: [{from: CM_HOME, to: CM_WORK, mode: CM_CARPOOL, distance: null}]},
+                    //         {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
+                    // }
                     //now assign to html
                     var $trips = $('tbody.trip_table');
 
