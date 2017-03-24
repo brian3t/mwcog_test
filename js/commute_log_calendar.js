@@ -98,7 +98,6 @@ function get_commute_type(log_date, is_update_html) {
         log_date = log_date.format('M/D/YYYY');
     }
     var url = mwcog_root + "?action=getCommuteLogType&" + build_query({'log_date': log_date});
-    User.type = 0;
     // $('body').addClass('whirl');
     showSpinner();
     var type_return = $.ajax(url);

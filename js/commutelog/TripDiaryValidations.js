@@ -360,19 +360,16 @@ function save_commute_logs_ajax(formObj, is_update) {
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
         if (result.status === 200 || result.status.indexOf('success') !== -1) {
-            app_toast('Your commute log has been saved. Click the close button to return to the Commute Calendar.');
-            // setTimeout(function () {
-            //     $.mobile.back();
-            // }, 4000);
+            app_toast('Your van commute log has been saved. Going back to the Commute Calendar...');
+            $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
+
         }
     }, 'json').fail(function (error) {
         console.info(error);
         window.error = error.responseText;
         if (error.status === 200 || result.status.indexOf('success') !== -1) {
-            app_toast('Your commute log has been saved. Click the close button to return to the Commute Calendar.');
-            // setTimeout(function () {
-            //     $.mobile.back();
-            // }, 4000);
+            app_toast('Your van commute log has been saved. Going back to the Commute Calendar...');
+            $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
         }
     });
 

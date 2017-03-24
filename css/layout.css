@@ -5224,7 +5224,8 @@ div.banner > a.ui-btn {
 
 /* line 3641, sass/layout.scss */
 #popup_menu a {
-  padding-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* line 3644, sass/layout.scss */

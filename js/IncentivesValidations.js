@@ -697,7 +697,7 @@ function saveDailyVanLogs(formObj) {
             form_values[v] += 'am';
         }
     });
-    form_values.tripDate = moment($('#tripdDate').val(),'YYYY-MM-DD').format('MM/DD/YYYY');
+    form_values.tripDate = moment($('#tripdDate').val(),'M/DD/YYYY').format('M/DD/YYYY');
     if (form_values.specify == '') {
         form_values.specify = ' ';
     }
@@ -725,10 +725,8 @@ function saveDailyVanLogs(formObj) {
     var params = build_query(form_values);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        app_toast('Your van commute log has been saved. Click the close button to return to the Commute Calendar.');
-        // setTimeout(function () {
-        //     $.mobile.back();
-        // }, 4000);
+        app_toast('Your van commute log has been saved. Going back to the Commute Calendar...');
+        $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
     }, 'json').fail(function (error) {
         app_alert('There an error while saving your log. Please contact our support team');
         console.info(error);
