@@ -188,7 +188,7 @@ function get_commute_type(log_date, is_update_html) {
                     //populating HTML
                     $('.passenger').remove();
                     var $passenger_table = $('#passenger_table');
-                    for (var i = 1; i < User.commuters.length; i++) {
+                    for (var i = 0; i < User.commuters.length; i++) {
                         var passenger = User.commuters[i];
                         var $tr = $('<tr/>').addClass('passenger');
                         $tr.attr('data-index', passenger.index - 1);
