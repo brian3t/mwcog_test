@@ -36,7 +36,9 @@ function hideSpinner() {
 }
 function goBack() {
     history.go(-1);
-    navigator.app.backHistory();
+    if (typeof  navigator.app === 'object') {
+        navigator.app.backHistory();
+    }
 }
 function logout() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
@@ -44,14 +46,18 @@ function logout() {
         popup_active.one("popupafterclose", function (event, ui) {
             confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
                 jQuery.mobile.navigate('index.html');
-                setTimeout(function(){window.location.href="index.html";}, 500);
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 500);
             });
         });
-        popup_active.popup('close',{history:false});
+        popup_active.popup('close', {history: false});
     } else {
         confirmDialog("Logout", "Are you sure you want to Log Out?", function () {
             jQuery.mobile.navigate('index.html');
-            setTimeout(function(){window.location.href="index.html";}, 500);
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 500);
         });
     }
 }
