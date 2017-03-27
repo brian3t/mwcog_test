@@ -708,7 +708,7 @@ function saveDailyVanLogs(formObj) {
     //loop through commuters (passengers), and then populate form_values
     $.each(form.find('.passenger'), function (i, tr) {
         tr = $(tr);
-        var index = tr.data('index');
+        var index = tr.data('index') + 1;
         var pool_id = tr.find('.id').val();
         var wbMiles = tr.find('.wbMiles').val();
         var wbCommute = tr.find('.wbCommute').prop('checked');
@@ -723,6 +723,7 @@ function saveDailyVanLogs(formObj) {
     });
     var url = mwcog_root;
     var params = build_query(form_values);
+    console.info(url + '?' + params);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
         app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
