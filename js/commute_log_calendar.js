@@ -30,6 +30,9 @@ function build_query(extra_params) {
     }
     return $.param(params);
 }
+function triggerDialogClose() {
+    $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
+}
 function goto_search() {
     //jQuery.mobile.navigate('search.html');
     setTimeout(function () {
@@ -66,7 +69,7 @@ function get_saved_days() {
         $('#calendar').fullCalendar({
             height: 470,
             dayRender: function (date, cell) {
-                if (date < _11_days_ago || date > today) {
+                if (date < _10_days_ago || date > today) {
                     $(cell).addClass('disabled');
                 }
             },
@@ -162,6 +165,7 @@ function get_commute_type(log_date, is_update_html) {
                     }
                     break;
                 }
+                case C.TYPE_VIEW_ONLY_VIP:
                 case C.TYPE_VIP: {
                     User.pool_id = User.commuter1PoolID;
                     User.commuters = [];
@@ -223,6 +227,13 @@ function get_commute_type(log_date, is_update_html) {
                 $('#cip_message').show();
             } else {
                 $('#cip_message').hide();
+            }
+            if (User.type == C.TYPE_VIEW_ONLY_VIP) {
+                $('#view_only_vip_message').show();
+                $('updateVIPlogButton').hide();
+            } else {
+                $('#view_only_vip_message').hide();
+                $('updateVIPlogButton').show();
             }
 
             // $('body').removeClass('whirl');

@@ -725,7 +725,7 @@ function saveDailyVanLogs(formObj) {
     var params = build_query(form_values);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        app_toast('Your van commute log has been saved. Going back to the Commute Calendar...');
+        app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
         $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
     }, 'json').fail(function (error) {
         app_alert('There an error while saving your log. Please contact our support team');

@@ -140,6 +140,12 @@
                         You will not be eligible to earn rewards before the designated start date.
                     </td>
                 </tr>
+                <tr id="view_only_vip_message">
+                    <td align="left">
+                    Only the van driver or pool coordinator is allowed to add to or change the log.
+                    Please contact the person responsible for logging trips if you need help.
+                    </td>
+                </tr>
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -611,12 +617,14 @@
                 </tr>
                 <tr>
                     <td>
+                        <div id="updateVIPlogButton">
                         <input type="button" value="Update Log" class="button-medium"
                                onclick="saveDailyVanLogs(this.form)">
+                        </div>
 
 
                         <input type="button" class="button-medium" value="Back"
-                               data-rel="back">
+                               data-rel="back" onclick="triggerDialogClose();">
 
                     </td>
                 </tr>
