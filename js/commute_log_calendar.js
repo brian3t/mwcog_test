@@ -218,6 +218,13 @@ function get_commute_type(log_date, is_update_html) {
                         $tr.append($td);
                         $passenger_table.append($tr);
                     }
+                    if (User.type == C.TYPE_VIEW_ONLY_VIP) {
+                        $('#view_only_vip_message').show();
+                        $('updateVIPlogButton').hide();
+                    } else {
+                        $('#view_only_vip_message').hide();
+                        $('updateVIPlogButton').show();
+                    }
                     break;
                 }
                 default:
@@ -227,13 +234,6 @@ function get_commute_type(log_date, is_update_html) {
                 $('#cip_message').show();
             } else {
                 $('#cip_message').hide();
-            }
-            if (User.type == C.TYPE_VIEW_ONLY_VIP) {
-                $('#view_only_vip_message').show();
-                $('updateVIPlogButton').hide();
-            } else {
-                $('#view_only_vip_message').hide();
-                $('updateVIPlogButton').show();
             }
 
             // $('body').removeClass('whirl');

@@ -140,12 +140,6 @@
                         You will not be eligible to earn rewards before the designated start date.
                     </td>
                 </tr>
-                <tr id="view_only_vip_message">
-                    <td align="left">
-                    Only the van driver or pool coordinator is allowed to add to or change the log.
-                    Please contact the person responsible for logging trips if you need help.
-                    </td>
-                </tr>
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -391,7 +385,10 @@
     </div>
     <div role="main" class="ui-content bk_white" data-theme="b">
         <form name="vanlog" data-action="incentivescontrol.action">
-
+            <div id="view_only_vip_message">
+                    Only the van driver or pool coordinator is allowed to add to or change the log.
+                    Please contact the person responsible for logging trips if you need help.
+            </div>
             <div style="margin-top: 18px; margin-bottom: 12px; font-size:2em; text-align:left">
                 Update Van Log For: <span class="cur_date_mdy"></span><span class="cur_date hidden"></span>
                 <br>
