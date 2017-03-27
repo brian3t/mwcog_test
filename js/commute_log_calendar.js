@@ -275,7 +275,9 @@ function edit_log(e) {
             });
             break;
         }
-        case 2: {
+        case 2:
+        case 3:
+         {
             $("body").pagecontainer("change", "#commute_log_van", {role: "dialog"});
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
