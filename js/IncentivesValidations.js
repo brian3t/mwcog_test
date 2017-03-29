@@ -714,6 +714,12 @@ function saveDailyVanLogs(formObj) {
         var wbCommute = tr.find('.wbCommute').prop('checked');
         var hbMiles = tr.find('.hbMiles').val();
         var hbCommute = tr.find('.hbCommute').prop('checked');
+        if (_.isBoolean(wbCommute)){
+            wbMiles = wbMiles || 0;
+        }
+        if (_.isBoolean(hbCommute)){
+            hbMiles = hbMiles || 0;
+        }
 
         form_values['passenger' + index + 'id'] = pool_id;
         form_values['passenger' + index + 'wbMiles'] = wbMiles;
