@@ -5228,93 +5228,98 @@ div.banner > a.ui-btn {
   padding-right: 12px;
 }
 
-/* line 3644, sass/layout.scss */
+/* line 3645, sass/layout.scss */
 .ui-popup > .ui-btn-left, .ui-popup > .ui-btn-right {
   top: 3px;
 }
 
-/* line 3647, sass/layout.scss */
+/* line 3648, sass/layout.scss */
 .ui-popup > .ui-btn-right {
   right: 3px;
 }
 
-/* line 3650, sass/layout.scss */
+/* line 3651, sass/layout.scss */
 .trip_table_wrapper {
   background-color: #cee3f6;
   font-size: 80%;
   width: 100%;
 }
-/* line 3654, sass/layout.scss */
+/* line 3655, sass/layout.scss */
 .trip_table_wrapper div.TripHeader {
   padding: 8px;
   font-size: 15px;
   background-color: #193564;
   color: white;
 }
-/* line 3660, sass/layout.scss */
+/* line 3661, sass/layout.scss */
 .trip_table_wrapper table {
   padding-left: 4px;
   padding-right: 8px;
 }
-/* line 3663, sass/layout.scss */
+/* line 3664, sass/layout.scss */
 .trip_table_wrapper table td {
   display: inline-block;
 }
-/* line 3667, sass/layout.scss */
+/* line 3668, sass/layout.scss */
 .trip_table_wrapper .ui-input-text {
   margin-top: .5em;
   margin-bottom: .5em;
   width: 100%;
 }
-/* line 3671, sass/layout.scss */
+/* line 3672, sass/layout.scss */
 .trip_table_wrapper .ui-input-text input {
   line-height: 30px;
 }
 
-/* line 3676, sass/layout.scss */
+/* line 3677, sass/layout.scss */
 tr.leg > td.header {
   width: 100%;
   border-bottom: 2px solid black;
 }
 
-/* line 3680, sass/layout.scss */
+/* line 3681, sass/layout.scss */
 tbody.trip_table {
   text-shadow: none;
 }
 
-/* line 3684, sass/layout.scss */
+/* line 3685, sass/layout.scss */
 div.ui-header .ui-btn-left {
   height: 100%;
   top: 0;
 }
 
-/* line 3689, sass/layout.scss */
+/* line 3690, sass/layout.scss */
 .cur_date_mdy {
   font-weight: bold;
 }
 
-/* line 3692, sass/layout.scss */
+/* line 3693, sass/layout.scss */
 table.ui-table-reflow {
   width: 100%;
 }
 
-/* line 3695, sass/layout.scss */
+/* line 3696, sass/layout.scss */
 ul.ui-listview > li.ui-first-child > a.ui-btn {
   border-top: none !important;
 }
 
-/* line 3696, sass/layout.scss */
+/* line 3697, sass/layout.scss */
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   height: 18px;
 }
 
-/* line 3698, sass/layout.scss */
+/* line 3699, sass/layout.scss */
 #commute_log_entry_page .ui-btn-icon-left:after, #commute_log_entry_page .ui-btn-icon-right:after, #commute_log_entry_page .ui-btn-icon-top:after, #commute_log_entry_page .ui-btn-icon-bottom:after, #commute_log_entry_page .ui-btn-icon-notext:after {
   width: 14px;
 }
-/* line 3699, sass/layout.scss */
+/* line 3700, sass/layout.scss */
 #commute_log_entry_page .ui-page-theme-b .ui-btn, #commute_log_entry_page .ui-bar-b .ui-btn, #commute_log_entry_page .ui-body-b .ui-btn, #commute_log_entry_page .ui-group-theme-b .ui-btn, #commute_log_entry_page .ui-btn.ui-btn-b, #commute_log_entry_page .ui-page-theme-b .ui-btn:visited,
 #commute_log_entry_page button.ui-btn {
+  border: none;
+}
+
+/* line 3703, sass/layout.scss */
+.ui-dialog-contain .ui-btn {
   border: none;
 }
 

@@ -9,7 +9,7 @@ var app = {
     cur_bg_image_index: 0,
     bg_loop_id: null,
     bg_loop: function () {
-        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index - 1)) % app.count_bg_images + 1;
+        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
         $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
     },
     start_bg_loop: function () {
@@ -93,7 +93,7 @@ var app = {
                         } else {
                             passwordToSave = res.hashedPassword;
                         }
-
+                        
 
                         var addresses = res.addresses;
                         window.localStorage.setItem("idCommuter", res.commuter);
