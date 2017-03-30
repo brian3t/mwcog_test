@@ -9,7 +9,7 @@ var app = {
     cur_bg_image_index: 0,
     bg_loop_id: null,
     bg_loop: function () {
-        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
+        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index - 1)) % app.count_bg_images + 1;
         $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
     },
     start_bg_loop: function () {
@@ -73,9 +73,9 @@ var app = {
             if (IS_DEBUG) {
                 u = 'redgar942';//tdm only, type 0
                 // u = 'sfinafroc246';//tdm only, type ??
-                u = 'fakehemrycc';//mwcog type 0
+                // u = 'fakehemrycc';//mwcog type 0
                 // u = 'jitubats';//mwcog type 1
-                // u = 'cpnowtest';//tdm type 2
+                u = 'cpnowtest';//tdm type 2
                 // u = 'SteveOsborn';//mwcog type 2
                 p = 'changeme4';
                 hashed = false;
@@ -93,7 +93,7 @@ var app = {
                         } else {
                             passwordToSave = res.hashedPassword;
                         }
-                        
+
 
                         var addresses = res.addresses;
                         window.localStorage.setItem("idCommuter", res.commuter);
@@ -171,7 +171,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768) {
+        if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768 ||
+            (device.platform === 'iOS' && device.model.indexOf('iPad') !== -1)) {
             window.screen.lockOrientation('portrait');
         }
         // try {
@@ -214,9 +215,9 @@ $('document').ready(function () {
 
     if (IS_DEBUG) {
         // $('#username').val('SteveOsborn');
-        $('#username').val('fakehemrycc');//mwcog type 0
+        // $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');//mwcog type 1
-        // $('#username').val('cpnowtest');
+        $('#username').val('cpnowtest');//tdm type 2
         // $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
         $("#password").val('changeme4');
