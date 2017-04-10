@@ -235,7 +235,20 @@ function get_commute_type(log_date, is_update_html) {
                         if (User.hasOwnProperty(api_key)){
                             $(v).val(User[api_key]);
                         } else {
-                            $(v).val('');
+                            //START add custom defaults if value = null
+                            switch (v) {
+                                case 'otherExpenses':
+                                case 'tolls':
+                                case 'parking':
+                                case 'gasPerGallon':
+                                case 'gallons':
+                                case 'gasTotal':
+                                    $(v).val('0');
+                                    break;
+                                default:
+                                $(v).val('');    
+                            }
+                            // END 
                         }
                     });
                     break;
