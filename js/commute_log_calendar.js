@@ -235,6 +235,7 @@ function get_commute_type(log_date, is_update_html) {
                         if (User.hasOwnProperty(api_key)){
                             $(v).val(User[api_key]);
                         } else {
+                            console.info('v: ' + v);
                             //START add custom defaults if value = null
                             switch (v) {
                                 case 'otherExpenses':

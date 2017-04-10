@@ -644,14 +644,24 @@ function saveDailyVanLogs(formObj) {
             ) == false)
             return false;
 
+        // Add validate amount for OTHER
+        if ( validateInputAndHandleErrors (
+                    formObj.other, /^0|[0-9]*\.[0-9]{2}$/g,
+                    "Please enter the amount in dollars and cents " +
+                            "you spent on other expenses for " +
+                            "this day. If you did not have other expenses just type in 0."
+                ) == false )
+            return false;
+    
+
         // Validate amount spent for other expenses, if any.  It's OK if this
         // widget is blank or empty, but if a value is present, it must be currency.
         if (formObj.other.value != null) {
             if (formObj.other.value != "") {
                 if (!(formObj.other.value.match(/^0|[0-9]*\.[0-9]{2}$/g))) {
                     alert("Please enter the amount in dollars and cents " +
-                        "you spent on other expenses for " +
-                        "this day. Leave blank if you had none."
+                            "you spent on other expenses for " +
+                            "this day. If you did not have other expenses just type in 0."
                     );
                     return false;
                 }
