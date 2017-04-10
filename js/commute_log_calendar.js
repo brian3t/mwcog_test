@@ -237,13 +237,13 @@ function get_commute_type(log_date, is_update_html) {
                         } else {
                             console.info('v: ' + v);
                             //START add custom defaults if value = null
-                            switch (v) {
-                                case 'otherExpenses':
-                                case 'tolls':
-                                case 'parking':
-                                case 'gasPerGallon':
+                            switch (v.id) {
+                                case 'other':
+                                case 'toll':
+                                case 'park':
+                                case 'pricePerGallon':
                                 case 'gallons':
-                                case 'gasTotal':
+                                case 'gas':
                                     $(v).val('0');
                                     break;
                                 default:
