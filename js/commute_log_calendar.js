@@ -14,7 +14,8 @@ var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontr
 if (USE_MWCOG) {
     mwcog_root = baseUrl + 'calendarservicecontrol';
 }
-var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80, CM_VANPOOL = 81
+var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80,
+    CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
 var COMMUTE_PLACE = {101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
 var COMMUTE_TRAVEL_MODE = {0: 'TRAVEL MODE:', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
@@ -218,19 +219,31 @@ function get_commute_type(log_date, is_update_html) {
                         $tr.append($td);
                         $passenger_table.append($tr);
                     }
-                    if (User.type == C.TYPE_VIEW_ONLY_VIP) {
+                    if (User.type === C.TYPE_VIEW_ONLY_VIP) {
                         $('#view_only_vip_message').show();
                         $('#updateVIPlogButton').hide();
                     } else {
                         $('#view_only_vip_message').hide();
                         $('#updateVIPlogButton').show();
                     }
+                    var User_wo_commuter = _.pickBy(User, function (v, k) {
+                        return k.indexOf('commuter') === -1;
+                    });
+                    var van_log_inputs = $('#van_log :input[data-api_field]');
+                    _.each(van_log_inputs, function (v) {
+                        var api_key = $(v).data('api_field');
+                        if (User.hasOwnProperty(api_key)){
+                            $(v).val(User[api_key]);
+                        } else {
+                            $(v).val('');
+                        }
+                    });
                     break;
                 }
                 default:
                     break;
             }
-            if (User.type == C.TYPE_CIP) {
+            if (User.type === C.TYPE_CIP) {
                 $('#cip_message').show();
             } else {
                 $('#cip_message').hide();
@@ -276,8 +289,7 @@ function edit_log(e) {
             break;
         }
         case 2:
-        case 3:
-         {
+        case 3: {
             $("body").pagecontainer("change", "#commute_log_van", {role: "dialog"});
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);

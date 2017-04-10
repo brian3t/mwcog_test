@@ -482,25 +482,25 @@
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Home <br> to Work</td>
-                                <td><input maxlength="8" size="7" type="text" value="8:00"
-                                           name="twStart" id="twStart" onblur="computeTotalVanDriveTime(this.form)">
+                                <td><input maxlength="8" size="7" type="text"
+                                           name="twStart" id="twStart" data-api_field="toWorkStartTime" onblur="computeTotalVanDriveTime(this.form)">
                                 </td>
-                                <td><input maxlength="8" size="7" type="text" value="8:30"
-                                           name="twEnd" id="twEnd" onblur="computeTotalVanDriveTime(this.form)"></td>
+                                <td><input maxlength="8" size="7" type="text"
+                                           name="twEnd" id="twEnd" data-api_field="toWorkEndTime" onblur="computeTotalVanDriveTime(this.form)"></td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Work <br> to Home</td>
-                                <td><input maxlength="8" size="7" type="text" value="5:00"
-                                           name="thStart" id="thStart" onblur="computeTotalVanDriveTime(this.form)">
+                                <td><input maxlength="8" size="7" type="text"
+                                           name="thStart" id="thStart" data-api_field="toHomeStartTime" onblur="computeTotalVanDriveTime(this.form)">
                                 </td>
-                                <td><input maxlength="8" size="7" type="text" value="5:30"
-                                           name="thEnd" id="thEnd" onblur="computeTotalVanDriveTime(this.form)"></td>
+                                <td><input maxlength="8" size="7" type="text"
+                                           name="thEnd" id="thEnd" data-api_field="toHomeEndTime" onblur="computeTotalVanDriveTime(this.form)"></td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Total Van Driving
                                     Time
                                 </td>
-                                <td><input size="7" type="text" value="1 hr 0 min"
+                                <td><input size="7" type="text"
                                            name="totVanDriveTime" id="totVanDriveTime" readonly="">
                                 </td>
                             </tr>
@@ -527,28 +527,28 @@
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Home to work</td>
-                                <td><input onblur="sumupvalues()" size="7" type="text" value="100"
-                                           name="owStart" id="owStart">
+                                <td><input onblur="sumupvalues()" size="7" type="text"
+                                           name="owStart" id="owStart" data-api_field="toWorkOdoStart" >
                                 </td>
-                                <td><input onblur="sumupvalues()" size="7" type="text" value="120"
-                                           name="owEnd" id="owEnd">
+                                <td><input onblur="sumupvalues()" size="7" type="text"
+                                           name="owEnd" id="owEnd" data-api_field="toWorkOdoEnd" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Work to home</td>
-                                <td><input onblur="sumupvalues()" size="7" type="text" value="120"
-                                           name="ohStart" id="ohStart">
+                                <td><input onblur="sumupvalues()" size="7" type="text"
+                                           name="ohStart" id="ohStart" data-api_field="toHomeOdoStart" >
                                 </td>
-                                <td><input onblur="sumupvalues()" size="7" type="text" value="140"
-                                           name="ohEnd" id="ohEnd">
+                                <td><input onblur="sumupvalues()" size="7" type="text"
+                                           name="ohEnd" id="ohEnd" data-api_field="toHomeOdoEnd" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Miles Driven
                                     Today
                                 </td>
-                                <td><input size="7" type="text" value="40" name="milesDriven"
-                                           id="milesDriven" readonly="">
+                                <td><input size="7" type="text" name="milesDriven"
+                                           id="milesDriven"  readonly="">
                                 </td>
                             </tr>
                             </tbody>
@@ -571,41 +571,41 @@
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Gas Total $</td>
-                                <td><input size="17" type="text" value="1.20" name="gas" id="gas">
+                                <td><input size="17" type="text" name="gas" id="gas" data-api_field="gasTotal" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Gallons</td>
-                                <td><input size="17" type="text" value="0.5" name="gallons"
-                                           id="gallons">
+                                <td><input size="17" type="text" name="gallons"
+                                           id="gallons" data-api_field="gallons" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Price per Gallon $</td>
-                                <td><input size="17" type="text" value="3.20" name="pricePerGallon"
-                                           id="pricePerGallon">
+                                <td><input size="17" type="text" name="pricePerGallon"
+                                           id="pricePerGallon" data-api_field="gasPerGallon" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Parking $</td>
-                                <td><input size="17" type="text" value="0.00" name="park" id="park">
+                                <td><input size="17" type="text" name="park" id="park" data-api_field="parking" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Tolls $</td>
-                                <td><input size="17" type="text" value="0.00" name="toll" id="toll">
+                                <td><input size="17" type="text" name="toll" id="toll" data-api_field="tolls" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Other $</td>
-                                <td><input size="17" type="text" value="0.00" name="other"
-                                           id="other">
+                                <td><input size="17" type="text" name="other"
+                                           id="other" data-api_field="otherExpenses" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="height:19px; font-size:0.8em; text-align:right">Description</td>
                                 <td><input size="17" type="text" maxlength="200" value=""
-                                           name="specify" id="specify">
+                                           name="specify" id="specify" data-api_field="otherExpensesDesc" >
                                 </td>
                             </tr>
                             </tbody>

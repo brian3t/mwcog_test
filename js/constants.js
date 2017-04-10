@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var IS_DEBUG = false;
-//var IS_DEBUG = true;
+// var IS_DEBUG = true;
 var USE_MWCOG = false;
 // var USE_MWCOG = true;
 var MAX_IMAGES_IN_BG = 3;
