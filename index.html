@@ -74,13 +74,38 @@
 
     </div>
 
-
+    <a href="#activate_account_popup" data-rel="popup" data-position-to="window"
+       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Show</a>
+    <div id="activate_account_popup" class="ui-body ui-corner-all" data-role="popup">
+        <h3>Welcome to Commuter Connections!</h3>
+        <span>Please activate your account by completing the following information:
+            </span>
+        <br/><br/>
+        <form id="activate_account" class="">
+            <div class="input_wrapper"><label for="password1">Password: </label><input type="password" name="password1" size="12" id="password1"
+                                                                                       placeholder="8-12 alphanumeric characters" class="whiteTextInput">
+            </div>
+            <div class="input_wrapper"><label for="password2">Reenter Password:</label><input type="password" name="password2" id="password2"></div>
+            <div class="input_wrapper"><label for="pwdQuestion">Enter your security question: </label><input type="text" name="pwdQuestion"
+                                                                                                             id="pwdQuestion">
+            </div>
+            <div class="input_wrapper"><label for="pwdAnswer">Enter your security question response: </label><input type="text" name="pwdAnswer"
+                                                                                                                    id="pwdAnswer">
+            </div>
+            <br><br/><br>
+            <div class="ui-btn ui-input-btn ui-corner-all ui-shadow"><input type="submit" value="Activate" id="activate_account_btn" class="has_icon"
+                                                                            data-role="button"></div>
+            <div class="ui-btn ui-input-btn ui-corner-all ui-shadow"><input type="button" value="Cancel" id="activate_account_cancel_btn" class="has_icon"
+                                                                            data-role="button" onclick="$('#activate_account_popup').popup('close');"></div>
+        </form>
+    </div>
     <!--
       <div data-role="footer">
         <h4>Footer content</h4>
       </div>
     -->
 </div>
+
 
 <script type="text/javascript" src="js/lib/switchery.min.js"></script>
 <script type="text/javascript">

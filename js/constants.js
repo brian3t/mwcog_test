@@ -8,8 +8,12 @@ var IS_DEBUG = false;
 var USE_MWCOG = false;
 // var USE_MWCOG = true;
 var MAX_IMAGES_IN_BG = 3;
+var IS_LOCAL = (window.location.host.indexOf('mwcog') !== -1);
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
+if (IS_LOCAL){
+    baseUrl = '//mwcog.mediabeef.com/mwcog/';
+}
 if (USE_MWCOG) {
     // baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
     baseUrl = 'http://mwcog.mediabeef.com/mwcog/';

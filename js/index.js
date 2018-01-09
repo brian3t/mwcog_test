@@ -1,3 +1,4 @@
+"use strict";
 if (typeof navigator.notification !== 'object') {
     navigator.notification = {
         alert: function () {
@@ -9,7 +10,7 @@ var app = {
     cur_bg_image_index: 0,
     bg_loop_id: null,
     bg_loop: function () {
-        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index -1)) % app.count_bg_images + 1;
+        app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index - 1)) % app.count_bg_images + 1;
         $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
     },
     start_bg_loop: function () {
@@ -93,7 +94,7 @@ var app = {
                         } else {
                             passwordToSave = res.hashedPassword;
                         }
-                        
+
 
                         var addresses = res.addresses;
                         window.localStorage.setItem("idCommuter", res.commuter);
@@ -109,21 +110,28 @@ var app = {
                         }
 
                         window.localStorage.setItem("justLoggedIn", 1);
-                        if (!window.is_login_and_commute_log) {
+                        //todob debugging
+                        /*if (!window.is_login_and_commute_log) {
                             window.location = "search.html";
                         } else {
                             window.location = 'commute_log_calendar.html';
-                        }
+                        }*/
 
                     } else {
-                        hideSpinner();
-                        $("#submitButton").removeAttr("disabled");
-                        navigator.notification.alert(
-                            'You have entered an invalid username and password, please try again', // message
-                            null, // callback
-                            'Invalid Login', // title
-                            'Ok'                  // buttonName
-                        );
+                        if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {
+                            $('#activate_account_popup').popup('open');
+                            return;
+                        }
+                        else {
+                            hideSpinner();
+                            $("#submitButton").removeAttr("disabled");
+                            navigator.notification.alert(
+                                'You have entered an invalid username and password, please try again', // message
+                                null, // callback
+                                'Invalid Login', // title
+                                'Ok'                  // buttonName
+                            );
+                        }
                     }
                     hideSpinner();
 
@@ -200,6 +208,7 @@ var app = {
 
 
 window.is_login_and_commute_log = false;
+
 function startCommuteLog() {
     //try logging in first
     window.is_login_and_commute_log = false;
