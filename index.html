@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.0.min.css"/>
     <link rel="stylesheet" type="text/css" href="js/lib/switchery.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/layout_home.css"/>
+    <link rel="stylesheet" href="js/lib/jquery.jgrowl.min.css"/>
     <link rel="stylesheet" href="css/mwcog-a_home.css"/>
+    <link rel="stylesheet" type="text/css" href="css/layout_home.css"/>
     <!--<link rel="stylesheet" href="css/mwcog-a.min.css"/>-->
 
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.0.min.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.jgrowl.min.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/forgot.js"></script>
@@ -74,29 +77,29 @@
 
     </div>
 
-    <a href="#activate_account_popup" data-rel="popup" data-position-to="window"
-       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Show</a>
-    <div id="activate_account_popup" class="ui-body ui-corner-all" data-role="popup">
+    <!--<a href="#activate_account_popup" data-rel="popup" data-position-to="window"
+       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">Show</a>-->
+    <div id="activate_account_popup" class="ui-body ui-corner-all b3t" data-role="popup">
+        <!--    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
         <h3>Welcome to Commuter Connections!</h3>
         <span>Please activate your account by completing the following information:
             </span>
-        <br/><br/>
-        <form id="activate_account" class="">
-            <div class="input_wrapper"><label for="password1">Password: </label><input type="password" name="password1" size="12" id="password1"
-                                                                                       placeholder="8-12 alphanumeric characters" class="whiteTextInput">
-            </div>
-            <div class="input_wrapper"><label for="password2">Reenter Password:</label><input type="password" name="password2" id="password2"></div>
-            <div class="input_wrapper"><label for="pwdQuestion">Enter your security question: </label><input type="text" name="pwdQuestion"
-                                                                                                             id="pwdQuestion">
-            </div>
-            <div class="input_wrapper"><label for="pwdAnswer">Enter your security question response: </label><input type="text" name="pwdAnswer"
-                                                                                                                    id="pwdAnswer">
-            </div>
-            <br><br/><br>
-            <div class="ui-btn ui-input-btn ui-corner-all ui-shadow"><input type="submit" value="Activate" id="activate_account_btn" class="has_icon"
-                                                                            data-role="button"></div>
-            <div class="ui-btn ui-input-btn ui-corner-all ui-shadow"><input type="button" value="Cancel" id="activate_account_cancel_btn" class="has_icon"
-                                                                            data-role="button" onclick="$('#activate_account_popup').popup('close');"></div>
+        <form id="activate_account" class="ui-content">
+            <label for="password1">Password:</label>
+            <input type="password" name="password1" id="password1" value="" autocomplete="off" size="12" placeholder="8-12 alphanumeric characters" >
+            <label for="password2">Reenter Password:</label>
+            <input type="password" name="password2" id="password2" value="" autocomplete="off" size="12"  >
+            <label for="pwdQuestion">Enter your security question:</label>
+            <input type="text" name="pwdQuestion" id="pwdQuestion" >
+            <label for="pwdQuestion">Enter your security question response:</label>
+            <input type="text" name="pwdAnswer" id="pwdAnswer" >
+            <br>
+            <br>
+            <div class="ui-block-c"><input type="button" value="Activate" id="activate_account_btn" class="has_icon" data-role="button" onclick="activate_account(this)"></div>
+            <div class="ui-block-c"><input type="reset" value="Cancel" id="activate_account_cancel_btn" data-role="button" onclick="$.mobile.navigate('#')"></div>
+            <!--<div class="ui-btn ui-input-btn ui-corner-all ui-shadow"><input type="button" value="Cancel" id="activate_account_cancel_btn" class="has_icon"-->
+                                                                            <!--data-role="button" onclick="$('#activate_account_popup').popup('close');"></div>-->
+
         </form>
     </div>
     <!--

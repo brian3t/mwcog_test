@@ -119,6 +119,7 @@ var app = {
 
                     } else {
                         if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {
+                            hideSpinner();
                             $('#activate_account_popup').popup('open');
                             return;
                         }
@@ -222,16 +223,124 @@ function startCommuteLog() {
  */
 $('document').ready(function () {
 
-    if (IS_DEBUG) {
+    if (IS_LOCAL) {
         // $('#username').val('SteveOsborn');
         // $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');//mwcog type 1
-        $('#username').val('cpnowtest');//tdm type 2
+        // $('#username').val('cpnowtest');//tdm type 2
         // $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
+        $('#username').val('activate1234');//NR
         $("#password").val('changeme4');
-        setTimeout(function () {
+        /*setTimeout(function () {
             startCommuteLog();
-        }, 200);
+        }, 200);*/
+        /*setTimeout(function () {
+            $('#activate_account_popup').popup('open', {
+                positionTo: "window"
+            });
+        }, 800);*/
     }
 });
+
+/**
+ * Convert jQuery serializeArray() to Assoc array
+ * e.g. [0=>['name'=>'email', 'value'=>'a@b.com']
+ * will become
+ * ['email'=>'a@b.com']
+ */
+function jq_serial_array_to_assoc(arr) {
+    var result = {};
+    arr.forEach(function (e) {
+        result[e.name] = e.value;
+    });
+    return result;
+}
+
+function activate_account(btn) {
+    if (verify_reg_acnt(btn)) {
+        console.log("all ok");
+        var form = $(btn).closest('form');
+        var form_vars = jq_serial_array_to_assoc(form.serializeArray());
+        $.extend(form_vars, {action: "activateNewCommuter", siteId: 10001, username: $('#username').val(), commuterId: 12345});//todob get commuterID
+        console.info(form_vars);
+        $.mobile.loading( "show");
+        $.ajax(baseUrl + 'mobileapicontroller', {
+            data: form_vars, error: function (data) {
+                console.error(data);
+            }, success: function (data) {
+                console.info(data);
+                if (data.hasOwnProperty('activation') && data.activation === 'failed') {
+                    app_alert('We apologize but there has been an error in processing your account activation.  Please call Commuter Connections at 1-800-745-RIDE for assistance with your account.');
+                } else {
+                    app_toast('Validation successful. Logging you in...');
+                    setTimeout(function () {
+                        $("#loginForm").submit();
+                        $('#activate_account_popup').popup('close');
+                        }, 2000
+                    );
+                }
+            }
+        }).done(function () {
+            $.mobile.loading( "hide");
+        });
+    }
+}
+
+function verify_reg_acnt(btn) {
+    var formObj = $(btn).closest('form').get(0), re = null;
+    // check password for validity and compare with confirmation password
+    if (formObj.password1.value !== "" && formObj.password1.value != null) {
+        if (formObj.password1.value.length < 8) {
+            app_alert("Password must contain at least eight alphanumeric characters!");
+            formObj.password1.focus();
+            return false;
+        }
+        re = /^([a-zA-Z0-9_]+)$/;
+        if (!re.test(formObj.password1.value)) {
+            app_alert("Password must be alphanumeric only.");
+            formObj.password1.focus();
+            return false;
+        }
+        re = /[0-9]/;
+        if (!re.test(formObj.password1.value)) {
+            app_alert("Password must contain at least one number (0-9).");
+            formObj.password1.focus();
+            return false;
+        }
+        re = /[a-zA-Z]/;
+        if (!re.test(formObj.password1.value)) {
+            app_alert("Password must contain at least one letter (a-z).");
+            formObj.password1.focus();
+            return false;
+        }
+    } else {
+        app_alert("Please enter a password.");
+        formObj.password1.focus();
+        return false;
+    }
+    if (formObj.password2.value === "" || formObj.password2.value == null) {
+        app_alert("Please enter confirmation password.\n(Must be same as password)");
+        formObj.password2.focus();
+        return false;
+    }
+    if (formObj.password1.value !== "" && formObj.password1.value !== formObj.password2.value) {
+        app_alert("Password and confirmation password must be same.");
+        formObj.password2.focus();
+        return false;
+    }
+
+    // check password recovery question
+    if (formObj.pwdQuestion.value === "") {
+        app_alert("Please select a password recovery question.");
+        formObj.pwdQuestion.focus();
+        return false;
+    }
+    // check password recovery answer
+    if (formObj.pwdAnswer.value === "") {
+        app_alert("Please enter password recovery answer.");
+        formObj.pwdAnswer.focus();
+        return false;
+    }
+    return true;
+}
