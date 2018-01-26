@@ -262,7 +262,7 @@ function activate_account(btn) {
         console.log("all ok");
         var form = $(btn).closest('form');
         var form_vars = jq_serial_array_to_assoc(form.serializeArray());
-        $.extend(form_vars, {action: "activateNewCommuter", siteId: 10001, username: $('#username').val(), commuterId: 12345});//todob get commuterID
+        $.extend(form_vars, {action: "activateNewCommuter", siteId: 10001, userName: $('#username').val()});
         console.info(form_vars);
         $.mobile.loading( "show");
         $.ajax(baseUrl + 'mobileapicontroller', {
@@ -274,6 +274,7 @@ function activate_account(btn) {
                     app_alert('We apologize but there has been an error in processing your account activation.  Please call Commuter Connections at 1-800-745-RIDE for assistance with your account.');
                 } else {
                     app_toast('Validation successful. Logging you in...');
+                    $('#password').val($('#password1').val());
                     setTimeout(function () {
                         $("#loginForm").submit();
                         $('#activate_account_popup').popup('close');
