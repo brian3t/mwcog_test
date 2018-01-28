@@ -111,11 +111,11 @@ var app = {
 
                         window.localStorage.setItem("justLoggedIn", 1);
                         //todob debugging
-                        /*if (!window.is_login_and_commute_log) {
+                        if (!window.is_login_and_commute_log) {
                             window.location = "search.html";
                         } else {
                             window.location = 'commute_log_calendar.html';
-                        }*/
+                        }
 
                     } else {
                         if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {

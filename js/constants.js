@@ -12,7 +12,7 @@ var IS_LOCAL = (window.location.host.indexOf('mwcog') !== -1);
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 if (IS_LOCAL){
-    baseUrl = '//mwcog.mediabeef.com/mwcog/';
+    // USE_MWCOG = true;
 }
 if (USE_MWCOG) {
     // baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
