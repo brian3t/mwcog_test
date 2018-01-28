@@ -7,11 +7,9 @@
     <author email="mike@mediabeef.com" href="http://mediabeef.com">
         Media Beef
     </author>
-    
-    <config-file platform="android" parent="/manifest" mode="merge">
+    <config-file mode="merge" parent="/manifest" platform="android">
         <application android:debuggable="false" />
     </config-file>
-
     <content src="index.html" />
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="websecurity" value="disable" />
@@ -24,11 +22,9 @@
     <icon gap:platform="ios" height="72" src="www/res/icon/ios/icon-72.png" width="72" />
     <icon gap:platform="ios" height="114" src="www/res/icon/ios/icon-57-2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="www/res/icon/ios/icon-72-2x.png" width="144" />
-    <!-- Settings Icon -->
-    <icon gap:platform="ios" src="icon-29.png" width="29" height="29" />
-    <icon gap:platform="ios" src="icon-58.png" width="58" height="58" />
-    <icon gap:platform="ios" src="icon-87.png" width="87" height="87" />
-
+    <icon gap:platform="ios" height="29" src="icon-29.png" width="29" />
+    <icon gap:platform="ios" height="58" src="icon-58.png" width="58" />
+    <icon gap:platform="ios" height="87" src="icon-87.png" width="87" />
     <icon gap:platform="blackberry" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:density="ldpi" gap:platform="android" src="www/res/icon/android/icon-36-ldpi.png" />
@@ -87,4 +83,10 @@
     <item name="android:windowFullscreen">false</item>
     <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
     <plugin name="cordova-plugin-device" spec="~1.1.5" />
+    <plugin name="cordova-plugin-customurlscheme" spec="~4.3.0">
+        <variable name="URL_SCHEME" value="commuterconnections" />
+        <variable name="ANDROID_SCHEME" value=" " />
+        <variable name="ANDROID_HOST" value=" " />
+        <variable name="ANDROID_PATHPREFIX" value="/" />
+    </plugin>
 </widget>
