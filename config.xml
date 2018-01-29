@@ -22,9 +22,9 @@
     <icon gap:platform="ios" height="72" src="www/res/icon/ios/icon-72.png" width="72" />
     <icon gap:platform="ios" height="114" src="www/res/icon/ios/icon-57-2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="www/res/icon/ios/icon-72-2x.png" width="144" />
-    <icon gap:platform="ios" height="29" src="icon-29.png" width="29" />
-    <icon gap:platform="ios" height="58" src="icon-58.png" width="58" />
-    <icon gap:platform="ios" height="87" src="icon-87.png" width="87" />
+    <icon gap:platform="ios" height="29" src="www/res/icon/ios/icon-29.png" width="29" />
+    <icon gap:platform="ios" height="58" src="www/res/icon/ios/icon-58.png" width="58" />
+    <icon gap:platform="ios" height="87" src="www/res/icon/ios/icon-87.png" width="87" />
     <icon gap:platform="blackberry" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:platform="blackberry" gap:state="hover" src="www/res/icon/blackberry/icon-80.png" />
     <icon gap:density="ldpi" gap:platform="android" src="www/res/icon/android/icon-36-ldpi.png" />
