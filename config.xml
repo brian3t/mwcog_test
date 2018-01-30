@@ -85,8 +85,5 @@
     <plugin name="cordova-plugin-device" spec="~1.1.5" />
     <plugin name="cordova-plugin-customurlscheme" spec="~4.3.0">
         <variable name="URL_SCHEME" value="commuterconnections" />
-        <variable name="ANDROID_SCHEME" value=" " />
-        <variable name="ANDROID_HOST" value=" " />
-        <variable name="ANDROID_PATHPREFIX" value="/" />
     </plugin>
 </widget>
