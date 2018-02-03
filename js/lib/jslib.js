@@ -4,6 +4,6 @@
  * @returns {boolean}
  */
 function is_nonempty_str(str) {
-    return (typeof str !== "undefined") &&
+    return (typeof str !== "undefined") && (str !== null) &&
         (typeof str.valueOf() === "string") && (str.length > 0);
 }
