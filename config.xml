@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="413" id="com.mediabeef.mwcog" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget android-versionCode="413" id="com.mediabeef.mwcog" version="2.0.1" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Commuter Connections</name>
     <description>
         Commuter Connections Mobile
@@ -62,6 +64,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-intent href="commuterconnections:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>

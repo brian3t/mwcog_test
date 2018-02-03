@@ -264,7 +264,7 @@ function activate_account(btn) {
         var form_vars = jq_serial_array_to_assoc(form.serializeArray());
         $.extend(form_vars, {action: "activateNewCommuter", siteId: 10001, userName: $('#username').val()});
         console.info(form_vars);
-        $.mobile.loading( "show");
+        $.mobile.loading("show");
         $.ajax(baseUrl + 'mobileapicontroller', {
             data: form_vars, error: function (data) {
                 console.error(data);
@@ -276,14 +276,14 @@ function activate_account(btn) {
                     app_toast('Validation successful. Logging you in...');
                     $('#password').val($('#password1').val());
                     setTimeout(function () {
-                        $("#loginForm").submit();
-                        $('#activate_account_popup').popup('close');
+                            $("#loginForm").submit();
+                            $('#activate_account_popup').popup('close');
                         }, 2000
                     );
                 }
             }
         }).done(function () {
-            $.mobile.loading( "hide");
+            $.mobile.loading("hide");
         });
     }
 }
@@ -345,3 +345,27 @@ function verify_reg_acnt(btn) {
     }
     return true;
 }
+
+window.handleOpenURL = function (url) {
+    console.log("App launched via custom URL. Url: ");
+    console.log(url);
+    var latlng = url.replace('commuterconnections://', '');//commuterconnections://{"pickup_lat":"38.92856710000000","pickup_lng":"-77.04153310000000","dropoff_lat":"38.96904410000000","dropoff_lng":"-77.10630970000000"}
+    try {
+        JSON.parse(latlng);
+    }
+    catch (e) {
+        console.error(e);
+        return false;
+    }
+    if (latlng.length < 2){
+        return false;//at least {}
+    }
+    //now try logging in
+    var username_saved = window.localStorage.getItem("username");
+    var hashedPassword_saved = window.localStorage.getItem("hashedPassword");
+    if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)){
+        window.localStorage.setItem('latlng',latlng);
+        $("#loginForm").submit();
+    }
+
+};

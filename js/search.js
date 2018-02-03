@@ -34,12 +34,14 @@ function showParkAndRide() {
     }, 50);
 
 }
+
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
     setTimeout(function () {
         window.location.href = "commute_log_calendar.html";
     }, 50);
 }
+
 function saveCommuterProfile() {
     var idCommuter = window.localStorage.getItem("idCommuter");
     var userName = window.localStorage.getItem("userName");
@@ -78,7 +80,7 @@ function saveCommuterProfile() {
         error: function (data) {
 
         },
-        complete:function (data) {
+        complete: function (data) {
             $.mobile.navigate('');
         }
     });
@@ -87,22 +89,24 @@ function saveCommuterProfile() {
 function hideWelcomeMsg() {
     $('#welcomeMsg').remove();
 }
+
 function show_welcome_msg() {
     var popup_active = $('.ui-popup-active>[data-role="popup"]');
     if (popup_active.length > 0) {
         popup_active.one('popupafterclose', function () {
-            $('#welcomeMsg').popup('open',{transition: 'pop'});
+            $('#welcomeMsg').popup('open', {transition: 'pop'});
         });
-        popup_active.popup('close',{transition: 'pop'});
+        popup_active.popup('close', {transition: 'pop'});
     } else {
-        $('#welcomeMsg').popup('open',{transition: 'pop'});
+        $('#welcomeMsg').popup('open', {transition: 'pop'});
     }
 }
+
 function toggle_panel_options() {
     "use strict";
-    $('#popup_menu').popup('close',{transition: 'pop'});
+    $('#popup_menu').popup('close', {transition: 'pop'});
     $("#popup_menu").one("popupafterclose", function (event, ui) {
-        $('#panel_options').popup('open',{transition: 'pop'});
+        $('#panel_options').popup('open', {transition: 'pop'});
     });
 }
 
@@ -141,8 +145,8 @@ $(document).ready(function () {
 
     $(function () {
         if (enrolled) {
-            $("#panel_welcomeuser").popup({transition: 'pop', history:false});
-            $("#panel_welcomeuser").popup('open', {transition: 'pop',history: false, positionTo: 'window'});
+            $("#panel_welcomeuser").popup({transition: 'pop', history: false});
+            $("#panel_welcomeuser").popup('open', {transition: 'pop', history: false, positionTo: 'window'});
             // $('#welcomeMsg').popup('open', {transition: 'pop',history:false, positionTo: 'window'});
         }
 
@@ -178,5 +182,17 @@ $(document).ready(function () {
         e.preventDefault();
         $('.ui-popup-active>[data-role="popup"]').popup('close', {transition: 'pop', history: false});
     });
+
+    var latlng = window.localStorage.getItem('latlng');
+    if (is_nonempty_str(latlng)) {
+        try {
+            latlng = JSON.parse(latlng);
+            console.log('latlng: ');
+            console.info(latlng);
+        }
+        catch (e) {
+            console.error(e);
+        }
+    }
 
 });
