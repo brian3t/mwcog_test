@@ -172,10 +172,10 @@ $(document).ready(function () {
 
 //todob debugging
     if (IS_DEBUG) {
-        setTimeout(function () {
+        /*setTimeout(function () {
             $('#commute_log_calendar').trigger('click');
             // $('#findRidematch').trigger('click');
-        }, 200);
+        }, 200);*/
     }
 
     $('.popup_dismiss').click(function (e) {

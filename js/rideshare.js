@@ -1,7 +1,7 @@
 //todob IMPORTANT: override use MWCOG here
 var USE_MWCOG = false;
 baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
-
+ie511_url = 'https://www.ie511.org/iecommuter/integrate';
 
 var matches;
 
@@ -18,191 +18,407 @@ var startRadius = window.localStorage.getItem("startRadius");
 var endRadius = window.localStorage.getItem("endRadius");
 
 var params = "&workStartTime=" + startingTime + "&workEndTime=" + endingTime + "&flexibility=" + flexibility + "&endRadius=" + endRadius + "&startRadius=" + startRadius;
+var is_full_address_ridematch = window.localStorage.getItem('is_full_address_ridematch');
 
+if (IS_DEBUG) {
+    is_full_address_ridematch = 1;
+    var ridematch_params = {
+        action: 'findRidematchesRadiusLatLng',
+        home: '2232%20DRUMMOND%20ST,%20RIVERSIDE,%20CA%2092506',
+        work: '6809%20INDIANA%20AVENUE,%20130%20RIVERSIDE,%20CA%2092506',
+        radius_home: 3,
+        radius_work: 25,
+        matchpref: 'MP2',
+        cv_pref: 'CP1',
+        van_pref: 'VP1',
+        bike_pref: 'BP1',
+        start_before_pref: '0630',
+        start_after_pref: '0930',
+        dest_before_pref: '1530',
+        dest_after_pref: '1830'
+    };
+
+}
 
 function init() {
 
     adjustWindowheight($('.fullscreenelement'));
-    $.get(baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params, function (res) {
+    if (is_full_address_ridematch) {
+        $.get(ie511_url, ridematch_params, function (res) {
 
-        matches = res;
-        if (matches === null || matches.length === 0) {
-            var row = "<li>No Results Found</li>";
-            $("#list ul").append(row);
-        }
-        else {
-            for (var i = 0; i < matches.length; i++) {
-                var match = matches[i];
-                /*
-                 *   I prefer to ride with
-                 *   SMK_2_1 smoker
-                 *   SMK_2_2 non smoker
-                 *   SMK_2_3 dont care
-                 */
-                var startTime = match.fromHRS + ":" + match.fromMNS + match.fromAMPM;
-                var endTime = match.toHRS + ":" + match.toMNS + match.toAMPM;
-                var smokingPref = "None";
-
-                var text_hphone = (match.hphone == "--" ? "" : match.hphone);
-                var text_wphone = (match.wphone == "--" ? "" : match.wphone);
-                var text_cphone = (match.cphone == "--" ? "" : match.cphone);
-                var text_email = (match.email == "--" ? "" : match.email);
-
-                var show_hphone = "";
-                var show_wphone = "";
-                var show_cphone = "";
-                var show_email = "";
-                var link_hphone = "";
-                var link_wphone = "";
-                var link_cphone = "";
-                var link_email = "";
-
-
-                var show_commuterName = "Anonymous";
-                var email = match.email;
-                var commuterName = match.commuterName;
-                var commuterId = match.idCommuter;
-                var sharesNothing = true;
-
-
-                if (match.shareHPhone === "Y" && text_hphone.length > 0) {
-                    show_hphone = "Home: " + text_hphone + "<br />";
-                    link_hphone = "Home: <a href='tel:" + text_hphone + "'>" + text_hphone + "</a><br />";
-                    sharesNothing = false;
-                }
-                if (match.shareWPhone === "Y" && text_wphone.length > 0) {
-                    show_wphone = "Work: " + text_wphone + "<br />";
-                    link_wphone = "Work: <a href='tel:" + text_wphone + "'>" + text_wphone + "</a><br />";
-                    matchlistURL = "tel:" + text_wphone;
-                    sharesNothing = false;
-                }
-                if (match.shareCPhone === "Y" && text_cphone.length > 0) {
-                    show_cphone = "Cell: " + text_cphone + "<br />";
-                    link_cphone = "Cell: <a href='tel:" + text_cphone + "'>" + text_cphone + "</a><br />";
-                    sharesNothing = false;
-                }
-
-                if (match.shareEmail === "Y" && text_email.length > 0) {
-                    show_email = "Email: " + text_email + "<br />";
-                    link_email = "Email: <a href='mailto:" + text_email + "'>" + text_email + "</a><br />";
-                    sharesNothing = false;
-                }
-                if (match.shareName === "Y") {
-                    show_commuterName = commuterName;
-                }
-
-
-                if (match.smokePref === "SMK_2_1") {
-                    smokingPref = "smoker";
-                }
-                else if (match.smokePref === "SMK_2_3") {
-                    smokingPref = "I dont care";
-                }
-                else {
-                    smokingPref = "non-smoker";
-                }
-
-                var firstLine = '<li><a class="list_item_contact" data-index="' + i + '" >';
-                var lastLine = '</p></a></li>';
-                var row = firstLine +
-                    '<h3>' + ((show_commuterName == 'Anonymous') ? 'Commuter #' + commuterId : show_commuterName) + '</h3>' +
-                    '<p id="no-ellipsis" style="font-size: .9em;">' +
-                    //'Start: '+startAddress+'<br />' +
-                    //'End: '+endAddress+'<br />'+
-                    show_email + show_cphone + show_wphone + show_hphone;
-                if (sharesNothing) row += 'Call Commuter Connections to obtain<br />this commuter\'s contact information<br />at 800-745-7433';
-                /*
-                 'Carpool pref: '+match.RCC_1+'<br />' +
-                 'Vanpool pref: '+match.RCC_2+'<br />' +
-                 'Flex time: '+match.arriveAfter+' minutes<br />' +
-                 'Schedule: '+startTime+'-'+endTime+'<br />' +
-                 'Days: Mon, Tue, Wed, Thu, Fri <br />' +
-                 'Smoking pref: '+smokingPref;
-                 */
-
-                row += lastLine;
-
-                $("#list ul").append(row);
-
-                var matchNum = i;
-                var point1 = new google.maps.LatLng(match.match[3], match.match[2]);
-                var point2 = new google.maps.LatLng(match.match[6], match.match[5]);
-                var startMarker = createStartMarker(point1, matchNum);
-                var destnMarker = createDestnMarker(point2, matchNum);
-                displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
-                displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
+            matches = res;
+            if (matches === null || matches.length === 0 || !matches.hasOwnProperty('ridematches') || matches.ridematches.length === 0) {
+                $("#list ul").append("<li>No Results Found</li>");
             }
-        }
+            else {
+                matches = matches.ridematches;
+                for (var i = 0; i < matches.length; i++) {
+                    var match = matches[i];
+                    /*
+                     *   I prefer to ride with
+                     *   SMK_2_1 smoker
+                     *   SMK_2_2 non smoker
+                     *   SMK_2_3 dont care
+                     */
+
+                    var text_hphone = (match.hphone == "--" ? "" : match.hphone);
+                    var text_wphone = (match.wphone == "--" ? "" : match.wphone);
+                    var text_cphone = (match.cphone == "--" ? "" : match.cphone);
+                    var text_email = (match.email == "--" ? "" : match.email);
+
+                    var show_hphone = "";
+                    var show_wphone = "";
+                    var show_cphone = "";
+                    var show_email = "";
+                    var link_hphone = "";
+                    var link_wphone = "";
+                    var link_cphone = "";
+                    var link_email = "";
 
 
-        $("#list ul").listview("refresh");
-        $("#footer").css({position: 'relative'});
+                    var show_commuterName = "Anonymous";
+                    var email = match.email;
+                    var commuterName = match.commuterName;
+                    var commuterId = match.idCommuter;
+                    var sharesNothing = true;
+                    var shared_info = '';
 
-        //determine what contact method to use
-        $('a.list_item_contact').on('click touch', function (e) {
-            var $e = $(e.target), contact_link = '', action = '', $ul = $('#contact_options #contact_details');
-            $e = $($e.closest('a'));
-            var index = $e.data('index');
-            if (!$.isNumeric(index)) {
-                return;
-            }
-            var match = matches[index];
-            $('#contact_options #match_firstname').html(match.firstName);
-            var contact_options = {
-                has_hphone: {is_available: (match.shareHPhone === "Y" && match.hphone.length > 2), type: 'phone', type_detail: 'Home Phone', detail: match.hphone},
-                has_wphone: {is_available: (match.shareWPhone === "Y" && match.wphone.length > 2), type: 'phone', type_detail: 'Work Phone', detail: match.wphone},
-                has_cphone: {is_available: (match.shareCPhone === "Y" && match.cphone.length > 2), type: 'phone', type_detail: 'Cell Phone', detail: match.cphone},
-                has_email: {is_available: (match.shareEmail === "Y" && match.email.length > 2), type: 'email', type_detail: 'Email', detail: match.email}
-            };
-            contact_options = _.filter(contact_options, function (v) {
-                return v.is_available;
-            });
-            if (_.size(contact_options) === 0) {
-                document.location.href = 'tel:8007457433';
-                return;
-            }
-            if (_.size(contact_options) === 1) {
-                var contact = contact_options[Object.keys(contact_options)[0]];//get first object
-                if (contact.type == 'email') {
-                    document.location.href = 'mailto:' + contact.detail;
+                    if (text_hphone.length > 0) {
+                        show_hphone = "Home: " + text_hphone + "<br />";
+                        link_hphone = "Home: <a href='tel:" + text_hphone + "'>" + text_hphone + "</a><br />";
+                        sharesNothing = false;
+                    }
+                    if (text_wphone.length > 0) {
+                        show_wphone = "Work: " + text_wphone + "<br />";
+                        link_wphone = "Work: <a href='tel:" + text_wphone + "'>" + text_wphone + "</a><br />";
+                        matchlistURL = "tel:" + text_wphone;
+                        sharesNothing = false;
+                    }
+                    if (text_cphone.length > 0) {
+                        show_cphone = "Cell: " + text_cphone + "<br />";
+                        link_cphone = "Cell: <a href='tel:" + text_cphone + "'>" + text_cphone + "</a><br />";
+                        sharesNothing = false;
+                    }
+
+                    if (text_email.length > 0) {
+                        show_email = "Email: " + text_email + "<br />";
+                        link_email = "Email: <a href='mailto:" + text_email + "'>" + text_email + "</a><br />";
+                        sharesNothing = false;
+                    }
+
+                    var firstLine = '<li><a class="list_item_contact" data-index="' + i + '" >';
+                    var lastLine = '</p></a></li>';
+                    var row = firstLine +
+                        '<h3>' + ((show_commuterName === 'Anonymous') ? 'Commuter #' + commuterId : show_commuterName) + '</h3>' +
+                        '<p id="no-ellipsis" style="font-size: .9em;">' +
+                        //'Start: '+startAddress+'<br />' +
+                        //'End: '+endAddress+'<br />'+
+                        show_email + show_cphone + show_wphone + show_hphone + '<br>Smoking preference: ' + match.smoke_preference;
+                    if (sharesNothing) row += 'Call Commuter Connections to obtain<br />this commuter\'s contact information<br />at 800-745-7433';
+                    /*
+                     'Carpool pref: '+match.RCC_1+'<br />' +
+                     'Vanpool pref: '+match.RCC_2+'<br />' +
+                     'Flex time: '+match.arriveAfter+' minutes<br />' +
+                     'Schedule: '+startTime+'-'+endTime+'<br />' +
+                     'Days: Mon, Tue, Wed, Thu, Fri <br />' +
+                     'Smoking pref: '+smokingPref;
+                     */
+
+                    row += lastLine;
+
+                    $("#list ul").append(row);
+
+                    var matchNum = i;
+                    var point1 = new google.maps.LatLng(match.match[3], match.match[2]);
+                    var point2 = new google.maps.LatLng(match.match[6], match.match[5]);
+                    var startMarker = createStartMarker(point1, matchNum);
+                    var destnMarker = createDestnMarker(point2, matchNum);
+                    displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + match.start_time + ' - ' + match.end_time + '<br>' +
+                        ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
+                            link_cphone + link_hphone + link_wphone + '<br>Smoking preference: ' + match.smoke_preference));
+                    displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + match.start_time + ' - ' + match.end_time + '<br>' +
+                        ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
+                            link_cphone + link_hphone + link_wphone + '<br>Smoking preference: ' + match.smoke_preference));
                 }
-                if (contact.type == 'phone') {
-                    document.location.href = 'tel:' + contact.detail;
-                }
-                return;
             }
-            $ul.listview('destroy');
-            $ul.empty();
-            $.each(contact_options, function (i, v) {
-                if (!v.is_available) {
+
+
+            $("#list ul").listview("refresh");
+            $("#footer").css({position: 'relative'});
+
+            //determine what contact method to use
+            $('a.list_item_contact').on('click touch', function (e) {
+                var $e = $(e.target), contact_link = '', action = '', $ul = $('#contact_options #contact_details');
+                $e = $($e.closest('a'));
+                var index = $e.data('index');
+                if (!$.isNumeric(index)) {
                     return;
                 }
-                if (v.type == 'phone') {
-                    contact_link = 'CALL ' + v.type_detail;
-                    //contact_link = 'CALL ' + v.type_detail + ' ' + v.detail;
-                    action = 'tel:' + v.detail;
-                } else {
-                    contact_link = 'SEND EMAIL';
-                    //contact_link = 'EMAIL ' + v.detail;
-                    action = 'mailto:' + v.detail;
+                var match = matches[index];
+                $('#contact_options #match_firstname').html(match.firstName);
+                var contact_options = {
+                    has_hphone: {
+                        is_available: (match.shareHPhone === "Y" && match.hphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Home Phone',
+                        detail: match.hphone
+                    },
+                    has_wphone: {
+                        is_available: (match.shareWPhone === "Y" && match.wphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Work Phone',
+                        detail: match.wphone
+                    },
+                    has_cphone: {
+                        is_available: (match.shareCPhone === "Y" && match.cphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Cell Phone',
+                        detail: match.cphone
+                    },
+                    has_email: {is_available: (match.shareEmail === "Y" && match.email.length > 2), type: 'email', type_detail: 'Email', detail: match.email}
+                };
+                contact_options = _.filter(contact_options, function (v) {
+                    return v.is_available;
+                });
+                if (_.size(contact_options) === 0) {
+                    document.location.href = 'tel:8007457433';
+                    return;
                 }
-                $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
+                if (_.size(contact_options) === 1) {
+                    var contact = contact_options[Object.keys(contact_options)[0]];//get first object
+                    if (contact.type === 'email') {
+                        document.location.href = 'mailto:' + contact.detail;
+                    }
+                    if (contact.type === 'phone') {
+                        document.location.href = 'tel:' + contact.detail;
+                    }
+                    return;
+                }
+                $ul.listview('destroy');
+                $ul.empty();
+                $.each(contact_options, function (i, v) {
+                    if (!v.is_available) {
+                        return;
+                    }
+                    if (v.type === 'phone') {
+                        contact_link = 'CALL ' + v.type_detail;
+                        //contact_link = 'CALL ' + v.type_detail + ' ' + v.detail;
+                        action = 'tel:' + v.detail;
+                    } else {
+                        contact_link = 'SEND EMAIL';
+                        //contact_link = 'EMAIL ' + v.detail;
+                        action = 'mailto:' + v.detail;
+                    }
+                    $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
+                });
+                $ul.listview();
+                $ul.listview('refresh');
+                $('#contact_options').popup();
+                $('#contact_options').popup('open', {transition: 'pop', history: false, positionTo: "window"});
             });
-            $ul.listview();
-            $ul.listview('refresh');
-            $('#contact_options').popup();
-            $('#contact_options').popup('open', {transition: 'pop', history: false,positionTo: "window"});
-        });
-        hideSpinner();
+            hideSpinner();
 
-    }, "json");
+        }, "json");
+
+    } else {
+        $.get(baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params, function (res) {
+
+            matches = res;
+            if (matches === null || matches.length === 0) {
+                var row = "<li>No Results Found</li>";
+                $("#list ul").append(row);
+            }
+            else {
+                for (var i = 0; i < matches.length; i++) {
+                    var match = matches[i];
+                    /*
+                     *   I prefer to ride with
+                     *   SMK_2_1 smoker
+                     *   SMK_2_2 non smoker
+                     *   SMK_2_3 dont care
+                     */
+                    var startTime = match.fromHRS + ":" + match.fromMNS + match.fromAMPM;
+                    var endTime = match.toHRS + ":" + match.toMNS + match.toAMPM;
+                    var smokingPref = "None";
+
+                    var text_hphone = (match.hphone == "--" ? "" : match.hphone);
+                    var text_wphone = (match.wphone == "--" ? "" : match.wphone);
+                    var text_cphone = (match.cphone == "--" ? "" : match.cphone);
+                    var text_email = (match.email == "--" ? "" : match.email);
+
+                    var show_hphone = "";
+                    var show_wphone = "";
+                    var show_cphone = "";
+                    var show_email = "";
+                    var link_hphone = "";
+                    var link_wphone = "";
+                    var link_cphone = "";
+                    var link_email = "";
+
+
+                    var show_commuterName = "Anonymous";
+                    var email = match.email;
+                    var commuterName = match.commuterName;
+                    var commuterId = match.idCommuter;
+                    var sharesNothing = true;
+
+
+                    if (match.shareHPhone === "Y" && text_hphone.length > 0) {
+                        show_hphone = "Home: " + text_hphone + "<br />";
+                        link_hphone = "Home: <a href='tel:" + text_hphone + "'>" + text_hphone + "</a><br />";
+                        sharesNothing = false;
+                    }
+                    if (match.shareWPhone === "Y" && text_wphone.length > 0) {
+                        show_wphone = "Work: " + text_wphone + "<br />";
+                        link_wphone = "Work: <a href='tel:" + text_wphone + "'>" + text_wphone + "</a><br />";
+                        matchlistURL = "tel:" + text_wphone;
+                        sharesNothing = false;
+                    }
+                    if (match.shareCPhone === "Y" && text_cphone.length > 0) {
+                        show_cphone = "Cell: " + text_cphone + "<br />";
+                        link_cphone = "Cell: <a href='tel:" + text_cphone + "'>" + text_cphone + "</a><br />";
+                        sharesNothing = false;
+                    }
+
+                    if (match.shareEmail === "Y" && text_email.length > 0) {
+                        show_email = "Email: " + text_email + "<br />";
+                        link_email = "Email: <a href='mailto:" + text_email + "'>" + text_email + "</a><br />";
+                        sharesNothing = false;
+                    }
+                    if (match.shareName === "Y") {
+                        show_commuterName = commuterName;
+                    }
+
+
+                    if (match.smokePref === "SMK_2_1") {
+                        smokingPref = "smoker";
+                    }
+                    else if (match.smokePref === "SMK_2_3") {
+                        smokingPref = "I dont care";
+                    }
+                    else {
+                        smokingPref = "non-smoker";
+                    }
+
+                    var firstLine = '<li><a class="list_item_contact" data-index="' + i + '" >';
+                    var lastLine = '</p></a></li>';
+                    var row = firstLine +
+                        '<h3>' + ((show_commuterName == 'Anonymous') ? 'Commuter #' + commuterId : show_commuterName) + '</h3>' +
+                        '<p id="no-ellipsis" style="font-size: .9em;">' +
+                        //'Start: '+startAddress+'<br />' +
+                        //'End: '+endAddress+'<br />'+
+                        show_email + show_cphone + show_wphone + show_hphone;
+                    if (sharesNothing) row += 'Call Commuter Connections to obtain<br />this commuter\'s contact information<br />at 800-745-7433';
+                    /*
+                     'Carpool pref: '+match.RCC_1+'<br />' +
+                     'Vanpool pref: '+match.RCC_2+'<br />' +
+                     'Flex time: '+match.arriveAfter+' minutes<br />' +
+                     'Schedule: '+startTime+'-'+endTime+'<br />' +
+                     'Days: Mon, Tue, Wed, Thu, Fri <br />' +
+                     'Smoking pref: '+smokingPref;
+                     */
+
+                    row += lastLine;
+
+                    $("#list ul").append(row);
+
+                    var matchNum = i;
+                    var point1 = new google.maps.LatLng(match.match[3], match.match[2]);
+                    var point2 = new google.maps.LatLng(match.match[6], match.match[5]);
+                    var startMarker = createStartMarker(point1, matchNum);
+                    var destnMarker = createDestnMarker(point2, matchNum);
+                    displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
+                    displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + startTime + ' - ' + endTime + '<br>' + ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email + link_cphone + link_hphone + link_wphone));
+                }
+            }
+
+
+            $("#list ul").listview("refresh");
+            $("#footer").css({position: 'relative'});
+
+            //determine what contact method to use
+            $('a.list_item_contact').on('click touch', function (e) {
+                var $e = $(e.target), contact_link = '', action = '', $ul = $('#contact_options #contact_details');
+                $e = $($e.closest('a'));
+                var index = $e.data('index');
+                if (!$.isNumeric(index)) {
+                    return;
+                }
+                var match = matches[index];
+                $('#contact_options #match_firstname').html(match.firstName);
+                var contact_options = {
+                    has_hphone: {
+                        is_available: (match.shareHPhone === "Y" && match.hphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Home Phone',
+                        detail: match.hphone
+                    },
+                    has_wphone: {
+                        is_available: (match.shareWPhone === "Y" && match.wphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Work Phone',
+                        detail: match.wphone
+                    },
+                    has_cphone: {
+                        is_available: (match.shareCPhone === "Y" && match.cphone.length > 2),
+                        type: 'phone',
+                        type_detail: 'Cell Phone',
+                        detail: match.cphone
+                    },
+                    has_email: {is_available: (match.shareEmail === "Y" && match.email.length > 2), type: 'email', type_detail: 'Email', detail: match.email}
+                };
+                contact_options = _.filter(contact_options, function (v) {
+                    return v.is_available;
+                });
+                if (_.size(contact_options) === 0) {
+                    document.location.href = 'tel:8007457433';
+                    return;
+                }
+                if (_.size(contact_options) === 1) {
+                    var contact = contact_options[Object.keys(contact_options)[0]];//get first object
+                    if (contact.type == 'email') {
+                        document.location.href = 'mailto:' + contact.detail;
+                    }
+                    if (contact.type == 'phone') {
+                        document.location.href = 'tel:' + contact.detail;
+                    }
+                    return;
+                }
+                $ul.listview('destroy');
+                $ul.empty();
+                $.each(contact_options, function (i, v) {
+                    if (!v.is_available) {
+                        return;
+                    }
+                    if (v.type == 'phone') {
+                        contact_link = 'CALL ' + v.type_detail;
+                        //contact_link = 'CALL ' + v.type_detail + ' ' + v.detail;
+                        action = 'tel:' + v.detail;
+                    } else {
+                        contact_link = 'SEND EMAIL';
+                        //contact_link = 'EMAIL ' + v.detail;
+                        action = 'mailto:' + v.detail;
+                    }
+                    $ul.append($('<li>').append('<a href="' + action + '" >' + contact_link + '</a>'));//<li><a href="tel:5593474767"> Call home phone 559</a></li>
+                });
+                $ul.listview();
+                $ul.listview('refresh');
+                $('#contact_options').popup();
+                $('#contact_options').popup('open', {transition: 'pop', history: false, positionTo: "window"});
+            });
+            hideSpinner();
+
+        }, "json");
+    }
     $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyBY-L-HhMKsNOeMDqH1kJZP7hS3G2SATWQ&callback=gmap_ready');
 //
 }
+
 var trafficLayer = {};
 var toggleState = 0;
 var map;
 var directionsDisplay = {}, directionsService = {}, info = {};
+
 function gmap_ready() {
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
@@ -217,7 +433,13 @@ function createStartMarker(point, index) {
     var marker;
     var i = index + 1;
     var imageUrl = "img/marker_circle_light_blue.svg";
-    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
+    marker = new google.maps.Marker({
+        position: point,
+        map: map,
+        draggable: false,
+        icon: imageUrl,
+        label: {text: String(i), color: 'white', fontWeight: 'bold'}
+    });
     return marker;
 }
 
@@ -225,7 +447,13 @@ function createDestnMarker(point, index) {
     var marker;
     var i = index + 1;
     var imageUrl = "img/marker_circle_blue.svg";
-    marker = new google.maps.Marker({position: point, map: map, draggable: false, icon: imageUrl, label: {text: String(i), color: 'white', fontWeight: 'bold'}});
+    marker = new google.maps.Marker({
+        position: point,
+        map: map,
+        draggable: false,
+        icon: imageUrl,
+        label: {text: String(i), color: 'white', fontWeight: 'bold'}
+    });
     return marker;
 }
 

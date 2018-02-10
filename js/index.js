@@ -228,13 +228,13 @@ $('document').ready(function () {
         // $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');//mwcog type 1
         // $('#username').val('cpnowtest');//tdm type 2
-        // $('#username').val('redgar942');//tdm type 0
+        $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
-        $('#username').val('activate1234');//NR
+        // $('#username').val('activate1234');//NR
         $("#password").val('changeme4');
-        /*setTimeout(function () {
+        setTimeout(function () {
             startCommuteLog();
-        }, 200);*/
+        }, 200);
         /*setTimeout(function () {
             $('#activate_account_popup').popup('open', {
                 positionTo: "window"
