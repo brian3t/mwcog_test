@@ -45,7 +45,6 @@ function init() {
     adjustWindowheight($('.fullscreenelement'));
     if (is_full_address_ridematch) {
         $.get(ie511_url, ridematch_params, function (res) {
-
             matches = res;
             if (matches === null || matches.length === 0 || !matches.hasOwnProperty('ridematches') || matches.ridematches.length === 0) {
                 $("#list ul").append("<li>No Results Found</li>");
@@ -61,50 +60,39 @@ function init() {
                      *   SMK_2_3 dont care
                      */
 
-                    var text_hphone = (match.hphone == "--" ? "" : match.hphone);
-                    var text_wphone = (match.wphone == "--" ? "" : match.wphone);
-                    var text_cphone = (match.cphone == "--" ? "" : match.cphone);
-                    var text_email = (match.email == "--" ? "" : match.email);
-
-                    var show_hphone = "";
-                    var show_wphone = "";
-                    var show_cphone = "";
-                    var show_email = "";
-                    var link_hphone = "";
-                    var link_wphone = "";
-                    var link_cphone = "";
-                    var link_email = "";
-
 
                     var show_commuterName = "Anonymous";
-                    var email = match.email;
+                    var phone_num = '', phone_type = '';
+                    var link_email = '<a href="mailto:"' + match.email + '">' + match.email + '</a><br/>';
                     var commuterName = match.commuterName;
                     var commuterId = match.idCommuter;
-                    var sharesNothing = true;
+                    var share_nothing = false;// in the future this might be false
                     var shared_info = '';
 
-                    if (text_hphone.length > 0) {
-                        show_hphone = "Home: " + text_hphone + "<br />";
-                        link_hphone = "Home: <a href='tel:" + text_hphone + "'>" + text_hphone + "</a><br />";
-                        sharesNothing = false;
-                    }
-                    if (text_wphone.length > 0) {
-                        show_wphone = "Work: " + text_wphone + "<br />";
-                        link_wphone = "Work: <a href='tel:" + text_wphone + "'>" + text_wphone + "</a><br />";
-                        matchlistURL = "tel:" + text_wphone;
-                        sharesNothing = false;
-                    }
-                    if (text_cphone.length > 0) {
-                        show_cphone = "Cell: " + text_cphone + "<br />";
-                        link_cphone = "Cell: <a href='tel:" + text_cphone + "'>" + text_cphone + "</a><br />";
-                        sharesNothing = false;
+                    var phone_num_and_type = (new RegExp(/(\d+)\s\(([A-Z])\)/g)).exec(match.contact_number);//7608341000 (C)
+                    if (phone_num_and_type.length >= 2) {
+                        phone_num = phone_num_and_type[1];
+                        phone_num = '<a href="tel:"' + phone_num + '">' + phone_num + '</a><br/>';
+                        if (phone_num_and_type.length >= 3) {
+                            phone_type = phone_num_and_type[2];
+                            switch (phone_type) {
+                                case 'C':
+                                    phone_type = 'Cell';
+                                    break;
+                                case 'H':
+                                    phone_type = 'Home';
+                                    break;
+                                case 'W':
+                                    phone_type = 'Work';
+                                    break;
+                                default:
+                                    break;
+                            }
+                            phone_type += ': ';
+                        }
                     }
 
-                    if (text_email.length > 0) {
-                        show_email = "Email: " + text_email + "<br />";
-                        link_email = "Email: <a href='mailto:" + text_email + "'>" + text_email + "</a><br />";
-                        sharesNothing = false;
-                    }
+                    var link_phone = phone_type + phone_num;
 
                     var firstLine = '<li><a class="list_item_contact" data-index="' + i + '" >';
                     var lastLine = '</p></a></li>';
@@ -113,8 +101,9 @@ function init() {
                         '<p id="no-ellipsis" style="font-size: .9em;">' +
                         //'Start: '+startAddress+'<br />' +
                         //'End: '+endAddress+'<br />'+
-                        show_email + show_cphone + show_wphone + show_hphone + '<br>Smoking preference: ' + match.smoke_preference;
-                    if (sharesNothing) row += 'Call Commuter Connections to obtain<br />this commuter\'s contact information<br />at 800-745-7433';
+                        link_email +
+                        link_phone + '<br>Smoking preference: ' + match.smoke_preference;
+                    if (share_nothing) row += 'Call Commuter Connections to obtain<br />this commuter\'s contact information<br />at 800-745-7433';
                     /*
                      'Carpool pref: '+match.RCC_1+'<br />' +
                      'Vanpool pref: '+match.RCC_2+'<br />' +
@@ -134,11 +123,11 @@ function init() {
                     var startMarker = createStartMarker(point1, matchNum);
                     var destnMarker = createDestnMarker(point2, matchNum);
                     displayInfoWindow(startMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + match.start_time + ' - ' + match.end_time + '<br>' +
-                        ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
-                            link_cphone + link_hphone + link_wphone + '<br>Smoking preference: ' + match.smoke_preference));
+                        ((share_nothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
+                            link_phone + '<br>Smoking preference: ' + match.smoke_preference));
                     displayInfoWindow(destnMarker, matchNum, '<div class="info_window"><strong>' + show_commuterName + '</strong><br>Work Hours:' + match.start_time + ' - ' + match.end_time + '<br>' +
-                        ((sharesNothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
-                            link_cphone + link_hphone + link_wphone + '<br>Smoking preference: ' + match.smoke_preference));
+                        ((share_nothing) ? 'Call Commuter Connections to obtain this commuter\'s contact information at <a href="tel:800-745-7433">800-745-7433</a>' : link_email +
+                            link_phone + '<br>Smoking preference: ' + match.smoke_preference));
                 }
             }
 
