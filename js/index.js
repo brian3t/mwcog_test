@@ -231,10 +231,12 @@ $('document').ready(function () {
         $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
         // $('#username').val('activate1234');//NR
-        $("#password").val('changeme4');
-        setTimeout(function () {
+        /*$("#password").val('changeme4');
+        $('#loginForm').submit();*/
+        window.location = 'search.html';
+        /*setTimeout(function () {
             startCommuteLog();
-        }, 200);
+        }, 200);*/
         /*setTimeout(function () {
             $('#activate_account_popup').popup('open', {
                 positionTo: "window"
@@ -357,14 +359,15 @@ window.handleOpenURL = function (url) {
         console.error(e);
         return false;
     }
-    if (latlng.length < 2){
+    if (latlng.length < 2) {
         return false;//at least {}
     }
     //now try logging in
     var username_saved = window.localStorage.getItem("username");
     var hashedPassword_saved = window.localStorage.getItem("hashedPassword");
-    if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)){
-        window.localStorage.setItem('latlng',latlng);
+    if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)) {
+        window.localStorage.setItem('latlng', latlng);
+        window.localStorage.setItem('is_latlng_ridematch', 1);
         $("#loginForm").submit();
     }
 
