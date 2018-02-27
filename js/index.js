@@ -228,12 +228,12 @@ $('document').ready(function () {
         // $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');//mwcog type 1
         // $('#username').val('cpnowtest');//tdm type 2
-        $('#username').val('redgar942');//tdm type 0
+        // $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
-        // $('#username').val('activate1234');//NR
-        /*$("#password").val('changeme4');
-        $('#loginForm').submit();*/
-        window.location = 'search.html';
+        $('#username').val('activate1234');//NR
+        $("#password").val('changeme4');
+        // $('#loginForm').submit();
+        // window.location = 'search.html';
         /*setTimeout(function () {
             startCommuteLog();
         }, 200);*/
