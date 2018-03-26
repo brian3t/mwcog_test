@@ -44,10 +44,16 @@ var app = {
         }
         remember_sw = new Switchery(document.querySelector('.js-switch'));
 
-        $("#loginForm").on("submit", function (e) {
+        /*
+        Login. If successful, go to destination_page, e.g. search.html
+         */
+        $("#loginForm").on("submit", function (e, destination_page) {
             if (window.is_login_and_commute_log) {
                 e.preventDefault();
                 console.log('Login check only');
+            }
+            if (typeof destination_page === 'undefined'){
+                destination_page = 'search.html';
             }
             //disable the button so we can't resubmit while we wait
             $("#submitButton", this).attr("disabled", "disabled");
@@ -112,7 +118,7 @@ var app = {
                         window.localStorage.setItem("justLoggedIn", 1);
                         //todob debugging
                         if (!window.is_login_and_commute_log) {
-                            window.location = "search.html";
+                            window.location = destination_page;
                         } else {
                             window.location = 'commute_log_calendar.html';
                         }
@@ -167,6 +173,11 @@ var app = {
         }
         this.bindEvents();
         setTimeout(this.start_bg_loop, 500);
+        if (IS_SIMULATE_DEEPLINK){
+            console.warn('IS SIMULATE DEEPLINK');
+            window.handleOpenURL('commuterconnections://{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000"' +
+                ',"dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}');
+        }
     },
     // Bind Event Listeners
     //
@@ -351,7 +362,8 @@ function verify_reg_acnt(btn) {
 window.handleOpenURL = function (url) {
     console.log("App launched via custom URL. Url: ");
     console.log(url);
-    var latlng = url.replace('commuterconnections://', '');//commuterconnections://{"pickup_lat":"38.92856710000000","pickup_lng":"-77.04153310000000","dropoff_lat":"38.96904410000000","dropoff_lng":"-77.10630970000000"}
+    var latlng = url.replace('commuterconnections://', '');//{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000",
+    // "dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}
     try {
         JSON.parse(latlng);
     }
@@ -368,7 +380,7 @@ window.handleOpenURL = function (url) {
     if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)) {
         window.localStorage.setItem('latlng', latlng);
         window.localStorage.setItem('is_latlng_ridematch', 1);
-        $("#loginForm").submit();
+        $("#loginForm").trigger('submit',[null, 'rideshare.html']);
     }
 
 };
