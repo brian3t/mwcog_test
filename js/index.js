@@ -380,7 +380,7 @@ window.handleOpenURL = function (url) {
     if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)) {
         window.localStorage.setItem('latlng', latlng);
         window.localStorage.setItem('is_latlng_ridematch', 1);
-        $("#loginForm").trigger('submit',[null, 'rideshare.html']);
+        $("#loginForm").trigger('submit',['rideshare.html']);
     }
 
 };
