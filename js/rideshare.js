@@ -1,9 +1,9 @@
 //todob IMPORTANT: override use MWCOG here
 var USE_MWCOG = false;
 baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
-// ie511_url = 'https://tdm.commuterconnections.org/mwcog/integrate';
+ie511_url = 'https://tdm.commuterconnections.org/mwcog/integrate';
 // ie511_url = 'https://www.ie511.org/iecommuter/integrate';
-ie511_url = 'http://mwcog.mediabeef.com/mwcog/integrate';
+//ie511_url = 'http://mwcog.mediabeef.com/mwcog/integrate';
 
 var matches;
 
