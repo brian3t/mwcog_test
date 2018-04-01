@@ -58,7 +58,7 @@ function init() {
             console.error(e);
         }
     }
-    is_latlng_ridematch = (typeof latlng === 'object' && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
+    is_latlng_ridematch = (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
     if (is_latlng_ridematch) {
         ridematch_url = ie511_url;
         console.info('Ridematch latlng from deeplink');
