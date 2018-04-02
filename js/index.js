@@ -241,8 +241,10 @@ $('document').ready(function () {
         // $('#username').val('cpnowtest');//tdm type 2
         // $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
-        $('#username').val('activate1234');//NR
-        $("#password").val('changeme4');
+        // $('#username').val('activate1234');//NR
+        // $("#password").val('changeme4');
+        $('#username').val('ngxtri01');//NR
+        $("#password").val('cTrapok01');
         // $('#loginForm').submit();
         // window.location = 'search.html';
         /*setTimeout(function () {

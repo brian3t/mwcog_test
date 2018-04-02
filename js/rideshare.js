@@ -24,51 +24,38 @@ var is_latlng_ridematch = false;
 
 if (IS_DEBUG) {
     is_latlng_ridematch = 1;
-    var ridematch_params = {
-        action: 'findRidematchesRadiusLatLng',
-        start_lat: -77.1132084,
-        start_lng: 38.8582132,
-        start_radius: 3,
-        end_lat: -77.1274350,
-        end_lng: 39.0481708,
-        end_radius: 3,
-        carpool: 'RCC_1_5',
-        vanpool: 'RCC_2_4',
-        work_start_time: '0900',
-        work_end_time: '1700',
-        arrive_before_time: 90,
-        arrive_after_time: 90,
-        leave_before_time: 90,
-        leave_after_time: 90
-    };
+    window.localStorage.setItem('latlng', '{"pickup_lat":"38.892949","pickup_lng":"-77.018179","dropoff_lat":"38.899949","dropoff_lng":"-77.011179","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4501 Norwood St, San Diego, CA 92115, USA"}');
+}
+
+function pull_latlng(){
+    var latlng_obj = window.localStorage.getItem('latlng');
+    console.info('Latlng from localstorage: ' + latlng_obj);
+    try {
+        latlng_obj = JSON.parse(latlng_obj);
+    }
+    catch (e) {
+        console.error('Cant pull latlng object');
+        console.error(e);
+    }
+    return latlng_obj;
 }
 
 function init() {
 
     adjustWindowheight($('.fullscreenelement'));
     var ridematch_url = baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params;
-    var latlng = window.localStorage.getItem('latlng');
-    if (is_nonempty_str(latlng)) {
-        try {
-            latlng = JSON.parse(latlng);
-            console.log('latlng: ');
-            console.info(latlng);
-        }
-        catch (e) {
-            console.error(e);
-        }
-    }
+    var latlng = pull_latlng();
     is_latlng_ridematch = (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
     if (is_latlng_ridematch) {
         ridematch_url = ie511_url;
         console.info('Ridematch latlng from deeplink');
         ridematch_params = {
             action: 'findRidematchesRadiusLatLng',
-            start_lat: -77.1132084,
-            start_lng: 38.8582132,
-            start_radius: 3,
-            end_lat: -77.1274350,
-            end_lng: 39.0481708,
+            start_lat: latlng.pickup_lng,//todob here API is wrong
+            start_lng: latlng.pickup_lat,
+            start_radius: 5,
+            end_lat: latlng.dropoff_lng,
+            end_lng: latlng.dropoff_lat,
             end_radius: 3,
             carpool: 'RCC_1_5',
             vanpool: 'RCC_2_4',
@@ -96,8 +83,7 @@ function init() {
                 console.error(e);
                 return;
             }
-        } else
-        {
+        } else {
             matches = res;
         }
         if (matches === null || matches.length === 0) {
@@ -389,10 +375,16 @@ function initialize() {
             //alert("Geocode was not successful for the following reason: " + status);
         }
     });
-
     geocoder.geocode({'address': endAddress}, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             end = results[0].geometry.location;
+            //deeplink
+            var latlng = pull_latlng();
+            if (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat')) {
+                start = new google.maps.LatLng(latlng.pickup_lat, latlng.pickup_lng);
+                end = new google.maps.LatLng(latlng.dropoff_lat, latlng.dropoff_lng);
+            }
+
             map.setCenter(end);
             map.setZoom(12);
 
