@@ -41,6 +41,11 @@ function pull_latlng(){
 }
 
 function init() {
+	try {
+		Keyboard.hide();
+	} catch (e) {
+		console.info(e);
+	}
 
     adjustWindowheight($('.fullscreenelement'));
     var ridematch_url = baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params;
