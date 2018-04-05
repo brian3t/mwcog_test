@@ -370,6 +370,13 @@ function initialize() {
     var geocoder = new google.maps.Geocoder();
     var start = "";
     var end = "";
+	//deeplink 
+	var latlng = pull_latlng();
+	if (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat')) {
+		start = new google.maps.LatLng(latlng.pickup_lat, latlng.pickup_lng);
+		end = new google.maps.LatLng(latlng.dropoff_lat, latlng.dropoff_lng);
+		rs_draw_directions(start, end);
+	}
 
     // var addressArray  = JSON.parse(window.localStorage.getItem("addresses"));
 
@@ -393,35 +400,7 @@ function initialize() {
             map.setCenter(end);
             map.setZoom(12);
 
-            directionsService.route({
-                origin: start, destination: end,
-                travelMode: google.maps.DirectionsTravelMode.DRIVING
-            }, function (result, status) {
-                if (status === google.maps.DirectionsStatus.OK) {
-                    //uncomment if the client requests manual zoom control
-                    //directionsDisplay.setOptions({ preserveViewport: true });
-                    directionsDisplay.setDirections(result);
-                    //draw route info here
-                    $('#route_info').show();
-                    $('#pickup input').val(startAddress);
-                    $('#dropoff input').val(endAddress);
-                    map.pickup_marker = new google.maps.Marker({
-                        map: map,
-                        position: start,
-                        labelContent: 'hey',
-                        icon: 'img/marker_ab_green.svg',
-                        label: {text: 'A', color: 'white', 'fontWeight': 'bold'}
-                    });
-                    map.dropoff_marker = new google.maps.Marker({
-                        map: map,
-                        position: end,
-                        labelContent: 'hey',
-                        icon: 'img/marker_ab_red.svg',
-                        label: {text: 'B', color: 'white', 'fontWeight': 'bold'}
-                    });
-
-                }
-            });
+            rs_draw_directions(start, end);
 
         } else {
             //alert("Geocode was not successful for the following reason: " + status);
@@ -481,4 +460,34 @@ adjustWindowheight = function (current_page_content) {
     });
 };
 		
-        
+function rs_draw_directions(start, end){
+	directionsService.route({
+                origin: start, destination: end,
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            }, function (result, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    //uncomment if the client requests manual zoom control
+                    //directionsDisplay.setOptions({ preserveViewport: true });
+                    directionsDisplay.setDirections(result);
+                    //draw route info here
+                    $('#route_info').show();
+                    $('#pickup input').val(startAddress);
+                    $('#dropoff input').val(endAddress);
+                    map.pickup_marker = new google.maps.Marker({
+                        map: map,
+                        position: start,
+                        labelContent: 'hey',
+                        icon: 'img/marker_ab_green.svg',
+                        label: {text: 'A', color: 'white', 'fontWeight': 'bold'}
+                    });
+                    map.dropoff_marker = new google.maps.Marker({
+                        map: map,
+                        position: end,
+                        labelContent: 'hey',
+                        icon: 'img/marker_ab_red.svg',
+                        label: {text: 'B', color: 'white', 'fontWeight': 'bold'}
+                    });
+
+                }
+            });
+}
