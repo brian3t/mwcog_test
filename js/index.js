@@ -59,6 +59,7 @@ var app = {
             $("#submitButton", this).attr("disabled", "disabled");
             var u = $("#username", this).val();
             var p = $("#password").val();
+            console.info("Password b4 login: " + p);
             var rememberMe = $("#remember").prop('checked');
 
             if (!rememberMe) {
@@ -90,7 +91,7 @@ var app = {
 
 
             if (u !== '' && p !== '') {
-
+console.info("About to login: "); console.info(u);console.info(p);
                 $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
                     var passwordToSave = '';
                     if (res.statusCode === 1) {
@@ -243,8 +244,8 @@ $('document').ready(function () {
         // $('#username').val('sfinafroc246');//tdm type ??
         // $('#username').val('activate1234');//NR
         // $("#password").val('changeme4');
-        $('#username').val('ngxtri01');//NR
-        $("#password").val('cTrapok01');
+        // $('#username').val('ngxtri01');//NR
+        // $("#password").val('cTrapok01');
         // $('#loginForm').submit();
         // window.location = 'search.html';
         /*setTimeout(function () {

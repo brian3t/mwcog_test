@@ -5,8 +5,8 @@
  */
 var IS_DEBUG = false;
 // var IS_DEBUG = true;
-// var IS_SIMULATE_DEEPLINK = false;
-var IS_SIMULATE_DEEPLINK = true;
+var IS_SIMULATE_DEEPLINK = false;
+// var IS_SIMULATE_DEEPLINK = true;
 var USE_MWCOG = false;
 // var USE_MWCOG = true;
 var MAX_IMAGES_IN_BG = 3;
