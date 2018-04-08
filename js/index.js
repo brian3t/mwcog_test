@@ -57,13 +57,13 @@ var app = {
                 destination_page = 'search.html';
             }
             //disable the button so we can't resubmit while we wait
-            $("#submitButton", this).attr("disabled", "disabled");
+            $("#submitButton", this).prop("disabled", "disabled");
             var u = $("#username", this).val();
             var p = $("#password").val();
             console.info("Password b4 login: " + p);
             var rememberMe = $("#remember").prop('checked');
 
-            if (!rememberMe) {
+            if (!rememberMe) {//clear everything if not remember
                 window.localStorage.setItem("hashedPassword", "");
                 window.localStorage.setItem("rememberCheckbox", false);
                 window.localStorage.setItem("username", "");
@@ -100,21 +100,24 @@ console.info("About to login: "); console.info(u);console.info(p);
                             passwordToSave = res.hashedPassword;
                         }*/
                         var addresses = res.addresses;
-                        var res_hashed_password = ''; //todob here pull from json res
+                        var res_hashed_password = ''; //response's hashed_pw
+                        if (res.hasOwnProperty('hashed_password')){
+                            res_hashed_password = res.hashed_password;
+                        }
                         window.localStorage.setItem("idCommuter", res.commuter);
                         window.localStorage.setItem("enrolled", res.enrolled);
                         window.localStorage.setItem("userName", u);
                         window.localStorage.setItem("addresses", JSON.stringify(addresses));
                         window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
                         window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
-                        window.localStorage.setItem("hashedPassword", hashedPassword);
                         if (rememberMe) {
                             window.localStorage.setItem("rememberCheckbox", true);
                             window.localStorage.setItem("username", u);
+                            window.localStorage.setItem("hashedPassword", res_hashed_password);
+                            window.localStorage.setItem("password", p);//0407 save plain pw too
                         }
 
                         window.localStorage.setItem("justLoggedIn", 1);
-                        //todob debugging
                         if (!window.is_login_and_commute_log) {
                             window.location = destination_page;
                         } else {
@@ -376,8 +379,9 @@ window.handleOpenURL = function (url) {
     }
     //now try logging in
     var username_saved = window.localStorage.getItem("username");
-    var hashedPassword_saved = window.localStorage.getItem("hashedPassword");
-    if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)) {
+    var saved_hashed_password = window.localStorage.getItem("hashedPassword");
+    var saved_password = window.localStorage.getItem("password");
+    if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
         window.localStorage.setItem('latlng', latlng);
         window.localStorage.setItem('is_latlng_ridematch', 1);
         $("#loginForm").trigger('submit',['rideshare.html']);
