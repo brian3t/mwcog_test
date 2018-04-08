@@ -80,7 +80,7 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
     <plugin name="cordova-plugin-screen-orientation" spec="~1.4.2" />
     <preference name="fullscreen" value="false" />
     <item name="android:windowFullscreen">false</item>
