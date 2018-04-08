@@ -31,7 +31,8 @@ var app = {
         var remember_sw = {};
         var remember = window.localStorage.getItem("rememberCheckbox");
         var username = window.localStorage.getItem("username");
-        var hashedPassword = window.localStorage.getItem("hashedPassword");
+        var saved_password = window.localStorage.getItem("password");
+        var saved_hashedpassword = window.localStorage.getItem("hashedPassword");
         var hashed = false;
         var $img_lazy_loader = $('#lazy_loader');
         $.support.cors = true;
@@ -39,24 +40,30 @@ var app = {
         if (remember === "true") {
             $("#remember").prop('checked', true);
             $("#username").val(username);
-            hashed = true;
-            $("#password").val(hashedPassword);
+            // hashed = true;//0407
+            $("#password").val(saved_password);
         }
         remember_sw = new Switchery(document.querySelector('.js-switch'));
 
-        $("#loginForm").on("submit", function (e) {
+        /*
+        Login. If successful, go to destination_page, e.g. search.html
+         */
+        $("#loginForm").on("submit", function (e, destination_page) {
             if (window.is_login_and_commute_log) {
                 e.preventDefault();
                 console.log('Login check only');
             }
+            if (typeof destination_page === 'undefined'){
+                destination_page = 'search.html';
+            }
             //disable the button so we can't resubmit while we wait
-            $("#submitButton", this).attr("disabled", "disabled");
+            $("#submitButton", this).prop("disabled", "disabled");
             var u = $("#username", this).val();
             var p = $("#password").val();
+            console.info("Password b4 login: " + p);
             var rememberMe = $("#remember").prop('checked');
 
-            if (!rememberMe) {
-
+            if (!rememberMe) {//clear everything if not remember
                 window.localStorage.setItem("hashedPassword", "");
                 window.localStorage.setItem("rememberCheckbox", false);
                 window.localStorage.setItem("username", "");
@@ -64,55 +71,55 @@ var app = {
                 hashed = false;
             }
             showSpinner();
-            if (hashedPassword === p) {
-                p = hashedPassword;
+            if (saved_hashedpassword === p) {
+                // p = saved_hashedpassword;
             }
             else {
                 hashed = false;
-
             }
             if (IS_DEBUG) {
                 u = 'redgar942';//tdm only, type 0
                 // u = 'sfinafroc246';//tdm only, type ??
                 // u = 'fakehemrycc';//mwcog type 0
                 // u = 'jitubats';//mwcog type 1
-                u = 'cpnowtest';//tdm type 2
+                // u = 'cpnowtest';//tdm type 2
                 // u = 'SteveOsborn';//mwcog type 2
                 p = 'changeme4';
                 hashed = false;
             }
 
-
             if (u !== '' && p !== '') {
-
+console.info("About to login: "); console.info(u);console.info(p);
                 $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
-                    var passwordToSave = '';
+                    // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
                     if (res.statusCode === 1) {
                         // fix for saving wrong hashed pw
-                        if (hashed) {
+                        /*if (hashed) {
                             passwordToSave = p;
                         } else {
                             passwordToSave = res.hashedPassword;
-                        }
-
-
+                        }*/
                         var addresses = res.addresses;
+                        var res_hashed_password = ''; //response's hashed_pw
+                        if (res.hasOwnProperty('hashed_password')){
+                            res_hashed_password = res.hashed_password;
+                        }
                         window.localStorage.setItem("idCommuter", res.commuter);
                         window.localStorage.setItem("enrolled", res.enrolled);
                         window.localStorage.setItem("userName", u);
                         window.localStorage.setItem("addresses", JSON.stringify(addresses));
                         window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
                         window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
-                        window.localStorage.setItem("hashedPassword", passwordToSave);
                         if (rememberMe) {
                             window.localStorage.setItem("rememberCheckbox", true);
                             window.localStorage.setItem("username", u);
+                            window.localStorage.setItem("hashedPassword", res_hashed_password);
+                            window.localStorage.setItem("password", p);//0407 save plain pw too
                         }
 
                         window.localStorage.setItem("justLoggedIn", 1);
-                        //todob debugging
                         if (!window.is_login_and_commute_log) {
-                            window.location = "search.html";
+                            window.location = destination_page;
                         } else {
                             window.location = 'commute_log_calendar.html';
                         }
@@ -167,6 +174,11 @@ var app = {
         }
         this.bindEvents();
         setTimeout(this.start_bg_loop, 500);
+        if (IS_SIMULATE_DEEPLINK){
+            console.warn('IS SIMULATE DEEPLINK');
+            window.handleOpenURL('commuterconnections://{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000"' +
+                ',"dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}');
+        }
     },
     // Bind Event Listeners
     //
@@ -228,13 +240,17 @@ $('document').ready(function () {
         // $('#username').val('fakehemrycc');//mwcog type 0
         // $('#username').val('jitubats');//mwcog type 1
         // $('#username').val('cpnowtest');//tdm type 2
-        $('#username').val('redgar942');//tdm type 0
+        // $('#username').val('redgar942');//tdm type 0
         // $('#username').val('sfinafroc246');//tdm type ??
         // $('#username').val('activate1234');//NR
-        $("#password").val('changeme4');
-        setTimeout(function () {
+        // $("#password").val('changeme4');
+        // $('#username').val('ngxtri01');//NR
+        // $("#password").val('cTrapok01');
+        // $('#loginForm').submit();
+        // window.location = 'search.html';
+        /*setTimeout(function () {
             startCommuteLog();
-        }, 200);
+        }, 200);*/
         /*setTimeout(function () {
             $('#activate_account_popup').popup('open', {
                 positionTo: "window"
@@ -349,7 +365,8 @@ function verify_reg_acnt(btn) {
 window.handleOpenURL = function (url) {
     console.log("App launched via custom URL. Url: ");
     console.log(url);
-    var latlng = url.replace('commuterconnections://', '');//commuterconnections://{"pickup_lat":"38.92856710000000","pickup_lng":"-77.04153310000000","dropoff_lat":"38.96904410000000","dropoff_lng":"-77.10630970000000"}
+    var latlng = url.replace('commuterconnections://', '');//{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000",
+    // "dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}
     try {
         JSON.parse(latlng);
     }
@@ -357,15 +374,17 @@ window.handleOpenURL = function (url) {
         console.error(e);
         return false;
     }
-    if (latlng.length < 2){
+    if (latlng.length < 2) {
         return false;//at least {}
     }
     //now try logging in
     var username_saved = window.localStorage.getItem("username");
-    var hashedPassword_saved = window.localStorage.getItem("hashedPassword");
-    if (is_nonempty_str(username_saved) && is_nonempty_str(hashedPassword_saved)){
-        window.localStorage.setItem('latlng',latlng);
-        $("#loginForm").submit();
+    var saved_hashed_password = window.localStorage.getItem("hashedPassword");
+    var saved_password = window.localStorage.getItem("password");
+    if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
+        window.localStorage.setItem('latlng', latlng);
+        window.localStorage.setItem('is_latlng_ridematch', 1);
+        $("#loginForm").trigger('submit',['rideshare.html']);
     }
 
 };
