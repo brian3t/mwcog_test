@@ -31,7 +31,8 @@ var app = {
         var remember_sw = {};
         var remember = window.localStorage.getItem("rememberCheckbox");
         var username = window.localStorage.getItem("username");
-        var hashedPassword = window.localStorage.getItem("hashedPassword");
+        var saved_password = window.localStorage.getItem("password");
+        var saved_hashedpassword = window.localStorage.getItem("hashedPassword");
         var hashed = false;
         var $img_lazy_loader = $('#lazy_loader');
         $.support.cors = true;
@@ -39,8 +40,8 @@ var app = {
         if (remember === "true") {
             $("#remember").prop('checked', true);
             $("#username").val(username);
-            hashed = true;
-            $("#password").val(hashedPassword);
+            // hashed = true;//0407
+            $("#password").val(saved_password);
         }
         remember_sw = new Switchery(document.querySelector('.js-switch'));
 
@@ -63,7 +64,6 @@ var app = {
             var rememberMe = $("#remember").prop('checked');
 
             if (!rememberMe) {
-
                 window.localStorage.setItem("hashedPassword", "");
                 window.localStorage.setItem("rememberCheckbox", false);
                 window.localStorage.setItem("username", "");
@@ -71,12 +71,11 @@ var app = {
                 hashed = false;
             }
             showSpinner();
-            if (hashedPassword === p) {
-                p = hashedPassword;
+            if (saved_hashedpassword === p) {
+                // p = saved_hashedpassword;
             }
             else {
                 hashed = false;
-
             }
             if (IS_DEBUG) {
                 u = 'redgar942';//tdm only, type 0
@@ -89,28 +88,26 @@ var app = {
                 hashed = false;
             }
 
-
             if (u !== '' && p !== '') {
 console.info("About to login: "); console.info(u);console.info(p);
                 $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
-                    var passwordToSave = '';
+                    // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
                     if (res.statusCode === 1) {
                         // fix for saving wrong hashed pw
-                        if (hashed) {
+                        /*if (hashed) {
                             passwordToSave = p;
                         } else {
                             passwordToSave = res.hashedPassword;
-                        }
-
-
+                        }*/
                         var addresses = res.addresses;
+                        var res_hashed_password = ''; //todob here pull from json res
                         window.localStorage.setItem("idCommuter", res.commuter);
                         window.localStorage.setItem("enrolled", res.enrolled);
                         window.localStorage.setItem("userName", u);
                         window.localStorage.setItem("addresses", JSON.stringify(addresses));
                         window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
                         window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
-                        window.localStorage.setItem("hashedPassword", passwordToSave);
+                        window.localStorage.setItem("hashedPassword", hashedPassword);
                         if (rememberMe) {
                             window.localStorage.setItem("rememberCheckbox", true);
                             window.localStorage.setItem("username", u);
