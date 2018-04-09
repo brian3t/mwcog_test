@@ -89,7 +89,6 @@ var app = {
             }
 
             if (u !== '' && p !== '') {
-console.info("About to login: "); console.info(u);console.info(p);
                 $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
                     // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
                     if (res.statusCode === 1) {
@@ -275,17 +274,13 @@ function jq_serial_array_to_assoc(arr) {
 
 function activate_account(btn) {
     if (verify_reg_acnt(btn)) {
-        console.log("all ok");
         var form = $(btn).closest('form');
         var form_vars = jq_serial_array_to_assoc(form.serializeArray());
         $.extend(form_vars, {action: "activateNewCommuter", siteId: 10001, userName: $('#username').val()});
-        console.info(form_vars);
         $.mobile.loading("show");
         $.ajax(baseUrl + 'mobileapicontroller', {
             data: form_vars, error: function (data) {
-                console.error(data);
             }, success: function (data) {
-                console.info(data);
                 if (data.hasOwnProperty('activation') && data.activation === 'failed') {
                     app_alert('We apologize but there has been an error in processing your account activation.  Please call Commuter Connections at 1-800-745-RIDE for assistance with your account.');
                 } else {
