@@ -34,12 +34,14 @@
     <icon gap:density="hdpi" gap:platform="android" src="www/res/icon/android/icon-72-hdpi.png" />
     <icon gap:density="xhdpi" gap:platform="android" src="www/res/icon/android/icon-96-xhdpi.png" />
     <icon gap:density="xxhdpi" gap:platform="android" src="www/res/icon/android/icon-144-xxhdpi.png" />
+    <platform name="ios">
+            <splash height="480" src="www/res/screen/ios/screen-iphone.png" width="320" />
+            <splash height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+            <splash height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
+            <splash height="1004" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
+            <splash height="2008" src="www/res/screen/ios/screen-ipad-portrait-2x.png" width="1536" />
+     </platform>
     <icon gap:density="xxxhdpi" gap:platform="android" src="www/res/icon/android/icon-192-xxxhdpi.png" />
-    <gap:splash gap:platform="ios" height="480" src="www/res/screen/ios/screen-iphone.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1004" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
-    <gap:splash gap:platform="ios" height="2008" src="www/res/screen/ios/screen-ipad-portrait-2x.png" width="1536" />
     <gap:splash gap:platform="android" height="1920" src="www/res/screen/android/screen-xxxhdpi-portrait.jpg" width="1280" />   <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <plugin name="cordova-plugin-dialogs" spec="~1.3.0" />
