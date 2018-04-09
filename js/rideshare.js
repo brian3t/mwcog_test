@@ -79,6 +79,7 @@ function init() {
             try {
                 if (res.is_valid === true) {
                     matches = res.ridematches;
+                    window.localStorage.removeItem('latlng');
                 } else {
                     console.error('ridematch latlng return bad is_valid');
                     return;
