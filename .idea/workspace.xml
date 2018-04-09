@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="Minor fix to jslib">
+    <list default="true" id="50c19766-f1db-41e1-95bf-d3bf11377dae" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/rideshare.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/rideshare.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/layout.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/sass/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/sass/layout.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,17 +68,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rideshare.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rideshare.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/rideshare.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="90" column="29" lean-forward="true" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+            <state relative-caret-position="540">
+              <caret line="303" column="51" lean-forward="true" selection-start-line="303" selection-start-column="51" selection-end-line="303" selection-end-column="51" />
               <folding>
                 <element signature="n#!!block;n#populate_ridematch_deeplink#0" />
                 <element signature="e#3948#4387#0" />
                 <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -121,19 +131,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>sa</find>
-      <find>saved succe</find>
+      <find />
       <find>saved</find>
       <find>h</find>
       <find>has</find>
-      <find>has b</find>
-      <find>has be</find>
-      <find>has bee</find>
-      <find>has been</find>
-      <find>has been s</find>
-      <find>has been sa</find>
-      <find>has been sav</find>
-      <find>has been save</find>
-      <find>has been saved</find>
+      <find />
+      <find />
+      <find />
+      <find />
+      <find />
+      <find />
+      <find />
+      <find />
+      <find />
       <find>popup\</find>
       <find>orientation</find>
       <find>29</find>
@@ -156,15 +166,15 @@
       <replace>]').value</replace>
       <replace>).selectmenu('refresh');</replace>
       <replace>.val(</replace>
-      <replace>.prop('disabled', true);</replace>
-      <replace>.prop('disabled', false);</replace>
+      <replace />
+      <replace />
       <replace>;</replace>
       <replace>Home</replace>
       <replace>6c6c6c</replace>
       <replace>2px</replace>
       <replace>wauto</replace>
       <replace>data-shadow</replace>
-      <replace>transition: 'pop'</replace>
+      <replace />
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -202,7 +212,6 @@
         <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
         <option value="$PROJECT_DIR$/js/IncentivesValidations.js" />
         <option value="$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js" />
-        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/css/layout.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/search.html" />
@@ -212,6 +221,7 @@
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/js/rideshare.js" />
+        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
       </list>
     </option>
   </component>
@@ -264,6 +274,17 @@
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -281,6 +302,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SearchEverywhereHistoryKey" value="jdk&#9;ACTION&#9;SwitchBootJdk&#10;hidewelc&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -300,7 +322,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -766,7 +788,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517640248060</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Separate deeplink and manual ridematches">
+      <created>1523246177598</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1523246177598</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -783,19 +812,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1054" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50208336" side_tool="true" weight="0.32676348" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49791667" visible="true" weight="0.23319328" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32914045" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49791667" weight="0.23319328" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32878152" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0859375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1609375" />
       <window_info anchor="right" id="Database" order="3" weight="0.3296875" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31167513" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -810,7 +839,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31167513" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -861,7 +889,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Fix statusbar" />
     <MESSAGE value="Missing lib files." />
     <MESSAGE value="Fix android keyboard focus." />
     <MESSAGE value="Fix android keyboard focus... leave ios out of this mess." />
@@ -886,7 +913,9 @@
     <MESSAGE value="Fix android keyboard with numeric inputs." />
     <MESSAGE value="Bug #36 lock portrait for iPad. Pending testing on real device.." />
     <MESSAGE value="Minor fix to jslib" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fix to jslib" />
+    <MESSAGE value="Separate deeplink and manual ridematches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separate deeplink and manual ridematches" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -957,7 +986,6 @@
           <folding>
             <element signature="n#!!block;n#populate_ridematch_deeplink#0" />
             <element signature="e#3948#4387#0" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -1148,13 +1176,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51058">
-          <caret line="3647" column="1" selection-start-line="3647" selection-start-column="1" selection-end-line="3647" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/sass/layout_home.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33334">
@@ -1228,14 +1249,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/rideshare.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="90" column="29" lean-forward="true" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+        <state relative-caret-position="540">
+          <caret line="303" column="51" lean-forward="true" selection-start-line="303" selection-start-column="51" selection-end-line="303" selection-end-column="51" />
           <folding>
             <element signature="n#!!block;n#populate_ridematch_deeplink#0" />
             <element signature="e#3948#4387#0" />
             <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>

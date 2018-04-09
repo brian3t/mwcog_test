@@ -19,7 +19,7 @@
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
-  font-size: 22px;
+  font-size: 100%;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
@@ -3467,7 +3467,7 @@ div.ui-tabs > .ui-navbar > .ui-tabs-nav > li {
   }
   a {
     text-transform: none;
-    font-size: 20px;
+    font-size: 100%;
     border-radius: 10px;
     font-weight: lighter;
     padding: 7px 0 7px 13px;
