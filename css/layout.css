@@ -2325,7 +2325,7 @@ table.tall_table tr.leg td.header {
   background-position-y: 135px; }
 
 .ui-field-contain, .ui-mobile fieldset.ui-field-contain {
-  padding-top: 12px; }
+  padding-top: 3px; }
 
 .ui-input-text > input {
   border: 0; }
@@ -2387,7 +2387,7 @@ table.tall_table tr.leg td.header {
   width: 80%; }
 
 .header_padding {
-  padding: 18px 22px 16px 22px; }
+  padding: 8px 22px 6px 22px; }
 
 .ui-header, .ui-footer {
   font-size: 122%; }
@@ -3477,5 +3477,3 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
 
 .ui-dialog-contain .ui-btn {
   border: none; }
-
-/*# sourceMappingURL=layout.css.map */
