@@ -76,7 +76,7 @@
         <uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <uses-permission name="android.permission.READ_EXTERNAL_STORAGE" />
     </config-file>
-    <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.4.1" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
