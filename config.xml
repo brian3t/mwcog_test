@@ -125,6 +125,9 @@
         <host name="mediabeef.com" scheme="http" event="ridematchDeepLink">
             <path url="/deeplink_cc/*" />
         </host>
+        <host name="ie511.org" scheme="https" event="ridematchDeepLink">
+            <path url="/deeplink_cc/*" />
+        </host>
     </universal-links>
     <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>

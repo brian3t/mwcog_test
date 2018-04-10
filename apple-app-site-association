@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "QRRZN3U665.com.mediabeef.mwcog",
+        "paths": [
+          "/deeplink_cc/", "/deeplink_cc/*"
+        ]
+      }
+    ]
+  }
+}
