@@ -202,6 +202,10 @@ var app = {
         // }
 
         app.receivedEvent('deviceready');
+        universalLinks.subscribe('ridematchDeepLink', app.ridematchDeepLink);
+    },
+    ridematchDeepLink: function(eventData) {
+        console.log('received deep link');
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {

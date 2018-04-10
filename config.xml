@@ -119,4 +119,12 @@
         <variable name="URL_SCHEME" value="commuterconnections" />
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
+    <plugin name="cordova-universal-links-plugin" />
+    <universal-links>
+        <ios-team-id value="QRRZN3U665" />
+        <host name="mediabeef.com" scheme="http" event="ridematchDeepLink">
+            <path url="/deeplink_cc/*" />
+        </host>
+    </universal-links>
+    <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>
