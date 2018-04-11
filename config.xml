@@ -119,6 +119,15 @@
         <variable name="URL_SCHEME" value="commuterconnections" />
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
+    <plugin name="branch-cordova-sdk" spec="^2.5.0" />
+    <branch-config>
+        <branch-key value="key_live_oaxWgE9mAORA6bF9DmYLGhljvCliEXFf" />
+        <uri-scheme value="commuterconnections" />
+        <link-domain value="mediabeef.app.link" />
+        <ios-team-release value="QRRZN3U665" />
+    </branch-config>
+
+    <!--
     <plugin name="cordova-universal-links-plugin" />
     <universal-links>
         <ios-team-id value="QRRZN3U665" />
@@ -129,5 +138,6 @@
             <path url="/deeplink_cc/*" />
         </host>
     </universal-links>
+    -->
     <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>

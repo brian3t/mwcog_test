@@ -185,11 +185,15 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('resume', this.onDeviceResume, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceResume: function() {
+        app.handleBranch();
+    },
     onDeviceReady: function () {
         if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768 ||
             (device.platform === 'iOS' && device.model.indexOf('iPad') !== -1)) {
@@ -202,11 +206,24 @@ var app = {
         // }
 
         app.receivedEvent('deviceready');
-        universalLinks.subscribe('ridematchDeepLink', app.ridematchDeepLink);
+        //universalLinks.subscribe('ridematchDeepLink', app.ridematchDeepLink);
+        app.handleBranch();
     },
+
+    handleBranch: function() {
+        // Branch initialization
+        Branch.initSession(function(data) {
+          if (data['+clicked_branch_link']) {
+            // read deep link data on click
+            alert('Deep Link Data: ' + JSON.stringify(data));
+          }
+          });
+      },
+
     ridematchDeepLink: function(eventData) {
         console.log('received deep link');
     },
+
     // Update DOM on a Received Event
     receivedEvent: function (id) {
 //        var parentElement = document.getElementById(id);
