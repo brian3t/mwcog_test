@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="414" id="com.mediabeef.mwcog" version="2.0.2" xmlns="http://www.w3.org/ns/widgets"
+<widget android-versionCode="415" id="com.mediabeef.mwcog" version="2.0.3" xmlns="http://www.w3.org/ns/widgets"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Commuter Connections</name>
@@ -93,6 +93,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="commuterconnections:*" />
+    <allow-intent href="commuterconnections://*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -119,25 +120,5 @@
         <variable name="URL_SCHEME" value="commuterconnections" />
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
-    <plugin name="branch-cordova-sdk" spec="^2.5.0" />
-    <branch-config>
-        <branch-key value="key_live_oaxWgE9mAORA6bF9DmYLGhljvCliEXFf" />
-        <uri-scheme value="commuterconnections" />
-        <link-domain value="mediabeef.app.link" />
-        <ios-team-release value="QRRZN3U665" />
-    </branch-config>
-
-    <!--
-    <plugin name="cordova-universal-links-plugin" />
-    <universal-links>
-        <ios-team-id value="QRRZN3U665" />
-        <host name="mediabeef.com" scheme="http" event="ridematchDeepLink">
-            <path url="/deeplink_cc/*" />
-        </host>
-        <host name="ie511.org" scheme="https" event="ridematchDeepLink">
-            <path url="/deeplink_cc/*" />
-        </host>
-    </universal-links>
-    -->
     <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>
