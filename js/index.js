@@ -358,9 +358,9 @@ function verify_reg_acnt(btn) {
 }
 
 window.handleOpenURL = function (url) {
-    setTimeout(function() {
+    /*setTimeout(function() {
         alert("this URL:"+url);
-    }, 500);
+    }, 500);*/
 
     console.log("App launched via custom URL. Url: ");
     console.log(url);
