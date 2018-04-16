@@ -117,12 +117,5 @@
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
-    <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
-    <universal-links>
-        <host name="www.ie511.org" scheme="https">
-            <path url="/deeplink_cc" />
-        </host>
-    </universal-links>
-    <preference name="AndroidLaunchMode" value="singleInstance" />
 
 </widget>
