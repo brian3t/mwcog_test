@@ -384,7 +384,6 @@ window.handleOpenURL = function (url) {
     var saved_password = window.localStorage.getItem("password");
     if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
         window.localStorage.setItem('latlng', latlng);
-        window.localStorage.setItem('is_latlng_ridematch', 1);
         $("#loginForm").trigger('submit',['rideshare.html']);
     }
 
