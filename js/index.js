@@ -366,6 +366,8 @@ window.handleOpenURL = function (url) {
     console.log(url);
     var latlng = url.replace('commuterconnections://', '');//{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000",
     // "dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}
+    latlng = decodeURI(decodeURI(decodeURI(latlng)));
+    // console.warn(latlng);
     try {
         JSON.parse(latlng);
     }

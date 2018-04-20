@@ -30,6 +30,7 @@ if (IS_DEBUG) {
 function pull_latlng() {
     var latlng_obj = window.localStorage.getItem('latlng');
     console.info('Latlng from localstorage: ' + latlng_obj);
+    latlng_obj = decodeURI(decodeURI(latlng_obj));
     try {
         latlng_obj = JSON.parse(latlng_obj);
     }
