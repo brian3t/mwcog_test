@@ -220,7 +220,7 @@ window.handleOpenURL = function (url) {
     }
     if (window.location.href.indexOf('search.html') !== -1){
         //at search page
-        window.location.href = 'index.html';
+        window.location.href = 'rideshare.html';//todob should login here too
         return;
     }
     //else, we are at index page
