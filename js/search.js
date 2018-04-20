@@ -218,6 +218,12 @@ window.handleOpenURL = function (url) {
     if (latlng.length < 2) {
         return false;//at least {}
     }
+    if (window.location.href.indexof('search.html') !== -1){
+        //at search page
+        window.location.href = 'index.html';
+        return;
+    }
+    //else, we are at index page
     //now try logging in
     var username_saved = window.localStorage.getItem("username");
     var saved_hashed_password = window.localStorage.getItem("hashedPassword");
