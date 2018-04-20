@@ -196,3 +196,35 @@ $(document).ready(function () {
     }
 
 });
+
+window.handleOpenURL = function (url) {
+    /*setTimeout(function() {
+        alert("this URL:"+url);
+    }, 500);*/
+
+    console.log("App launched via custom URL. Url: ");
+    console.log(url);
+    var latlng = url.replace('commuterconnections://', '');//{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000",
+    // "dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}
+    latlng = decodeURI(decodeURI(decodeURI(latlng)));
+    // console.warn(latlng);
+    try {
+        JSON.parse(latlng);
+    }
+    catch (e) {
+        console.error(e);
+        return false;
+    }
+    if (latlng.length < 2) {
+        return false;//at least {}
+    }
+    //now try logging in
+    var username_saved = window.localStorage.getItem("username");
+    var saved_hashed_password = window.localStorage.getItem("hashedPassword");
+    var saved_password = window.localStorage.getItem("password");
+    if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
+        window.localStorage.setItem('latlng', latlng);
+        $("#loginForm").trigger('submit',['rideshare.html']);
+    }
+
+};
