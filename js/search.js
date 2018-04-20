@@ -218,7 +218,7 @@ window.handleOpenURL = function (url) {
     if (latlng.length < 2) {
         return false;//at least {}
     }
-    if (window.location.href.indexof('search.html') !== -1){
+    if (window.location.href.indexOf('search.html') !== -1){
         //at search page
         window.location.href = 'index.html';
         return;
