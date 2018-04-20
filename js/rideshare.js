@@ -101,7 +101,10 @@ function populate_ridematch_deeplink(res) {
         try {
             if (res.is_valid === true) {
                 matches = res.ridematches;
-                window.localStorage.removeItem('latlng');
+                //todob proper clearing 
+                setTimeout(function(){
+                    window.localStorage.removeItem('latlng');
+                }, 5000);
             } else {
                 console.error('ridematch latlng return bad is_valid');
                 return;
