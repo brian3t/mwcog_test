@@ -29,6 +29,7 @@ if (IS_DEBUG) {
 
 function pull_latlng() {
     var latlng_obj = window.localStorage.getItem('latlng');
+    window.localStorage.removeItem('latlng');
     console.info('Latlng from localstorage: ' + latlng_obj);
     latlng_obj = decodeURI(decodeURI(latlng_obj));
     try {
@@ -40,6 +41,7 @@ function pull_latlng() {
     }
     return latlng_obj;
 }
+var latlng = pull_latlng();
 
 function init() {
     try {
@@ -50,7 +52,6 @@ function init() {
 
     adjustWindowheight($('.fullscreenelement'));
     var ridematch_url = baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params;
-    var latlng = pull_latlng();
     is_latlng_ridematch = (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
     if (is_latlng_ridematch) {
         ridematch_url = ie511_url;
@@ -574,7 +575,6 @@ function initialize() {
     var start = "";
     var end = "";
     //deeplink
-    var latlng = pull_latlng();
     if (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat')) {
         start = new google.maps.LatLng(latlng.pickup_lat, latlng.pickup_lng);
         end = new google.maps.LatLng(latlng.dropoff_lat, latlng.dropoff_lng);
@@ -594,7 +594,6 @@ function initialize() {
         if (status === google.maps.GeocoderStatus.OK) {
             end = results[0].geometry.location;
             //deeplink
-            var latlng = pull_latlng();
             if (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat')) {
                 start = new google.maps.LatLng(latlng.pickup_lat, latlng.pickup_lng);
                 end = new google.maps.LatLng(latlng.dropoff_lat, latlng.dropoff_lng);
