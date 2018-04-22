@@ -54,7 +54,6 @@ function init() {
     var ridematch_url = baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params;
     is_latlng_ridematch = (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
     if (is_latlng_ridematch) {
-        $.mobile.navigator
         ridematch_url = ie511_url;
         console.info('Ridematch latlng from deeplink');
         ridematch_params = {
@@ -88,7 +87,13 @@ var trafficLayer = {};
 var toggleState = 0;
 var map;
 var directionsDisplay = {}, directionsService = {}, info = {};
-
+$(document).on("mobileinit", function () {
+    //brian3t added on 0421 - we are not using $.mobile navigation at all
+    $.extend($.mobile, {
+        linkBindingEnabled: false,
+        ajaxEnabled: false
+    });
+});
 function gmap_ready() {
     trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
@@ -100,7 +105,7 @@ function gmap_ready() {
 
 function rs_back() {
     event.preventDefault();
-    if (is_latlng_ridematch){
+    if (is_latlng_ridematch && typeof navigator.app === "object" && navigator.app.hasOwnProperty('exitApp')){
         navigator.app.exitApp();
     } else {
         window.location.href='search.html';
