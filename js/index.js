@@ -375,16 +375,21 @@ window.handleOpenURL = function (url) {
         console.error(e);
         return false;
     }
+
+    window.localStorage.removeItem('latlng');
+        
     if (latlng.length < 2) {
         return false;//at least {}
+    } else {
+        window.localStorage.setItem('latlng', latlng);
     }
     //now try logging in
     var username_saved = window.localStorage.getItem("username");
     var saved_hashed_password = window.localStorage.getItem("hashedPassword");
     var saved_password = window.localStorage.getItem("password");
+    
     if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
         $('#loginForm :input').blur();
-        window.localStorage.setItem('latlng', latlng);
         $("#loginForm").trigger('submit',['rideshare.html']);
     }
 
