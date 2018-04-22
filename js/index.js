@@ -383,6 +383,7 @@ window.handleOpenURL = function (url) {
     var saved_hashed_password = window.localStorage.getItem("hashedPassword");
     var saved_password = window.localStorage.getItem("password");
     if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
+        $('#loginForm :input').blur();
         window.localStorage.setItem('latlng', latlng);
         $("#loginForm").trigger('submit',['rideshare.html']);
     }
