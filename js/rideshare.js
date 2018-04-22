@@ -54,6 +54,7 @@ function init() {
     var ridematch_url = baseUrl + '/json?action=ridematch&idCommuter=' + idCommuter + '&userName=' + userName + "&startAddressIndex=" + startAddressIndex + '&endAddressIndex=' + endAddressIndex + params;
     is_latlng_ridematch = (_.isObject(latlng) && latlng.hasOwnProperty('pickup_lat') && latlng.hasOwnProperty('dropoff_lat'));
     if (is_latlng_ridematch) {
+        $.mobile.navigator
         ridematch_url = ie511_url;
         console.info('Ridematch latlng from deeplink');
         ridematch_params = {
@@ -95,6 +96,15 @@ function gmap_ready() {
     directionsService = new google.maps.DirectionsService();
     infowindow = new google.maps.InfoWindow({size: new google.maps.Size(100, 100)});
     initialize();
+}
+
+function rs_back() {
+    event.preventDefault();
+    if (is_latlng_ridematch){
+        navigator.app.exitApp();
+    } else {
+        window.location.href='search.html';
+    }
 }
 
 function populate_ridematch_deeplink(res) {
