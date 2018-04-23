@@ -105,8 +105,10 @@ function gmap_ready() {
 
 function rs_back() {
     event.preventDefault();
-    if (is_latlng_ridematch && typeof navigator.app === "object" && navigator.app.hasOwnProperty('exitApp')){
-        navigator.app.exitApp();
+    if (is_latlng_ridematch){
+        // if (is_latlng_ridematch && typeof navigator.app === "object" && navigator.app.hasOwnProperty('exitApp')){
+        // navigator.app.exitApp();
+        launchDeepLinkCPN();
     } else {
         window.location.href='search.html';
     }
@@ -707,4 +709,30 @@ function rs_draw_directions(start, end) {
 
         }
     });
+}
+function launchDeepLinkCPN() {
+    var scheme = 'carpoolnow://';
+    // Don't forget to add the org.apache.cordova.device plugin!
+    if(typeof device === 'object' && device.platform === 'iOS') {
+        scheme = 'carpoolnow://';
+    }
+    else if(typeof device === 'object' && device.platform === 'Android') {
+        scheme = 'com.mediabeef.carpoolnow';
+    }
+    appAvailability.check(
+        scheme, // URI Scheme
+        function() {
+            // Success!
+            console.log('CPN app IS installed, launching: ');
+            cordova.InAppBrowser.open('carpoolnow://', '_system', 'location=no,clearcache=yes,keyboardDisplayRequiresUserAction=no,toolbar=no,hardwareback=no,hidden=yes');
+        },
+        function() {
+            // Fail!
+            if(device.platform === 'iOS') {
+                window.open('https://itunes.apple.com/us/app/carpoolnow/id1149824061?mt=8','_system');
+            } else {
+                window.open('https://play.google.com/store/apps/details?id=com.mediabeef.carpoolnow','_system');
+            }
+        }
+    );
 }

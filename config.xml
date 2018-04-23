@@ -110,6 +110,13 @@
     <preference name="StatusBarBackgroundColor" value="#2d4164" />
     <plugin name="cordova-plugin-screen-orientation" spec="~1.4.2" />
     <item name="android:windowFullscreen">false</item>
+    <platform name="ios">
+        <config-file parent="LSApplicationQueriesSchemes" target="*-Info.plist">
+            <array>
+                <string>carpoolnow</string>
+            </array>
+        </config-file>
+    </platform>
     <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
     <plugin name="cordova-plugin-device" spec="~1.1.5" />
     <plugin name="cordova-plugin-customurlscheme" spec="~4.3.0">
@@ -117,5 +124,5 @@
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
-
+    <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
 </widget>
