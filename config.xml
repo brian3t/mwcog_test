@@ -124,5 +124,6 @@
     </plugin>
     <plugin name="cordova-plugin-keyboard" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
+    <plugin name="cordova-plugin-appavailability" spec="0.4.2" />
     <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
 </widget>
