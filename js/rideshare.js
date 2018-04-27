@@ -255,25 +255,25 @@ function populate_ridematch_deeplink(res) {
         $('#contact_options #match_firstname').html(match.firstName);
         var contact_options = {
             has_hphone: {
-                is_available: (match.shareHPhone === "Y" && match.hphone.length > 2),
+                is_available: (match.share_hphone === "Y" && match.hphone.length > 2),
                 type: 'phone',
                 type_detail: 'Home Phone',
                 detail: match.hphone
             },
             has_wphone: {
-                is_available: (match.shareWPhone === "Y" && match.wphone.length > 2),
+                is_available: (match.share_hphone === "Y" && match.wphone.length > 2),
                 type: 'phone',
                 type_detail: 'Work Phone',
                 detail: match.wphone
             },
             has_cphone: {
-                is_available: (match.shareCPhone === "Y" && match.cphone.length > 2),
+                is_available: (match.share_cphone === "Y" && match.cphone.length > 2),
                 type: 'phone',
                 type_detail: 'Cell Phone',
                 detail: match.cphone
             },
             has_email: {
-                is_available: (match.shareEmail === "Y" && match.email.length > 2),
+                is_available: (match.share_email === "Y" && match.email.length > 2),
                 type: 'email',
                 type_detail: 'Email',
                 detail: match.email
