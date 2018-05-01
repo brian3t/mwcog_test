@@ -443,7 +443,7 @@ function populate_ridematch_manual(res) {
             return;
         }
         var match = matches[index];
-		var first_name = match.firstName || match.member_name;
+		var first_name = match.hasOwnProperty('firstName') ? match.firstName : (match.hasOwnProperty('member_name') ? match.member_name : '');
         $('#contact_options #match_firstname').html();
         var contact_options = {
             has_hphone: {
