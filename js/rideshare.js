@@ -253,7 +253,7 @@ function populate_ridematch_deeplink(res) {
             return;
         }
         var match = matches[index];
-        $('#contact_options #match_firstname').html(match.firstName || match.member_name);		
+        $('#contact_options #match_firstname').html(match.member_name);		
 		//var first_name = match.hasOwnProperty('firstName') ? match.firstName : (match.hasOwnProperty('member_name') ? match.member_name :'');
 
         var contact_options = {
