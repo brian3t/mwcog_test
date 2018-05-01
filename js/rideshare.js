@@ -245,6 +245,7 @@ function populate_ridematch_deeplink(res) {
 
     //determine what contact method to use
     $('a.list_item_contact').on('click touch', function (e) {
+
         var $e = $(e.target), contact_link = '', action = '', $ul = $('#contact_options #contact_details');
         $e = $($e.closest('a'));
         var index = $e.data('index');
@@ -252,7 +253,9 @@ function populate_ridematch_deeplink(res) {
             return;
         }
         var match = matches[index];
-        $('#contact_options #match_firstname').html(match.firstName);
+        $('#contact_options #match_firstname').html(match.firstName || match.member_name);		
+		//var first_name = match.hasOwnProperty('firstName') ? match.firstName : (match.hasOwnProperty('member_name') ? match.member_name :'');
+
         var contact_options = {
             has_hphone: {
                 is_available: (match.share_hphone === "Y" && match.hphone.length > 2),
@@ -443,7 +446,7 @@ function populate_ridematch_manual(res) {
             return;
         }
         var match = matches[index];
-		var first_name = match.hasOwnProperty('firstName') ? match.firstName : (match.hasOwnProperty('member_name') ? match.member_name : '');
+		var first_name = match.hasOwnProperty('firstName') ? match.firstName : (match.hasOwnProperty('member_name') ? match.member_name :'');
         $('#contact_options #match_firstname').html();
         var contact_options = {
             has_hphone: {
