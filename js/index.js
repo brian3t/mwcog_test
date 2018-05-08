@@ -53,7 +53,7 @@ var app = {
                 e.preventDefault();
                 console.log('Login check only');
             }
-            if (typeof destination_page === 'undefined'){
+            if (typeof destination_page === 'undefined') {
                 destination_page = 'search.html';
             }
             //disable the button so we can't resubmit while we wait
@@ -100,7 +100,7 @@ var app = {
                         }*/
                         var addresses = res.addresses;
                         var res_hashed_password = ''; //response's hashed_pw
-                        if (res.hasOwnProperty('hashed_password')){
+                        if (res.hasOwnProperty('hashed_password')) {
                             res_hashed_password = res.hashed_password;
                         }
                         window.localStorage.setItem("idCommuter", res.commuter);
@@ -173,10 +173,12 @@ var app = {
         }
         this.bindEvents();
         setTimeout(this.start_bg_loop, 500);
-        if (IS_SIMULATE_DEEPLINK){
+        if (IS_SIMULATE_DEEPLINK) {
             console.warn('IS SIMULATE DEEPLINK');
-            window.handleOpenURL('commuterconnections://{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000"' +
-                ',"dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}');
+            // window.handleOpenURL('commuterconnections://{"pickup_lat":"32.74776940000000","pickup_lng":"-117.06786960000000","dropoff_lat":"32.75160600000000"' +
+            // ',"dropoff_lng":"-117.10714100000000","pickup_full_address":"5995 Dandridge Ln, San Diego, CA 92115, USA","dropoff_full_address":"4102 41st St, San Diego, CA 92105, USA"}');
+            // window.handleOpenURL('commuterconnections://%7B%22pickup_lat%22:39.0238254,%22pickup_lng%22:-77.0250847,%22dropoff_lat%22:38.8999134,%22dropoff_lng%22:-77.0084632,%22pickup_full_address%22:%221002%20Carson%20St,%20Silver%20Spring,%20Md%2020901%22,%22dropoff_full_address%22:%22777%20North%20Capitol%20St%20Ne%20Ste%20300,%20Washington,%20Dc%2020002%22%7D');
+            window.handleOpenURL('commuterconnections://%7B%22pickup_lat%22:38.8586131,%22pickup_lng%22:-77.1130333,%22dropoff_lat%22:38.8999134,%22dropoff_lng%22:-77.0084632,%22pickup_full_address%22:%22820%20S%20Arlington%20Mill%20Drive,%20Arlington,%20Va%2022204%22,%22dropoff_full_address%22:%22777%20North%20Capitol%20St%20Ne%20Ste%20300,%20Washington,%20Dc%2020002%22%7D');
         }
     },
     // Bind Event Listeners
@@ -377,7 +379,7 @@ window.handleOpenURL = function (url) {
     }
 
     window.localStorage.removeItem('latlng');
-        
+
     if (latlng.length < 2) {
         return false;//at least {}
     } else {
@@ -387,10 +389,10 @@ window.handleOpenURL = function (url) {
     var username_saved = window.localStorage.getItem("username");
     var saved_hashed_password = window.localStorage.getItem("hashedPassword");
     var saved_password = window.localStorage.getItem("password");
-    
+
     if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
         $('#loginForm :input').blur();
-        $("#loginForm").trigger('submit',['rideshare.html']);
+        $("#loginForm").trigger('submit', ['rideshare.html']);
     }
 
 };
