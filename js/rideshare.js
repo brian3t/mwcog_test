@@ -264,7 +264,7 @@ function populate_ridematch_deeplink(res) {
                 detail: match.hphone
             },
             has_wphone: {
-                is_available: (match.share_hphone === "Y" && match.wphone.length > 2),
+                is_available: (match.share_wphone === "Y" && match.wphone.length > 2),
                 type: 'phone',
                 type_detail: 'Work Phone',
                 detail: match.wphone
