@@ -116,9 +116,29 @@
                 <string>carpoolnow</string>
             </array>
         </config-file>
+        <config-file target="archived-expanded-entitlements*.xcent" parent="com.apple.developer.associated-domains" mode="replace">
+            <array>  
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file target="*/archived-expanded-entitlements*.xcent" parent="com.apple.developer.associated-domains" mode="replace">
+            <array>  
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
         <config-file target="Entitlements-*.plist" parent="com.apple.developer.associated-domains" mode="replace">
             <array>  
-            <string>applinks:*.ie511.org</string>
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.associated-domains">
+            <array>
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.associated-domains">
+            <array>
+                <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
     </platform>
