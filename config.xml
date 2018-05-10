@@ -118,7 +118,7 @@
         </config-file>
         <config-file target="Entitlements-*.plist" parent="com.apple.developer.associated-domains" mode="replace">
             <array>  
-            <string>applinks:IE511.org</string>
+            <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
     </platform>
