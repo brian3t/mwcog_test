@@ -116,6 +116,11 @@
                 <string>carpoolnow</string>
             </array>
         </config-file>
+        <config-file target="Entitlements-*.plist" parent="com.apple.developer.associated-domains" mode="replace">
+            <array>  
+            <string>applinks:IE511.org</string>
+            </array>
+        </config-file>
     </platform>
     <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
     <plugin name="cordova-plugin-device" spec="~1.1.5" />
