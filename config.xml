@@ -121,7 +121,7 @@
                 <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
-        <config-file target="*/archived-expanded-entitlements*.xcent" parent="com.apple.developer.associated-domains" mode="replace">
+        <config-file target="*/archived-expanded-entitlements.xcent" parent="com.apple.developer.associated-domains" mode="replace">
             <array>  
                 <string>applinks:*.ie511.org</string>
             </array>
@@ -131,12 +131,12 @@
                 <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
-        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.associated-domains">
+        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.associated-domains" mode="replace">
             <array>
                 <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
-        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.associated-domains">
+        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.associated-domains" mode="replace">
             <array>
                 <string>applinks:*.ie511.org</string>
             </array>
