@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9f9e57ec-b048-41cc-88d9-e62b8e9528e9" name="server's mwcog" url="http://192.168.1.9/iecom">
+        <fileTransfer port="0" mountedRoot="/Volumes/www/mwcog/www" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
