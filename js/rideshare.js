@@ -112,6 +112,7 @@ function rs_back() {
     } else {
         window.location.href='search.html';
     }
+    window.localStorage.removeItem('latlng');
 }
 
 function populate_ridematch_deeplink(res) {
