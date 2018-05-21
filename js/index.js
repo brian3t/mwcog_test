@@ -100,8 +100,8 @@ var app = {
                         }*/
                         var addresses = res.addresses;
                         var res_hashed_password = ''; //response's hashed_pw
-                        if (res.hasOwnProperty('hashed_password')) {
-                            res_hashed_password = res.hashed_password;
+                        if (res.hasOwnProperty('hashedPassword')) {
+                            res_hashed_password = res.hashedPassword;
                         }
                         window.localStorage.setItem("idCommuter", res.commuter);
                         window.localStorage.setItem("enrolled", res.enrolled);
