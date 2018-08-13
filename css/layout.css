@@ -3482,7 +3482,9 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
   width: 80%;
   padding: 0 0.2em 0 0.2em;
   font-size: 90%;
-  text-align: center; }
+  text-align: center;
+  text-align: -webkit-center;
+}
 
 .fc-day-top.fc-force_show {
   opacity: 1; }
