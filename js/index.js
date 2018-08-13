@@ -115,6 +115,7 @@ var app = {
                             window.localStorage.setItem("hashedPassword", res_hashed_password);
                             window.localStorage.setItem("password", p);//0407 save plain pw too
                         }
+                        window.localStorage.setItem("hashedPassword", res_hashed_password);//08/12 quickfix for calendar
 
                         window.localStorage.setItem("justLoggedIn", 1);
                         if (!window.is_login_and_commute_log) {

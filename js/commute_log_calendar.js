@@ -95,12 +95,12 @@ function initialize() {
                 console.log(`event after render`);
                 get_saved_days();
                 //enable other month's days if they are in range
-                full_calendar.find('.fc-day-top, .fc-day').each((i, e)=>{
+            /*    full_calendar.find('.fc-day-top, .fc-day').each((i, e)=>{
                    let date = moment($(e).data('date'));
                    if (date >= _10_days_ago && date <= today){
                        $(e).addClass('fc-force_show').removeClass('disabled');
                    }
-                });
+                });*/
             }
         }
     );
