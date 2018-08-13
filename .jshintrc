@@ -7,5 +7,6 @@
     ,"$": true,
     "_": false
   },
-  "laxcomma":true
+  "laxcomma":true,
+  "esversion": 6
 }

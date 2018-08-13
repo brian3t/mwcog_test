@@ -3477,3 +3477,14 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
 
 .ui-dialog-contain .ui-btn {
   border: none; }
+
+.fc .add_edit_btn {
+  width: 80%;
+  padding: 0 0.2em 0 0.2em;
+  font-size: 90%;
+  text-align: center; }
+
+.fc-day-top.fc-force_show {
+  opacity: 1; }
+
+/*# sourceMappingURL=layout.css.map */

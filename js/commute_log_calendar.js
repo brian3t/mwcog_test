@@ -19,6 +19,8 @@ var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWO
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
 var COMMUTE_PLACE = {101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
 var COMMUTE_TRAVEL_MODE = {0: 'TRAVEL MODE:', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
+var full_calendar = {};
+
 function build_query(extra_params) {
     var params = extra_params || {};
     if (typeof params === 'object') {
@@ -50,11 +52,12 @@ function add_button_to_calendar() {
         if (!_.isArray(User.days)) {
             continue;
         }
+        date_td.find('button.add_edit_btn').remove();
         if (User.days.indexOf(day.format('DD-MM-YYYY')) !== -1) {
-            date_td.append('<br><button class="button">Edit</button>');
+            date_td.append('<button class="button add_edit_btn">Edit</button>');
             $('td.fc-day[data-date="' + day.format('YYYY-MM-DD') + '"]').addClass('has_log');
         } else {
-            date_td.append('<br><button class="button">Add</button>');
+            date_td.append('<button class="button add_edit_btn">Add</button>');
         }
         date_td.on('click', edit_log);
     }
@@ -63,28 +66,44 @@ function add_button_to_calendar() {
  * This also destroys and recreates FullCalendar
  */
 function get_saved_days() {
-    $('#calendar').fullCalendar('destroy');
+    // $('#calendar').fullCalendar('destroy');
     var url = mwcog_root + "?action=getcalendar&" + build_query();
-    var days_return = $.get(url, {}, function (data) {
+    let days_return = $.get(url, {}, function (data) {
         User.days = data;
-        $('#calendar').fullCalendar({
-            height: 470,
-            dayRender: function (date, cell) {
-                if (date < _10_days_ago || date > today) {
-                    $(cell).addClass('disabled');
-                }
-            },
-            viewRender: add_button_to_calendar
-            // put your options and callbacks here
-        });
     }, 'json').fail(function (jqXHR, textStatus, errorThrown) {
         console.log('Can\'t get days');
     });
+    days_return.then(add_button_to_calendar);
+    return days_return;
 }
 function initialize() {
     $.ajaxSetup({crossDomain: true});
     var yesterday = moment.utc().subtract(1, "days");
     //call API to retrieve list of the days (within the last 10 days) that have saved data so those days can be marked green on the calendar
+    full_calendar = $('#calendar');
+    full_calendar = $('#calendar').fullCalendar(
+        {
+            height: 470,
+            dayRender: function (date, cell) {
+                if (date < _10_days_ago || date > today) {
+                    $(cell).addClass('disabled');
+                } else {
+                    $(cell).removeClass('fc-other-month');
+                }
+            },
+            eventAfterAllRender: function () {
+                console.log(`event after render`);
+                get_saved_days();
+                //enable other month's days if they are in range
+                full_calendar.find('.fc-day-top, .fc-day').each((i, e)=>{
+                   let date = moment($(e).data('date'));
+                   if (date >= _10_days_ago && date <= today){
+                       $(e).addClass('fc-force_show').removeClass('disabled');
+                   }
+                });
+            }
+        }
+    );
     get_saved_days();
     get_commute_type(today, false);//first call, don't update html yet
 
