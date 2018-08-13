@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{jQuery-2.0.0, lodash-DefinitelyTyped, moment}" />
+    <file url="file://$PROJECT_DIR$" libraries="{target-script}" />
+    <file url="PROJECT" libraries="{moment}" />
   </component>
 </project>
