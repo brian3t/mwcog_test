@@ -33,6 +33,9 @@ document.addEventListener('deviceready', function () {
         );
     }
 }, false);
+if (isInWeb){
+    document.dispatchEvent(new Event('deviceready'));
+}
 app_alert = function (message, alertCallback, title, buttonName) {
     if (buttonName === null) {
         buttonName = "OK";
