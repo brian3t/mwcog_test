@@ -32,6 +32,17 @@ document.addEventListener('deviceready', function () {
             }
         );
     }
+    window.MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
+    switch (MOBILE_DETECT.os()) {
+        case 'AndroidOS':
+            break;
+        case 'iOS':
+            $('html').addClass('ios');
+            break;
+        default:
+            $('html').addClass('android');
+            break;
+    }
 }, false);
 if (isInWeb){
     document.dispatchEvent(new Event('deviceready'));
