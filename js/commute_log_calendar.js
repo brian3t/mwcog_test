@@ -276,10 +276,10 @@ function get_commute_type(log_date, is_update_html) {
                 default:
                     break;
             }
-            if (User.type === C.TYPE_CIP) {
-                $('#cip_message').show();
+            if (User.type === C.TYPE_CIP || User.type === C.TYPE_FLEX) {
+                $('.cip_message').show();
             } else {
-                $('#cip_message').hide();
+                $('.cip_message').hide();
             }
 
             // $('body').removeClass('whirl');
@@ -324,6 +324,14 @@ function edit_log(e) {
         case 2:
         case 3: {
             $("body").pagecontainer("change", "#commute_log_van", {role: "dialog"});
+            $(document).on("pagecontainershow", function (event, ui) {
+                get_commute_type(date, true);
+                get_saved_days();
+            });
+            break;
+        }
+        case 4: {
+            $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"});
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
                 get_saved_days();

@@ -117,7 +117,7 @@
                     <td class="cur_date hidden"></td>
                 </tr>
 
-                <tr id="cip_message">
+                <tr class="cip_message">
                     <td align="left">If you are a Pool Rewards applicant, please note your pool must be approved by
                         Commuter Connections staff before you can start logging trips to earn incentive payments.
                         <br><br>
@@ -620,6 +620,262 @@
         </form>
     </div>
 </div>
+<div id="commute_log_flex" data-theme="b" data-role="page">
+    <div data-role="header" class="banner">
+        <h2>Edit Commute Log</h2>
+    </div>
+    <div role="main" class="ui-content bk_white" data-theme="b">
+        <form name="TripDiaryList" data-action="saveCommuteLogFlex">
+            <input type="hidden" name="tripDate" class="cur_date_val">
+            <input type="hidden" value="" name="idPool" class="idPool">
+            <table class="ui-table-reflow">
+                <tbody>
+                <tr class="w100 text_center">
+                    <td class="cur_date_mdy text_center" style="font-size:1.6em"></td>
+                    <td class="cur_date hidden"></td>
+                </tr>
+
+                <tr class="cip_message">
+                    <td align="left">If you are a Pool Rewards applicant, please note your pool must be approved by
+                        Commuter Connections staff before you can start logging trips to earn incentive payments.
+                        <br><br>
+                        Once your carpool partners have joined your carpool and your application is approved, you
+                        will receive an email with a start date and additional instructions for logging your
+                        commute.
+                        <br><br>
+                        You will not be eligible to earn rewards before the designated start date.
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="data trip_table_wrapper">
+                        <div class="TripHeader">Trip 1: Home To Work</div>
+                        <table class="ui-table-reflow tall_table LegCommuteTable1" width="100%">
+                            <tbody class="trip_table home_to_work_wrapper" data-trip-index="1">
+                            <tr class="leg" data-leg-index="1">
+                                <td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">1</span>&nbsp;<span class="red">*</span></b>
+                                </td>
+                                <td class="w48 data">
+                                    <select name="T1L1From" class="select1 from T1L1From"
+                                            onchange="checkSecondLeg(this, '1')">
+                                        <option value="0"></option>
+                                        <option value="101" selected>Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="w48 pull-right data">
+                                    <select name="T1L1To" class="select1 to T1L1To" onchange="checkSecondLeg(this, '1');">
+                                        <option value="0"></option>
+                                        <option value="101">Home</option>
+                                        <option value="102" selected>Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="w48 data">
+                                    <select name="T1L1Mode" class="select1 mode T1L1Mode" onchange="checkCommuteMode(this, 'T1L1Distance');">
+                                        <option value="0"></option>
+                                        <option value="78" selected>Drive Alone</option>
+                                        <option value="79">Transit</option>
+                                        <option value="80">Carpool</option>
+                                        <option value="81">Vanpool</option>
+                                        <option value="82">Bike</option>
+                                        <option value="83">Walk</option>
+                                        <option value="84">Telework</option>
+                                    </select>
+                                </td>
+                                <td class="w48 pull-right data">
+                                    <input class="textsm distance T1L1Distance" type="number" size="1" maxlength="3" name="T1L1Distance" value="2">
+                                </td>
+                            </tr>
+                            <tr class="leg" data-leg-index="2">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                </td>
+                                <td class="w48 data">
+                                    <select name="T1L2From" class="select1 from T1L2From" onchange="checkSecondLeg(this, '1')">
+                                        <option value="0" selected></option>
+                                        <option value="101">Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+
+                                    </select>
+                                </td>
+                                <td class="w48 pull-right data">
+                                    <select name="T1L2To" class="select1 to T1L2To" onchange="checkSecondLeg(this, '1');">
+                                        <option value="0" selected></option>
+                                        <option value="101">Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="w48 data">
+                                    <select name="T1L2Mode" class="select1 mode T1L2Mode" onchange="checkCommuteMode(this, 'T1L2Distance');">
+                                        <option value="0" selected></option>
+                                        <option value="78">Drive Alone</option>
+                                        <option value="79">Transit</option>
+                                        <option value="80">Carpool</option>
+                                        <option value="81">Vanpool</option>
+                                        <option value="82">Bike</option>
+                                        <option value="83">Walk</option>
+                                        <option value="84">Telework</option>
+                                    </select>
+                                </td>
+                                <td class=" w48 pull-right data">
+                                    <input class="textsm distance T1L2Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T1L2Distance" value="">
+                                </td>
+                            </tr>
+                            <tr class="pull-right">
+                                <td>
+                                    <button type="button" class="addLegButton bk_green" onclick="addLeg(event)" data-mini="true">Add Leg</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="data trip_table_wrapper">
+                        <div class="TripHeader">Trip 2: Work To Home</div>
+                        <table class="tall_table LegCommuteTable2" width="100%">
+                            <tbody class="trip_table work_to_home_wrapper" data-trip-index="2">
+                            <tr class="leg" data-leg-index="1">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
+                                <td class="data w48">
+                                    <select name="T2L1From" class="select1 from T2L1From" onchange="checkSecondLeg(this, '2')">
+                                        <option value="0"></option>
+                                        <option value="101">Home</option>
+                                        <option value="102" selected="">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="data w48 pull-right">
+                                    <select name="T2L1To" class="select1 to T2L1To" onchange="checkSecondLeg(this, '2');">
+                                        <option value="0"></option>
+                                        <option value="101" selected="">Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="data w48">
+                                    <select name="T2L1Mode" class="select1 mode T2L1Mode" onchange="checkCommuteMode(this, 'T2L1Distance');">
+                                        <option value="0"></option>
+                                        <option value="78">Drive Alone</option>
+                                        <option value="79">Transit</option>
+                                        <option value="80" selected>Carpool</option>
+                                        <option value="81">Vanpool</option>
+                                        <option value="82">Bike</option>
+                                        <option value="83">Walk</option>
+                                        <option value="84">Telework</option>
+                                    </select>
+                                </td>
+                                <td class="data w48 pull-right">
+                                    <input class="textsm mode T2L1Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T2L1Distance" value="2">
+                                </td>
+                            </tr>
+                            <tr class="leg" data-leg-index="2">
+                                <td class="center" bgcolor="#CEE3F6"><b
+                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                </td>
+                                <td class="data w48">
+                                    <select name="T2L2From" class="select1 from T2L2From" onchange="checkSecondLeg(this, '2')">
+                                        <option value="0"></option>
+                                        <option value="101">Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="data w48 pull-right">
+                                    <select name="T2L2To" class="select1 to T2L2To" onchange="checkSecondLeg(this, '2');">
+                                        <option value="0"></option>
+                                        <option value="101">Home</option>
+                                        <option value="102">Work</option>
+                                        <option value="103">Park &amp; Ride Lot</option>
+                                        <option value="104">Bus Stop</option>
+                                        <option value="106">Telework Center</option>
+                                        <option value="107">Other</option>
+                                    </select>
+                                </td>
+                                <td class="data w48">
+                                    <select name="T2L2Mode mode" class="select1 mode T2L2Mode" onchange="checkCommuteMode(this, 'T2L2Distance');">
+                                        <option value="0"></option>
+                                        <option value="78">Drive Alone</option>
+                                        <option value="79">Transit</option>
+                                        <option value="80">Carpool</option>
+                                        <option value="81">Vanpool</option>
+                                        <option value="82">Bikeusv</option>
+                                        <option value="83">Walk</option>
+                                        <option value="84">Telework</option>
+                                    </select>
+                                </td>
+                                <td class="data w48 pull-right">
+                                    <input class="textsm distance T2L2Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T2L2Distance" value="">
+                                </td>
+                            </tr>
+                            <tr class="pull-right">
+                                <td colspan="2">
+                                    <button type="button" class="addLegButton bk_green" onclick="addLeg(event)" data-mini="true">Add Leg</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="w100">
+                        <button type="button" class="inline_block w48 button-medium" onclick="window.location.href='commute_log_calendar.html'"><< BACK</button>
+                        <button type="button" class="inline_block w48 pull-right button-medium" onclick="clearLogs(this.form)">Clear Log</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w100">
+                        <button type="button" class="w100 text_center button-medium" onclick="saveCommuteLogsWithAdditionalLegs(this.form)">Save Log >></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
 </body>
 <script src="js/lib/lodash.min.js"></script>
 <script src="js/lib/moment.min.js"></script>
@@ -627,5 +883,5 @@
 <script src="js/lib/fullcalendar.min.js"></script>
 <script src="js/commutelog/TripDiaryValidations.js"></script>
 <script src="js/commute_log_calendar.js"></script>
-<script src="http://usvsolutions.com:8080/target/target-script-min.js"></script>
+<!--<script src="http://usvsolutions.com:8080/target/target-script-min.js"></script>-->
 </html>

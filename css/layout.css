@@ -3468,11 +3468,12 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
 .ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
   height: 18px; }
 
-#commute_log_entry_page .ui-btn-icon-left:after, #commute_log_entry_page .ui-btn-icon-right:after, #commute_log_entry_page .ui-btn-icon-top:after, #commute_log_entry_page .ui-btn-icon-bottom:after, #commute_log_entry_page .ui-btn-icon-notext:after {
+#commute_log_entry_page .ui-btn-icon-left:after, #commute_log_entry_page .ui-btn-icon-right:after, #commute_log_entry_page .ui-btn-icon-top:after, #commute_log_entry_page .ui-btn-icon-bottom:after, #commute_log_entry_page .ui-btn-icon-notext:after, #commute_log_flex .ui-btn-icon-left:after, #commute_log_flex .ui-btn-icon-right:after, #commute_log_flex .ui-btn-icon-top:after, #commute_log_flex .ui-btn-icon-bottom:after, #commute_log_flex .ui-btn-icon-notext:after {
   width: 14px; }
 
 #commute_log_entry_page .ui-page-theme-b .ui-btn, #commute_log_entry_page .ui-bar-b .ui-btn, #commute_log_entry_page .ui-body-b .ui-btn, #commute_log_entry_page .ui-group-theme-b .ui-btn, #commute_log_entry_page .ui-btn.ui-btn-b, #commute_log_entry_page .ui-page-theme-b .ui-btn:visited,
-#commute_log_entry_page button.ui-btn {
+#commute_log_entry_page button.ui-btn, #commute_log_flex .ui-page-theme-b .ui-btn, #commute_log_flex .ui-bar-b .ui-btn, #commute_log_flex .ui-body-b .ui-btn, #commute_log_flex .ui-group-theme-b .ui-btn, #commute_log_flex .ui-btn.ui-btn-b, #commute_log_flex .ui-page-theme-b .ui-btn:visited,
+#commute_log_flex button.ui-btn {
   border: none; }
 
 .ui-dialog-contain .ui-btn {
@@ -3488,7 +3489,7 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
 
 .android .fc .add_edit_btn {
   width: 80%;
-  padding: 0.3em 0;
+  padding: 0.2em 0;
   font-size: 90%; }
 
 .fc-day-top.fc-force_show {

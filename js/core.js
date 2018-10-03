@@ -3,7 +3,8 @@ var C = {
     TYPE_GENERAL: 0,
     TYPE_CIP: 1,
     TYPE_VIP: 2,
-    TYPE_VIEW_ONLY_VIP: 3
+    TYPE_VIEW_ONLY_VIP: 3,
+    TYPE_FLEX: 4
 };
 var User = User || {};
 try {
@@ -34,8 +35,7 @@ document.addEventListener('deviceready', function () {
     }
     window.MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
     switch (MOBILE_DETECT.os()) {
-        case 'AndroidOS':
-            break;
+        case 'androidOS':
         case 'iOS':
             $('html').addClass('ios');
             break;
