@@ -18,6 +18,7 @@ var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWO
     CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
 var COMMUTE_PLACE = {101: 'Home', 102: 'Work', 103: 'Park & Ride Lot', 104: 'Bus Stop', 106: 'Telework Center', 107: 'Other'};
+var COMMUTE_PLACE_CODES = {HOME: '101', WORK: '102', PNR_LOT: '103', BUS_STOP: '104', TELEWORK: '106', OTHER: '107'};
 var COMMUTE_TRAVEL_MODE = {0: 'TRAVEL MODE:', 78: 'Drive Alone', 79: 'Transit', 80: 'Carpool', 81: 'Vanpool', 82: 'Bike', 83: 'Walk', 84: 'Telework'};
 var full_calendar = {};
 
@@ -112,7 +113,7 @@ function initialize() {
 /**
  * Get Commute Type. Also populate some default trip values
  * @param log_date
- * @param is_update_html
+ * @param  is_update_html bool Whether we update html. Default to false
  */
 function get_commute_type(log_date, is_update_html) {
     var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_trip = false, still_has_leg = false, trip_n_leg = '';
@@ -178,14 +179,15 @@ function get_commute_type(log_date, is_update_html) {
                     //         {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
                     // }
                     //now assign to html
-                    var $trips = $('tbody.trip_table');
+                    var trip_form = $('form[data-user_type=' + User.type + ']');
+                    var $trips = trip_form.find('tbody.trip_table');
 
                     for (trip_index = 1; trip_index <= User.trips.length; trip_index++) {
                         trip = User.trips[trip_index - 1];
                         var $trip = $($trips[trip_index - 1]);
                         $trip.find('tr.leg').remove();
                         for (leg_index = 1; leg_index <= trip.legs.length; leg_index++) {
-                            $trip.find('tr:last').before(print_leg(leg_index, trip_index, trip.legs[leg_index - 1]));
+                            $trip.find('button.addLegButton').closest('tr').before(print_leg(leg_index, trip_index, trip.legs[leg_index - 1]));
                         }
                         $('select').selectmenu();
                         $('input[type=number]').textinput();
@@ -339,8 +341,8 @@ function edit_log(e) {
             });
             break;
         }
-        case 4: {
-            // $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"});
+        case 4: {//flex
+            // $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"}); //todob debug why dialog is buggy
             $("body").pagecontainer("change", "#commute_log_flex");
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);

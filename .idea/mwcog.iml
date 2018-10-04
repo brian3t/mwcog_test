@@ -9,6 +9,7 @@
     <orderEntry type="library" name="moment" level="project" />
     <orderEntry type="library" name="lodash-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="target-script" level="application" />
+    <orderEntry type="library" name="lodash" level="project" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -102,12 +102,13 @@
     var today_string = today.getMonth() + '/' + today.getDay()
 </script>
 
+<!--for user type general - 0-->
 <div data-role="page" id="commute_log_entry_page" data-theme="b">
     <div data-role="header" class="banner">
         <h2>Edit Commute Log</h2>
     </div>
     <div role="main" class="ui-content bk_white" data-theme="b">
-        <form name="TripDiaryList" class="tripdiarycontrol.action">
+        <form name="TripDiaryList" class="tripdiarycontrol.action" data-user_type="0">
             <input type="hidden" name="tripDate" class="cur_date_val">
             <input type="hidden" value="" name="idPool" class="idPool">
             <table class="ui-table-reflow">
@@ -367,6 +368,8 @@
         </form>
     </div>
 </div>
+
+<!--for user type VIP - 3-->
 <div id="commute_log_van" data-theme="b" data-role="page">
     <div data-role="header">
         <h2>Pool Rewards - Commute Logs</h2>
@@ -620,12 +623,14 @@
         </form>
     </div>
 </div>
+
+<!--for user type FLEX - 4-->
 <div id="commute_log_flex" data-theme="b" data-role="page">
     <div data-role="header" class="banner">
         <h2>Edit Commute Log</h2>
     </div>
     <div role="main" class="ui-content bk_white" data-theme="b">
-        <form name="TripDiaryList" data-action="saveCommuteLogFlex">
+        <form name="TripDiaryList" data-action="saveCommuteLogFlex" data-user_type="4">
             <input type="hidden" name="tripDate" class="cur_date_val">
             <input type="hidden" value="" name="idPool" class="idPool">
             <table class="ui-table-reflow">
@@ -750,7 +755,7 @@
                             <tr>
                                 <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_hour" value="12" step="1" min="0" max="12" /></td>
                                 <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_minute" value="11" step="1"  min="0" max="12" /></td>
-                                <td class="col-xs-4"><select name="toWorkLegAlternateDepartureTime_ampm"><option value="AM" selected>AM</option><option value="PM">PM</option></select></td>
+                                <td class="col-xs-4"><select name="toWorkLegAlternateDepartureTime_ampm"><option value="am" selected>AM</option><option value="pm">PM</option></select></td>
                             </tr>
                             </tbody>
                         </table>
@@ -856,9 +861,9 @@
                                 <td class="data">Alternate Departure Time:</td>
                             </tr>
                             <tr>
-                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_hour" value="12" step="1" min="0" max="12" /></td>
-                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_minute" value="11" step="1"  min="0" max="12" /></td>
-                                <td class="col-xs-4"><select name="toWorkLegAlternateDepartureTime_ampm"><option value="AM" selected>AM</option><option value="PM">PM</option></select></td>
+                                <td class="col-xs-4"><input type="number" name="toHomeLegAlternateDepartureTime_hour" value="12" step="1" min="0" max="12" /></td>
+                                <td class="col-xs-4"><input type="number" name="toHomeLegAlternateDepartureTime_minute" value="11" step="1"  min="0" max="12" /></td>
+                                <td class="col-xs-4"><select name="toHomeLegAlternateDepartureTime_ampm"><option value="am" selected>AM</option><option value="pm">PM</option></select></td>
                             </tr>
                             </tbody>
                         </table>

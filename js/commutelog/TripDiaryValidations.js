@@ -362,6 +362,27 @@ function save_commute_logs_ajax(formObj, is_update) {
         case 2:
             extra_params.action += 'VIP';
             break;
+        case 4: // FLEX
+            extra_params.action += 'Flex';
+
+            var hour = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_hour"]').val().toString();
+            hour = _.padStart(hour, 2, '0');
+            var minute = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_minute"]').val().toString();
+            minute = _.padStart(minute, 2, '0');
+            var ampm = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_ampm"]').val().toString();
+            extra_params.toWorkLegAlternateDepartureTime = moment(hour+minute+ampm, 'hhmma').format('HHmm');
+
+            hour = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_hour"]').val().toString();
+            hour = _.padStart(hour, 2, '0');
+            minute = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_minute"]').val().toString();
+            minute = _.padStart(minute, 2, '0');
+            ampm = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_ampm"]').val().toString();
+            extra_params.toHomeLegAlternateDepartureTime = moment(hour+minute+ampm, 'hhmma').format('HHmm');
+
+            form_array = form_array.filter(function (e) {
+               return e.name.includes('LegAlternateDepartureTime');
+            });
+            break;
     }
     var params = build_query(extra_params) + '&' + $.param(form_array);
     $.get(url + '?' + params, {}, function (result) {
