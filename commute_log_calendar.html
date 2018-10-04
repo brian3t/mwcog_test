@@ -656,7 +656,7 @@
                         <table class="ui-table-reflow tall_table LegCommuteTable1" width="100%">
                             <tbody class="trip_table home_to_work_wrapper" data-trip-index="1">
                             <tr class="leg" data-leg-index="1">
-                                <td class="header"><b class="ui-table-cell-label">Leg</b><b><span class="index">1</span>&nbsp;<span class="red">*</span></b>
+                                <td class="header"><b class="ui-table-cell-label">LEG <span class="index">1</span></b>
                                 </td>
                                 <td class="w48 data">
                                     <select name="T1L1From" class="select1 from T1L1From"
@@ -698,12 +698,11 @@
                                 </td>
                             </tr>
                             <tr class="leg" data-leg-index="2">
-                                <td class="center" bgcolor="#CEE3F6"><b
-                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                <td class="header"><b class="ui-table-cell-label">LEG <span class="index">2</span></b>
                                 </td>
                                 <td class="w48 data">
                                     <select name="T1L2From" class="select1 from T1L2From" onchange="checkSecondLeg(this, '1')">
-                                        <option value="0" selected></option>
+                                        <option value="0" selected>From</option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -715,7 +714,7 @@
                                 </td>
                                 <td class="w48 pull-right data">
                                     <select name="T1L2To" class="select1 to T1L2To" onchange="checkSecondLeg(this, '1');">
-                                        <option value="0" selected></option>
+                                        <option value="0" selected>To</option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -726,7 +725,7 @@
                                 </td>
                                 <td class="w48 data">
                                     <select name="T1L2Mode" class="select1 mode T1L2Mode" onchange="checkCommuteMode(this, 'T1L2Distance');">
-                                        <option value="0" selected></option>
+                                        <option value="0" selected>Travel Mode</option>
                                         <option value="78">Drive Alone</option>
                                         <option value="79">Transit</option>
                                         <option value="80">Carpool</option>
@@ -737,13 +736,21 @@
                                     </select>
                                 </td>
                                 <td class=" w48 pull-right data">
-                                    <input class="textsm distance T1L2Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T1L2Distance" value="">
+                                    <input class="textsm distance T1L2Distance" type="text" size="1" maxlength="3" name="T1L2Distance" value="">
                                 </td>
                             </tr>
                             <tr class="pull-right">
                                 <td>
                                     <button type="button" class="addLegButton bk_green" onclick="addLeg(event)" data-mini="true">Add Leg</button>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="data">Alternate Departure Time:</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_hour" value="12" step="1" min="0" max="12" /></td>
+                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_minute" value="11" step="1"  min="0" max="12" /></td>
+                                <td class="col-xs-4"><select name="toWorkLegAlternateDepartureTime_ampm"><option value="AM" selected>AM</option><option value="PM">PM</option></select></td>
                             </tr>
                             </tbody>
                         </table>
@@ -760,8 +767,7 @@
                         <table class="tall_table LegCommuteTable2" width="100%">
                             <tbody class="trip_table work_to_home_wrapper" data-trip-index="2">
                             <tr class="leg" data-leg-index="1">
-                                <td class="center" bgcolor="#CEE3F6"><b
-                                        class="ui-table-cell-label">Leg</b><b>1&nbsp;<span class="red">*</span></b></td>
+                                <td class="header"><b class="ui-table-cell-label">LEG <span class="index">1</span></b></td>
                                 <td class="data w48">
                                     <select name="T2L1From" class="select1 from T2L1From" onchange="checkSecondLeg(this, '2')">
                                         <option value="0"></option>
@@ -797,16 +803,15 @@
                                     </select>
                                 </td>
                                 <td class="data w48 pull-right">
-                                    <input class="textsm mode T2L1Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T2L1Distance" value="2">
+                                    <input class="textsm mode T2L1Distance" type="text" size="1" maxlength="3" name="T2L1Distance" value="2">
                                 </td>
                             </tr>
                             <tr class="leg" data-leg-index="2">
-                                <td class="center" bgcolor="#CEE3F6"><b
-                                        class="ui-table-cell-label">Leg</b><b>2&nbsp;<span class="green">*</span></b>
+                                <td class="header"><b class="ui-table-cell-label">LEG <span class="index">2</span></b>
                                 </td>
                                 <td class="data w48">
                                     <select name="T2L2From" class="select1 from T2L2From" onchange="checkSecondLeg(this, '2')">
-                                        <option value="0"></option>
+                                        <option value="0">From</option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -817,7 +822,7 @@
                                 </td>
                                 <td class="data w48 pull-right">
                                     <select name="T2L2To" class="select1 to T2L2To" onchange="checkSecondLeg(this, '2');">
-                                        <option value="0"></option>
+                                        <option value="0">To</option>
                                         <option value="101">Home</option>
                                         <option value="102">Work</option>
                                         <option value="103">Park &amp; Ride Lot</option>
@@ -828,7 +833,7 @@
                                 </td>
                                 <td class="data w48">
                                     <select name="T2L2Mode mode" class="select1 mode T2L2Mode" onchange="checkCommuteMode(this, 'T2L2Distance');">
-                                        <option value="0"></option>
+                                        <option value="0">Travel Mode</option>
                                         <option value="78">Drive Alone</option>
                                         <option value="79">Transit</option>
                                         <option value="80">Carpool</option>
@@ -839,13 +844,21 @@
                                     </select>
                                 </td>
                                 <td class="data w48 pull-right">
-                                    <input class="textsm distance T2L2Distance" style="height: 25px" type="text" size="1" maxlength="3" name="T2L2Distance" value="">
+                                    <input class="textsm distance T2L2Distance" type="text" size="1" maxlength="3" name="T2L2Distance" value="">
                                 </td>
                             </tr>
                             <tr class="pull-right">
                                 <td colspan="2">
                                     <button type="button" class="addLegButton bk_green" onclick="addLeg(event)" data-mini="true">Add Leg</button>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="data">Alternate Departure Time:</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_hour" value="12" step="1" min="0" max="12" /></td>
+                                <td class="col-xs-4"><input type="number" name="toWorkLegAlternateDepartureTime_minute" value="11" step="1"  min="0" max="12" /></td>
+                                <td class="col-xs-4"><select name="toWorkLegAlternateDepartureTime_ampm"><option value="AM" selected>AM</option><option value="PM">PM</option></select></td>
                             </tr>
                             </tbody>
                         </table>

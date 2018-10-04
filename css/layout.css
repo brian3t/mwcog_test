@@ -3132,6 +3132,10 @@ button[disabled],
 .col-xs-6 {
   width: 100%; }
 
+.col-xs-4 {
+  width: 30%;
+  margin-left: 2%; }
+
 div.ui-select > div {
   width: auto; }
 
@@ -3164,6 +3168,9 @@ div.ui-select > div {
 
 .w48 {
   width: 48% !important; }
+
+.w32 {
+  width: 32%; }
 
 .wauto {
   width: auto; }

@@ -108,6 +108,12 @@ function initialize() {
     get_commute_type(today, false);//first call, don't update html yet
 
 }
+
+/**
+ * Get Commute Type. Also populate some default trip values
+ * @param log_date
+ * @param is_update_html
+ */
 function get_commute_type(log_date, is_update_html) {
     var leg = {}, trip = {}, leg_index = 1, trip_index = 1, still_has_trip = false, still_has_leg = false, trip_n_leg = '';
     if (typeof is_update_html === "undefined" || !is_update_html) {
@@ -131,6 +137,7 @@ function get_commute_type(log_date, is_update_html) {
             }
             switch (User.type) {
                 case C.TYPE_GENERAL:
+                case C.TYPE_FLEX:
                 case C.TYPE_CIP: {
                     User.trips = [];
                     leg = {};
@@ -294,9 +301,11 @@ function get_commute_type(log_date, is_update_html) {
     );
 }
 function edit_log(e) {
+    e.stopPropagation();
+    e.preventDefault();
     var $e = $($(e.target).closest('td'));
     var date = moment($e.data().date, 'YYYY-MM-DD').format(DATE_FORMAT_API);
-    $('body').addClass('has_dialog');
+    // $('body').addClass('has_dialog');
     $('.cur_date').html(date);
     $('.cur_date_mdy').html(moment($e.data().date, 'YYYY-MM-DD').format(DATE_FORMAT_HTML));
     $('.cur_date_val').val(date);
@@ -331,7 +340,8 @@ function edit_log(e) {
             break;
         }
         case 4: {
-            $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"});
+            // $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"});
+            $("body").pagecontainer("change", "#commute_log_flex");
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);
                 get_saved_days();

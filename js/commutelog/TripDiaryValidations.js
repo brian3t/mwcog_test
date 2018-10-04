@@ -25,42 +25,49 @@ function setLogDate(formObj) {
 
 function checkSecondLeg(point, str) {
     var formObj = point.form;
+    var $form = $(formObj);
     var formName = point.form.name;
-    if (formObj.T1L1From.value == '101' && formObj.T1L1To.value == '102') {
-        formObj.T1L2From.value = "0";
-        $(formObj.T1L2From).selectmenu('refresh');
-        formObj.T1L2To.value = "0";
-        $(formObj.T1L2To).selectmenu('refresh');
-        formObj.T1L2Mode.value = "0";
-        $(formObj.T1L2Mode).selectmenu('refresh');
-        formObj.T1L2Distance.value = "";
+    var t1l1_from = $($form.find(':input[name="T1L1From"]'));
+    var t1l1_to = $($form.find(':input[name="T1L1To"]'));
+    var t1l1_mode = $($form.find(':input[name="T1L1Mode"]'));
+    var t1l1_distance = $($form.find(':input[name="T1L1Distance"]'));
+    var t1l2_from = $($form.find(':input[name="T1L2From"]'));
+    var t1l2_to = $($form.find(':input[name="T1L2To"]'));
+    var t1l2_mode = $($form.find(':input[name="T1L2Mode"]'));
+    var t1l2_distance = $($form.find(':input[name="T1L2Distance"]'));
+
+    var t2l1_from = $($form.find(':input[name="T2L1From"]'));
+    var t2l1_to = $($form.find(':input[name="T2L1To"]'));
+    var t2l1_mode = $($form.find(':input[name="T2L1Mode"]'));
+    var t2l1_distance = $($form.find(':input[name="T2L1Distance"]'));
+    var t2l2_from = $($form.find(':input[name="T2L2From"]'));
+    var t2l2_to = $($form.find(':input[name="T2L2To"]'));
+    var t2l2_mode = $($form.find(':input[name="T2L2Mode"]'));
+    var t2l2_distance = $($form.find(':input[name="T2L2Distance"]'));
+
+    if (t1l1_from.val() === '101' && t1l1_to.val() === '102') {
+        t1l2_from.val('0').selectmenu('refresh');
+        t1l2_to.val('0').selectmenu('refresh');
+        t1l2_mode.val('0').selectmenu('refresh');
+        t1l2_distance.val('');
     }
-    if (formObj.T2L1From.value == '102' && formObj.T2L1To.value == '101') {
-        formObj.T2L2From.value = "0";
-        $(formObj.T2L2From).selectmenu('refresh');
-        formObj.T2L2To.value = "0";
-        $(formObj.T2L2To).selectmenu('refresh');
-        formObj.T2L2Mode.value = "0";
-        $(formObj.T2L2Mode).selectmenu('refresh');
-        formObj.T2L2Distance.value = "";
+    if (t2l1_from.val() === '102' && t2l1_to.val() === '101') {
+        t2l2_from.val('0').selectmenu('refresh');
+        t2l2_to.val('0').selectmenu('refresh');
+        t2l2_mode.val('0').selectmenu('refresh');
+        t2l2_distance.val('');
     }
 
-    if (formObj.T1L1From.value == '101' && formObj.T1L1To.value == '106') {
-        formObj.T1L2From.value = "0";
-        $(formObj.T1L2From).selectmenu('refresh');
-        formObj.T1L2To.value = "0";
-        $(formObj.T1L2To).selectmenu('refresh');
-        formObj.T2L1From.value = "106";
-        $(formObj.T2L1From).selectmenu('refresh');
-        formObj.T2L1To.value = "101";
-        $(formObj.T2L1To).selectmenu('refresh');
-        formObj.T2L2From.value = "0";
-        $(formObj.T2L2From).selectmenu('refresh');
-        formObj.T2L2To.value = "0";
-        $(formObj.T2L2To).selectmenu('refresh');
-        formObj.T1L2Mode.value = "0";
-        $(formObj.T1L2Mode).selectmenu('refresh');
-        formObj.T1L2Distance.value = "";
+    if (t1l1_from.val() === '101' && t1l1_to.val() === '106') {
+        t1l2_from.val('0').selectmenu('refresh');
+        t1l2_to.val('0').selectmenu('refresh');
+        t1l2_mode.val('0').selectmenu('refresh');
+        t1l2_distance.val('');
+
+        t2l1_from.val('106').selectmenu('refresh');
+        t2l1_to.val("101").selectmenu('refresh');
+        t2l2_from.val("0").selectmenu('refresh');
+        t2l2_to.val("0").selectmenu('refresh');
     }
     return true;
 }
