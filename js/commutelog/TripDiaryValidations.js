@@ -382,17 +382,17 @@ function save_commute_logs_ajax(formObj, is_update) {
             var minute = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_minute"]').val().toString();
             minute = _.padStart(minute, 2, '0');
             var ampm = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_ampm"]').val().toString();
-            extra_params.toWorkLegAlternateDepartureTime = moment(hour+minute+ampm, 'hhmma').format('HHmm');
+            extra_params.toWorkLegAlternateDepartureTime = moment(hour + minute + ampm, 'hhmma').format('HHmm');
 
             hour = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_hour"]').val().toString();
             hour = _.padStart(hour, 2, '0');
             minute = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_minute"]').val().toString();
             minute = _.padStart(minute, 2, '0');
             ampm = $(formObj).find(':input[name="toHomeLegAlternateDepartureTime_ampm"]').val().toString();
-            extra_params.toHomeLegAlternateDepartureTime = moment(hour+minute+ampm, 'hhmma').format('HHmm');
+            extra_params.toHomeLegAlternateDepartureTime = moment(hour + minute + ampm, 'hhmma').format('HHmm');
 
             form_array = form_array.filter(function (e) {
-               return (!e.name.includes('LegAlternateDepartureTime'));
+                return (!e.name.includes('LegAlternateDepartureTime'));
             });
             break;
     }
@@ -738,22 +738,54 @@ function updateCommuteLogs(formObj) {
 }
 
 function clearLogs(formObj) {
-    formObj.T1L1From.value = "0";
-    formObj.T1L1To.value = "0";
-    formObj.T1L1Mode.value = "0";
-    formObj.T1L1Distance.value = "";
-    formObj.T1L2From.value = "0";
-    formObj.T1L2To.value = "0";
-    formObj.T1L2Mode.value = "0";
-    formObj.T1L2Distance.value = "";
-    formObj.T2L1From.value = "0";
-    formObj.T2L1To.value = "0";
-    formObj.T2L1Mode.value = "0";
-    formObj.T2L1Distance.value = "";
-    formObj.T2L2From.value = "0";
-    formObj.T2L2To.value = "0";
-    formObj.T2L2Mode.value = "0";
-    formObj.T2L2Distance.value = "";
+    if (typeof formObj.T1L1From === 'object') {
+        formObj.T1L1From.value = "0";
+    }
+    if (typeof formObj.T1L1To === 'object') {
+        formObj.T1L1To.value = "0";
+    }
+    if (typeof formObj.T1L1Mode === 'object') {
+        formObj.T1L1Mode.value = "0";
+    }
+    if (typeof formObj.T1L1Distance === 'object') {
+        formObj.T1L1Distance.value = "";
+    }
+    if (typeof formObj.T1L2From === 'object') {
+        formObj.T1L2From.value = "0";
+    }
+    if (typeof formObj.T1L2To === 'object') {
+        formObj.T1L2To.value = "0";
+    }
+    if (typeof formObj.T1L2Mode === 'object') {
+        formObj.T1L2Mode.value = "0";
+    }
+    if (typeof formObj.T1L2Distance === 'object') {
+        formObj.T1L2Distance.value = "";
+    }
+    if (typeof formObj.T2L1From === 'object') {
+        formObj.T2L1From.value = "0";
+    }
+    if (typeof formObj.T2L1To === 'object') {
+        formObj.T2L1To.value = "0";
+    }
+    if (typeof formObj.T2L1Mode === 'object') {
+        formObj.T2L1Mode.value = "0";
+    }
+    if (typeof formObj.T2L1Distance === 'object') {
+        formObj.T2L1Distance.value = "";
+    }
+    if (typeof formObj.T2L2From === 'object') {
+        formObj.T2L2From.value = "0";
+    }
+    if (typeof formObj.T2L2To === 'object') {
+        formObj.T2L2To.value = "0";
+    }
+    if (typeof formObj.T2L2Mode === 'object') {
+        formObj.T2L2Mode.value = "0";
+    }
+    if (typeof formObj.T2L2Distance === 'object') {
+        formObj.T2L2Distance.value = "";
+    }
 
     var table1RowCount = document.getElementById("LegCommuteTable1").rows.length - 2;
 
@@ -777,6 +809,7 @@ function clearLogs(formObj) {
 }
 
 var httpRequest;
+
 function getTripDetails(url, event) {
     var url = url;
     try {
@@ -836,7 +869,8 @@ var dvHdr = document.createElement("div");
 var dvBdy = document.createElement("div");
 dvBdy.id = 'tooltip';
 
-var windowlock, boxMove, fixposx, fixposy, lockX, lockY, fixx, fixy, ox, oy, boxLeft, boxRight, boxTop, boxBottom, evt, mouseX, mouseY, boxOpen, totalScrollTop, totalScrollLeft;
+var windowlock, boxMove, fixposx, fixposy, lockX, lockY, fixx, fixy, ox, oy, boxLeft, boxRight, boxTop, boxBottom, evt, mouseX, mouseY, boxOpen,
+    totalScrollTop, totalScrollLeft;
 boxOpen = false;
 ox = 10;
 oy = 10;
@@ -967,6 +1001,7 @@ function Top(elem) {
 }
 
 var ah, ab;
+
 function applyStyles() {
     if (ab)
         oDv.removeChild(dvBdy);
@@ -1008,6 +1043,7 @@ function SHW() {
 
 
 var ID = null;
+
 function moveMouse(e) {
     //boxMove=true;
     e ? evt = e : evt = event;
@@ -1138,6 +1174,7 @@ function hideBox(e) {
 
 var COL = 0;
 var stopfade = false;
+
 function fadeIn(fs) {
     ID = null;
     COL = 0;
@@ -1170,6 +1207,7 @@ function isChild(s, d) {
 }
 
 var cSrc;
+
 function checkMove(e) {
     e ? evt = e : evt = event;
     cSrc = evt.target ? evt.target : evt.srcElement;
