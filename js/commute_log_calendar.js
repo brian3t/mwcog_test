@@ -60,7 +60,7 @@ function add_button_to_calendar() {
         } else {
             date_td.append('<input type="button" class="button add_edit_btn" value="Add" />');
         }
-        date_td.on('click', edit_log);
+        date_td.unbind('click').on('click', edit_log);
     }
 }
 /**

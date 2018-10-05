@@ -403,7 +403,7 @@ function save_commute_logs_ajax(formObj, is_update) {
             (typeof result.status === 'string' && result.status.indexOf('success') !== -1)) {
             app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
             $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
-
+            setTimeout(function() {jQuery.mobile.navigate('commute_log_calendar.html');}, 3000);
         }
     }, 'json').fail(function (error) {
         console.info(error);
@@ -411,6 +411,7 @@ function save_commute_logs_ajax(formObj, is_update) {
         if (error.status === 200 || result.status.indexOf('success') !== -1) {
             app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
             $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
+            setTimeout(function() {jQuery.mobile.navigate('commute_log_calendar.html');}, 3000);
         }
     });
 
