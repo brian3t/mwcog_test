@@ -316,13 +316,13 @@ function saveCommuteLogsWithAdditionalLegs(formObj) {
 //now submit to calendar API service
 function save_commute_logs_ajax(formObj, is_update) {
     var form_array = $(formObj).serializeArray(), success = false;
-    if (typeof is_update == "undefined") {
+    if (typeof is_update === "undefined") {
         is_update = false;
     }
     for (var i = 0; i < form_array.length; i++) {
         var v = form_array[i];
-        if (typeof v != "undefined") {
-            if (v.name == 'idPool' || v.name == 'logType') {
+        if (typeof v !== "undefined") {
+            if (v.name === 'idPool' || v.name === 'logType') {
                 form_array.splice(i, 1);
                 i--;
                 continue;
@@ -339,11 +339,11 @@ function save_commute_logs_ajax(formObj, is_update) {
         case 0:
             extra_params.action += 'General';
             $.each(form_array, function (i, v) {
-                if (v.name == 'tripDate') {
+                if (v.name === 'tripDate') {
                     v.value = moment(v.value, 'M/DD/YYYY').format('MM/DD/YYYY');
                 }
             });
-            if (User.trips[0].legs.length == 1) {
+            if (User.trips[0].legs.length === 1) {
                 extra_params = $.extend(extra_params, {
                     toHomeleg2From: 0,
                     toHomeleg2To: 0,
@@ -364,6 +364,18 @@ function save_commute_logs_ajax(formObj, is_update) {
             break;
         case 4: // FLEX
             extra_params.action += 'Flex';
+            if (User.trips[0].legs.length === 1) {
+                extra_params = $.extend(extra_params, {
+                    toHomeleg2From: 0,
+                    toHomeleg2To: 0,
+                    toHomeleg2Mode: 0,
+                    toHomeleg2Distance: 0,
+                    toWorkleg2From: 0,
+                    toWorkleg2To: 0,
+                    toWorkleg2Mode: 0,
+                    toWorkleg2Distance: 0
+                });
+            }
 
             var hour = $(formObj).find(':input[name="toWorkLegAlternateDepartureTime_hour"]').val().toString();
             hour = _.padStart(hour, 2, '0');
@@ -380,14 +392,15 @@ function save_commute_logs_ajax(formObj, is_update) {
             extra_params.toHomeLegAlternateDepartureTime = moment(hour+minute+ampm, 'hhmma').format('HHmm');
 
             form_array = form_array.filter(function (e) {
-               return e.name.includes('LegAlternateDepartureTime');
+               return (!e.name.includes('LegAlternateDepartureTime'));
             });
             break;
     }
     var params = build_query(extra_params) + '&' + $.param(form_array);
     $.get(url + '?' + params, {}, function (result) {
         console.info(result);
-        if (result.status === 200 || result.status.indexOf('success') !== -1) {
+        if (result.status === 200 ||
+            (typeof result.status === 'string' && result.status.indexOf('success') !== -1)) {
             app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
             $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
 
@@ -402,8 +415,8 @@ function save_commute_logs_ajax(formObj, is_update) {
     });
 
     //fix weird validation
-    $('#T1L2From').val(0);
-    $('#T2L2From').val(0);
+    $(':input[name="T1L2From"]').val(0);
+    $(':input[name="T2L2From"]').val(0);
     return false;
 }
 
