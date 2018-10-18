@@ -53,12 +53,12 @@ function add_button_to_calendar() {
         if (!_.isArray(User.days)) {
             continue;
         }
-        date_td.find('.add_edit_btn').remove();
+        date_td.find('.add_edit_btn_wrapper').remove();
         if (User.days.indexOf(day.format('DD-MM-YYYY')) !== -1) {
-            date_td.append('<input type="button" class="button add_edit_btn" value="Edit" />');
+            date_td.append('<div class="add_edit_btn_wrapper"><div class="clearfix"></div><input type="button" class="button add_edit_btn" value="Edit" /></div>');
             $('td.fc-day[data-date="' + day.format('YYYY-MM-DD') + '"]').addClass('has_log');
         } else {
-            date_td.append('<input type="button" class="button add_edit_btn" value="Add" />');
+            date_td.append('<div class="add_edit_btn_wrapper"><div class="clearfix"></div><input type="button" class="button add_edit_btn" value="Add" /></div>');
         }
         date_td.unbind('click').on('click', edit_log);
     }
