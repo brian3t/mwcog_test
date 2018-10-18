@@ -43,7 +43,7 @@ var app = {
             // hashed = true;//0407
             $("#password").val(saved_password);
         }
-        remember_sw = new Switchery(document.querySelector('.js-switch'));
+        remember_sw = new Switchery(document.querySelector('#remember'));
 
         /*
         Login. If successful, go to destination_page, e.g. search.html

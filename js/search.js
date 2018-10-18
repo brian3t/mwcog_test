@@ -110,6 +110,14 @@ function toggle_panel_options() {
     });
 }
 
+function toggle_auto_commute_log() {
+    "use strict";
+    $('#popup_menu').popup('close', {transition: 'pop'});
+    $("#popup_menu").one("popupafterclose", function (event, ui) {
+        $('#auto_commute_log_popup').popup('open', {transition: 'pop'});
+    });
+}
+
 $(document).ready(function () {
 
     var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
@@ -194,7 +202,7 @@ $(document).ready(function () {
             console.error(e);
         }
     }
-
+    window.auto_commute_log_sw = new Switchery(document.querySelector('#auto_commute_log_sw'));
 });
 
 window.handleOpenURL = function (url) {
