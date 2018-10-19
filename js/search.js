@@ -203,6 +203,12 @@ $(document).ready(function () {
         }
     }
     window.auto_commute_log_sw = new Switchery(document.querySelector('#auto_commute_log_sw'));
+    $('#auto_commute_log_sw').on('change', function () {
+        console.log(`checked: ` + window.auto_commute_log_sw.isChecked());
+    });
+    $('#save_autocomlog_setting_btn').on('click', function (e) {
+        // console.log(`checked: ` + window.auto_commute_log_sw.isChecked());
+    });
 });
 
 window.handleOpenURL = function (url) {

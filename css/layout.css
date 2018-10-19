@@ -3502,4 +3502,8 @@ ul.ui-listview > li.ui-first-child > a.ui-btn {
 .fc-day-top.fc-force_show {
   opacity: 1; }
 
+button.ui-btn.theme_b_blue {
+  background-color: #193564;
+  color: white; }
+
 /*# sourceMappingURL=layout.css.map */
