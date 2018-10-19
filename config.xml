@@ -117,27 +117,27 @@
                 <string>carpoolnow</string>
             </array>
         </config-file>
-        <config-file target="archived-expanded-entitlements*.xcent" parent="com.apple.developer.associated-domains" mode="replace">
-            <array>  
-                <string>applinks:*.ie511.org</string>
-            </array>
-        </config-file>
-        <config-file target="*/archived-expanded-entitlements.xcent" parent="com.apple.developer.associated-domains" mode="replace">
-            <array>  
-                <string>applinks:*.ie511.org</string>
-            </array>
-        </config-file>
-        <config-file target="Entitlements-*.plist" parent="com.apple.developer.associated-domains" mode="replace">
-            <array>  
-                <string>applinks:*.ie511.org</string>
-            </array>
-        </config-file>
-        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.associated-domains" mode="replace">
+        <config-file mode="replace" parent="com.apple.developer.associated-domains" target="archived-expanded-entitlements*.xcent">
             <array>
                 <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
-        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.associated-domains" mode="replace">
+        <config-file mode="replace" parent="com.apple.developer.associated-domains" target="*/archived-expanded-entitlements.xcent">
+            <array>
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file mode="replace" parent="com.apple.developer.associated-domains" target="Entitlements-*.plist">
+            <array>
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file mode="replace" parent="com.apple.developer.associated-domains" target="*/Entitlements-Debug.plist">
+            <array>
+                <string>applinks:*.ie511.org</string>
+            </array>
+        </config-file>
+        <config-file mode="replace" parent="com.apple.developer.associated-domains" target="*/Entitlements-Release.plist">
             <array>
                 <string>applinks:*.ie511.org</string>
             </array>
@@ -152,5 +152,5 @@
     <preference name="AndroidLaunchMode" value="singleInstance" />
     <plugin name="cordova-plugin-appavailability" spec="0.4.2" />
     <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
-    <plugin name="cordova-plugin-local-notification" spec="~0.9.0-beta.2" />
+    <engine name="android" spec="~6.1.2" />
 </widget>
