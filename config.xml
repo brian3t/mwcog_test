@@ -12,8 +12,8 @@
     <preference name="websecurity" value="disable" />
     <preference name="webviewbounce" value="false" />
     <icon src="www/icon.png" />
-    <icon gap:platform="blackberry" src="www/res/icons/blackberry/icon-80.png" />
-    <icon gap:platform="blackberry" gap:state="hover" src="www/res/icons/blackberry/icon-80.png" />
+    <icon platform="blackberry" src="www/res/icons/blackberry/icon-80.png" />
+    <icon platform="blackberry" gap:state="hover" src="www/res/icons/blackberry/icon-80.png" />
     <platform name="android">
         <icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
