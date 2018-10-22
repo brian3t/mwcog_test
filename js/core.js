@@ -44,7 +44,19 @@ document.addEventListener('deviceready', function () {
             break;
     }
 }, false);
-if (isInWeb){
+jQuery(document).on("pagechange", function (event) {
+    window.MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
+    switch (MOBILE_DETECT.os()) {
+        case 'androidOS':
+        case 'iOS':
+            $('html').addClass('ios');
+            break;
+        default:
+            $('html').addClass('android');
+            break;
+    }
+});
+if (isInWeb) {
     document.dispatchEvent(new Event('deviceready'));
 }
 app_alert = function (message, alertCallback, title, buttonName) {
