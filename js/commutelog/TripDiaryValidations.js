@@ -139,6 +139,16 @@ function saveCommuteLogsWithAdditionalLegs(formObj) {
             return true;
         }
     }
+
+    if (formObj.hasOwnProperty('toWorkLegAlternateDepartureTime_hour') && parseInt(formObj.toWorkLegAlternateDepartureTime_hour.value) > 12){
+        app_toast('Please enter 0-12 for Alternate Departure hour');
+        return false;
+    }
+    if (formObj.hasOwnProperty('toHomeLegAlternateDepartureTime_hour') && parseInt(formObj.toHomeLegAlternateDepartureTime_hour.value) > 12){
+        app_toast('Please enter 0-12 for Alternate Departure hour');
+        return false;
+    }
+
     if (document.getElementById("T1L3From") === null && document.getElementById("T1L3To") === null && document.getElementById("T2L3From") === null && document.getElementById("T2L3To") === null) {
         saveCommuteLogs(formObj);
     } else {
@@ -404,6 +414,8 @@ function save_commute_logs_ajax(formObj, is_update) {
             app_toast('Your commute log has been saved. Click OK to return to the Commute Log Calendar.');
             $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
             setTimeout(function() {jQuery.mobile.navigate('commute_log_calendar.html');}, 3000);
+        } else {
+            app_toast(result.status);
         }
     }, 'json').fail(function (error) {
         console.info(error);

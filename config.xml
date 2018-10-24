@@ -13,7 +13,7 @@
     <preference name="webviewbounce" value="false" />
     <icon src="www/icon.png" />
     <icon platform="blackberry" src="res/icons/blackberry/icon-80.png" />
-    <icon platform="blackberry" gap:state="hover" src="res/icons/blackberry/icon-80.png" />
+    <icon gap:state="hover" platform="blackberry" src="res/icons/blackberry/icon-80.png" />
     <platform name="android">
         <icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
@@ -148,6 +148,6 @@
     </plugin>
     <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
     <plugin name="cordova-plugin-appavailability" spec="^0.4.2" />
-    <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
+    <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="git+https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
 </widget>

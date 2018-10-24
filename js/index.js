@@ -248,6 +248,8 @@ $('document').ready(function () {
         // $("#password").val('changeme4');
         // $('#username').val('ngxtri01');//NR
         // $("#password").val('cTrapok01');
+        // $('#username').val('flexmedia');//Flex
+        // $("#password").val('changeme4');
         // $('#loginForm').submit();
         // window.location = 'search.html';
         /*setTimeout(function () {

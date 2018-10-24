@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="mwcog jslib" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/js/lib/fullcalendar.js" />
+        <item url="file://$PROJECT_DIR$/js/lib/jslib.js" />
+        <item url="file://$PROJECT_DIR$/js/lib/lodash.js" />
+        <item url="file://$PROJECT_DIR$/js/lib/mobile-detect.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/lib/fullcalendar.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/jquery.jgrowl.min.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/jslib.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/lodash.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/lodash.min.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/mobile-detect.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/moment.min.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/switch.min.js" />
+      <root url="file://$PROJECT_DIR$/js/lib/switchery.min.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

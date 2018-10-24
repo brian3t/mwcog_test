@@ -4,10 +4,10 @@ var DATE_FORMAT = 'MM/DD/YYYY';
 var DATE_FORMAT_API = 'M/DD/YYYY';
 var DATE_FORMAT_HTML = 'M/D/YYYY';
 var User = User || {
-        type: -1,
-        days: [],
-        pool_id: ''
-    };
+    type: -1,
+    days: [],
+    pool_id: ''
+};
 var today = moment.utc(), _10_days_ago = moment.utc().subtract(10, "days"), _11_days_ago = moment.utc().subtract(11, "days");
 
 var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol';
@@ -34,15 +34,18 @@ function build_query(extra_params) {
     }
     return $.param(params);
 }
+
 function triggerDialogClose() {
     $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
 }
+
 function goto_search() {
     //jQuery.mobile.navigate('search.html');
     setTimeout(function () {
         window.location.href = "search.html";
     }, 500);
 }
+
 function add_button_to_calendar() {
     if (typeof User === "undefined" || !User) {
         return false;
@@ -63,6 +66,7 @@ function add_button_to_calendar() {
         date_td.unbind('click').on('click', edit_log);
     }
 }
+
 /**
  * This also destroys and recreates FullCalendar
  */
@@ -77,6 +81,7 @@ function get_saved_days() {
     days_return.then(add_button_to_calendar);
     return days_return;
 }
+
 function initialize() {
     $.ajaxSetup({crossDomain: true});
     var yesterday = moment.utc().subtract(1, "days");
@@ -96,11 +101,11 @@ function initialize() {
                 console.log(`event after render`);
                 get_saved_days();
                 //enable other month's days if they are in range
-                full_calendar.find('.fc-day-top, .fc-day').each((i, e)=>{
-                   let date = moment($(e).data('date'));
-                   if (date >= _10_days_ago && date <= today){
-                       $(e).addClass('fc-force_show').removeClass('disabled');
-                   }
+                full_calendar.find('.fc-day-top, .fc-day').each((i, e) => {
+                    let date = moment($(e).data('date'));
+                    if (date >= _10_days_ago && date <= today) {
+                        $(e).addClass('fc-force_show').removeClass('disabled');
+                    }
                 });
             }
         }
@@ -124,7 +129,7 @@ function get_commute_type(log_date, is_update_html) {
     if (typeof log_date === 'undefined') {
         log_date = moment().format('M/D/YYYY');
     }
-    if (typeof log_date === 'object' && (log_date.constructor.name === 'moment' || log_date._isAMomentObject )) {
+    if (typeof log_date === 'object' && (log_date.constructor.name === 'moment' || log_date._isAMomentObject)) {
         log_date = log_date.format('M/D/YYYY');
     }
     var url = mwcog_root + "?action=getCommuteLogType&" + build_query({'log_date': log_date});
@@ -191,6 +196,21 @@ function get_commute_type(log_date, is_update_html) {
                         }
                         $('select').selectmenu();
                         $('input[type=number]').textinput();
+                    }
+                    if (User.type !== C.TYPE_FLEX) {
+                        break;
+                    }
+                    if (User.hasOwnProperty('trip1alternateDepatTime')) {
+                        var trip1AlterDepartTime = military_time_to_moment(User.trip1alternateDepatTime);
+                        trip_form.find('input[name="toWorkLegAlternateDepartureTime_hour"]').val(trip1AlterDepartTime.format('hh'));
+                        trip_form.find('input[name="toWorkLegAlternateDepartureTime_minute"]').val(_.padStart(trip1AlterDepartTime.minute(), 2, '0'));
+                        trip_form.find('input[name="toWorkLegAlternateDepartureTime_ampm"]').val(trip1AlterDepartTime.hour() >= 12);
+                    }
+                    if (User.hasOwnProperty('trip2alternateDepatTime')) {
+                        var trip2AlterDepartTime = military_time_to_moment(User.trip2alternateDepatTime);
+                        trip_form.find('input[name="toHomeLegAlternateDepartureTime_hour"]').val(trip2AlterDepartTime.format('hh'));
+                        trip_form.find('input[name="toHomeLegAlternateDepartureTime_minute"]').val(_.padStart(trip2AlterDepartTime.minute(), 2, '0'));
+                        trip_form.find('input[name="toHomeLegAlternateDepartureTime_ampm"]').val(trip2AlterDepartTime.hour() >= 12);
                     }
                     break;
                 }
@@ -260,7 +280,7 @@ function get_commute_type(log_date, is_update_html) {
                     var van_log_inputs = $('#van_log :input[data-api_field]');
                     _.each(van_log_inputs, function (v) {
                         var api_key = $(v).data('api_field');
-                        if (User.hasOwnProperty(api_key)){
+                        if (User.hasOwnProperty(api_key)) {
                             $(v).val(User[api_key]);
                         } else {
                             console.info('v: ' + v);
@@ -275,7 +295,7 @@ function get_commute_type(log_date, is_update_html) {
                                     $(v).val('0');
                                     break;
                                 default:
-                                $(v).val('');    
+                                    $(v).val('');
                             }
                             // END 
                         }
@@ -302,6 +322,7 @@ function get_commute_type(log_date, is_update_html) {
         }
     );
 }
+
 function edit_log(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -460,6 +481,7 @@ function showHideDropDown(box, id) {
     }
 
 }
+
 function print_leg(index, trip_index, data) {
     if (data.from === null) {
         data.from = 0;
@@ -509,6 +531,7 @@ function print_leg(index, trip_index, data) {
 
     return tr;
 }
+
 function addLeg(e) {
     var $tbody = $(e.target).closest('tbody.trip_table');
     var trip_index = $tbody.data('trip-index');
@@ -517,10 +540,12 @@ function addLeg(e) {
     $('select').selectmenu();
     $('input[type=number]').textinput();
 }
+
 function selectAllPassenger() {
     var is_checked = document.getElementById("selectAll").checked;
     $('.passenger .toWork,.passenger .toHome').prop('checked', is_checked);
 
 }
+
 $(document).ready(function () {
 });

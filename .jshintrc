@@ -5,7 +5,8 @@
   "globals": {
     "moment": true
     ,"$": true,
-    "_": false
+    "_": false,
+    "military_time_to_moment": true
   },
   "laxcomma":true,
   "esversion": 6
