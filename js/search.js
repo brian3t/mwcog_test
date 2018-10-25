@@ -72,8 +72,8 @@ function saveCommuterProfile() {
 
     $.ajax({
         url: baseUrl + 'json?action=editworkschedule&idCommuter=' + idCommuter + '&userName=' + userName + '&fromHRS=' + startHour + '&fromMNS=' + startMin +
-        '&fromAMPM=' + startAmPm + '&toHRS=' + endHour + '&toMNS=' + endMin + '&toAMPM=' + endAmPm + '&arriveBefore=' + flexibility + '&arriveAfter=' +
-        flexibility + '&leaveBefore=' + flexibility + '&leaveAfter=' + flexibility,
+            '&fromAMPM=' + startAmPm + '&toHRS=' + endHour + '&toMNS=' + endMin + '&toAMPM=' + endAmPm + '&arriveBefore=' + flexibility + '&arriveAfter=' +
+            flexibility + '&leaveBefore=' + flexibility + '&leaveAfter=' + flexibility,
         type: 'GET',
         success: function (data) {
         },
@@ -232,7 +232,7 @@ window.handleOpenURL = function (url) {
     if (latlng.length < 2) {
         return false;//at least {}
     }
-    if (window.location.href.indexOf('search.html') !== -1){
+    if (window.location.href.indexOf('search.html') !== -1) {
         //at search page
         window.location.href = 'rideshare.html';//todob should login here too
         return;
@@ -244,7 +244,7 @@ window.handleOpenURL = function (url) {
     var saved_password = window.localStorage.getItem("password");
     if (is_nonempty_str(username_saved) && (is_nonempty_str(saved_password) || is_nonempty_str(saved_hashed_password))) {
         window.localStorage.setItem('latlng', latlng);
-        $("#loginForm").trigger('submit',['rideshare.html']);
+        $("#loginForm").trigger('submit', ['rideshare.html']);
     }
 
 };
