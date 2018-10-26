@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="local noti js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-core.js" />
+        <item url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-util.js" />
+        <item url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-core.js" />
+      <root url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-util.js" />
+      <root url="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

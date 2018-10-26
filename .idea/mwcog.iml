@@ -11,6 +11,7 @@
     <orderEntry type="library" name="target-script" level="application" />
     <orderEntry type="library" name="lodash" level="project" />
     <orderEntry type="library" name="mwcog jslib" level="project" />
+    <orderEntry type="library" name="local noti js" level="project" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />
