@@ -126,7 +126,7 @@ class Schedule {
                 var a = 1;
                 let day_to_schedule = _.cloneDeep(sunday);
                 day_to_schedule.add(INDEX_IN_WEEK[mon_fri], 'd');
-                day_to_schedule.hour(day_schedule.mmStart().hour());
+                // day_to_schedule.hour(day_schedule.mmStart().hour());
                 this.plugin.schedule({
                     title: 'You are about to go to work',
                     text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
