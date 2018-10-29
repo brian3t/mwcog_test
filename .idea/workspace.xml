@@ -6,10 +6,7 @@
     <bookmark url="file://$PROJECT_DIR$/config.xml" line="96" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Disable noti debugging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/commute_log_calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commute_log_calendar.js" afterDir="false" />
-    </list>
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Fix FlexType typo." />
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +51,7 @@
           <entry key="js" value="6490" />
           <entry key="jshintrc" value="21" />
           <entry key="scss" value="278" />
-          <entry key="txt" value="553" />
+          <entry key="txt" value="571" />
           <entry key="xml" value="159" />
         </counts>
       </usages-collector>
@@ -65,14 +62,14 @@
           <entry key="HTML" value="1273" />
           <entry key="JSHint" value="21" />
           <entry key="JavaScript" value="6487" />
-          <entry key="PLAIN_TEXT" value="553" />
+          <entry key="PLAIN_TEXT" value="571" />
           <entry key="SCSS" value="278" />
           <entry key="XML" value="159" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.0" value="19" />
           <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.2" value="3" />
@@ -117,8 +114,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="199" column="52" lean-forward="true" selection-start-line="199" selection-start-column="52" selection-end-line="199" selection-end-column="52" />
+            <state relative-caret-position="362">
+              <caret line="206" column="116" selection-start-line="206" selection-start-column="116" selection-end-line="206" selection-end-column="116" />
             </state>
           </provider>
         </entry>
@@ -206,8 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>android</find>
-      <find>'android'</find>
       <find>core</find>
       <find>small</find>
       <find>small_btn</find>
@@ -236,6 +231,8 @@
       <find>day_in</find>
       <find>start(</find>
       <find>mmstart</find>
+      <find>get_comm</find>
+      <find>trip1alternateDepatTime</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -607,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540829282479</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix FlexType typo.">
+      <created>1540837165541</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1540837165541</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -702,7 +706,8 @@
     <MESSAGE value="FlexMode make alternate times required" />
     <MESSAGE value="Fix phonegap git error" />
     <MESSAGE value="Disable noti debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable noti debugging" />
+    <MESSAGE value="Fix FlexType typo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix FlexType typo." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
@@ -974,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="199" column="52" lean-forward="true" selection-start-line="199" selection-start-column="52" selection-end-line="199" selection-end-column="52" />
+        <state relative-caret-position="362">
+          <caret line="206" column="116" selection-start-line="206" selection-start-column="116" selection-end-line="206" selection-end-column="116" />
         </state>
       </provider>
     </entry>
