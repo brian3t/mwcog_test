@@ -6,11 +6,9 @@
     <bookmark url="file://$PROJECT_DIR$/config.xml" line="96" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Prepare">
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Disable noti debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/noti.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/noti.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/commute_log_calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commute_log_calendar.js" afterDir="false" />
     </list>
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
@@ -27,7 +25,7 @@
           <entry key="css" value="6" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="15" />
-          <entry key="js" value="33" />
+          <entry key="js" value="34" />
           <entry key="jshintrc" value="2" />
           <entry key="rb" value="1" />
           <entry key="scss" value="1" />
@@ -41,7 +39,7 @@
           <entry key="Git file" value="2" />
           <entry key="HTML" value="15" />
           <entry key="JSHint" value="2" />
-          <entry key="JavaScript" value="33" />
+          <entry key="JavaScript" value="34" />
           <entry key="Ruby" value="1" />
           <entry key="SCSS" value="1" />
           <entry key="TypeScript" value="1" />
@@ -53,10 +51,10 @@
           <entry key="css" value="85" />
           <entry key="gitignore" value="6" />
           <entry key="html" value="1271" />
-          <entry key="js" value="6486" />
+          <entry key="js" value="6490" />
           <entry key="jshintrc" value="21" />
           <entry key="scss" value="278" />
-          <entry key="txt" value="531" />
+          <entry key="txt" value="553" />
           <entry key="xml" value="159" />
         </counts>
       </usages-collector>
@@ -66,16 +64,16 @@
           <entry key="Git file" value="6" />
           <entry key="HTML" value="1273" />
           <entry key="JSHint" value="21" />
-          <entry key="JavaScript" value="6483" />
-          <entry key="PLAIN_TEXT" value="531" />
+          <entry key="JavaScript" value="6487" />
+          <entry key="PLAIN_TEXT" value="553" />
           <entry key="SCSS" value="278" />
           <entry key="XML" value="159" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
-          <entry key="project.open.time.0" value="17" />
+          <entry key="project.closed" value="31" />
+          <entry key="project.open.time.0" value="19" />
           <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.5" value="1" />
@@ -83,7 +81,7 @@
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="47" />
+          <entry key="project.opened" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -99,28 +97,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/search.js">
+        <entry file="file://$PROJECT_DIR$/js/noti.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="297">
+              <caret line="109" column="43" lean-forward="true" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/noti.js">
+        <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+            <state relative-caret-position="300">
+              <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config.xml">
+        <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
+            <state relative-caret-position="257">
+              <caret line="199" column="52" lean-forward="true" selection-start-line="199" selection-start-column="52" selection-end-line="199" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -128,7 +126,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3675">
+            <state relative-caret-position="3390">
               <caret line="245" column="2" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="2" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -140,7 +138,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4020">
+            <state relative-caret-position="3735">
               <caret line="268" column="27" selection-start-line="268" selection-start-column="27" selection-end-line="268" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -152,7 +150,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4635">
+            <state relative-caret-position="4350">
               <caret line="309" column="37" selection-start-line="309" selection-start-column="37" selection-end-line="309" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -208,7 +206,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add_edit_btn</find>
       <find>android</find>
       <find>'android'</find>
       <find>core</find>
@@ -238,6 +235,7 @@
       <find>does nothi</find>
       <find>day_in</find>
       <find>start(</find>
+      <find>mmstart</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -277,15 +275,15 @@
         <option value="$PROJECT_DIR$/edit_commute_log.html" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/js/lib/jslib.js" />
-        <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/commute_log_calendar.html" />
         <option value="$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js" />
         <option value="$PROJECT_DIR$/js/browserify.js" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/search.html" />
-        <option value="$PROJECT_DIR$/js/noti.js" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/js/noti.js" />
+        <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
       </list>
     </option>
   </component>
@@ -305,8 +303,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1056" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -380,7 +379,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -417,6 +415,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -601,20 +600,27 @@
       <option name="project" value="LOCAL" />
       <updated>1540414617422</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Disable noti debugging">
+      <created>1540829282479</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540829282479</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1054" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4533762" visible="true" weight="0.22649573" />
-      <window_info id="Structure" order="1" sideWeight="0.54662377" side_tool="true" visible="true" weight="0.22649573" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.45151198" visible="true" weight="0.23109691" />
+      <window_info id="Structure" order="1" sideWeight="0.548488" side_tool="true" visible="true" weight="0.23109691" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32901832" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32692307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -695,7 +701,8 @@
     <MESSAGE value="Finish 7.1.0 update.&#10;Finish FlexMode." />
     <MESSAGE value="FlexMode make alternate times required" />
     <MESSAGE value="Fix phonegap git error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix phonegap git error" />
+    <MESSAGE value="Disable noti debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable noti debugging" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
@@ -864,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3030">
-          <caret line="202" column="59" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lib/local-storage.js" />
     <entry file="file://$PROJECT_DIR$/js/browserify.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -900,9 +900,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="80" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3675">
+        <state relative-caret-position="3390">
           <caret line="245" column="2" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="2" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -912,7 +919,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4020">
+        <state relative-caret-position="3735">
           <caret line="268" column="27" selection-start-line="268" selection-start-column="27" selection-end-line="268" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -922,7 +929,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www/local-notification-core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4635">
+        <state relative-caret-position="4350">
           <caret line="309" column="37" selection-start-line="309" selection-start-column="37" selection-end-line="309" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -960,15 +967,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/noti.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="64" column="19" lean-forward="true" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        <state relative-caret-position="297">
+          <caret line="109" column="43" lean-forward="true" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
+        <state relative-caret-position="257">
+          <caret line="199" column="52" lean-forward="true" selection-start-line="199" selection-start-column="52" selection-end-line="199" selection-end-column="52" />
         </state>
       </provider>
     </entry>

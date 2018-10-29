@@ -200,14 +200,14 @@ function get_commute_type(log_date, is_update_html) {
                     if (User.type !== C.TYPE_FLEX) {
                         break;
                     }
-                    if (User.hasOwnProperty('trip1alternateDepatTime')) {
-                        var trip1AlterDepartTime = military_time_to_moment(User.trip1alternateDepatTime);
+                    if (User.hasOwnProperty('trip1alternateDepartTime')) {
+                        var trip1AlterDepartTime = military_time_to_moment(User.trip1alternateDepartTime);
                         trip_form.find('input[name="toWorkLegAlternateDepartureTime_hour"]').val(trip1AlterDepartTime.format('hh'));
                         trip_form.find('input[name="toWorkLegAlternateDepartureTime_minute"]').val(_.padStart(trip1AlterDepartTime.minute(), 2, '0'));
                         trip_form.find('input[name="toWorkLegAlternateDepartureTime_ampm"]').val(trip1AlterDepartTime.hour() >= 12);
                     }
-                    if (User.hasOwnProperty('trip2alternateDepatTime')) {
-                        var trip2AlterDepartTime = military_time_to_moment(User.trip2alternateDepatTime);
+                    if (User.hasOwnProperty('trip2alternateDepartTime')) {
+                        var trip2AlterDepartTime = military_time_to_moment(User.trip2alternateDepartTime);
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_hour"]').val(trip2AlterDepartTime.format('hh'));
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_minute"]').val(_.padStart(trip2AlterDepartTime.minute(), 2, '0'));
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_ampm"]').val(trip2AlterDepartTime.hour() >= 12);
