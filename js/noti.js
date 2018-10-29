@@ -4,13 +4,17 @@
  */
 class Schedule {
     constructor(start, end, mon_fri) {
-        console.log(`sched object initing..`);
         this.start = start;
         this.end = end;
         this.mon_fri = mon_fri;
     }
-    mmStart(){
+
+    mmStart() {
         return moment(this.start, 'HHmm');
+    }
+
+    mmStop() {
+        return moment(this.stop, 'HHmm');
     }
 }
 
@@ -27,7 +31,7 @@ class Schedule {
      */
     const NOTI_IDS = {
         mon: 98710, tue: 98720, wed: 98730, thu: 98740, fri: 98750, sat: 98760, sun: 98770
-        //note, for each day we have two notifications. They will be 98710 and 98711    
+        //note, for each day we have two notifications. They will be 98710 and 98711
     };
     const INDEX_IN_WEEK = {sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6};
 
@@ -43,6 +47,9 @@ class Schedule {
                     },
                     getScheduled: function () {
                         return {'mon': {start: 'fake', end: '3:45'}, 'tue': {start: '12:12', end: '13:13'}};
+                    },
+                    getScheduledIds: function () {
+                        return 'in browser. Nothing to see here';
                     }
                 };
                 this.boot_status = true;
@@ -50,6 +57,9 @@ class Schedule {
             }
             try {
                 this.plugin = cordova.plugins.notification.local;
+                if (_.isObject(this.plugin)){
+                    this.boot_status = true;
+                }
             } catch (e) {
                 this.boot_status = false;
                 console.error(e);
@@ -115,27 +125,52 @@ class Schedule {
          */
         scheduleNoti: function () {
             if (!this.boot_status) return false;
-            let today = moment();//today
+            let TODAY = moment();//today
             let day_in_week = moment().isoWeekday();//mon = 1, tue = 2
             if (day_in_week === 7) {
                 day_in_week = 0;
             }
-            let sunday = today.subtract(day_in_week, 'days');
-            console.log(`sunday is: ${sunday}`);
+            let sunday = _.cloneDeep(TODAY);
+            sunday.subtract(day_in_week, 'days');
             _.each(this.getSchedule(), (day_schedule, mon_fri) => {
-                var a = 1;
                 let day_to_schedule = _.cloneDeep(sunday);
+                let day_schedule_object = new Schedule(day_schedule.start, day_schedule.end, day_schedule.mon_fri);
                 day_to_schedule.add(INDEX_IN_WEEK[mon_fri], 'd');
-                // day_to_schedule.hour(day_schedule.mmStart().hour());
+                day_to_schedule.hour(day_schedule_object.mmStart().hour());
+                day_to_schedule.minute(day_schedule_object.mmStart().minute());
+                if (day_to_schedule.isBefore(TODAY)) {
+                    day_to_schedule.add(7, 'day');
+                }
+
                 this.plugin.schedule({
+                    id: NOTI_IDS[mon_fri],
                     title: 'You are about to go to work',
                     text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
                         'open the app and your commute will be logged automatically. Thank you',
                     foreground: true,
                     autoClear: false,
                     trigger: {every: 'week'},
-                    at: day_to_schedule
+                    at: day_to_schedule.toDate()
                 });
+
+                //now go from Work to Home
+                day_to_schedule.hour(day_schedule_object.mmStop().hour());
+                day_to_schedule.minute(day_schedule_object.mmStop().minute());
+                if (day_to_schedule.isBefore(TODAY)) {
+                    day_to_schedule.add(7, 'day');
+                }
+                this.plugin.schedule({
+                    id: NOTI_IDS[mon_fri] + 1,
+                    title: 'You are about to go home',
+                    text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
+                        'open the app and your commute will be logged automatically. Thank you',
+                    foreground: true,
+                    autoClear: false,
+                    trigger: {every: 'week'},
+                    at: day_to_schedule.toDate()
+                });
+                console.log(`Scheduled IDs: `);
+                console.log(this.plugin.getScheduledIds());
             });
         },
         getScheduledNoti: function () {
@@ -145,7 +180,8 @@ class Schedule {
             this.saveSchedule('8:9', '07:35', 'mon');
             this.saveSchedule('11:12', '09:35', 'tue');
             let mon_sched = this.getSchedule('mon');
-            console.log(mon_sched);
+            // console.log(mon_sched);
+            console.log(`Here are the schedules we manually put in for testing`);
             console.log(this.getSchedule());
 
             this.scheduleNoti();
@@ -153,6 +189,8 @@ class Schedule {
         }
     };
 
-    noti.init();
-    noti.test();
+    document.addEventListener('deviceready', () => {
+        noti.init();
+        noti.test();
+    }, false);
 }());
