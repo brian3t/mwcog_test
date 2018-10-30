@@ -7,12 +7,7 @@
     <bookmark url="file://$PROJECT_DIR$/js/noti.js" line="12" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Fix FlexType typo.">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/noti.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/noti.js" afterDir="false" />
-    </list>
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Local notifications working. Upgraded device plugin version." />
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +52,7 @@
           <entry key="js" value="7057" />
           <entry key="jshintrc" value="21" />
           <entry key="scss" value="278" />
-          <entry key="txt" value="571" />
+          <entry key="txt" value="633" />
           <entry key="xml" value="160" />
         </counts>
       </usages-collector>
@@ -68,14 +63,14 @@
           <entry key="HTML" value="1273" />
           <entry key="JSHint" value="21" />
           <entry key="JavaScript" value="7054" />
-          <entry key="PLAIN_TEXT" value="571" />
+          <entry key="PLAIN_TEXT" value="633" />
           <entry key="SCSS" value="278" />
           <entry key="XML" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="36" />
+          <entry key="project.closed" value="37" />
           <entry key="project.open.time.0" value="24" />
           <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.2" value="3" />
@@ -120,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/noti.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="152" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="639">
+              <caret line="174" column="10" lean-forward="true" selection-start-line="174" selection-start-column="10" selection-end-line="174" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -566,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540837292578</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Local notifications working. Upgraded device plugin version.">
+      <created>1540849019107</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1540849019107</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -662,7 +664,8 @@
     <MESSAGE value="Fix phonegap git error" />
     <MESSAGE value="Disable noti debugging" />
     <MESSAGE value="Fix FlexType typo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix FlexType typo." />
+    <MESSAGE value="Local notifications working. Upgraded device plugin version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Local notifications working. Upgraded device plugin version." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
@@ -934,8 +937,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/noti.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="152" selection-start-line="152" selection-end-line="152" />
+        <state relative-caret-position="639">
+          <caret line="174" column="10" lean-forward="true" selection-start-line="174" selection-start-column="10" selection-end-line="174" selection-end-column="10" />
         </state>
       </provider>
     </entry>
