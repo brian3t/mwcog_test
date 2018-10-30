@@ -13,8 +13,8 @@ class Schedule {
         return moment(this.start, 'HHmm');
     }
 
-    mmStop() {
-        return moment(this.stop, 'HHmm');
+    mmEnd() {
+        return moment(this.end, 'HHmm');
     }
 }
 
@@ -50,19 +50,50 @@ class Schedule {
                     },
                     getScheduledIds: function () {
                         return 'in browser. Nothing to see here';
+                    },
+                    cancel: function () {
+                        return 'in browser. Nothing to see here';
                     }
                 };
-                this.boot_status = true;
-                return;
-            }
-            try {
-                this.plugin = cordova.plugins.notification.local;
-                if (_.isObject(this.plugin)){
-                    this.boot_status = true;
+            } else {
+                try {
+                    this.plugin = cordova.plugins.notification.local;
+                    if (_.isObject(this.plugin)) {
+                        this.boot_status = true;
+                    }
+                } catch (e) {
+                    this.boot_status = false;
+                    console.error(e);
+                    return false;
                 }
-            } catch (e) {
-                this.boot_status = false;
-                console.error(e);
+            }
+            this.boot_status = true;
+            //getting commuteData and syncing with schedules
+            let commuter_data = ls('commuterData');
+            if (_.isObject(commuter_data)) {
+                let from_time = _.padStart(commuter_data.fromHRS, 2, '0') + ':' + _.padStart(commuter_data.fromMNS, 2, '0') + commuter_data.fromAMPM;
+                let to_time = _.padStart(commuter_data.toHRS, 2, '0') + ':' + _.padStart(commuter_data.toMNS, 2, '0') + commuter_data.toAMPM;
+                if (!/\d\d:\d\dA|PM/.test(from_time) || !/\d\d:\d\d:A|PM/.test(to_time)) {
+                    console.error(`CommuteData bad data`);
+                } else {
+                    from_time = moment(from_time, 'HH:mmA');
+                    to_time = moment(to_time, 'HH:mmA');
+                    /*
+                    nice approach: reschedule each one
+                    _.forEach(this.getSchedule(), (schedule) => {
+                        let schedule_obj = new Schedule(schedule.start, schedule.end, schedule.mon_fri);
+                        if (!schedule_obj.mmStart().isSame(from_time)) {
+                            console.log(`reschedule start now`);
+                        }
+                        if (!schedule_obj.mmEnd().isSame(to_time)) {
+                            console.log(`reschedule end now`);
+                        }
+                    });*/
+                    this.plugin.cancelAll(()=>{
+                        this.saveSchedule(from_time, to_time);//save for everyday
+                        this.scheduleNoti();
+                    });
+                }
             }
         },
         /**
@@ -75,7 +106,7 @@ class Schedule {
             let schedule = new Schedule(start, end, mon_fri);
             let weekdays = [];
             if (mon_fri === 'everyday') {
-                weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+                weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
             }
             if (typeof mon_fri === 'object' && Array.isArray(mon_fri)) {
                 weekdays = mon_fri;
@@ -114,7 +145,7 @@ class Schedule {
             return schedules;
         },
         /**
-         * Schedule noti for all days
+         * Schedule noti for all days. Cancel and re-schedule all notifications
          * Available actions:
          * schedule    cancelAll    isTriggered    get    getDefaults
          update    hasPermission    getType    getAll    setDefaults
@@ -138,37 +169,40 @@ class Schedule {
                 day_to_schedule.add(INDEX_IN_WEEK[mon_fri], 'd');
                 day_to_schedule.hour(day_schedule_object.mmStart().hour());
                 day_to_schedule.minute(day_schedule_object.mmStart().minute());
-                if (day_to_schedule.isBefore(TODAY)) {
+                //todob debug
+                day_to_schedule.hour(17);
+                day_to_schedule.minute(35);
+                //end todob debug
+                /*if (day_to_schedule.isBefore(TODAY)) {
                     day_to_schedule.add(7, 'day');
-                }
+                }*/
 
+                // this.plugin.cancel(NOTI_IDS[mon_fri]);
                 this.plugin.schedule({
                     id: NOTI_IDS[mon_fri],
                     title: 'You are about to go to work',
-                    text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
-                        'open the app and your commute will be logged automatically. Thank you',
-                    foreground: true,
-                    autoClear: false,
-                    trigger: {every: 'week'},
+                    text:'testing',
+                    every: 'week',
                     at: day_to_schedule.toDate()
-                });
+                }, null);
 
                 //now go from Work to Home
-                day_to_schedule.hour(day_schedule_object.mmStop().hour());
-                day_to_schedule.minute(day_schedule_object.mmStop().minute());
+                day_to_schedule.hour(day_schedule_object.mmEnd().hour());
+                day_to_schedule.minute(day_schedule_object.mmEnd().minute());
                 if (day_to_schedule.isBefore(TODAY)) {
                     day_to_schedule.add(7, 'day');
                 }
+                // this.plugin.cancel(NOTI_IDS[mon_fri] + 1);
                 this.plugin.schedule({
                     id: NOTI_IDS[mon_fri] + 1,
                     title: 'You are about to go home',
                     text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
                         'open the app and your commute will be logged automatically. Thank you',
-                    foreground: true,
+                    foreground: false,
                     autoClear: false,
-                    trigger: {every: 'week'},
+                    every: 'week',
                     at: day_to_schedule.toDate()
-                });
+                }, null);
                 console.log(`Scheduled IDs: `);
                 console.log(this.plugin.getScheduledIds());
             });
@@ -176,21 +210,63 @@ class Schedule {
         getScheduledNoti: function () {
             return this.plugin.getScheduled();
         },
+        /**
+         * WORK IN PROGRESS
+         * Schedule a single noti for a day. to work or to home
+         * Also cancel current noti
+         * @param start straight from local storage
+         * @param end
+         * @param mon_fri mon, tue,...
+         * @param work_or_home 'work' or 'home'
+         */
+        /*scheduleNotiSingle(start, end, mon_fri, work_or_home) {
+            if (!this.boot_status) {
+                return false;
+            }
+            this.plugin.cancel();
+            this.plugin.schedule({
+                id: NOTI_IDS[mon_fri] + 1,
+                title: 'You are about to go home',
+                text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
+                    'open the app and your commute will be logged automatically. Thank you',
+                foreground: true,
+                autoClear: false,
+                trigger: {every: 'week'},
+                at: day_to_schedule.toDate()
+            });
+            console.log(`Scheduled IDs: `);
+            console.log(this.plugin.getScheduledIds());
+        },*/
         test: function () {
-            this.saveSchedule('8:9', '07:35', 'mon');
-            this.saveSchedule('11:12', '09:35', 'tue');
+            this.saveSchedule('09:00', '14:41', 'mon');
+            this.saveSchedule('11:12', '17:00', 'tue');
             let mon_sched = this.getSchedule('mon');
             // console.log(mon_sched);
             console.log(`Here are the schedules we manually put in for testing`);
             console.log(this.getSchedule());
+            console.log(`____________Finish setting up____________`);
 
             this.scheduleNoti();
             console.log(this.getScheduledNoti());
+            console.log(`____________Finish scheduling local noti_____________`);
         }
     };
 
     document.addEventListener('deviceready', () => {
-        noti.init();
-        noti.test();
+        // noti.init();
+        // noti.test();
+        console.log(`noti.plugin.getScheduledIds()`);
+        noti.plugin.getScheduledIds();
     }, false);
+    if (isInWeb) {
+        // noti.init();
+        // noti.test();
+    }
+
+    jQuery(document).on("pageload", function (event) {
+        // noti.init();
+        // noti.test();
+        console.log(`noti.plugin.getScheduledIds()`);
+        noti.plugin.getScheduledIds();
+    });
 }());
