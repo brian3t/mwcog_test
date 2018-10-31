@@ -89,8 +89,11 @@ class Schedule {
                             console.log(`reschedule end now`);
                         }
                     });*/
-                    this.plugin.cancelAll(()=>{
-                        this.saveSchedule(from_time, to_time);//save for everyday
+                    this.plugin.cancelAll(() => {
+                        this.clearSchedule();
+                        // this.saveSchedule(from_time, to_time);//save for everyday
+                        //todob
+                        this.saveSchedule(from_time, to_time, ['mon', 'wed', 'thu']);//save for wed only
                         this.scheduleNoti();
                     });
                 }
@@ -115,6 +118,27 @@ class Schedule {
             }
             weekdays.forEach((weekday) => {
                 ls(weekday, schedule);
+            });
+        },
+        /**
+         * Clear a schedule
+         * @param mon_fri e.g. sun mon tue wed thu fri sat. Default to everyday
+         * @param start e.g. 23:59
+         * @param end e.g. 23:59
+         */
+        clearSchedule: function (start, end, mon_fri = 'everyday') {
+            let schedule = new Schedule(start, end, mon_fri);
+            let weekdays = [];
+            if (mon_fri === 'everyday') {
+                weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+            }
+            if (typeof mon_fri === 'object' && Array.isArray(mon_fri)) {
+                weekdays = mon_fri;
+            } else {
+                weekdays.unshift(mon_fri);
+            }
+            weekdays.forEach((weekday) => {
+                ls.remove(weekday);
             });
         },
         /**
@@ -169,22 +193,30 @@ class Schedule {
                 day_to_schedule.add(INDEX_IN_WEEK[mon_fri], 'd');
                 day_to_schedule.hour(day_schedule_object.mmStart().hour());
                 day_to_schedule.minute(day_schedule_object.mmStart().minute());
-                //todob debug
-                day_to_schedule.hour(17);
-                day_to_schedule.minute(35);
-                //end todob debug
-                /*if (day_to_schedule.isBefore(TODAY)) {
+                /*
+                                //todob debug
+                                day_to_schedule = moment();
+                                day_to_schedule.add(1, 'minute');
+                                //end todob debug
+                */
+                if (day_to_schedule.isBefore(TODAY)) {
                     day_to_schedule.add(7, 'day');
-                }*/
+                }
 
                 // this.plugin.cancel(NOTI_IDS[mon_fri]);
                 this.plugin.schedule({
                     id: NOTI_IDS[mon_fri],
-                    title: 'You are about to go to work',
-                    text:'testing',
+                    // title: 'You are about to go to work',
+                    text: 'testing' + NOTI_IDS[mon_fri],
                     every: 'week',
-                    at: day_to_schedule.toDate()
-                }, null);
+                    at: day_to_schedule.toDate(),
+                    sound: null,
+                    icon: 'res://icon',
+                    smallIcon: 'res://ic_popup_sync'
+                }, () => {
+                    console.log(`Scheduled IDs: `);
+                    this.plugin.getScheduledIds(this.callbackOpts);
+                });
 
                 //now go from Work to Home
                 day_to_schedule.hour(day_schedule_object.mmEnd().hour());
@@ -193,18 +225,14 @@ class Schedule {
                     day_to_schedule.add(7, 'day');
                 }
                 // this.plugin.cancel(NOTI_IDS[mon_fri] + 1);
-                this.plugin.schedule({
+                /*this.plugin.schedule({
                     id: NOTI_IDS[mon_fri] + 1,
                     title: 'You are about to go home',
                     text: 'Because you turned on Auto Commute Log feature, you receive this notification. Please tap to ' +
                         'open the app and your commute will be logged automatically. Thank you',
-                    foreground: false,
-                    autoClear: false,
                     every: 'week',
                     at: day_to_schedule.toDate()
-                }, null);
-                console.log(`Scheduled IDs: `);
-                console.log(this.plugin.getScheduledIds());
+                }, null);*/
             });
         },
         getScheduledNoti: function () {
@@ -249,15 +277,20 @@ class Schedule {
             this.scheduleNoti();
             console.log(this.getScheduledNoti());
             console.log(`____________Finish scheduling local noti_____________`);
+        },
+        callbackOpts: function (notifications) {
+            console.log(notifications);
+            app_toast(notifications.length === 0 ? '- none -' : notifications.join(' ,'));
+        },
+        callbackSingleOpts: function (notification) {
+            console.log(notification);
+            app_toast(notification ? notification.toString() : '- none -');
         }
     };
 
-    document.addEventListener('deviceready', () => {
-        // noti.init();
-        // noti.test();
-        console.log(`noti.plugin.getScheduledIds()`);
-        noti.plugin.getScheduledIds();
-    }, false);
+    /*document.addEventListener('deviceready', () => {
+    copy pageload if needed
+    }, false);*/
     if (isInWeb) {
         // noti.init();
         // noti.test();
@@ -266,7 +299,7 @@ class Schedule {
     jQuery(document).on("pageload", function (event) {
         // noti.init();
         // noti.test();
-        console.log(`noti.plugin.getScheduledIds()`);
-        noti.plugin.getScheduledIds();
+        // console.log(`noti.plugin.getScheduledIds()`);
+        // noti.plugin.getScheduledIds();
     });
 }());
