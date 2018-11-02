@@ -184,7 +184,16 @@ function get_commute_type(log_date, is_update_html) {
                     //         {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
                     // }
                     //now assign to html
-                    var trip_form = $('form[data-user_type=' + User.type + ']');
+                    var trip_form = $('form').filter(
+                        (i, form)=>{
+                            let user_types_applicable = $(form).data('user_types');
+                            if (_.isEmpty(user_types_applicable)){
+                                return false;
+                            }
+                            user_types_applicable = user_types_applicable.split(',');
+                            return (user_types_applicable.includes(User.type.toString()));
+                        }
+                    );
                     var $trips = trip_form.find('tbody.trip_table');
 
                     for (trip_index = 1; trip_index <= User.trips.length; trip_index++) {
