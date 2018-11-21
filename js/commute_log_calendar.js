@@ -184,6 +184,7 @@ function get_commute_type(log_date, is_update_html) {
                     //         {legs: [{from: CM_WORK, to: CM_HOME, mode: CM_CARPOOL, distance: null}]}];
                     // }
                     //now assign to html
+                    todo replace with simple array loop
                     var trip_form = $('form').filter(
                         (i, form)=>{
                             let user_types_applicable = $(form).data('user_types');
