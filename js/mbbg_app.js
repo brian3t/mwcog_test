@@ -1,4 +1,3 @@
-const MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
 var map,
     previousLocation,
     locationMarkers = [],
@@ -15,9 +14,8 @@ var bgOptions = {
     stationaryRadius: 0,
     distanceFilter: 30,
     desiredAccuracy: 100,
-    debug: false,
-    // debug: true,
-    notificationTitle: 'MWCOG background tracking',
+    debug: true,
+    notificationTitle: 'Background tracking',
     notificationText: 'enabled',
     notificationIconColor: '#FEDD1E',
     notificationIconLarge: 'mappointer_large',
@@ -30,21 +28,19 @@ var bgOptions = {
     startOnBoot: true,
     startForeground: true,
     stopOnStillActivity: false,
-    // activityType: 'Other',
-    activityType: 'OtherNavigation',//Mike 01/15
+    activityType: 'Other',
     //url: 'http://192.168.168.136/v1/geolocation',//brianserver
     // url: 'http://192.168.1.9/v1/geolocation',//server1234
-    url: MWCOG_GEO_API,//server1234
+    url: 'http://mwcogapi.mediabeef.com/v1/geolocation',//server1234
     // url: 'http://192.168.1.3/v1/geolocation',//brianmsi
     //syncUrl: 'http://192.168.3.185:3000/sync',
-    // syncThreshold: 10,
-    syncThreshold: 5,//Mike 01/15
+    syncThreshold: 10,
     commuter_id: 123789,
     trip_id: 'test1234',
     start_lat: 999998,
     start_lng: 999997,
-    end_lat: 51.51,//london uk
-    end_lng: -0.1337,//london uk
+    end_lat: 51.5099,//london uk
+    end_lng: 0.1337,//london uk
     httpHeaders: {
         'X-FOO': 'bar'
     },
@@ -199,10 +195,6 @@ function bgConfigure(config) {
 }
 
 function startTracking() {
-    if (typeof plugins === "object" && plugins.hasOwnProperty('appMinimize') && typeof plugins.appMinimize === "object" && plugins.appMinimize.hasOwnProperty('minimize')) {
-        plugins.appMinimize.minimize();
-    }
-
     if (isStarted) {
         return;
     }
@@ -325,17 +317,7 @@ function setCurrentLocation(location) {
 }
 
 function onDeviceReady() {
-    backgroundGeolocation = window.backgroundGeolocation || window.universalGeolocation || window.navigator.geolocation;
-
-    if (backgroundGeolocation.hasOwnProperty('isLocationEnabled')) {
-        backgroundGeolocation.isLocationEnabled((is_enabled) => {
-            if (is_enabled) {
-
-            } else {
-
-            }
-        }, () => console.error(`no idea location enabled`));
-    }
+    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
     if (backgroundGeolocation.hasOwnProperty('getLocations')) {
         backgroundGeolocation.getLocations(function (locs) {
             var now = Date.now();
@@ -371,7 +353,16 @@ $(document).on('pageshow', () => {
         }
     });
     //todob debug
-    //setTimeout(dev, 1000);
+    setTimeout(dev, 1000);
+    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
+
+    backgroundGeolocation.isLocationEnabled((is_enabled) => {
+        if (is_enabled) {
+
+        } else {
+
+        }
+    }, () => console.error(`no idea location enabled`));
 });
 
 //enable developer mode
