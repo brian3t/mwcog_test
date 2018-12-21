@@ -197,8 +197,7 @@ $(document).ready(function () {
             latlng = JSON.parse(latlng);
             console.log('latlng: ');
             console.info(latlng);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }
@@ -224,8 +223,7 @@ window.handleOpenURL = function (url) {
     // console.warn(latlng);
     try {
         JSON.parse(latlng);
-    }
-    catch (e) {
+    } catch (e) {
         console.error(e);
         return false;
     }

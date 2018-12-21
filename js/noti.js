@@ -58,7 +58,7 @@ noti = {
         this.saveSchedule('11:12', '09:35', 'mon');
         this.saveSchedule('11:12', '09:35', 'tue');
         let mon_sched = this.getSchedule('mon');
-        console.log(mon_sched);
+        //console.log(mon_sched);
         window.mon_sched = mon_sched;
     }
 };

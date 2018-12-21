@@ -101,13 +101,20 @@ var app = {
                     window.localStorage.setItem("hashedPassword", res_hashed_password);//08/12 quickfix for calendar
 
                     window.localStorage.setItem("justLoggedIn", 1);
-                    app.user.setAttributeshere
+
+                    //todob debugging
+                    res.is_flex = true;
+                    // res.is_flex = false;
+                    if (res.hasOwnProperty('is_flex'))
+                    {
+                        app.user.is_flex = res.is_flex;
+                    }
+                    ls.set('user', app.user);
                     if (!window.is_login_and_commute_log) {
                         window.location = destination_page;
                     } else {
                         window.location = 'commute_log_calendar.html';
                     }
-
                 } else {
                     if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {
                         hideSpinner();
