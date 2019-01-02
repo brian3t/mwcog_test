@@ -61,25 +61,8 @@ catch (err) {
     console.log(err.message);
 }
 
-
-// Initialize app
-var myApp = new Framework7({
-    init: false,
-    animateNavBackIcon: true,
-    precompileTemplates: true,
-    domCache: true,
-    material: window.isAndroid,
-    // fastclick: false
-});
-
-// We need to use custom DOM library, let's save it to $$ variable:
-var $$ = Dom7;
-
-var mainView = myApp.addView('.view-main');
-var view1 = myApp.addView('#view-1');
-var view2 = myApp.addView('#view-2');
-
-myApp.onPageInit('map', function (page) {
+// myApp.onPageInit('map', function (page) {
+function mapinitdone(page) {
     renderTabBar(isStarted);
 
     if (typeof google !== 'undefined') {
@@ -114,9 +97,10 @@ myApp.onPageInit('map', function (page) {
         toggleTracking(userStartIntent);
     });
 
-});
+}
 
-myApp.onPageInit('settings', function (page) {
+// myApp.onPageInit('settings', function (page) {
+function pgaeinitsettings (page) {
     var options = Object.assign({}, bgOptions);
     var locationProviders = [
         { name: 'ANDROID_DISTANCE_FILTER_PROVIDER', value: 0, selected: false, index: 0 },
@@ -154,12 +138,12 @@ myApp.onPageInit('settings', function (page) {
         bgConfigure(config);
         configHasChanges = false;
     });
-});
-
+}
+/*
 $$('[data-page="settings"]').on('keyup keydown change', '[data-type="config"]', function(ev) {
     console.log('changed', this.name, this.checked, this.value);
     configHasChanges = true;
-});
+});*/
 
 function toggleTracking(shouldStart) {
     if (shouldStart) {
@@ -324,8 +308,8 @@ function setCurrentLocation (location) {
 }
 
 function onDeviceReady() {
-    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation;
-    backgroundGeolocation.getLocations(function(locs) {
+    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
+    /*backgroundGeolocation.getLocations(function(locs) {
         var now = Date.now();
         var sameDayDiffInMillis = 24 * 3600 * 1000;
         locs.forEach(function (loc) {
@@ -333,8 +317,21 @@ function onDeviceReady() {
                 setCurrentLocation(loc);
             }
         });
+    });*/
+    // myApp.init();
+    //todob debug
+    $(document).on('pageshow', ()=> {
+        console.log(`page show mbbg`);
+        $('#bgapp').on({
+            popupbeforeposition: function() {
+                var maxHeight = $(window).height() - 30;
+                $('#bgapp').css('max-height', maxHeight + 'px');
+            }
+        });
+        setTimeout(()=>$('#bgapp').popup('open'), 1000);
     });
-    myApp.init();
 }
 
 document.addEventListener('deviceready', onDeviceReady, false);
+var isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
+if (isInWeb){ onDeviceReady(); }

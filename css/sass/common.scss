@@ -1,0 +1,35 @@
+
+div.ui-popup-container.popup_big{
+  width: 90% !important;
+  left: 5% !important;
+}
+.ui-field-contain>label {
+  float: left;
+  width: 30%;
+  line-height: 34px;
+  margin: 0;
+}
+.ui-field-contain>label~[class*=ui-] {
+  float: right;
+  width: 68%;
+}
+.ui-field-contain:before, .ui-field-contain:after {
+  content: "";
+  display: table;
+}
+.ui-field-contain {
+  padding: 0;
+  border: none;
+  margin: 0.2em 0;
+  float: left;
+  width: 100%;
+  .ui-checkbox input, .ui-radio input{
+    margin: auto;
+  }
+}
+#bgapp{
+  overflow-y: scroll;
+}
+div.ui-popup-container.popup_big{
+  max-width: 96%;
+}
