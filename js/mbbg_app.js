@@ -49,15 +49,14 @@ var bgOptions = {
 };
 
 var mapOptions = {
-    center: { lat: 32.3318907, lng: -122.0318303 },
+    center: {lat: 32.3318907, lng: -122.0318303},
     zoom: 12,
     disableDefaultUI: false
 };
 
 try {
-    Object.assign(bgOptions, JSON.parse(localStorage.getItem('bgOptions')));
-}
-catch (err) {
+    Object.assign(bgOptions, ls('bgOptions'));
+} catch (err) {
     console.log(err.message);
 }
 
@@ -70,7 +69,7 @@ function mapinitdone(page) {
     }
 
     if (typeof backgroundGeolocation === 'undefined') {
-        myApp.alert('Plugin has not been initialized properly!', 'Error');
+        app_alert('Plugin has not been initialized properly!');
         return;
     }
 
@@ -81,18 +80,17 @@ function mapinitdone(page) {
             isLocationEnabled = enabled;
             if (enabled && userStartIntent) {
                 startTracking();
-            }
-            else if (isStarted) {
+            } else if (isStarted) {
                 stopTracking();
-                myApp.alert('Location tracking has been stopped');
+                app_alert('Location tracking has been stopped');
             }
         },
         function (error) {
-            myApp.alert(error, 'Error watching location mode');
+            app_alert(error, 'Error watching location mode');
         }
     );
 
-    $$('#tabbar').on('click', '[data-action="tracking"]', function() {
+    $$('#tabbar').on('click', '[data-action="tracking"]', function () {
         userStartIntent = !(isStarted & userStartIntent);
         toggleTracking(userStartIntent);
     });
@@ -100,11 +98,11 @@ function mapinitdone(page) {
 }
 
 // myApp.onPageInit('settings', function (page) {
-function pgaeinitsettings (page) {
+function init_settings(){
     var options = Object.assign({}, bgOptions);
     var locationProviders = [
-        { name: 'ANDROID_DISTANCE_FILTER_PROVIDER', value: 0, selected: false, index: 0 },
-        { name: 'ANDROID_ACTIVITY_PROVIDER', value: 1, selected: false, index: 1 },
+        {name: 'ANDROID_DISTANCE_FILTER_PROVIDER', value: 0, selected: false, index: 0},
+        {name: 'ANDROID_ACTIVITY_PROVIDER', value: 1, selected: false, index: 1},
     ];
     var selectedProvider = 0;
 
@@ -114,31 +112,43 @@ function pgaeinitsettings (page) {
     }
     options.locationProvider = locationProviders[selectedProvider].name;
     options.locationProviders = locationProviders;
+    fill_option_to_inputs($('#bg_settings'));
+}
 
-    $$('#settings').html(Template7.templates.settingsTemplate(options));
+/**
+ * Grab settings from form. Then send it to bg plugin using bgConfigure
+ */
+function send_settings() {
+    let config = Array.prototype.reduce.call(
+        $('#bg_settings :input'),
+        function (values, el) {
+            if (el.type === 'checkbox') {
+                values[el.name] = el.checked;
+            } else {
+                if (!isNaN(parseInt(el.value))) {
+                    values[el.name] = parseInt(el.value);
+                } else {
+                    values[el.name] = el.value;
+                }
+            }
+            return values;
+        },
+        {});
+    bgConfigure(config);
+}
 
-    $$('[data-action="back"]').click(function(ev) {
-        var config = Array.prototype.reduce.call(
-            $$('[data-page="settings"] [data-type="config"]'),
-            function(values, el) {
-                if (el.type === 'checkbox') {
-                    values[el.name] = el.checked;
-                }
-                else {
-                    if(!isNaN(parseInt(el.value))) {
-                        values[el.name] = parseInt(el.value);
-                    }
-                    else {
-                        values[el.name] = el.value;
-                    }
-                }
-                return values;
-            },
-            {});
-        bgConfigure(config);
-        configHasChanges = false;
+/**
+ * We fill options back to our config form
+ * @param form
+ */
+function fill_option_to_inputs(form) {
+    let options = ls('bsOptions');
+    if (options === null) return false;
+    $.each(options,(name, value) => {
+        //todob restore config here
     });
 }
+
 /*
 $$('[data-page="settings"]').on('keyup keydown change', '[data-type="config"]', function(ev) {
     console.log('changed', this.name, this.checked, this.value);
@@ -148,43 +158,53 @@ $$('[data-page="settings"]').on('keyup keydown change', '[data-type="config"]', 
 function toggleTracking(shouldStart) {
     if (shouldStart) {
         startTracking();
-    }
-    else {
+    } else {
         stopTracking();
     }
 }
 
 function bgConfigure(config) {
     Object.assign(bgOptions, config);
-    localStorage.setItem('bgOptions', JSON.stringify(bgOptions));
+    ls('bgOptions', bgOptions);
 
-    var options = Object.assign({}, bgOptions);
-    if (options.interval) { options.interval *= 1000; }
-    if (options.fastestInterval) { options.fastestInterval *= 1000; }
-    if (options.activitiesInterval) { options.activitiesInterval *= 1000; }
+    let options = Object.assign({}, bgOptions);
+    if (options.interval) {
+        options.interval *= 1000;
+    }
+    if (options.fastestInterval) {
+        options.fastestInterval *= 1000;
+    }
+    if (options.activitiesInterval) {
+        options.activitiesInterval *= 1000;
+    }
 
     if (isStarted) {
         stopTracking();
         backgroundGeolocation.configure(
             setCurrentLocation,
-            function (err) { console.log('Error occured', err); },
+            function (err) {
+                console.log('Error occured', err);
+            },
             options
         );
         startTracking();
-    }
-    else {
+    } else {
         backgroundGeolocation.configure(
             setCurrentLocation,
-            function (err) { console.log('Error occured', err); },
+            function (err) {
+                console.log('Error occured', err);
+            },
             options
         );
     }
 }
 
 function startTracking() {
-    if (isStarted) { return; }
+    if (isStarted) {
+        return;
+    }
 
-    backgroundGeolocation.isLocationEnabled (
+    backgroundGeolocation.isLocationEnabled(
         function (enabled) {
             isLocationEnabled = enabled;
             if (enabled) {
@@ -193,32 +213,32 @@ function startTracking() {
                     function (error) {
                         stopTracking();
                         if (error.code === 2) {
-                            myApp.confirm('Would you like to open app settings?', 'Permission denied', function() {
+                            app_confirm('Would you like to open app settings?', function () {
                                 backgroundGeolocation.showAppSettings();
-                            });
-                        }
-                        else {
-                            myApp.alert(error.message, 'Start failed');
+                            }, 'Permission denied');
+                        } else {
+                            app_alert('Start failed' + error.message);
                         }
                     }
                 );
                 isStarted = true;
                 renderTabBar(isStarted);
-            }
-            else {
-                myApp.confirm('Would you like to open settings?', 'Location Services are disabled', function() {
+            } else {
+                app_confirm('Would you like to open settings?', function () {
                     backgroundGeolocation.showLocationSettings();
-                });
+                }, 'Location Services are disabled');
             }
         },
         function (error) {
-            myApp.alert(error, 'Error detecting status of location settings');
+            app_alert( 'Error detecting status of location settings' + error);
         }
     );
 }
 
 function stopTracking() {
-    if (!isStarted) { return; }
+    if (!isStarted) {
+        return;
+    }
 
     backgroundGeolocation.stop();
     isStarted = false;
@@ -229,7 +249,7 @@ function renderTabBar(isStarted) {
     $$('#tabbar').html(Template7.templates.tabbarTemplate({isStarted: isStarted}));
 }
 
-function setStationary (location) {
+function setStationary(location) {
     console.log('[DEBUG] stationary recieved', location);
     var latlng = new google.maps.LatLng(Number(location.latitude), Number(location.longitude));
     var stationaryCircle = new google.maps.Circle({
@@ -244,7 +264,7 @@ function setStationary (location) {
     backgroundGeoLocation.finish();
 }
 
-function setCurrentLocation (location) {
+function setCurrentLocation(location) {
     console.log('[DEBUG] location recieved', location);
     if (!currentLocationMarker) {
         currentLocationMarker = new google.maps.Marker({
@@ -320,18 +340,25 @@ function onDeviceReady() {
     });*/
     // myApp.init();
     //todob debug
-    $(document).on('pageshow', ()=> {
-        console.log(`page show mbbg`);
-        $('#bgapp').on({
-            popupbeforeposition: function() {
-                var maxHeight = $(window).height() - 30;
-                $('#bgapp').css('max-height', maxHeight + 'px');
-            }
-        });
-        setTimeout(()=>$('#bgapp').popup('open'), 1000);
-    });
 }
 
 document.addEventListener('deviceready', onDeviceReady, false);
 var isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
-if (isInWeb){ onDeviceReady(); }
+if (isInWeb) {
+    window.backgroundGeolocation = {
+        configure: () => {
+        },
+        isLocationEnabled: ()=>{}
+    };
+    onDeviceReady();
+}
+$(document).on('pageshow', () => {
+    console.log(`page show mbbg`);
+    $('#bgapp').on({
+        popupbeforeposition: function () {
+            var maxHeight = $(window).height() - 30;
+            $('#bgapp').css('max-height', maxHeight + 'px');
+        }
+    });
+    setTimeout(() => $('#bgapp').popup('open'), 1000);
+});

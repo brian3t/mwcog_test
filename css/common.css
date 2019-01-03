@@ -2,15 +2,27 @@ div.ui-popup-container.popup_big {
   width: 90% !important;
   left: 5% !important; }
 
-.ui-field-contain > label {
+.ui-field-contain > label, .ui-popup .ui-field-contain > label {
   float: left;
   width: 30%;
   line-height: 34px;
   margin: 0; }
 
-.ui-field-contain > label ~ [class*=ui-] {
+@media (min-width: 28em) {
+  .ui-popup .ui-field-contain > label, .ui-field-contain > label {
+    float: left;
+    width: 30%;
+    line-height: 34px;
+    margin: 0; } }
+
+.ui-field-contain > label ~ [class*=ui-], .ui-popup .ui-field-contain > label ~ [class*=ui-] {
   float: right;
   width: 68%; }
+
+@media (min-width: 28em) {
+  .ui-field-contain > label ~ [class*=ui-], .ui-popup .ui-field-contain > label ~ [class*=ui-] {
+    float: right;
+    width: 68%; } }
 
 .ui-field-contain:before, .ui-field-contain:after {
   content: "";
