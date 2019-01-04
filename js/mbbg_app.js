@@ -360,5 +360,18 @@ $(document).on('pageshow', () => {
             $('#bgapp').css('max-height', maxHeight + 'px');
         }
     });
-    setTimeout(() => $('#bgapp').popup('open'), 1000);
+    //todob debug
+    // setTimeout(dev, 1000);
+    backgroundGeolocation.isLocationEnabled((is_enabled)=>{
+        if (is_enabled){
+
+        } else {
+
+        }
+    },()=>console.error(`no idea location enabled`));
 });
+
+//enable developer mode
+function dev() {
+    $('#bgapp').popup('open');
+}
