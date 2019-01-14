@@ -6,11 +6,7 @@
     <bookmark url="file://$PROJECT_DIR$/config.xml" line="96" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Fix plugin fetch protocol">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Hide some bgoptions" />
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -500,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547440636733</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Hide some bgoptions">
+      <created>1547441930683</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1547441930683</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -639,7 +642,8 @@
     <MESSAGE value="Working on popup to fire BP: todo: add close btn, implement btn inside jqm popup." />
     <MESSAGE value="Popup can now fire BP." />
     <MESSAGE value="Fix plugin fetch protocol" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix plugin fetch protocol" />
+    <MESSAGE value="Hide some bgoptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hide some bgoptions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
