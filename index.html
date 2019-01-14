@@ -86,12 +86,11 @@
     <div id="bgapp" class="ui-body ui-corner-all b3t" data-role="popup" data-tolerance="5,5,5,5" data-wrapper-class="popup_big">
         <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
         <a href="#" data-role="button" data-rel="back" onclick="send_settings()">Send config And Start</a>
-        <a href="#" data-role="button" onclick="startTracking()">Start BG tracking</a>
         <a href="#" data-role="button" onclick="stopTracking()">Stop BG tracking</a>
         <h5>Options:</h5>
         <div id="bg_settings" class="page-content">
             <div class="list-block">
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label> Desired Accuracy</label>
                     <select name="desiredAccuracy" data-type="select">
                         <option value="0">0</option>
@@ -100,7 +99,7 @@
                         <option value="1000">1000</option>
                     </select>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Stationary Radius</label>
                     <select name="stationaryRadius" data-type="select">
                         <option value="0" selected="">0</option>
@@ -110,7 +109,7 @@
                         <option value="500">500</option>
                     </select>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Distance Filter</label>
                     <select name="distanceFilter" data-type="select">
                         <option value="0">0</option>
@@ -123,7 +122,7 @@
                         <option value="1000">1000</option>
                     </select>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Activity Type</label>
                     <select name="activityType" data-type="select">
                         <option value="AutomotiveNavigation">AutomotiveNavigation</option>
@@ -132,23 +131,23 @@
                         <option value="Other" selected="">Other</option>
                     </select>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Debug</label>
                     <input data-type="config" name="debug" type="checkbox" checked="">
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Start On Boot</label>
                     <input data-type="config" name="startOnBoot" type="checkbox" checked="">
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Stop On Terminate</label>
                     <input data-type="checkbox" name="stopOnTerminate" type="checkbox" checked="">
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Save Battery On Background</label>
                     <input data-type="checkbox" name="saveBatteryOnBackground" type="checkbox" checked="">
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Url</label>
                     <input data-type="checkbox" name="url" type="text" placeholder="http://" value="http://mwcogapi.mediabeef.com/v1/geolocation">
                 </div>
@@ -160,11 +159,11 @@
                     <label>Trip ID</label>
                     <input data-type="number" name="trip_id" type="text" placeholder="" value="testtripid123789">
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Start Latitude</label>
                     <input data-type="number" name="start_lat" type="number" placeholder="" value="999998" readonly>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="hidden">
                     <label>Start Longitude</label>
                     <input data-type="number" name="start_lng" type="number" placeholder="" value="999997" readonly>
                 </div>
