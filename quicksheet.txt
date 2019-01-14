@@ -1,0 +1,13 @@
+mbbg_app:
+bgConfigure: 167
+send_settings: 121
+setCurrentLocation: 268
+
+-if encounter: nw_connection_copy_connected_local_endpoint [C2] Connection has no local endpoint:
+Hi, guys! This works for me (on simulator):
+
+Xcode menu -> Product -> Edit Scheme...
+Environment Variables -> Add -> Name: "OS_ACTIVITY_MODE", Value:"disable"
+Run your app again, done!
+
+-

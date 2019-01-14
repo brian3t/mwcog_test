@@ -85,7 +85,9 @@
 
     <div id="bgapp" class="ui-body ui-corner-all b3t" data-role="popup" data-tolerance="5,5,5,5" data-wrapper-class="popup_big">
         <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-        <a href="#" data-role="button" data-rel="back" onclick="send_settings()">Start BG tracking anchor</a>
+        <a href="#" data-role="button" data-rel="back" onclick="send_settings()">Send config And Start</a>
+        <a href="#" data-role="button" onclick="startTracking()">Start BG tracking</a>
+        <a href="#" data-role="button" onclick="stopTracking()">Stop BG tracking</a>
         <h5>Options:</h5>
         <div id="bg_settings" class="page-content">
             <div class="list-block">
@@ -93,8 +95,8 @@
                     <label> Desired Accuracy</label>
                     <select name="desiredAccuracy" data-type="select">
                         <option value="0">0</option>
-                        <option value="10" selected="">10</option>
-                        <option value="100">100</option>
+                        <option value="10">10</option>
+                        <option value="100" selected>100</option>
                         <option value="1000">1000</option>
                     </select>
                 </div>
@@ -148,7 +150,7 @@
                 </div>
                 <div data-role="fieldcontain">
                     <label>Url</label>
-                    <input data-type="checkbox" name="url" type="text" placeholder="http://" value="http://192.168.1.9/v1/geolocation">
+                    <input data-type="checkbox" name="url" type="text" placeholder="http://" value="http://mwcogapi.mediabeef.com/v1/geolocation">
                 </div>
                 <div data-role="fieldcontain">
                     <label>Commuter ID</label>
@@ -215,6 +217,7 @@
 <script type="text/javascript">
     app.initialize();
 </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY-L-HhMKsNOeMDqH1kJZP7hS3G2SATWQ"></script>
 <script type="text/javascript" src="js/mbbg_app.js"></script>
 
 </body>

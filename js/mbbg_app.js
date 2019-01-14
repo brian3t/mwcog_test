@@ -30,7 +30,8 @@ var bgOptions = {
     stopOnStillActivity: false,
     activityType: 'Other',
     //url: 'http://192.168.168.136/v1/geolocation',//brianserver
-    url: 'http://192.168.1.9/v1/geolocation',//server1234
+    // url: 'http://192.168.1.9/v1/geolocation',//server1234
+    url: 'http://mwcogapi.mediabeef.com/v1/geolocation',//server1234
     // url: 'http://192.168.1.3/v1/geolocation',//brianmsi
     //syncUrl: 'http://192.168.3.185:3000/sync',
     syncThreshold: 10,
@@ -62,11 +63,6 @@ try {
 
 // myApp.onPageInit('map', function (page) {
 function mapinitdone(page) {
-    renderTabBar(isStarted);
-
-    if (typeof google !== 'undefined') {
-        map = new google.maps.Map(Dom7('#mapcanvas')[0], mapOptions);
-    }
 
     if (typeof backgroundGeolocation === 'undefined') {
         app_alert('Plugin has not been initialized properly!');
@@ -90,10 +86,6 @@ function mapinitdone(page) {
         }
     );
 
-    $$('#tabbar').on('click', '[data-action="tracking"]', function () {
-        userStartIntent = !(isStarted & userStartIntent);
-        toggleTracking(userStartIntent);
-    });
 
 }
 
@@ -135,6 +127,7 @@ function send_settings() {
         },
         {});
     bgConfigure(config);
+    startTracking();
 }
 
 /**
@@ -213,7 +206,7 @@ function startTracking() {
                     function (error) {
                         stopTracking();
                         if (error.code === 2) {
-                            app_confirm('Would you like to open app settings?', function () {
+                            app_confirm('Would you like to open app settings to enable Geolocation?', function () {
                                 backgroundGeolocation.showAppSettings();
                             }, 'Permission denied');
                         } else {
@@ -222,9 +215,8 @@ function startTracking() {
                     }
                 );
                 isStarted = true;
-                renderTabBar(isStarted);
             } else {
-                app_confirm('Would you like to open settings?', function () {
+                app_confirm('Would you like to open settings to enable Geolocation?', function () {
                     backgroundGeolocation.showLocationSettings();
                 }, 'Location Services are disabled');
             }
@@ -242,15 +234,10 @@ function stopTracking() {
 
     backgroundGeolocation.stop();
     isStarted = false;
-    renderTabBar(isStarted);
-}
-
-function renderTabBar(isStarted) {
-    $$('#tabbar').html(Template7.templates.tabbarTemplate({isStarted: isStarted}));
 }
 
 function setStationary(location) {
-    console.log('[DEBUG] stationary recieved', location);
+    console.log('[DEBUG] stationary received', location);
     var latlng = new google.maps.LatLng(Number(location.latitude), Number(location.longitude));
     var stationaryCircle = new google.maps.Circle({
         fillColor: 'pink',
@@ -309,11 +296,11 @@ function setCurrentLocation(location) {
             position: new google.maps.LatLng(previousLocation.latitude, previousLocation.longitude)
         }));
     } else {
-        if (map.getZoom() < 15) {
+        /*if (map.getZoom() < 15) {
             map.setZoom(15);
-        }
+        }*/
     }
-    map.setCenter(latlng);
+    // map.setCenter(latlng);
 
     // Update our current position marker and accuracy bubble.
     currentLocationMarker.setPosition(latlng);
@@ -329,7 +316,7 @@ function setCurrentLocation(location) {
 
 function onDeviceReady() {
     backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
-    /*backgroundGeolocation.getLocations(function(locs) {
+    backgroundGeolocation.getLocations(function(locs) {
         var now = Date.now();
         var sameDayDiffInMillis = 24 * 3600 * 1000;
         locs.forEach(function (loc) {
@@ -337,8 +324,8 @@ function onDeviceReady() {
                 setCurrentLocation(loc);
             }
         });
-    });*/
-    // myApp.init();
+    });
+    myApp.init();
     //todob debug
 }
 
@@ -361,7 +348,9 @@ $(document).on('pageshow', () => {
         }
     });
     //todob debug
-    // setTimeout(dev, 1000);
+    setTimeout(dev, 1000);
+    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
+
     backgroundGeolocation.isLocationEnabled((is_enabled)=>{
         if (is_enabled){
 
