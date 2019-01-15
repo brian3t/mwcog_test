@@ -42,6 +42,29 @@ function goto_commute_log() {
     }, 50);
 }
 
+function start_flextimetrip() {
+    if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
+    backgroundGeolocation.isLocationEnabled(
+        function (result) {
+            console.log(`isLocationEnabled result: ` + result);
+            if (!result){
+
+            } else {
+                //check for first of the day
+                console.log(`first of the day: `); console.log(first_of_the_day());
+                if (first_of_the_day()){
+
+                } else {
+
+                }
+            }
+        },
+        function (error) {
+            console.log(`Error finding bg geo is enabled`);
+        }
+    );
+}
+
 function saveCommuterProfile() {
     var idCommuter = window.localStorage.getItem("idCommuter");
     var userName = window.localStorage.getItem("userName");
@@ -146,8 +169,10 @@ $(document).ready(function () {
         $('#endAddress').append(option2);
     });
 
-    $('#startAddress').selectmenu('refresh');
-    $('#endAddress').selectmenu('refresh');
+    setTimeout(() => {
+        $('#startAddress').selectmenu('refresh');
+        $('#endAddress').selectmenu('refresh');
+    }, 2000);
 
     var enrolled = JSON.parse(window.localStorage.getItem("enrolled"));
 
@@ -171,7 +196,7 @@ $(document).ready(function () {
             mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
         }
 
-        $('#flexibility').html(mins_options).selectmenu("refresh");
+        setTimeout(()=>$('#flexibility').html(mins_options).selectmenu("refresh"), 1500);
         if (User.hasOwnProperty('commuter_data') && User.commuter_data.hasOwnProperty('firstName')) {
             $('#first_name').html(_.upperFirst(User.commuter_data.firstName.toLowerCase()));
         }
@@ -245,4 +270,21 @@ window.handleOpenURL = function (url) {
         $("#loginForm").trigger('submit', ['rideshare.html']);
     }
 
+};
+
+/**
+ * Determine if now is around `from`
+ * @returns {boolean}
+ */
+window.first_of_the_day = function () {
+    let result = false;
+    let user = ls('user');
+    if (user.hasOwnProperty('from')){
+        let from = moment(user.from, 'HHmmss');
+        let today_minus1h = moment().subtract(1, 'hour');
+        let today_plus1h = moment().add(1, 'hour');
+        result = from.isAfter(today_minus1h) && from.isBefore(today_plus1h);
+    }
+
+    return result;
 };

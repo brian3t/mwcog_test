@@ -9,7 +9,15 @@ var app = {
     count_bg_images: 0,
     cur_bg_image_index: 0,
     bg_loop_id: null,
-    user: {},
+    user: {
+        set_commuter_data: function (commuter_data) {
+            this.commuter_data = commuter_data;
+            if (commuter_data.hasOwnProperty('fromAMPM') && commuter_data.hasOwnProperty('fromHRS') && commuter_data.hasOwnProperty('fromMNS')){
+                let from_string = commuter_data.fromAMPM + commuter_data.fromHRS + commuter_data.fromMNS;
+                this.from = moment (from_string,'HmmA').format('HHmmss');
+            }
+        }
+    },
     bg_loop: function () {
         app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index - 1)) % app.count_bg_images + 1;
         $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
@@ -108,6 +116,10 @@ var app = {
                     if (res.hasOwnProperty('is_flex'))
                     {
                         app.user.is_flex = res.is_flex;
+                    }
+                    if (res.hasOwnProperty('commuter'))
+                    {
+                        app.user.set_commuter_data(res.commuterData);
                     }
                     ls.set('user', app.user);
                     if (!window.is_login_and_commute_log) {

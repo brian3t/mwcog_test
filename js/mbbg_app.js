@@ -316,16 +316,18 @@ function setCurrentLocation(location) {
 
 function onDeviceReady() {
     backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
-    backgroundGeolocation.getLocations(function(locs) {
-        var now = Date.now();
-        var sameDayDiffInMillis = 24 * 3600 * 1000;
-        locs.forEach(function (loc) {
-            if ((now - loc.time) <= sameDayDiffInMillis) {
-                setCurrentLocation(loc);
-            }
+    if (backgroundGeolocation.hasOwnProperty('getLocations')) {
+        backgroundGeolocation.getLocations(function (locs) {
+            var now = Date.now();
+            var sameDayDiffInMillis = 24 * 3600 * 1000;
+            locs.forEach(function (loc) {
+                if ((now - loc.time) <= sameDayDiffInMillis) {
+                    setCurrentLocation(loc);
+                }
+            });
         });
-    });
-    myApp.init();
+    }
+    // myApp.init();
     //todob debug
 }
 

@@ -56,6 +56,17 @@ jQuery(document).on("pagechange", function (event) {
             break;
     }
 });
+function jqm_resize_content(){
+    let screen = $.mobile.getScreenHeight(),
+        header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
+        footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
+        contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height(),
+        content = screen - header - footer - contentCurrent;
+    $(".ui-content").height(content);
+}
+$(document).on("pagecontainertransition", jqm_resize_content);
+$(window).on("resize", jqm_resize_content);
+$(window).on("orientationchange", jqm_resize_content);
 if (isInWeb) {
     document.dispatchEvent(new Event('deviceready'));
 }

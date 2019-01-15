@@ -3172,6 +3172,9 @@ div.ui-select > div {
 .w32 {
   width: 32%; }
 
+.w28 {
+  width: 28%; }
+
 .wauto {
   width: auto; }
 
@@ -3221,6 +3224,10 @@ div.ui-btn.blue {
 .ui-icon-commute_calendar:after {
   font: normal normal normal 22px/1 FontAwesome;
   content: "\f073"; }
+
+.ui-icon-checkbox:after {
+  font: normal normal normal 22px/1 FontAwesome;
+  content: "\f14a"; }
 
 [class*=ui-icon-]:after {
   background-size: contain; }
