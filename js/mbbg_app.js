@@ -90,7 +90,7 @@ function mapinitdone(page) {
 }
 
 // myApp.onPageInit('settings', function (page) {
-function init_settings(){
+function init_settings() {
     var options = Object.assign({}, bgOptions);
     var locationProviders = [
         {name: 'ANDROID_DISTANCE_FILTER_PROVIDER', value: 0, selected: false, index: 0},
@@ -114,7 +114,9 @@ function send_settings() {
     let config = Array.prototype.reduce.call(
         $('#bg_settings :input'),
         function (values, el) {
-            if (el.type === 'checkbox') {
+            if ($(el).data('type') === 'float') {
+                values[el.name] = parseFloat(el.value);
+            } else if (el.type === 'checkbox') {
                 values[el.name] = el.checked;
             } else {
                 if (!isNaN(parseInt(el.value))) {
@@ -137,7 +139,7 @@ function send_settings() {
 function fill_option_to_inputs(form) {
     let options = ls('bsOptions');
     if (options === null) return false;
-    $.each(options,(name, value) => {
+    $.each(options, (name, value) => {
         //todob restore config here
     });
 }
@@ -222,7 +224,7 @@ function startTracking() {
             }
         },
         function (error) {
-            app_alert( 'Error detecting status of location settings' + error);
+            app_alert('Error detecting status of location settings' + error);
         }
     );
 }
@@ -337,7 +339,8 @@ if (isInWeb) {
     window.backgroundGeolocation = {
         configure: () => {
         },
-        isLocationEnabled: ()=>{}
+        isLocationEnabled: () => {
+        }
     };
     onDeviceReady();
 }
@@ -353,13 +356,13 @@ $(document).on('pageshow', () => {
     setTimeout(dev, 1000);
     backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
 
-    backgroundGeolocation.isLocationEnabled((is_enabled)=>{
-        if (is_enabled){
+    backgroundGeolocation.isLocationEnabled((is_enabled) => {
+        if (is_enabled) {
 
         } else {
 
         }
-    },()=>console.error(`no idea location enabled`));
+    }, () => console.error(`no idea location enabled`));
 });
 
 //enable developer mode
