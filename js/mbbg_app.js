@@ -28,13 +28,15 @@ var bgOptions = {
     startOnBoot: true,
     startForeground: true,
     stopOnStillActivity: false,
-    activityType: 'Other',
+    // activityType: 'Other',
+    activityType: 'OtherNavigation',//Mike 01/15
     //url: 'http://192.168.168.136/v1/geolocation',//brianserver
     // url: 'http://192.168.1.9/v1/geolocation',//server1234
     url: 'http://mwcogapi.mediabeef.com/v1/geolocation',//server1234
     // url: 'http://192.168.1.3/v1/geolocation',//brianmsi
     //syncUrl: 'http://192.168.3.185:3000/sync',
-    syncThreshold: 10,
+    // syncThreshold: 10,
+    syncThreshold: 5,//Mike 01/15
     commuter_id: 123789,
     trip_id: 'test1234',
     start_lat: 999998,
