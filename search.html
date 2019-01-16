@@ -32,7 +32,7 @@
     <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
         <div class="header_padding">
             <i class="fa fa-user"></i>
-            &nbsp;&nbsp;Start Flextime Trip
+            &nbsp;&nbsp;Welcome <span id="first_name"></span>
             <div class="pull-right popup_btn"><a class="inline" href="#popup_menu" data-rel="popup"><img class="pull-right"
                                                                                                          src="img/popup_menu.png"></a>
             </div>
@@ -61,11 +61,19 @@
             </div>
         </div>
 
+        <!--<div data-role="popup" id="panel_welcomeuser" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">-->
+        <!--<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
+        <!--<div class="ui-bar ui-bar-a">-->
+        <!--<h3>Welcome!</h3>-->
+        <!--</div>-->
+        <!--<div class="ui-body ui-body-a">-->
+        <!--Thank you for joining our ridematching program, please click the "Options" button in the top menu to make changes to your match profile. Additional management options are available through our-->
+        <!--website.-->
+        <!--</div>-->
+        <!--</div>-->
+
         <form id="searchForm">
             <div class="ui-body ui-body-a">
-                <p>
-                    In order to qualify to receive the flextime incentive you must complete the form below and click the start trip button to track your commute!
-                </p>
                 <div class="ui-field-contain no_border w70 inline">
                     <label for="startAddress" class="select">Start Address</label>
                     <select name="startAddress" id="startAddress" data-mini="true" data-shadow="false" data-icon="carat_down">

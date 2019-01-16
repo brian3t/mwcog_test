@@ -106,3 +106,15 @@ app_toast = function (message) {
         else (alert(message));
     }
 };
+
+/**
+ * parse home and work addresses from addresses array
+ * @returns {*[]}
+ */
+function user_get_home_work(address = null){
+    if (typeof user !== 'undefined' || user === null || !user.hasOwnProperty('commuter_data')){
+        return [null, null];
+    }
+
+
+}

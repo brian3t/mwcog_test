@@ -11,9 +11,9 @@ var map,
     configHasChanges = false;
 
 var bgOptions = {
-    stationaryRadius: 1,
+    stationaryRadius: 0,
     distanceFilter: 30,
-    desiredAccuracy: 10,
+    desiredAccuracy: 100,
     debug: true,
     notificationTitle: 'Background tracking',
     notificationText: 'enabled',
@@ -46,7 +46,7 @@ var bgOptions = {
     },
     pauseLocationUpdates: false,
     saveBatteryOnBackground: false,
-    maxLocations: 100
+    maxLocations: 1000
 };
 
 var mapOptions = {

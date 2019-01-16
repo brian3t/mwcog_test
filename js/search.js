@@ -42,21 +42,23 @@ function goto_commute_log() {
     }, 50);
 }
 
+function goto_start_flextime_trip() {
+    //jQuery.mobile.navigate('/start_flextime_trip.html');
+    setTimeout(function () {
+        window.location.href = "start_flextime_trip.html";
+    }, 50);
+}
+
 function start_flextimetrip() {
     if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
     backgroundGeolocation.isLocationEnabled(
         function (result) {
             console.log(`isLocationEnabled result: ` + result);
             if (!result){
-
+                app_alert('Please go to Settings and allow Commuter Connections to access geolocation', () => {
+                }, '', 'OK');
             } else {
-                //check for first of the day
-                console.log(`first of the day: `); console.log(first_of_the_day());
-                if (first_of_the_day()){
-
-                } else {
-
-                }
+                goto_start_flextime_trip();
             }
         },
         function (error) {

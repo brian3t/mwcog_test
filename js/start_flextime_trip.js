@@ -1,3 +1,4 @@
+var user = ls('user');
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -12,27 +13,6 @@ $(document).ready(function () {
 
     window.localStorage.setItem("startingTime", "9:00 AM");
     window.localStorage.setItem("endingTime", "5:00 PM");
-    $.each(addressArray, function (a, b) {
-        b.addrStreet1 = toTitleCase(b.addrStreet1.toLowerCase());
-        b.addrCity = toTitleCase(b.addrCity.toLowerCase());
-        b.addrState = toTitleCase(b.addrState.toLowerCase());
-        b.addrZip = toTitleCase(b.addrZip.toLowerCase());
-        var option1 = $('<option />');
-        if (b.addrType == "HOME") {
-            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
-        } else {
-            option1.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
-        }
-        var option2 = $('<option />');
-        if (b.addrType == "WORK") {
-            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip).attr("selected", "selected");
-        } else {
-            option2.attr('value', a).text(b.addrStreet1 + ' ' + b.addrCity + ' ' + b.addrState + ", " + b.addrZip);
-        }
-
-        $('#startAddress').append(option1);
-        $('#endAddress').append(option2);
-    });
 
     setTimeout(() => {
         $('#startAddress').selectmenu('refresh');
@@ -100,6 +80,26 @@ $(document).ready(function () {
     });
 });
 
+/**
+ * Start bg
+ */
+function starttrip(){
+    app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
+        'if your device remains turned on with geolocation services active',
+        () => {
+            let config = bgOptions;
+            config.commuter_id = user.commuter;
+                // trip_id: 'test1234',
+                // start_lat: 999998,
+                // start_lng: 999997,
+                // end_lat: 51.5099,//london uk
+                // end_lng: 0.1337,//london uk
+
+            bgConfigure(config);
+            // startTracking();
+        },
+        '', 'OK');
+}
 
 /**
  * Determine if now is around `from`
@@ -107,7 +107,6 @@ $(document).ready(function () {
  */
 window.first_of_the_day = function () {
     let result = false;
-    let user = ls('user');
     if (user.hasOwnProperty('from')){
         let from = moment(user.from, 'HHmmss');
         let today_minus1h = moment().subtract(1, 'hour');

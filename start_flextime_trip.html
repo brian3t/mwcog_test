@@ -22,7 +22,7 @@
     <script type="text/javascript" src="js/noti.js"></script>
     <script type="text/javascript" src="js/lib/moment.min.js"></script>
     <script type="text/javascript" src="js/start_flextime_trip.js"></script>
-    <script type="text/javascript" src="js/flex_common.js"></script>
+    <!--<script type="text/javascript" src="js/flex_common.js"></script>-->
     <title>Commuter Connections</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
     <div data-role="header" data-tap-toggle="false" data-theme="a" data-position="fixed">
         <div class="header_padding">
             <i class="fa fa-user"></i>
-            &nbsp;&nbsp;Welcome <span id="first_name"></span>
+            &nbsp;&nbsp;Start Flextime Trip
             <div class="pull-right popup_btn"><a class="inline" href="#popup_menu" data-rel="popup"><img class="pull-right"
                                                                                                          src="img/popup_menu.png"></a>
             </div>
@@ -61,70 +61,33 @@
             </div>
         </div>
 
-        <!--<div data-role="popup" id="panel_welcomeuser" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">-->
-        <!--<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
-        <!--<div class="ui-bar ui-bar-a">-->
-        <!--<h3>Welcome!</h3>-->
-        <!--</div>-->
-        <!--<div class="ui-body ui-body-a">-->
-        <!--Thank you for joining our ridematching program, please click the "Options" button in the top menu to make changes to your match profile. Additional management options are available through our-->
-        <!--website.-->
-        <!--</div>-->
-        <!--</div>-->
-
         <form id="searchForm">
             <div class="ui-body ui-body-a">
-                <div class="ui-field-contain no_border w70 inline">
-                    <label for="startAddress" class="select">Start Address</label>
-                    <select name="startAddress" id="startAddress" data-mini="true" data-shadow="false" data-icon="carat_down">
+                <p>
+                    In order to qualify to receive the flextime incentive you must complete the form below and click the start trip button to track your commute!
+                </p>
+                <div class="ui-field-contain no_border">
+                    <select name="destination" id="destination" data-mini="true" data-shadow="false" data-icon="carat_down">
+                        <option value="0" selected>Destination</option>
+                        <option value="101">Home</option>
+                        <option value="102">Work</option>
                     </select>
                 </div>
-                <div class="ui-field-contain no_border w28 inline">
-                    <label for="startRadius" class="select">Start Radius</label>
-                    <select name="startRadius" id="startRadius" data-mini="true" data-shadow="false" data-icon="carat_down">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3" selected="selected">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
+                <div class="ui-field-contain no_border">
+                    <select name="travelmode" id="travelmode" data-mini="true" data-shadow="false" data-icon="carat_down">
+                        <option value="0" selected>Travel Mode</option>
+                        <option value="78">Drive Alone</option>
+                        <option value="79">Transit</option>
+                        <option value="80">Carpool</option>
+                        <option value="81">Vanpool</option>
+                        <option value="82">Bike</option>
+                        <option value="83">Walk</option>
+                        <option value="84">Telework</option>
                     </select>
                 </div>
-                <div class="ui-field-contain no_border w70 inline">
-                    <label for="endAddress" class="select">End Address</label>
-                    <select name="endAddress" id="endAddress" data-mini="true" data-shadow="false" data-icon="carat_down">
-                    </select>
-                </div>
-
-                <div class="ui-field-contain no_border w28 inline">
-                    <label for="endRadius" class="select">End Radius</label>
-                    <select name="endRadius" id="endRadius" data-mini="true" data-shadow="false" data-icon="carat_down">
-                        <option value="1">1</option>
-                        <option value="2" selected="selected">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                    </select>
-                </div>
-                <input type="submit" data-shadow="false" data-icon="ridematch" data-wrapper-class="wauto blue big" value="Find a Ridematch" id="findRidematch"
-                       onclick="showRidematch()"
+                <input type="submit" data-shadow="false" data-wrapper-class="wauto blue big text_center" value="START TRIP" id="starttrip"
+                       onclick="starttrip()"
                        data-role="button"/>
-                <input type="submit" data-shadow="false" data-icon="pnr" data-wrapper-class="wauto blue big" value="Find a Park and Ride" id="findParkAndRide"
-                       onclick="showParkAndRide()" data-role="button"/>
-                <input type="submit" data-shadow="false" data-icon="commute_calendar" data-wrapper-class="wauto blue big" value="Commute Log"
-                       id="commute_log_calendar"
-                       onclick="goto_commute_log()" data-role="button"/>
-                <input type="button" data-shadow="false" data-icon="checkbox" data-wrapper-class="wauto blue big" value="Start Flextime Trip"
-                       id="start_flextime_trip"
-                       onclick="start_flextimetrip()" data-role="button"/>
-
             </div>
             <div class="ui-field-contain ui-hide-label">
 
@@ -214,17 +177,6 @@
 
 </div>
 </body>
+<script type="text/javascript" src="js/mbbg_app.js"></script>
+
 </html>
-<!--<div data-role="panel" id="panel_options" data-position="right" data-display="overlay"-->
-<!--class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open" style="background-color: #3388cc;">-->
-<!--<div data-role="popup" id="panel_welcomeuser_new" data-history="false" data-theme="a" class="ui-corner-all" style="max-width:400px;">-->
-<!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
-<!--<div class="ui-bar ui-bar-a">-->
-<!--<h3>Welcome!</h3>-->
-<!--</div>-->
-<!--<div class="ui-body ui-body-a">-->
-<!--Welcome to the new Commuter Connections Ridematching Mobile App! Commute origins and destinations are managed through your desktop profile.-->
-<!--Park N' Ride lots are suggested based on your home/work addresses. Easily contact matches on the map or list views. Happy Commuting!-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
