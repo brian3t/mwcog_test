@@ -96,16 +96,16 @@
                     <select name="desiredAccuracy" data-type="select">
                         <option value="0">0</option>
                         <option value="10">10</option>
-                        <option value="100" selected>100</option>
+                        <option value="100" selected="selected">100</option>
                         <option value="1000">1000</option>
                     </select>
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Stationary Radius</label>
                     <select name="stationaryRadius" data-type="select">
-                        <option value="0" selected="">0</option>
+                        <option value="0">0</option>
                         <option value="1">1</option>
-                        <option value="50">50</option>
+                        <option value="50" selected="selected">50</option>
                         <option value="100">100</option>
                         <option value="500">500</option>
                     </select>
@@ -116,7 +116,7 @@
                         <option value="0">0</option>
                         <option value="10">10</option>
                         <option value="20">20</option>
-                        <option value="30" selected="">30</option>
+                        <option value="30" selected="selected">30</option>
                         <option value="50">50</option>
                         <option value="100">100</option>
                         <option value="500">500</option>
@@ -127,38 +127,42 @@
                     <label>Activity Type</label>
                     <select name="activityType" data-type="select">
                         <option value="AutomotiveNavigation">AutomotiveNavigation</option>
-                        <option value="OtherNavigation">OtherNavigation</option>
+                        <option value="OtherNavigation" selected="selected">OtherNavigation</option>
                         <option value="Fitness">Fitness</option>
                         <option value="Other" selected="">Other</option>
                     </select>
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Debug</label>
-                    <input data-type="config" name="debug" type="checkbox" checked="">
+                    <input data-type="config" name="debug" type="checkbox" checked="checked">
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Start On Boot</label>
-                    <input data-type="config" name="startOnBoot" type="checkbox" checked="">
+                    <input data-type="config" name="startOnBoot" type="checkbox" checked="checked">
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Stop On Terminate</label>
-                    <input data-type="checkbox" name="stopOnTerminate" type="checkbox" checked="">
+                    <input data-type="checkbox" name="stopOnTerminate" type="checkbox" checked="checked">
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Save Battery On Background</label>
-                    <input data-type="checkbox" name="saveBatteryOnBackground" type="checkbox" checked="">
+                    <input data-type="checkbox" name="saveBatteryOnBackground" type="checkbox">
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Url</label>
                     <input data-type="checkbox" name="url" type="text" placeholder="http://" value="http://mwcogapi.mediabeef.com/v1/geolocation">
                 </div>
+                <div data-role="fieldcontain" class="hidden">
+                    <label>syncThreshold</label>
+                    <input data-type="number" name="syncThreshold" type="number" placeholder="" value="5">
+                </div>
                 <div data-role="fieldcontain">
                     <label>Commuter ID</label>
-                    <input data-type="number" name="commuter_id" type="number" placeholder="" value="123789">
+                    <input data-type="number" name="commuter_id" type="number" placeholder="" value="100000">
                 </div>
                 <div data-role="fieldcontain">
                     <label>Trip ID</label>
-                    <input data-type="number" name="trip_id" type="text" placeholder="" value="testtripid123789">
+                    <input data-type="number" name="trip_id" type="text" placeholder="" value="trip000">
                 </div>
                 <div data-role="fieldcontain" class="hidden">
                     <label>Start Latitude</label>
