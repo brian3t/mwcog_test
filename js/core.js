@@ -132,8 +132,39 @@ var Model = function (attributes, options) {
     if (options.parse) attrs = this.parse(attrs, options) || {};
     var defaults = _.result(this, 'defaults');
     attrs = _.defaults(_.extend({}, defaults, attrs), defaults);
-    this.changed = {};
     this.initialize.apply(this, arguments);
+};
+// Helper function to correctly set up the prototype chain for subclasses.
+// Similar to `goog.inherits`, but uses a hash of prototype properties and
+// class properties to be extended.
+var extend = function (protoProps, staticProps) {
+    var parent = this;
+    var child;
+
+    // The constructor function for the new subclass is either defined by you
+    // (the "constructor" property in your `extend` definition), or defaulted
+    // by us to simply call the parent constructor.
+    if (protoProps && _.has(protoProps, 'constructor')) {
+        child = protoProps.constructor;
+    } else {
+        child = function () {
+            return parent.apply(this, arguments);
+        };
+    }
+
+    // Add static properties to the constructor function, if supplied.
+    _.extend(child, parent, staticProps);
+
+    // Set the prototype chain to inherit from `parent`, without calling
+    // `parent`'s constructor function and add the prototype properties.
+    child.prototype = _.create(parent.prototype, protoProps);
+    child.prototype.constructor = child;
+
+    // Set a convenience property in case the parent's prototype is needed
+    // later.
+    child.__super__ = parent.prototype;
+
+    return child;
 };
 _.extend(Model.prototype, {
     // Initialize is an empty function by default. Override it with your own
@@ -141,16 +172,46 @@ _.extend(Model.prototype, {
     initialize: function () {
     }
 });
-var Address = _.extend(Model, {
+Model.extend = extend;
+
+var Address = Model.extend({
     initialize: function () {
 
+    },
+    trim_data: function () {
+        $.each(['addrCity', 'addrLocation', 'addrState', 'addrStreet1', 'addrStreet2', 'addrSuite', 'addrType', 'addrZip'], (index, value) => {
+            if (typeof this[value] === "string" && this[value] !== null) {
+                this[value] = this[value].trim();
+            }
+        });
+    },
+    pull_full_address: function () {
+        return this.addrStreet1 + ' ' + this.addrStreet2 + ', ' + this.addrSuite + ', ' + this.addrCity + ', ' + this.addrState + ' ' + this.addrZip;
     },
     addrCity: null,
     addrLocation: null,
     addrState: null,
     addrStreet1: null,
     addrStreet2: null,
+    addrSuite: null,
     addrType: null,
     addrZip: null,
     idAddress: -1,
 });
+
+/**
+ * Determine if now is around `from`
+ * @returns {boolean}
+ */
+window.first_of_the_day = function () {
+    let result = false;
+    if (user.hasOwnProperty('from')) {
+        let from = moment(user.from, 'HHmmss');
+        let today_minus1h = moment().subtract(1, 'hour');
+        let today_plus1h = moment().add(1, 'hour');
+        result = from.isAfter(today_minus1h) && from.isBefore(today_plus1h);
+    }
+
+    return result;
+};
+

@@ -273,20 +273,3 @@ window.handleOpenURL = function (url) {
     }
 
 };
-
-/**
- * Determine if now is around `from`
- * @returns {boolean}
- */
-window.first_of_the_day = function () {
-    let result = false;
-    let user = ls('user');
-    if (user.hasOwnProperty('from')){
-        let from = moment(user.from, 'HHmmss');
-        let today_minus1h = moment().subtract(1, 'hour');
-        let today_plus1h = moment().add(1, 'hour');
-        result = from.isAfter(today_minus1h) && from.isBefore(today_plus1h);
-    }
-
-    return result;
-};
