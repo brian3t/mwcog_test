@@ -9,44 +9,10 @@ function goto_commute_log() {
 
 $(document).ready(function () {
 
-    var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
+    let [home_addr, work_addr] = user_get_home_work();
+    window.home_addr_obj = new Address();
+    _.extend(home_addr_obj, home_addr);
 
-    window.localStorage.setItem("startingTime", "9:00 AM");
-    window.localStorage.setItem("endingTime", "5:00 PM");
-
-    setTimeout(() => {
-        $('#startAddress').selectmenu('refresh');
-        $('#endAddress').selectmenu('refresh');
-    }, 2000);
-
-    var enrolled = JSON.parse(window.localStorage.getItem("enrolled"));
-
-    $(function () {
-        if (enrolled) {
-            $("#panel_welcomeuser").popup({transition: 'pop', history: false});
-            $("#panel_welcomeuser").popup('open', {transition: 'pop', history: false, positionTo: 'window'});
-            // $('#welcomeMsg').popup('open', {transition: 'pop',history:false, positionTo: 'window'});
-        }
-
-        if (Number(window.localStorage.getItem("justLoggedIn")) == 1) {
-            window.localStorage.setItem("justLoggedIn", 0);
-        } else {
-            // $('#welcomeMsg').css('display', 'none');
-        }
-
-        var mins = ['0', '5', '15', '30', '60', '90', '120'],
-            mins_options = '';
-
-        for (var i = 0; i < mins.length; i++) {
-            mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
-        }
-
-        setTimeout(()=>$('#flexibility').html(mins_options).selectmenu("refresh"), 1500);
-        if (User.hasOwnProperty('commuter_data') && User.commuter_data.hasOwnProperty('firstName')) {
-            $('#first_name').html(_.upperFirst(User.commuter_data.firstName.toLowerCase()));
-        }
-
-    });
 
 //todob debugging
     if (IS_DEBUG) {

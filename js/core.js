@@ -56,7 +56,8 @@ jQuery(document).on("pagechange", function (event) {
             break;
     }
 });
-function jqm_resize_content(){
+
+function jqm_resize_content() {
     let screen = $.mobile.getScreenHeight(),
         header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
         footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight(),
@@ -64,6 +65,7 @@ function jqm_resize_content(){
         content = screen - header - footer - contentCurrent;
     $(".ui-content").height(content);
 }
+
 $(document).on("pagecontainertransition", jqm_resize_content);
 $(window).on("resize", jqm_resize_content);
 $(window).on("orientationchange", jqm_resize_content);
@@ -102,8 +104,7 @@ app_toast = function (message) {
     } else {
         if (typeof window.plugins == 'object' && typeof window.plugins.toast == 'object') {
             window.plugins.toast.showLongCenter(message);
-        }
-        else (alert(message));
+        } else (alert(message));
     }
 };
 
@@ -111,10 +112,45 @@ app_toast = function (message) {
  * parse home and work addresses from addresses array
  * @returns {*[]}
  */
-function user_get_home_work(address = null){
-    if (typeof user !== 'undefined' || user === null || !user.hasOwnProperty('commuter_data')){
+function user_get_home_work(address = null) {
+    /*if (typeof user !== 'undefined' || user === null || !user.hasOwnProperty('commuter_data')){
         return [null, null];
-    }
-
-
+    }*/
+    let addresses = ls('addresses');
+    if (typeof addresses !== "object") return [null, null];
+    let home_addr = addresses.find((address) => address.addrType === 'HOME');
+    let work_addr = addresses.find((address) => address.addrType === 'WORK');
+    return [home_addr, work_addr];
 }
+
+var Model = function (attributes, options) {
+    var attrs = attributes || {};
+    options || (options = {});
+    this.cid = _.uniqueId(this.cidPrefix);
+    this.attributes = {};
+    if (options.collection) this.collection = options.collection;
+    if (options.parse) attrs = this.parse(attrs, options) || {};
+    var defaults = _.result(this, 'defaults');
+    attrs = _.defaults(_.extend({}, defaults, attrs), defaults);
+    this.changed = {};
+    this.initialize.apply(this, arguments);
+};
+_.extend(Model.prototype, {
+    // Initialize is an empty function by default. Override it with your own
+    // initialization logic.
+    initialize: function () {
+    }
+});
+var Address = _.extend(Model, {
+    initialize: function () {
+
+    },
+    addrCity: null,
+    addrLocation: null,
+    addrState: null,
+    addrStreet1: null,
+    addrStreet2: null,
+    addrType: null,
+    addrZip: null,
+    idAddress: -1,
+});
