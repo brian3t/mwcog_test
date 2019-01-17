@@ -11,7 +11,8 @@ $(document).ready(function () {
 
     let [home_addr, work_addr] = user_get_home_work();
     window.home_addr_obj = new Address();
-    _.extend(home_addr_obj, home_addr);
+    home_addr_obj = _.extend(home_addr_obj, home_addr);
+    home_addr_obj.trim_data();
 
 
 //todob debugging
@@ -44,6 +45,12 @@ $(document).ready(function () {
     $('#save_autocomlog_setting_btn').on('click', function (e) {
         // console.log(`checked: ` + window.auto_commute_log_sw.isChecked());
     });
+
+    if (first_of_the_day()){
+        $('#destination').val(102).trigger('change');//WORK
+    } else {
+        $('#destination').val(101).trigger('change');//HOME
+    }
 });
 
 /**
@@ -67,18 +74,3 @@ function starttrip(){
         '', 'OK');
 }
 
-/**
- * Determine if now is around `from`
- * @returns {boolean}
- */
-window.first_of_the_day = function () {
-    let result = false;
-    if (user.hasOwnProperty('from')){
-        let from = moment(user.from, 'HHmmss');
-        let today_minus1h = moment().subtract(1, 'hour');
-        let today_plus1h = moment().add(1, 'hour');
-        result = from.isAfter(today_minus1h) && from.isBefore(today_plus1h);
-    }
-
-    return result;
-};
