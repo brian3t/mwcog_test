@@ -186,6 +186,7 @@ var Address = Model.extend({
             if (!geo.hasOwnProperty('location')) return;
             let location = geo.location;
             [this.lat, this.lng] = [location.lat(), location.lng()];
+            data_availability_watcher();//trigger watcher. This can also be done via event bus
         });
     },
     trim_data: function () {

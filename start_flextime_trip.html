@@ -49,20 +49,7 @@
         </div>
     </div>
     <div data-role="content" role="main" class="ui-content">
-        <div id="welcomeMsg" data-role="popup" class="ui-corner-all">
-            <a data-rel="back" class="ui-btn   ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <div class="ui-bar ui-bar-a"><h3>Welcome!</h3></div>
-
-            <div class="ui-body ui-body-a">
-                Welcome to the newly redesigned Commuter Connections mobile app. In addition to updating the appearance, the speed of the app has been increased and mobile commute
-                logging is available for 'Pool Rewards participants and regular users. Users can contact matches directly from the map and list views using shared telephone numbers
-                and email addresses. Commute origins and destinations are managed through your desktop profile. Park and Ride lots are suggested based on your home/work addresses.
-                Happy Commuting!
-                <br/>
-            </div>
-        </div>
-
-        <form id="searchForm">
+        <form id="starttrip_form">
             <div class="ui-body ui-body-a">
                 <p>
                     In order to qualify to receive the flextime incentive you must complete the form below and click the start trip button to track your commute!
@@ -86,12 +73,16 @@
                         <option value="84">Telework</option>
                     </select>
                 </div>
-                <input type="submit" disabled data-shadow="false" data-wrapper-class="wauto blue big text_center" value="START TRIP" id="starttrip_btn" onclick="starttrip()" data-role="button"/>
+                <input type="button" disabled data-shadow="false" data-wrapper-class="wauto blue big text_center" value="START TRIP" id="starttrip_btn" onclick="starttrip()" data-role="button"/>
             </div>
             <div class="ui-field-contain ui-hide-label">
 
             </div>
         </form>
+        <div id="trip_active" class="text-center" style="display: none">
+            <p>Your trip is being logged. Drive safe!</p>
+            <button id="cancel_trip_btn" type="button" class="wauto text_center" onclick="stop_logging()">Stop Logging This Trip</button>
+        </div>
         <div class="filler"></div>
     </div>
 
