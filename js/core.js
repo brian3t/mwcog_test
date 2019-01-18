@@ -178,6 +178,16 @@ var Address = Model.extend({
     initialize: function () {
 
     },
+    geocode: function(geocoder){
+        geocoder.geocode({address: this.pull_full_address()}, function (result) {
+            result = result.pop();
+            if (typeof result !== "object" || !result.hasOwnProperty('geometry')) return;
+            let geo = result.geometry;
+            if (!geo.hasOwnProperty('location')) return;
+            let location = geo.location;
+            [this.lat, this.lng] = [location.lat(), location.lng()];
+        });
+    },
     trim_data: function () {
         $.each(['addrCity', 'addrLocation', 'addrState', 'addrStreet1', 'addrStreet2', 'addrSuite', 'addrType', 'addrZip'], (index, value) => {
             if (typeof this[value] === "string" && this[value] !== null) {
@@ -188,6 +198,8 @@ var Address = Model.extend({
     pull_full_address: function () {
         return this.addrStreet1 + ' ' + this.addrStreet2 + ', ' + this.addrSuite + ', ' + this.addrCity + ', ' + this.addrState + ' ' + this.addrZip;
     },
+    is_latlng_ready: function(){}
+
     addrCity: null,
     addrLocation: null,
     addrState: null,
@@ -197,6 +209,9 @@ var Address = Model.extend({
     addrType: null,
     addrZip: null,
     idAddress: -1,
+
+    lat: null,
+    lng: null
 });
 
 /**
