@@ -15,7 +15,7 @@ var bgOptions = {
     distanceFilter: 30,
     desiredAccuracy: 100,
     debug: true,
-    notificationTitle: 'Background tracking',
+    notificationTitle: 'MWCOG background tracking',
     notificationText: 'enabled',
     notificationIconColor: '#FEDD1E',
     notificationIconLarge: 'mappointer_large',
@@ -195,6 +195,10 @@ function bgConfigure(config) {
 }
 
 function startTracking() {
+    if (typeof plugins === "object" && plugins.hasOwnProperty('appMinimize') && typeof plugins.appMinimize === "object" && plugins.appMinimize.hasOwnProperty('minimize')) {
+        plugins.appMinimize.minimize();
+    }
+
     if (isStarted) {
         return;
     }
