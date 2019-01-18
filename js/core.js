@@ -179,7 +179,7 @@ var Address = Model.extend({
 
     },
     geocode: function(geocoder){
-        geocoder.geocode({address: this.pull_full_address()}, function (result) {
+        geocoder.geocode({address: this.pull_full_address()}, (result) => {
             result = result.pop();
             if (typeof result !== "object" || !result.hasOwnProperty('geometry')) return;
             let geo = result.geometry;
@@ -198,7 +198,9 @@ var Address = Model.extend({
     pull_full_address: function () {
         return this.addrStreet1 + ' ' + this.addrStreet2 + ', ' + this.addrSuite + ', ' + this.addrCity + ', ' + this.addrState + ' ' + this.addrZip;
     },
-    is_latlng_ready: function(){}
+    is_latlng_ready: function(){
+        return _.isNumber(this.lat) && _.isNumber(this.lng);
+    },
 
     addrCity: null,
     addrLocation: null,
@@ -209,7 +211,6 @@ var Address = Model.extend({
     addrType: null,
     addrZip: null,
     idAddress: -1,
-
     lat: null,
     lng: null
 });

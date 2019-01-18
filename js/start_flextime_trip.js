@@ -15,8 +15,15 @@ function goto_commute_log() {
  * Event handler
  * Watches for lat lng to be ready
  */
-function data_availability_watcher(){
-    return home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready();
+function data_availability_watcher() {
+    let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0";
+    if (all_ready) {
+        $('#starttrip_btn').removeAttr('disabled');
+    } else {
+        $('#starttrip_btn').attr('disabled', 'disabled');
+    }
+    $('#starttrip_btn').button('refresh');
+    return all_ready;
 }
 
 $(document).ready(function () {
@@ -25,7 +32,10 @@ $(document).ready(function () {
     _.extend(home_addr_obj, home_addr);
     home_addr_obj.trim_data();
     home_addr_obj.geocode(GEOCODER);
-
+    _.extend(work_addr_obj, work_addr);
+    work_addr_obj.trim_data();
+    work_addr_obj.geocode(GEOCODER);
+    $('#travelmode').on('change', data_availability_watcher);
 
 //todob debugging
     if (IS_DEBUG) {
@@ -58,7 +68,7 @@ $(document).ready(function () {
         // console.log(`checked: ` + window.auto_commute_log_sw.isChecked());
     });
 
-    if (first_of_the_day()){
+    if (first_of_the_day()) {
         $('#destination').val(102).trigger('change');//WORK
     } else {
         $('#destination').val(101).trigger('change');//HOME
@@ -68,20 +78,30 @@ $(document).ready(function () {
 /**
  * Start bg
  */
-function starttrip(){
+function starttrip() {
     app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
         'if your device remains turned on with geolocation services active',
         () => {
             let config = bgOptions;
-            config.commuter_id = user.commuter;
-                // trip_id: 'test1234',
-                // start_lat: 999998,
-                // start_lng: 999997,
-                // end_lat: 51.5099,//london uk
-                // end_lng: 0.1337,//london uk
+            let today = moment();
+            let home_or_work = ($('#destination').val() === "101" ? 'home' : 'work');
+            config.commuter_id = parseInt(user.commuter_data.idCommuter);
+            config.trip_id = config.commuter_id + $('#destination option:selected').text() + today.format('YYMMDDHHmmss');
+            config.start_lat = -1;
+            config.start_lng = -1;
+            if (home_or_work === 'home') {
+                config.end_lat = home_addr_obj.lat;
+                config.end_lng = home_addr_obj.lng;
+            }
+            if (home_or_work === 'work') {
+                config.end_lat = work_addr_obj.lat;
+                config.end_lng = work_addr_obj.lng;
+            }
+            // config.end_lat: 51.5099,//london uk
+            // config.end_lng: 0.1337,//london uk
 
             bgConfigure(config);
-            // startTracking();
+            startTracking();
         },
         '', 'OK');
 }

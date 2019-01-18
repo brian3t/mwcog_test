@@ -8,7 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Fix plugin protocol">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/mbbg_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mbbg_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/start_flextime_trip.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start_flextime_trip.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start_flextime_trip.html" beforeDir="false" afterPath="$PROJECT_DIR$/start_flextime_trip.html" afterDir="false" />
     </list>
@@ -43,50 +45,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="e#1939#1945#0" expanded="true" />
-                <element signature="e#1945#1951#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/park_and_ride.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+            <state relative-caret-position="371">
+              <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -94,47 +56,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="211" column="13" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
+            <state relative-caret-position="353">
+              <caret line="187" column="38" selection-start-line="187" selection-start-column="38" selection-end-line="187" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.xml">
+        <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="153" column="53" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="34" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="46" />
-              <folding>
-                <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4125">
-              <caret line="275" selection-start-line="275" selection-end-line="275" />
+            <state relative-caret-position="196">
+              <caret line="88" column="174" selection-start-line="88" selection-start-column="174" selection-end-line="88" selection-end-column="174" />
             </state>
           </provider>
         </entry>
@@ -150,10 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>google</find>
-      <find>mbb</find>
-      <find>map.</find>
-      <find>commute Log</find>
       <find>ui-btn-ch</find>
       <find>w70</find>
       <find>commuter.</find>
@@ -180,6 +117,10 @@
       <find>addresses</find>
       <find>start</find>
       <find>start_f</find>
+      <find>und</find>
+      <find>home</find>
+      <find>starttrip</find>
+      <find>background trac</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -189,6 +130,7 @@
       <replace>find(':input</replace>
       <replace>end</replace>
       <replace>commuter_data.</replace>
+      <replace>work</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -240,11 +182,11 @@
         <option value="$PROJECT_DIR$/search.html" />
         <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/commute_log_edit_entry.html" />
-        <option value="$PROJECT_DIR$/js/mbbg_app.js" />
         <option value="$PROJECT_DIR$/js/search.js" />
-        <option value="$PROJECT_DIR$/start_flextime_trip.html" />
         <option value="$PROJECT_DIR$/js/core.js" />
+        <option value="$PROJECT_DIR$/start_flextime_trip.html" />
         <option value="$PROJECT_DIR$/js/start_flextime_trip.js" />
+        <option value="$PROJECT_DIR$/js/mbbg_app.js" />
       </list>
     </option>
   </component>
@@ -272,6 +214,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -303,19 +257,20 @@
             </path>
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
             <path>
-              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="lodash.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -599,11 +554,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="993" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39844617" visible="true" weight="0.19648562" />
-      <window_info id="Structure" order="1" sideWeight="0.60155386" side_tool="true" visible="true" weight="0.19648562" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39543727" visible="true" weight="0.20074548" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.60456276" side_tool="true" visible="true" weight="0.20074548" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5973535" side_tool="true" weight="0.23801917" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
@@ -614,7 +569,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32871014" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4946752" weight="0.43396226" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4946752" visible="true" weight="0.43318966" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Migrations" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32905984" />
@@ -759,13 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="63" column="107" selection-start-line="63" selection-start-column="107" selection-end-line="63" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/lib/lodash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="14420" column="17" selection-start-line="14420" selection-start-column="17" selection-end-line="14420" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -998,6 +946,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="e#1939#1945#0" expanded="true" />
+            <element signature="e#1945#1951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/park_and_ride.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
@@ -1029,49 +995,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
+    <entry file="file://$PROJECT_DIR$/js/lib/lodash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#1939#1945#0" expanded="true" />
-            <element signature="e#1945#1951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/park_and_ride.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="166">
+          <caret line="12016" column="17" selection-start-line="12016" selection-start-column="17" selection-end-line="12016" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
+        <state relative-caret-position="196">
+          <caret line="88" column="174" selection-start-line="88" selection-start-column="174" selection-end-line="88" selection-end-column="174" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="211" column="13" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
+        <state relative-caret-position="353">
+          <caret line="187" column="38" selection-start-line="187" selection-start-column="38" selection-end-line="187" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        <state relative-caret-position="371">
+          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="8" />
         </state>
       </provider>
     </entry>
