@@ -102,7 +102,36 @@ function starttrip() {
 
             bgConfigure(config);
             startTracking();
+            switch_mode('trip_active', config.trip_id);
         },
         '', 'OK');
 }
 
+/**
+ * Switch mode
+ * @param mode 'initial', 'trip_active' //future: 'ready', 'verified'
+ * @param trip_id
+ */
+function switch_mode(mode, trip_id = null) {
+    if (mode === 'trip_active') {
+        $('#trip_active').show();
+        $('#starttrip_form').hide();
+        var trip_verified_poller = function () {
+            $.get(MWCOG_GEO_API, {trip_id: "testtripid123789mike", 'is_end_of_trip': true},
+                (response) => {
+                    if (typeof response === "object" && response.count > 0) {
+here detect trip done
+                    }
+                }, 'json');
+        };
+    } else if (mode === 'initial') {
+        $('#trip_active').hide();
+        $('#starttrip_form').show();
+        $('#travelmode').val(0).trigger('change');
+    }
+}
+
+function stop_logging() {
+    stopTracking();
+    switch_mode('initial');
+}
