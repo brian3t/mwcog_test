@@ -1,4 +1,8 @@
-var user = ls('user');
+window.user = ls('user');
+GEOCODER = new google.maps.Geocoder();
+window.home_addr_obj = new Address();
+window.work_addr_obj = new Address();
+
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -7,12 +11,20 @@ function goto_commute_log() {
     }, 50);
 }
 
+/**
+ * Event handler
+ * Watches for lat lng to be ready
+ */
+function data_availability_watcher(){
+    return home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready();
+}
+
 $(document).ready(function () {
 
     let [home_addr, work_addr] = user_get_home_work();
-    window.home_addr_obj = new Address();
-    home_addr_obj = _.extend(home_addr_obj, home_addr);
+    _.extend(home_addr_obj, home_addr);
     home_addr_obj.trim_data();
+    home_addr_obj.geocode(GEOCODER);
 
 
 //todob debugging
