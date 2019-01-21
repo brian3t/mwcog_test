@@ -324,7 +324,17 @@ function setCurrentLocation(location) {
 }
 
 function onDeviceReady() {
-    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
+    backgroundGeolocation = window.backgroundGeolocation || window.universalGeolocation || window.navigator.geolocation;
+
+    if (backgroundGeolocation.hasOwnProperty('isLocationEnabled')) {
+        backgroundGeolocation.isLocationEnabled((is_enabled) => {
+            if (is_enabled) {
+
+            } else {
+
+            }
+        }, () => console.error(`no idea location enabled`));
+    }
     if (backgroundGeolocation.hasOwnProperty('getLocations')) {
         backgroundGeolocation.getLocations(function (locs) {
             var now = Date.now();
@@ -361,15 +371,6 @@ $(document).on('pageshow', () => {
     });
     //todob debug
     setTimeout(dev, 1000);
-    backgroundGeolocation = window.backgroundGeolocation || window.backgroundGeoLocation || window.universalGeolocation || window.navigator.geolocation;
-
-    backgroundGeolocation.isLocationEnabled((is_enabled) => {
-        if (is_enabled) {
-
-        } else {
-
-        }
-    }, () => console.error(`no idea location enabled`));
 });
 
 //enable developer mode

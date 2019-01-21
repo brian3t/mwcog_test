@@ -2,7 +2,8 @@ window.user = ls('user');
 GEOCODER = new google.maps.Geocoder();
 window.home_addr_obj = new Address();
 window.work_addr_obj = new Address();
-
+window.trip_verified_poller_timeout = -1;
+const TRIP_VERIFIED_POLLER_FREQUENCY = 3000;
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -119,7 +120,7 @@ function trip_verified_poller(trip_id) {
                 app_alert('Congratulations! Your trip has been verified!', ()=>switch_mode('initial'), 'Trip verified');
                 clearTimeout(trip_verified_poller_timeout);
             } else {
-                window.trip_verified_poller_timeout = setTimeout(trip_verified_poller, TRIP_VERIFIED_POP);
+                window.trip_verified_poller_timeout = setTimeout(trip_verified_poller, TRIP_VERIFIED_POLLER_FREQUENCY);
             }
         }, 'json');
 }
@@ -138,7 +139,7 @@ function switch_mode(mode, trip_id = null) {
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
-        clearTimeout(trip_verified_poller_timeout);
+        clearTimeout(window.trip_verified_poller_timeout);
     }
 }
 
