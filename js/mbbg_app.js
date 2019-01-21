@@ -370,7 +370,7 @@ $(document).on('pageshow', () => {
         }
     });
     //todob debug
-    setTimeout(dev, 1000);
+    // setTimeout(dev, 1000);
 });
 
 //enable developer mode
