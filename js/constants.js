@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// var IS_DEBUG = false;
-var IS_DEBUG = true;
+var IS_DEBUG = false;
+// var IS_DEBUG = true;
 var IS_SIMULATE_DEEPLINK = false;
 // var IS_SIMULATE_DEEPLINK = true;
 var USE_MWCOG = false;
