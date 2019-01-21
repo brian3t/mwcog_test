@@ -6,10 +6,7 @@
     <bookmark url="file://$PROJECT_DIR$/config.xml" line="96" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Disable debug mode.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mbbg_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mbbg_app.js" afterDir="false" />
-    </list>
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Disable popup at login page." />
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="373" column="3" lean-forward="true" selection-start-line="373" selection-start-column="3" selection-end-line="373" selection-end-column="3" />
+            <state relative-caret-position="476">
+              <caret line="371" column="17" lean-forward="true" selection-start-line="371" selection-start-column="17" selection-end-line="371" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -595,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548045058358</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Disable popup at login page.">
+      <created>1548047934807</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1548047934807</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -713,7 +717,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Minor javascript fixes. Waiting for flex API to be fixed" />
     <MESSAGE value="Finish UI. Getting ready to upgrade phonegap to 7.1.0" />
     <MESSAGE value="Upgrade phonegap to 7.1.0. Fixed minor issue with Commute Log Calendar button size android" />
     <MESSAGE value="Upgrade phonegap to 7.1.0: fix ios icons" />
@@ -738,7 +741,8 @@
     <MESSAGE value="Minor fixes js." />
     <MESSAGE value="Minor fixes js trip done." />
     <MESSAGE value="Disable debug mode." />
-    <option name="LAST_COMMIT_MESSAGE" value="Disable debug mode." />
+    <MESSAGE value="Disable popup at login page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable popup at login page." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1087,8 +1091,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="373" column="3" lean-forward="true" selection-start-line="373" selection-start-column="3" selection-end-line="373" selection-end-column="3" />
+        <state relative-caret-position="476">
+          <caret line="371" column="17" lean-forward="true" selection-start-line="371" selection-start-column="17" selection-end-line="371" selection-end-column="17" />
         </state>
       </provider>
     </entry>
