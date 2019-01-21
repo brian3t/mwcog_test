@@ -2,7 +2,8 @@ window.user = ls('user');
 GEOCODER = new google.maps.Geocoder();
 window.home_addr_obj = new Address();
 window.work_addr_obj = new Address();
-
+window.trip_verified_poller_timeout = -1;
+const TRIP_VERIFIED_POLLER_FREQUENCY = 3000;
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -108,6 +109,23 @@ function starttrip() {
 }
 
 /**
+ * poller func that polls server for trip. calls itself
+ */
+function trip_verified_poller(trip_id) {
+    $.get(MWCOG_GEO_API, {trip_id: trip_id, 'is_end_of_trip': true},
+        (response) => {
+            if (_.isArray(response) && response.length > 0) {
+                // detect trip done
+                console.log(`trip done`);
+                app_alert('Congratulations! Your trip has been verified!', ()=>switch_mode('initial'), 'Trip verified');
+                clearTimeout(trip_verified_poller_timeout);
+            } else {
+                window.trip_verified_poller_timeout = setTimeout(trip_verified_poller, TRIP_VERIFIED_POLLER_FREQUENCY);
+            }
+        }, 'json');
+}
+
+/**
  * Switch mode
  * @param mode 'initial', 'trip_active' //future: 'ready', 'verified'
  * @param trip_id
@@ -116,18 +134,12 @@ function switch_mode(mode, trip_id = null) {
     if (mode === 'trip_active') {
         $('#trip_active').show();
         $('#starttrip_form').hide();
-        var trip_verified_poller = function () {
-            $.get(MWCOG_GEO_API, {trip_id: "testtripid123789mike", 'is_end_of_trip': true},
-                (response) => {
-                    if (typeof response === "object" && response.count > 0) {
-here detect trip done
-                    }
-                }, 'json');
-        };
+        trip_verified_poller(trip_id);
     } else if (mode === 'initial') {
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
+        clearTimeout(window.trip_verified_poller_timeout);
     }
 }
 
