@@ -120,7 +120,7 @@ function trip_verified_poller(trip_id) {
                 app_alert('Congratulations! Your trip has been verified!', ()=>switch_mode('initial'), 'Trip verified');
                 clearTimeout(trip_verified_poller_timeout);
             } else {
-                window.trip_verified_poller_timeout = setTimeout(trip_verified_poller, TRIP_VERIFIED_POLLER_FREQUENCY);
+                window.trip_verified_poller_timeout = setTimeout(()=>{trip_verified_poller(trip_id)}, TRIP_VERIFIED_POLLER_FREQUENCY);
             }
         }, 'json');
 }
