@@ -41,8 +41,8 @@ var bgOptions = {
     trip_id: 'test1234',
     start_lat: 999998,
     start_lng: 999997,
-    end_lat: 51.5099,//london uk
-    end_lng: 0.1337,//london uk
+    end_lat: 51.51,//london uk
+    end_lng: -0.1337,//london uk
     httpHeaders: {
         'X-FOO': 'bar'
     },
@@ -369,7 +369,7 @@ $(document).on('pageshow', () => {
         }
     });
     //todob debug
-    // setTimeout(dev, 1000);
+    //setTimeout(dev, 1000);
 });
 
 //enable developer mode

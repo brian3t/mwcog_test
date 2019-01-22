@@ -10,4 +10,10 @@ Xcode menu -> Product -> Edit Scheme...
 Environment Variables -> Add -> Name: "OS_ACTIVITY_MODE", Value:"disable"
 Run your app again, done!
 
--
+- remove and add plugin:
+cdv plugin rm cordova-plugin-mediabeef-background-geolocation && cdv plugin add /var/www/mwcog-phonegap-background-geo
+
+2 Currently at the end of the trip you are triggering a popup message inside the app saying "trip completed" -- can you copy that message to be a notification instead so that the user will see it even if their screen is locked?
+3 When you click that notification and/or resume the app:
+ a/you are currently showing the "Trip completed" popup (that's okay - keep this)
+ b/when the user clicks the close button on the popup they are still on the "start flextime trip" page -- can you send them back to the logged-in dashboard instead?
