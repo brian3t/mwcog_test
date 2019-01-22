@@ -43,6 +43,13 @@ document.addEventListener('deviceready', function () {
             $('html').addClass('android');
             break;
     }
+    // acknowledge that user responds to the trip_complete notification. Close popup
+    cordova.plugins.notification.local.on("click", function (notification) {
+        console.log("noti clicked");
+    });
+    // ===================================================
+    // END idle notification monitoring functions
+
 }, false);
 jQuery(document).on("pagechange", function (event) {
     window.MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
@@ -232,3 +239,9 @@ window.first_of_the_day = function () {
     return result;
 };
 
+window.close_all_popups = function(){
+    if (!$('.ui-popup-active').length) return true;
+    $('.ui-popup').popup('close');
+
+
+};

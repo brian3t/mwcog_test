@@ -3,7 +3,7 @@ GEOCODER = new google.maps.Geocoder();
 window.home_addr_obj = new Address();
 window.work_addr_obj = new Address();
 window.trip_verified_poller_timeout = -1;
-const TRIP_VERIFIED_POLLER_FREQUENCY = 3000;
+const TRIP_VERIFIED_POLLER_FREQUENCY = 5000;
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -117,10 +117,10 @@ function trip_verified_poller(trip_id) {
             if (_.isArray(response) && response.length > 0) {
                 // detect trip done
                 console.log(`trip done`);
-                app_alert('Congratulations! Your trip has been verified!', ()=>switch_mode('initial'), 'Trip verified');
+                app_alert('Congratulations! Your trip has been verified!', ()=>{switch_mode('initial'); window.location = 'search.html';}, 'Trip verified');
                 clearTimeout(trip_verified_poller_timeout);
             } else {
-                window.trip_verified_poller_timeout = setTimeout(()=>{trip_verified_poller(trip_id)}, TRIP_VERIFIED_POLLER_FREQUENCY);
+                window.trip_verified_poller_timeout = setTimeout(()=>{trip_verified_poller(trip_id);}, TRIP_VERIFIED_POLLER_FREQUENCY);
             }
         }, 'json');
 }
