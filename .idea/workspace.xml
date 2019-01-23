@@ -352,6 +352,7 @@
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="SearchEverywhereHistoryKey" value="navigate&#9;ACTION&#9;GoToMenu&#10;recent&#9;ACTION&#9;RecentFiles" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www" />
     <property name="project.structure.last.edited" value="Libraries" />
