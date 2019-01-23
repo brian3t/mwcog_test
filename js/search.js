@@ -42,6 +42,31 @@ function goto_commute_log() {
     }, 50);
 }
 
+function goto_start_flextime_trip() {
+    //jQuery.mobile.navigate('/start_flextime_trip.html');
+    setTimeout(function () {
+        window.location.href = "start_flextime_trip.html";
+    }, 50);
+}
+
+function start_flextimetrip() {
+    if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
+    backgroundGeolocation.isLocationEnabled(
+        function (result) {
+            console.log(`isLocationEnabled result: ` + result);
+            if (!result){
+                app_alert('Please go to Settings and allow Commuter Connections to access geolocation', () => {
+                }, '', 'OK');
+            } else {
+                goto_start_flextime_trip();
+            }
+        },
+        function (error) {
+            console.log(`Error finding bg geo is enabled`);
+        }
+    );
+}
+
 function saveCommuterProfile() {
     var idCommuter = window.localStorage.getItem("idCommuter");
     var userName = window.localStorage.getItem("userName");
@@ -146,8 +171,10 @@ $(document).ready(function () {
         $('#endAddress').append(option2);
     });
 
-    $('#startAddress').selectmenu('refresh');
-    $('#endAddress').selectmenu('refresh');
+    setTimeout(() => {
+        $('#startAddress').selectmenu('refresh');
+        $('#endAddress').selectmenu('refresh');
+    }, 2000);
 
     var enrolled = JSON.parse(window.localStorage.getItem("enrolled"));
 
@@ -171,7 +198,7 @@ $(document).ready(function () {
             mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
         }
 
-        $('#flexibility').html(mins_options).selectmenu("refresh");
+        setTimeout(()=>$('#flexibility').html(mins_options).selectmenu("refresh"), 1500);
         if (User.hasOwnProperty('commuter_data') && User.commuter_data.hasOwnProperty('firstName')) {
             $('#first_name').html(_.upperFirst(User.commuter_data.firstName.toLowerCase()));
         }
@@ -197,8 +224,7 @@ $(document).ready(function () {
             latlng = JSON.parse(latlng);
             console.log('latlng: ');
             console.info(latlng);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }
@@ -224,8 +250,7 @@ window.handleOpenURL = function (url) {
     // console.warn(latlng);
     try {
         JSON.parse(latlng);
-    }
-    catch (e) {
+    } catch (e) {
         console.error(e);
         return false;
     }

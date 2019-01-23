@@ -6,7 +6,8 @@
     "moment": true
     ,"$": true,
     "_": false,
-    "military_time_to_moment": true
+    "military_time_to_moment": true,
+    "ls": true
   },
   "laxcomma":true,
   "esversion": 6

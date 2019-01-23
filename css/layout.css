@@ -3172,6 +3172,9 @@ div.ui-select > div {
 .w32 {
   width: 32%; }
 
+.w28 {
+  width: 28%; }
+
 .wauto {
   width: auto; }
 
@@ -3222,6 +3225,10 @@ div.ui-btn.blue {
   font: normal normal normal 22px/1 FontAwesome;
   content: "\f073"; }
 
+.ui-icon-checkbox:after {
+  font: normal normal normal 22px/1 FontAwesome;
+  content: "\f14a"; }
+
 [class*=ui-icon-]:after {
   background-size: contain; }
 
@@ -3245,7 +3252,7 @@ div[data-role="popup"] > a.ui-btn {
   background: transparent !important;
   border: none !important; }
 
-.text_center {
+.text_center, .text-center {
   text-align: center !important; }
 
 .inline_block {

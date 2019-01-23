@@ -9,6 +9,15 @@ var app = {
     count_bg_images: 0,
     cur_bg_image_index: 0,
     bg_loop_id: null,
+    user: {
+        set_commuter_data: function (commuter_data) {
+            this.commuter_data = commuter_data;
+            if (commuter_data.hasOwnProperty('fromAMPM') && commuter_data.hasOwnProperty('fromHRS') && commuter_data.hasOwnProperty('fromMNS')){
+                let from_string = commuter_data.fromAMPM + commuter_data.fromHRS + commuter_data.fromMNS;
+                this.from = moment (from_string,'HmmA').format('HHmmss');
+            }
+        }
+    },
     bg_loop: function () {
         app.cur_bg_image_index = (Math.ceil(Math.random() * (app.count_bg_images - 1)) + (app.cur_bg_image_index - 1)) % app.count_bg_images + 1;
         $('#homepage_bg').prop('src', 'img/bg/' + app.cur_bg_image_index + '.jpg').fadeIn('medium');
@@ -26,13 +35,141 @@ var app = {
     stop_bg_loop: function () {
         window.clearTimeout(app.bg_loop_id);
     },
+    /**
+     * Login. Also tell destination page to show popup based on user's type
+     */
+    login: function (e, destination_page) {
+        if (window.is_login_and_commute_log) {
+            e.preventDefault();
+            console.log('Login check only');
+        }
+        if (typeof destination_page === 'undefined') {
+            destination_page = 'search.html';
+        }
+        //disable the button so we can't resubmit while we wait
+        $("#submitButton", this).prop("disabled", "disabled");
+        var u = $("#username", this).val();
+        var p = $("#password").val();
+        let hashed = false;
+        console.info("Password b4 login: " + p);
+        var rememberMe = $("#remember").prop('checked');
+
+        if (!rememberMe) {//clear everything if not remember
+            window.localStorage.setItem("hashedPassword", "");
+            window.localStorage.setItem("rememberCheckbox", false);
+            window.localStorage.setItem("username", "");
+            $("#password").val("");
+            hashed = false;
+        }
+        showSpinner();
+        if (app.saved_hashedpassword === p) {
+            // p = app.saved_hashedpassword;
+        }
+        else {
+            hashed = false;
+        }
+        if (IS_DEBUG) {
+            u = 'redgar942';//tdm only, type 0
+            // u = 'sfinafroc246';//tdm only, type ??
+            // u = 'fakehemrycc';//mwcog type 0
+            // u = 'jitubats';//mwcog type 1
+            // u = 'cpnowtest';//tdm type 2
+            // u = 'SteveOsborn';//mwcog type 2
+            p = 'changeme4';
+            hashed = false;
+        }
+
+        if (u !== '' && p !== '') {
+            $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
+                // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
+                if (res.statusCode === 1) {
+                    // fix for saving wrong hashed pw
+                    /*if (hashed) {
+                        passwordToSave = p;
+                    } else {
+                        passwordToSave = res.hashedPassword;
+                    }*/
+                    var addresses = res.addresses;
+                    var res_hashed_password = ''; //response's hashed_pw
+                    if (res.hasOwnProperty('hashedPassword')) {
+                        res_hashed_password = res.hashedPassword;
+                    }
+                    window.localStorage.setItem("idCommuter", res.commuter);
+                    window.localStorage.setItem("enrolled", res.enrolled);
+                    window.localStorage.setItem("userName", u);
+                    window.localStorage.setItem("addresses", JSON.stringify(addresses));
+                    window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
+                    window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
+                    if (rememberMe) {
+                        window.localStorage.setItem("rememberCheckbox", true);
+                        window.localStorage.setItem("username", u);
+                        window.localStorage.setItem("hashedPassword", res_hashed_password);
+                        window.localStorage.setItem("password", p);//0407 save plain pw too
+                    }
+                    window.localStorage.setItem("hashedPassword", res_hashed_password);//08/12 quickfix for calendar
+
+                    window.localStorage.setItem("justLoggedIn", 1);
+
+                    //todob debugging
+                    res.is_flex = true;
+                    // res.is_flex = false;
+                    if (res.hasOwnProperty('is_flex'))
+                    {
+                        app.user.is_flex = res.is_flex;
+                    }
+                    if (res.hasOwnProperty('commuter'))
+                    {
+                        app.user.set_commuter_data(res.commuterData);
+                    }
+                    ls.set('user', app.user);
+                    if (!window.is_login_and_commute_log) {
+                        window.location = destination_page;
+                    } else {
+                        window.location = 'commute_log_calendar.html';
+                    }
+                } else {
+                    if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {
+                        hideSpinner();
+                        $('#activate_account_popup').popup('open');
+                        return;
+                    }
+                    else {
+                        hideSpinner();
+                        $("#submitButton").removeAttr("disabled");
+                        navigator.notification.alert(
+                            'You have entered an invalid username and password, please try again', // message
+                            null, // callback
+                            'Invalid Login', // title
+                            'Ok'                  // buttonName
+                        );
+                    }
+                }
+                hideSpinner();
+
+                $("#submitButton").removeAttr("disabled");
+            }, "json").error(
+                function () {
+                    hideSpinner();
+                    $("#submitButton").removeAttr("disabled");
+
+                    navigator.notification.alert(
+                        'An error has occured, please try again.', // message
+                        null, // callback
+                        'Error', // title
+                        'Ok'                  // buttonName
+                    );
+                });
+
+        }
+        return false;
+    },
     // Application Constructor
     initialize: function () {
         var remember_sw = {};
         var remember = window.localStorage.getItem("rememberCheckbox");
         var username = window.localStorage.getItem("username");
         var saved_password = window.localStorage.getItem("password");
-        var saved_hashedpassword = window.localStorage.getItem("hashedPassword");
+        app.saved_hashedpassword = window.localStorage.getItem("hashedPassword");
         var hashed = false;
         var $img_lazy_loader = $('#lazy_loader');
         $.support.cors = true;
@@ -48,118 +185,7 @@ var app = {
         /*
         Login. If successful, go to destination_page, e.g. search.html
          */
-        $("#loginForm").on("submit", function (e, destination_page) {
-            if (window.is_login_and_commute_log) {
-                e.preventDefault();
-                console.log('Login check only');
-            }
-            if (typeof destination_page === 'undefined') {
-                destination_page = 'search.html';
-            }
-            //disable the button so we can't resubmit while we wait
-            $("#submitButton", this).prop("disabled", "disabled");
-            var u = $("#username", this).val();
-            var p = $("#password").val();
-            console.info("Password b4 login: " + p);
-            var rememberMe = $("#remember").prop('checked');
-
-            if (!rememberMe) {//clear everything if not remember
-                window.localStorage.setItem("hashedPassword", "");
-                window.localStorage.setItem("rememberCheckbox", false);
-                window.localStorage.setItem("username", "");
-                $("#password").val("");
-                hashed = false;
-            }
-            showSpinner();
-            if (saved_hashedpassword === p) {
-                // p = saved_hashedpassword;
-            }
-            else {
-                hashed = false;
-            }
-            if (IS_DEBUG) {
-                u = 'redgar942';//tdm only, type 0
-                // u = 'sfinafroc246';//tdm only, type ??
-                // u = 'fakehemrycc';//mwcog type 0
-                // u = 'jitubats';//mwcog type 1
-                // u = 'cpnowtest';//tdm type 2
-                // u = 'SteveOsborn';//mwcog type 2
-                p = 'changeme4';
-                hashed = false;
-            }
-
-            if (u !== '' && p !== '') {
-                $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
-                    // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
-                    if (res.statusCode === 1) {
-                        // fix for saving wrong hashed pw
-                        /*if (hashed) {
-                            passwordToSave = p;
-                        } else {
-                            passwordToSave = res.hashedPassword;
-                        }*/
-                        var addresses = res.addresses;
-                        var res_hashed_password = ''; //response's hashed_pw
-                        if (res.hasOwnProperty('hashedPassword')) {
-                            res_hashed_password = res.hashedPassword;
-                        }
-                        window.localStorage.setItem("idCommuter", res.commuter);
-                        window.localStorage.setItem("enrolled", res.enrolled);
-                        window.localStorage.setItem("userName", u);
-                        window.localStorage.setItem("addresses", JSON.stringify(addresses));
-                        window.localStorage.setItem("commuterData", JSON.stringify(res.commuterData));
-                        window.localStorage.setItem("arriveAfter", res.commuterData.arriveAfter);
-                        if (rememberMe) {
-                            window.localStorage.setItem("rememberCheckbox", true);
-                            window.localStorage.setItem("username", u);
-                            window.localStorage.setItem("hashedPassword", res_hashed_password);
-                            window.localStorage.setItem("password", p);//0407 save plain pw too
-                        }
-                        window.localStorage.setItem("hashedPassword", res_hashed_password);//08/12 quickfix for calendar
-
-                        window.localStorage.setItem("justLoggedIn", 1);
-                        if (!window.is_login_and_commute_log) {
-                            window.location = destination_page;
-                        } else {
-                            window.location = 'commute_log_calendar.html';
-                        }
-
-                    } else {
-                        if (res.statusCode === 0 && res.statusDescription === 'This account has not yet been activated.') {
-                            hideSpinner();
-                            $('#activate_account_popup').popup('open');
-                            return;
-                        }
-                        else {
-                            hideSpinner();
-                            $("#submitButton").removeAttr("disabled");
-                            navigator.notification.alert(
-                                'You have entered an invalid username and password, please try again', // message
-                                null, // callback
-                                'Invalid Login', // title
-                                'Ok'                  // buttonName
-                            );
-                        }
-                    }
-                    hideSpinner();
-
-                    $("#submitButton").removeAttr("disabled");
-                }, "json").error(
-                    function () {
-                        hideSpinner();
-                        $("#submitButton").removeAttr("disabled");
-
-                        navigator.notification.alert(
-                            'An error has occured, please try again.', // message
-                            null, // callback
-                            'Error', // title
-                            'Ok'                  // buttonName
-                        );
-                    });
-
-            }
-            return false;
-        });
+        $("#loginForm").on("submit", app.login);
         //get background images ready
         //find out how many images are there in bg folder
         for (var i = 1; i <= MAX_IMAGES_IN_BG; i++) {
