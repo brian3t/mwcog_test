@@ -17,13 +17,6 @@ document.addEventListener('deviceready', function () {
     if (window.width < 768 || window.height < 768) {
         window.screen.lockOrientation('portrait');
     }
-    //try {
-    //     // StatusBar.overlaysWebView(false);
-    //     // StatusBar.backgroundColorByHexString('#8199af');
-    //     StatusBar.show();
-    //} catch (e) {
-    //    console.error("Error " + e);
-    //}
     if (typeof device !== "undefined" && device.platform === 'Android') {
         $(':input[type!=submit]').on('focus', function (e) {
                 $('body').addClass('offset_input');
@@ -44,9 +37,11 @@ document.addEventListener('deviceready', function () {
             break;
     }
     // acknowledge that user responds to the trip_complete notification. Close popup
-    cordova.plugins.notification.local.on("click", function (notification) {
-        console.log("noti clicked");
-    });
+    if (typeof cordova === "object") {
+        cordova.plugins.notification.local.on("click", function (notification) {
+            console.log("noti clicked");
+        });
+    }
     // ===================================================
     // END idle notification monitoring functions
 
