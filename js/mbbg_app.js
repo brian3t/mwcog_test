@@ -345,8 +345,6 @@ function onDeviceReady() {
             });
         });
     }
-    // myApp.init();
-    //todob debug
 }
 
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -369,7 +367,7 @@ $(document).on('pageshow', () => {
         }
     });
     //todob debug
-    //setTimeout(dev, 1000);
+    setTimeout(dev, 1000);
 });
 
 //enable developer mode
