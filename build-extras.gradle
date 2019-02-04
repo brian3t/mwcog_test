@@ -1,0 +1,7 @@
+ext.postBuildExtras = {
+    android {
+        lintOptions {
+            disable 'RestrictedApi'
+          }
+    }
+}

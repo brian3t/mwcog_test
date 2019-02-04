@@ -17,3 +17,14 @@ cdv plugin rm cordova-plugin-mediabeef-background-geolocation && cdv plugin add 
 3 When you click that notification and/or resume the app:
  a/you are currently showing the "Trip completed" popup (that's okay - keep this)
  b/when the user clicks the close button on the popup they are still on the "start flextime trip" page -- can you send them back to the logged-in dashboard instead?
+
+
+- to fix timeutils:
+put this inside build.gradle ext:
+    postBuildExtras = {
+        android {
+            lintOptions {
+                disable 'RestrictedApi'
+            }
+        }
+    }
