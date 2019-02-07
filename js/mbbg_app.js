@@ -197,6 +197,7 @@ function bgConfigure(config) {
 }
 
 function startTracking() {
+    here make sure plugin is there
     if (typeof plugins === "object" && plugins.hasOwnProperty('appMinimize') && typeof plugins.appMinimize === "object" && plugins.appMinimize.hasOwnProperty('minimize')) {
         plugins.appMinimize.minimize();
     }
