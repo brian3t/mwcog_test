@@ -354,7 +354,8 @@ if (isInWeb) {
         configure: () => {
         },
         isLocationEnabled: () => {
-        }
+        },
+        getIsEndOfTrip: ()=>{},
     };
     onDeviceReady();
 }
@@ -366,8 +367,8 @@ $(document).on('pageshow', () => {
             $('#bgapp').css('max-height', maxHeight + 'px');
         }
     });
-    //todob debug
-    setTimeout(dev, 1000);
+    //debug
+    // setTimeout(dev, 1000);
 });
 
 //enable developer mode

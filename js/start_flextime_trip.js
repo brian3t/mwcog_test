@@ -3,7 +3,15 @@ GEOCODER = new google.maps.Geocoder();
 window.home_addr_obj = new Address();
 window.work_addr_obj = new Address();
 window.trip_verified_poller_timeout = -1;
+window.trip_verified_poller_plugin_timeout = -1;
 const TRIP_VERIFIED_POLLER_FREQUENCY = 5000;
+const TRIP_VERIFIED_PLUGIN_POLLER_FREQUENCY = 3000;
+
+$(window).on("navigate", function (event, data) {
+    console.log(data.state.trip_done_plugin_confirmed);
+    console.log(data.state.direction);
+    console.log(data.state.url);
+});
 
 function goto_commute_log() {
     //jQuery.mobile.navigate('/commute_log_calendar.html');
@@ -117,13 +125,35 @@ function trip_verified_poller(trip_id) {
             if (_.isArray(response) && response.length > 0) {
                 // detect trip done
                 console.log(`trip done`);
-                app_alert('Congratulations! Your trip has been verified!', ()=>{switch_mode('initial'); window.location = 'search.html';}, 'Trip verified');
+                app_alert('Congratulations! Your trip has been verified!', () => {
+                    switch_mode('initial');
+                    window.location = 'search.html';
+                }, 'Trip verified');
                 clearTimeout(trip_verified_poller_timeout);
             } else {
-                window.trip_verified_poller_timeout = setTimeout(()=>{trip_verified_poller(trip_id);}, TRIP_VERIFIED_POLLER_FREQUENCY);
+                window.trip_verified_poller_timeout = setTimeout(() => {
+                    trip_verified_poller(trip_id);
+                }, TRIP_VERIFIED_POLLER_FREQUENCY);
             }
         }, 'json');
 }
+
+/**
+ * poller func that polls server for trip. calls itself
+ */
+function trip_verified_plugin_poller() {
+    backgroundGeolocation.getIsEndOfTrip((response) => {
+        if (response.hasOwnProperty('is_end_of_trip') && response.is_end_of_trip === true) {
+            console.log(`trip done - plugin confirmed`);
+            clearTimeout(trip_verified_poller_plugin_timeout);
+        } else {
+            window.trip_verified_poller_plugin_timeout = setTimeout(() => {
+                trip_verified_plugin_poller();
+            }, TRIP_VERIFIED_PLUGIN_POLLER_FREQUENCY);
+        }
+    });
+}
+
 
 /**
  * Switch mode
@@ -135,11 +165,13 @@ function switch_mode(mode, trip_id = null) {
         $('#trip_active').show();
         $('#starttrip_form').hide();
         trip_verified_poller(trip_id);
+        trip_verified_plugin_poller();
     } else if (mode === 'initial') {
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
         clearTimeout(window.trip_verified_poller_timeout);
+        clearTimeout(window.trip_verified_poller_plugin_timeout);
     }
 }
 

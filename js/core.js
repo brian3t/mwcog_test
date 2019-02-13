@@ -45,6 +45,18 @@ document.addEventListener('deviceready', function () {
     // ===================================================
     // END idle notification monitoring functions
 
+    //detect if app was launched via BG notification
+    if (typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('getIsEndOfTrip') && typeof backgroundGeolocation.getIsEndOfTrip === 'function')
+    {
+        backgroundGeolocation.getIsEndOfTrip((response)=>{
+            if (response.hasOwnProperty('is_end_of_trip') && response.is_end_of_trip === true) {
+                console.log(`trip done - plugin confirmed`);
+                ls('is_end_of_trip_plugin_confirmed', true);
+                window.location.href = 'start_flextime_trip.html';
+            }
+        });
+    }
+
 }, false);
 jQuery(document).on("pagechange", function (event) {
     window.MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
@@ -119,7 +131,7 @@ function user_get_home_work(address = null) {
         return [null, null];
     }*/
     let addresses = ls('addresses');
-    if (typeof addresses !== "object") return [null, null];
+    if (addresses === undefined || typeof addresses !== "object") return [null, null];
     let home_addr = addresses.find((address) => address.addrType === 'HOME');
     let work_addr = addresses.find((address) => address.addrType === 'WORK');
     return [home_addr, work_addr];
