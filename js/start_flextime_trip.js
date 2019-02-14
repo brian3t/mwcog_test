@@ -36,7 +36,11 @@ function data_availability_watcher() {
 }
 
 $(document).ready(function () {
-
+    let is_end_of_trip = ls('is_end_of_trip');
+    if (is_end_of_trip === true){
+        alert('you came here because trip verified');
+        ls('is_end_of_trip', false);//todob do this in 2 more places
+    }
     let [home_addr, work_addr] = user_get_home_work();
     _.extend(home_addr_obj, home_addr);
     home_addr_obj.trim_data();

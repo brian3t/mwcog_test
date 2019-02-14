@@ -3513,4 +3513,10 @@ button.ui-btn.theme_b_blue {
   background-color: #193564;
   color: white; }
 
+@media (min-width: 28em) {
+  .ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {
+    float: inherit;
+    width: 100%;
+    margin: inherit; } }
+
 /*# sourceMappingURL=layout.css.map */
