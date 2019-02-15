@@ -36,11 +36,6 @@ function data_availability_watcher() {
 }
 
 $(document).ready(function () {
-    let is_end_of_trip = ls('is_end_of_trip');
-    if (is_end_of_trip === true){
-        alert('you came here because trip verified');
-        ls('is_end_of_trip', false);//todob do this in 2 more places
-    }
     let [home_addr, work_addr] = user_get_home_work();
     _.extend(home_addr_obj, home_addr);
     home_addr_obj.trim_data();
@@ -86,6 +81,14 @@ $(document).ready(function () {
     } else {
         $('#destination').val(101).trigger('change');//HOME
     }
+    document.addEventListener('deviceready', function () {
+        let is_end_of_trip_plugin_confirmed = ls('is_end_of_trip_plugin_confirmed');
+        if (is_end_of_trip_plugin_confirmed === true) {
+            app_toast('Your flextime trip has been verified. Thank you. ');
+            ls('is_end_of_trip_plugin_confirmed', false);
+            switch_mode('initial');
+        }
+    });
 });
 
 /**
@@ -176,7 +179,11 @@ function switch_mode(mode, trip_id = null) {
         $('#travelmode').val(0).trigger('change');
         clearTimeout(window.trip_verified_poller_timeout);
         clearTimeout(window.trip_verified_poller_plugin_timeout);
+        if (typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('resetIsEndOfTrip') && typeof backgroundGeolocation.resetIsEndOfTrip === 'function') {
+            backgroundGeolocation.resetIsEndOfTrip();
+        }
     }
+    ls('app_status', 'start_flextime_trip_' + mode);
 }
 
 function stop_logging() {

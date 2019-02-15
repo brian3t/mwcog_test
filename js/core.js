@@ -46,7 +46,9 @@ document.addEventListener('deviceready', function () {
     // END idle notification monitoring functions
 
     //detect if app was launched via BG notification
-    if (typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('getIsEndOfTrip') && typeof backgroundGeolocation.getIsEndOfTrip === 'function')
+    var app_status = ls('app_status');
+    if (app_status === 'start_flextime_trip_trip_active' && //we have BG plugin trying to verify trip. Let's check whether it completed..
+        typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('getIsEndOfTrip') && typeof backgroundGeolocation.getIsEndOfTrip === 'function')
     {
         backgroundGeolocation.getIsEndOfTrip((response)=>{
             if (response.hasOwnProperty('is_end_of_trip') && response.is_end_of_trip === true) {
@@ -131,7 +133,7 @@ function user_get_home_work(address = null) {
         return [null, null];
     }*/
     let addresses = ls('addresses');
-    if (addresses === undefined || typeof addresses !== "object") return [null, null];
+    if (addresses === undefined || typeof addresses !== "object" || addresses === null) return [null, null];
     let home_addr = addresses.find((address) => address.addrType === 'HOME');
     let work_addr = addresses.find((address) => address.addrType === 'WORK');
     return [home_addr, work_addr];
