@@ -254,3 +254,10 @@ window.close_all_popups = function(){
 
 
 };
+
+window.goto_search = function() {
+    //jQuery.mobile.navigate('search.html');
+    setTimeout(function () {
+        window.location.href = "search.html";
+    }, 500);
+};

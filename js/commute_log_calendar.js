@@ -39,13 +39,6 @@ function triggerDialogClose() {
     $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
 }
 
-function goto_search() {
-    //jQuery.mobile.navigate('search.html');
-    setTimeout(function () {
-        window.location.href = "search.html";
-    }, 500);
-}
-
 function add_button_to_calendar() {
     if (typeof User === "undefined" || !User) {
         return false;

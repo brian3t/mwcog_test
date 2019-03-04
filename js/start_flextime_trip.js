@@ -96,7 +96,7 @@ $(document).ready(function () {
  */
 function starttrip() {
     app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
-        'if your device remains turned on with geolocation services active',
+        '. If your device remains turned on with geolocation services active',
         () => {
             let config = bgOptions;
             let today = moment();
