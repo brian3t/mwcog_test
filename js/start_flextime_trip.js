@@ -94,7 +94,10 @@ $(document).ready(function () {
 /**
  * Start bg
  */
-function starttrip() {
+function starttrip(e) {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    e.preventDefault();
     app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
         '. If your device remains turned on with geolocation services active',
         () => {

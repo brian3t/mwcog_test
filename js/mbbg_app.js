@@ -367,7 +367,7 @@ $(document).on('pageshow', () => {
             $('#bgapp').css('max-height', maxHeight + 'px');
         }
     });
-    //debug
+    //todo debug
     // setTimeout(dev, 1000);
 });
 
