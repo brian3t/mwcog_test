@@ -50,6 +50,9 @@ function goto_start_flextime_trip() {
 }
 
 function start_flextimetrip() {
+    if (isInWeb){
+        return goto_start_flextime_trip();
+    }
     if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
     backgroundGeolocation.isLocationEnabled(
         function (result) {

@@ -1,4 +1,5 @@
-const MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
+// const MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
+const MWCOG_GEO_API = 'http://mwcapi/v1/geolocation';
 var map,
     previousLocation,
     locationMarkers = [],
