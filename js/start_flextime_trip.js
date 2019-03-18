@@ -25,7 +25,8 @@ function goto_commute_log() {
  * Watches for lat lng to be ready
  */
 function data_availability_watcher() {
-    let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0";
+    let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0" &&
+        !home_addr_obj.is_close_to_current_geo() && !home_addr_obj.is_close_to_current_geo();
     if (all_ready) {
         $('#starttrip_btn').removeAttr('disabled');
     } else {
@@ -36,6 +37,8 @@ function data_availability_watcher() {
 }
 
 $(document).ready(function () {
+    //start polling for current_address
+    start_heartbeat();
     let [home_addr, work_addr] = user_get_home_work();
     _.extend(home_addr_obj, home_addr);
     home_addr_obj.trim_data();

@@ -1,5 +1,3 @@
-// const MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
-const MWCOG_GEO_API = 'http://mwcapi/v1/geolocation';
 var map,
     previousLocation,
     locationMarkers = [],
@@ -368,8 +366,9 @@ $(document).on('pageshow', () => {
             $('#bgapp').css('max-height', maxHeight + 'px');
         }
     });
-    //todo debug
-    // setTimeout(dev, 1000);
+    if (IS_LOCAL && IS_LOCAL === true && IS_DEBUG && IS_DEBUG === true && IS_SHOW_BG_POPUP && IS_SHOW_BG_POPUP === true) {
+        setTimeout(dev, 1000);
+    }
 });
 
 //enable developer mode

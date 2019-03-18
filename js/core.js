@@ -1,4 +1,6 @@
 isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
+var cur_pos = {};
+var heartbeat = {interval: -1};
 var C = {
     TYPE_GENERAL: 0,
     TYPE_CIP: 1,
@@ -218,7 +220,9 @@ var Address = Model.extend({
     is_latlng_ready: function(){
         return _.isNumber(this.lat) && _.isNumber(this.lng);
     },
-
+    is_close_to_current_geo: function(){
+        $result = false;
+    },
     addrCity: null,
     addrLocation: null,
     addrState: null,
@@ -238,6 +242,9 @@ var Address = Model.extend({
  */
 window.first_of_the_day = function () {
     let result = false;
+    if (typeof user !== "object" || user === null){
+        return false;
+    }
     if (user.hasOwnProperty('from')) {
         let from = moment(user.from, 'HHmmss');
         let today_minus1h = moment().subtract(1, 'hour');
@@ -260,4 +267,31 @@ window.goto_search = function() {
     setTimeout(function () {
         window.location.href = "search.html";
     }, 500);
+};
+
+window.geolocation = {
+    onSuccess: function (position) {
+        let extra_param = {};
+        let current_pos = position.coords;
+        //save it to cur pos. Save lat lng to cur_user and publish to API
+        if (_.isObject(cur_pos)) {
+            cur_pos = {lat: current_pos.latitude, lng: current_pos.longitude};
+        }
+    },
+// onError Callback receives a PositionError object
+//
+    onError: function (error) {
+        console.error('Navigator Geolocation Error Code: ' + error.code + '\n' + 'Message: ' + error.message + '\n');
+    }
+};
+window.start_heartbeat = function () {
+    navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError);
+    heartbeat.interval = setInterval(function () {
+        //get current pos
+        navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError);
+    }, HEARTBEAT_INTERVAL);
+};
+window.stop_heartbeat = function () {
+    clearInterval(heartbeat.interval);
+    heartbeat.interval = -1;
 };
