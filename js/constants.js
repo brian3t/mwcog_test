@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// var IS_DEBUG = false;
-var IS_DEBUG = true;
+var IS_DEBUG = false;
+// var IS_DEBUG = true;
 var IS_SIMULATE_DEEPLINK = false;
 // var IS_SIMULATE_DEEPLINK = true;
 var USE_MWCOG = false;
@@ -14,8 +14,8 @@ var IS_LOCAL = (window.location.host.indexOf('mwcog') !== -1);
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
-// var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
-var IS_SHOW_BG_POPUP = true;
+var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
+// var IS_SHOW_BG_POPUP = true;
 
 if (IS_LOCAL){
     // USE_MWCOG = true;
