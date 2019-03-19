@@ -107,7 +107,10 @@ app_alert = function (message, alertCallback, title, buttonName) {
 app_confirm = function (message, callback, title) {
     if (isInWeb) {
         var response = confirm(message);
-        callback(response);
+        if (response && (response === true || response === 1))
+        {
+            callback(response);
+        }
 
     } else {
         if (app.is_notification_active) {

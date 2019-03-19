@@ -201,6 +201,8 @@ function switch_mode(mode, trip_id = null) {
 }
 
 function stop_logging() {
-    stopTracking();
-    switch_mode('initial');
+    app_confirm('Are you sure you want to stop logging this trip?', () => {
+        stopTracking();
+        switch_mode('initial');
+    }, 'Stop Logging Flextime Trip');
 }
