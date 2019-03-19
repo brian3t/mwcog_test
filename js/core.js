@@ -1,5 +1,6 @@
 isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
 var cur_pos = {};
+const GEOLOCATION_THRESHOLD = 1e-8;
 var heartbeat = {interval: -1};
 var C = {
     TYPE_GENERAL: 0,
@@ -220,8 +221,16 @@ var Address = Model.extend({
     is_latlng_ready: function(){
         return _.isNumber(this.lat) && _.isNumber(this.lng);
     },
+    /**
+     * determines whether $this is close to current pos (cur_pos is polled by heartbeat)
+     * @returns {boolean}
+     */
     is_close_to_current_geo: function(){
-        $result = false;
+        if (typeof cur_pos !== "object" || (! cur_pos.hasOwnProperty('lat'))){
+            return false;
+        }
+        let result = Math.abs((this.lat - cur_pos.lat) * (this.lng - cur_pos.lng)) < GEOLOCATION_THRESHOLD;
+        return result;
     },
     addrCity: null,
     addrLocation: null,

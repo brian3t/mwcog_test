@@ -6,6 +6,8 @@ window.trip_verified_poller_timeout = -1;
 window.trip_verified_poller_plugin_timeout = -1;
 const TRIP_VERIFIED_POLLER_FREQUENCY = 5000;
 const TRIP_VERIFIED_PLUGIN_POLLER_FREQUENCY = 3000;
+const DEST_HOME = 101;
+const DEST_WORK = 102;
 
 $(window).on("navigate", function (event, data) {
     console.log(data.state.trip_done_plugin_confirmed);
@@ -25,8 +27,14 @@ function goto_commute_log() {
  * Watches for lat lng to be ready
  */
 function data_availability_watcher() {
-    let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0" &&
-        !home_addr_obj.is_close_to_current_geo() && !home_addr_obj.is_close_to_current_geo();
+    let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0";
+    let selected_dest = parseInt($('#destination').val());
+    if (selected_dest === DEST_HOME) {
+        all_ready = all_ready && (!home_addr_obj.is_close_to_current_geo());
+    }
+    if (selected_dest === DEST_WORK) {
+        all_ready = all_ready && (!work_addr_obj.is_close_to_current_geo());
+    }
     if (all_ready) {
         $('#starttrip_btn').removeAttr('disabled');
     } else {

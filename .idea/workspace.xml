@@ -9,11 +9,9 @@
     <bookmark url="file://$PROJECT_DIR$/commute_log_calendar.html" line="113" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="- Prevent user from starting a trip if your selected destination is too close.......">
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="- Prevent user from starting a trip if your selected destination is too close....DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/mbbg_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/mbbg_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/start_flextime_trip.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start_flextime_trip.js" afterDir="false" />
     </list>
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
@@ -29,41 +27,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="677">
+              <caret line="223" column="7" lean-forward="true" selection-start-line="223" selection-start-column="7" selection-end-line="223" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/core.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="248" column="47" lean-forward="true" selection-start-line="248" selection-start-column="47" selection-end-line="248" selection-end-column="47" />
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/flex_common.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+            <state relative-caret-position="578">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -71,12 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -107,6 +85,15 @@
               <folding>
                 <element signature="n#form#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -226,11 +213,11 @@
         <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
         <option value="$PROJECT_DIR$/js/commute_log.js" />
         <option value="$PROJECT_DIR$/commute_log_calendar.html" />
-        <option value="$PROJECT_DIR$/start_flextime_trip.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/mbbg_app.js" />
         <option value="$PROJECT_DIR$/js/constants.js" />
+        <option value="$PROJECT_DIR$/start_flextime_trip.html" />
         <option value="$PROJECT_DIR$/js/start_flextime_trip.js" />
         <option value="$PROJECT_DIR$/js/core.js" />
       </list>
@@ -260,17 +247,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,7 +268,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +290,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -555,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552943319977</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="- Revert debug mode to false&#10;&#10;- Prevent user from starting a trip if your selected destination is too close.......">
+      <created>1552965841892</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1552965841892</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -568,10 +562,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
+    <frame x="-3" y="-1" width="2566" height="1423" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.38254312" visible="true" weight="0.2257721" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.6174569" side_tool="true" visible="true" weight="0.2257721" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.38" visible="true" weight="0.16560763" />
+      <window_info id="Structure" order="1" sideWeight="0.62" side_tool="true" visible="true" weight="0.16560763" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
@@ -586,7 +580,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Migrations" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32846153" />
       <window_info active="true" anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32799146" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -655,7 +649,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Trying to fix change month bug." />
     <MESSAGE value="Trying to fix change month bug. Upgrade fullcalendar to 3.9" />
     <MESSAGE value="Weinre debugging. Fix other month." />
     <MESSAGE value="Fix text align webkit." />
@@ -679,7 +672,9 @@
     <MESSAGE value="add appminimize" />
     <MESSAGE value="Fix submit button start flx trip" />
     <MESSAGE value="- Prevent user from starting a trip if your selected destination is too close......." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Prevent user from starting a trip if your selected destination is too close......." />
+    <MESSAGE value="- Revert debug mode to false&#10;&#10;- Prevent user from starting a trip if your selected destination is too close......." />
+    <MESSAGE value="- Prevent user from starting a trip if your selected destination is too close....DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Prevent user from starting a trip if your selected destination is too close....DONE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -891,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1965">
@@ -922,6 +910,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/mbbg_app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5475">
@@ -933,16 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
-          <folding>
-            <element signature="n#form#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,35 +952,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/constants.js">
+    <entry file="file://$PROJECT_DIR$/js/flex_common.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="330">
+          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#form#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
+    <entry file="file://$PROJECT_DIR$/start_flextime_trip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+        <state relative-caret-position="600">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="578">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="248" column="47" lean-forward="true" selection-start-line="248" selection-start-column="47" selection-end-line="248" selection-end-column="47" />
+        <state relative-caret-position="677">
+          <caret line="223" column="7" lean-forward="true" selection-start-line="223" selection-start-column="7" selection-end-line="223" selection-end-column="7" />
         </state>
       </provider>
     </entry>
