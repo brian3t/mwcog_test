@@ -9,11 +9,7 @@
     <bookmark url="file://$PROJECT_DIR$/commute_log_calendar.html" line="113" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="- Prevent user from starting a trip if your selected destination is too close....DONE">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/start_flextime_trip.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start_flextime_trip.js" afterDir="false" />
-    </list>
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="- Prevent user from starting a trip if your selected destination is too close....DONE&#10;&#10;- add extra confirmation dialog when click on Stop logging trip" />
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="111" column="12" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="12" />
+            <state relative-caret-position="551">
+              <caret line="114" column="12" lean-forward="true" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -127,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showToast</find>
       <find>device</find>
       <find>sound</find>
       <find>getScheduledIds</find>
@@ -157,6 +152,7 @@
       <find>travelmode</find>
       <find>startAddress</find>
       <find>current_pos</find>
+      <find>stop_logging</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -556,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552968851340</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="- Prevent user from starting a trip if your selected destination is too close....DONE&#10;&#10;- add extra confirmation dialog when click on Stop logging trip">
+      <created>1552969172025</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1552969172025</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -569,11 +572,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-1" width="2566" height="1423" extended-state="6" />
+    <frame x="-3" y="-1" width="1926" height="1063" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.38" visible="true" weight="0.16560763" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.62" side_tool="true" visible="true" weight="0.16560763" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37978724" visible="true" weight="0.22204472" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.6202128" side_tool="true" visible="true" weight="0.22204472" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
@@ -657,7 +660,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Trying to fix change month bug. Upgrade fullcalendar to 3.9" />
     <MESSAGE value="Weinre debugging. Fix other month." />
     <MESSAGE value="Fix text align webkit." />
     <MESSAGE value="Testing android/ios mobile detect." />
@@ -682,7 +684,8 @@
     <MESSAGE value="- Prevent user from starting a trip if your selected destination is too close......." />
     <MESSAGE value="- Revert debug mode to false&#10;&#10;- Prevent user from starting a trip if your selected destination is too close......." />
     <MESSAGE value="- Prevent user from starting a trip if your selected destination is too close....DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Prevent user from starting a trip if your selected destination is too close....DONE" />
+    <MESSAGE value="- Prevent user from starting a trip if your selected destination is too close....DONE&#10;&#10;- add extra confirmation dialog when click on Stop logging trip" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Prevent user from starting a trip if your selected destination is too close....DONE&#10;&#10;- add extra confirmation dialog when click on Stop logging trip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -989,8 +992,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="111" column="12" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="12" />
+        <state relative-caret-position="551">
+          <caret line="114" column="12" lean-forward="true" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
         </state>
       </provider>
     </entry>
