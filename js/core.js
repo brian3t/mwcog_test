@@ -10,6 +10,7 @@ var C = {
     TYPE_FLEX: 4
 };
 var User = User || {};
+var app = app || {};
 try {
     User.commuter_data = JSON.parse(window.localStorage.getItem('commuterData'));
 } catch (e) {
@@ -51,9 +52,8 @@ document.addEventListener('deviceready', function () {
     //detect if app was launched via BG notification
     var app_status = ls('app_status');
     if (app_status === 'start_flextime_trip_trip_active' && //we have BG plugin trying to verify trip. Let's check whether it completed..
-        typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('getIsEndOfTrip') && typeof backgroundGeolocation.getIsEndOfTrip === 'function')
-    {
-        backgroundGeolocation.getIsEndOfTrip((response)=>{
+        typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('getIsEndOfTrip') && typeof backgroundGeolocation.getIsEndOfTrip === 'function') {
+        backgroundGeolocation.getIsEndOfTrip((response) => {
             if (response.hasOwnProperty('is_end_of_trip') && response.is_end_of_trip === true) {
                 console.log(`trip done - plugin confirmed`);
                 ls('is_end_of_trip_plugin_confirmed', true);
@@ -105,19 +105,24 @@ app_alert = function (message, alertCallback, title, buttonName) {
     }
 };
 app_confirm = function (message, callback, title) {
+    if (app.is_notification_active) {
+        return true;
+    }
     if (isInWeb) {
-        var response = confirm(message);
-        if (response && (response === true || response === 1))
-        {
+        app.is_notification_active = true;
+        let response = confirm(message);
+        app.is_notification_active = false;
+        if (response && (response === true || response === 1)) {
             callback(response);
         }
-
-    } else {
-        if (app.is_notification_active) {
-            return true;
-        }
+    } else {//for app
         app.is_notification_active = true;
-        navigator.notification.confirm(message, callback, title, ["Yes", "No"]);
+        navigator.notification.confirm(message, (button_pressed) => {
+            app.is_notification_active = false;
+            let response = (button_pressed === 1);//1 is Yes, 2 is No
+            console.log(`button: ${button_pressed}`);
+            callback(response);
+        }, title, ["Yes", "No"]);
     }
 };
 app_toast = function (message) {
@@ -200,7 +205,7 @@ var Address = Model.extend({
     initialize: function () {
 
     },
-    geocode: function(geocoder){
+    geocode: function (geocoder) {
         geocoder.geocode({address: this.pull_full_address()}, (result) => {
             result = result.pop();
             if (typeof result !== "object" || !result.hasOwnProperty('geometry')) return;
@@ -221,15 +226,15 @@ var Address = Model.extend({
     pull_full_address: function () {
         return this.addrStreet1 + ' ' + this.addrStreet2 + ', ' + this.addrSuite + ', ' + this.addrCity + ', ' + this.addrState + ' ' + this.addrZip;
     },
-    is_latlng_ready: function(){
+    is_latlng_ready: function () {
         return _.isNumber(this.lat) && _.isNumber(this.lng);
     },
     /**
      * determines whether $this is close to current pos (cur_pos is polled by heartbeat)
      * @returns {boolean}
      */
-    is_close_to_current_geo: function(){
-        if (typeof cur_pos !== "object" || (! cur_pos.hasOwnProperty('lat'))){
+    is_close_to_current_geo: function () {
+        if (typeof cur_pos !== "object" || (!cur_pos.hasOwnProperty('lat'))) {
             return false;
         }
         let result = Math.abs((this.lat - cur_pos.lat) * (this.lng - cur_pos.lng)) < GEOLOCATION_THRESHOLD;
@@ -254,7 +259,7 @@ var Address = Model.extend({
  */
 window.first_of_the_day = function () {
     let result = false;
-    if (typeof user !== "object" || user === null){
+    if (typeof user !== "object" || user === null) {
         return false;
     }
     if (user.hasOwnProperty('from')) {
@@ -267,14 +272,14 @@ window.first_of_the_day = function () {
     return result;
 };
 
-window.close_all_popups = function(){
+window.close_all_popups = function () {
     if (!$('.ui-popup-active').length) return true;
     $('.ui-popup').popup('close');
 
 
 };
 
-window.goto_search = function() {
+window.goto_search = function () {
     //jQuery.mobile.navigate('search.html');
     setTimeout(function () {
         window.location.href = "search.html";

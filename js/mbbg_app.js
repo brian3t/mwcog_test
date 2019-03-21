@@ -366,7 +366,7 @@ $(document).on('pageshow', () => {
             $('#bgapp').css('max-height', maxHeight + 'px');
         }
     });
-    if (IS_LOCAL && IS_LOCAL === true && IS_DEBUG && IS_DEBUG === true && IS_SHOW_BG_POPUP && IS_SHOW_BG_POPUP === true) {
+    if (IS_DEBUG && IS_DEBUG === true && IS_SHOW_BG_POPUP && IS_SHOW_BG_POPUP === true) {
         setTimeout(dev, 1000);
     }
 });
