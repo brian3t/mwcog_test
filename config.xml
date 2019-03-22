@@ -164,4 +164,5 @@
         <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.6" />
 </widget>
