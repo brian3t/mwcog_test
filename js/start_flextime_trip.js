@@ -6,6 +6,7 @@ window.trip_verified_poller_timeout = -1;
 window.trip_verified_poller_plugin_timeout = -1;
 const TRIP_VERIFIED_POLLER_FREQUENCY = 5000;
 const TRIP_VERIFIED_PLUGIN_POLLER_FREQUENCY = 3000;
+const SERVICE_RUNNING_PLUGIN_POLLER_FREQUENCY = 300000;
 const DEST_HOME = 101;
 const DEST_WORK = 102;
 
@@ -175,6 +176,25 @@ function trip_verified_plugin_poller() {
     });
 }
 
+/**
+ * poller func that polls plugin to see if bg process is running
+ */
+function service_running_plugin_poller() {
+    backgroundGeolocation.getIsServiceRunning((response) => {
+        if (typeof response !== 'undefined' && response !== null && response.length === 1 && response.pop()) {
+            console.log(`bg process stopped - probably timeout reached`);
+            app_alert('Trip logging has ended', () => {
+                switch_mode('initial');
+                window.location = 'search.html';
+            }, 'Trip logging ended');
+            clearTimeout(service_running_plugin_poller_timeout);
+        } else {
+            window.service_running_plugin_poller_timeout = setTimeout(() => {
+                service_running_plugin_poller();
+            }, SERVICE_RUNNING_PLUGIN_POLLER_FREQUENCY);
+        }
+    });
+}
 
 /**
  * Switch mode
@@ -187,12 +207,14 @@ function switch_mode(mode, trip_id = null) {
         $('#starttrip_form').hide();
         trip_verified_poller(trip_id);
         trip_verified_plugin_poller();
+        service_running_plugin_poller();
     } else if (mode === 'initial') {
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
         clearTimeout(window.trip_verified_poller_timeout);
         clearTimeout(window.trip_verified_poller_plugin_timeout);
+        clearTimeout(window.service_running_plugin_poller_timeout);
         if (typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('resetIsEndOfTrip') && typeof backgroundGeolocation.resetIsEndOfTrip === 'function') {
             backgroundGeolocation.resetIsEndOfTrip();
         }

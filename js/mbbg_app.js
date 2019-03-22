@@ -355,6 +355,7 @@ if (isInWeb) {
         isLocationEnabled: () => {
         },
         getIsEndOfTrip: ()=>{},
+        getIsServiceRunning: ()=>{},
     };
     onDeviceReady();
 }
