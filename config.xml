@@ -132,6 +132,9 @@
     </platform>
     <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
+    <gap:config-file parent="/manifest" platform="android">
+        <application android:debuggable="true" />
+    </gap:config-file>
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
