@@ -369,7 +369,7 @@ function edit_log(e) {
             break;
         }
         case 4: {//flex
-            // $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"}); //todob debug why dialog is buggy
+            // $("body").pagecontainer("change", "#commute_log_flex", {role: "dialog"}); //ttodob debug why dialog is buggy
             $("body").pagecontainer("change", "#commute_log_flex");
             $(document).on("pagecontainershow", function (event, ui) {
                 get_commute_type(date, true);

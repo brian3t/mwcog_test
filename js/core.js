@@ -130,7 +130,7 @@ app_toast = function (message) {
         $.jGrowl(message, {position: 'center'});
     } else {
         if (typeof window.plugins == 'object' && typeof window.plugins.toast == 'object') {
-            window.plugins.toast.showLongCenter(message);
+            window.plugins.toast.showLongCenter(message, ()=>{}, ()=>{});
         } else (alert(message));
     }
 };
@@ -284,6 +284,11 @@ window.goto_search = function () {
     setTimeout(function () {
         window.location.href = "search.html";
     }, 500);
+};
+window.goto_start_flextime_trip = function() {
+    setTimeout(function () {
+        window.location.href = "start_flextime_trip.html";
+    }, 50);
 };
 
 window.geolocation = {

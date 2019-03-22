@@ -141,7 +141,6 @@ function fill_option_to_inputs(form) {
     let options = ls('bsOptions');
     if (options === null) return false;
     $.each(options, (name, value) => {
-        //todob restore config here
     });
 }
 

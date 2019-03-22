@@ -42,13 +42,6 @@ function goto_commute_log() {
     }, 50);
 }
 
-function goto_start_flextime_trip() {
-    //jQuery.mobile.navigate('/start_flextime_trip.html');
-    setTimeout(function () {
-        window.location.href = "start_flextime_trip.html";
-    }, 50);
-}
-
 function start_flextimetrip() {
     if (isInWeb){
         return goto_start_flextime_trip();
@@ -147,6 +140,8 @@ function toggle_auto_commute_log() {
 }
 
 $(document).ready(function () {
+    //start polling for current_address
+    start_heartbeat();
 
     var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
 
@@ -208,7 +203,7 @@ $(document).ready(function () {
 
     });
 
-//todob debugging
+//ttodob debugging
     if (IS_DEBUG) {
         /*setTimeout(function () {
             $('#commute_log_calendar').trigger('click');
@@ -262,7 +257,7 @@ window.handleOpenURL = function (url) {
     }
     if (window.location.href.indexOf('search.html') !== -1) {
         //at search page
-        window.location.href = 'rideshare.html';//todob should login here too
+        window.location.href = 'rideshare.html';//ttodob should login here too
         return;
     }
     //else, we are at index page
