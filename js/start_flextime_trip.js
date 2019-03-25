@@ -4,11 +4,11 @@ window.home_addr_obj = new Address();
 window.work_addr_obj = new Address();
 window.trip_verified_poller_timeout = -1;
 window.trip_verified_poller_plugin_timeout = -1;
-window.service_running_plugin_poller_timeout = -1;
+window.service_recording_plugin_poller_timeout = -1;
 const TRIP_VERIFIED_POLLER_FREQUENCY = 5000;
 const TRIP_VERIFIED_PLUGIN_POLLER_FREQUENCY = 3000;
-const SERVICE_RUNNING_PLUGIN_POLLER_FREQUENCY = 300000;
-// const SERVICE_RUNNING_PLUGIN_POLLER_FREQUENCY = 7000;//ttodob debug every 7 seconds
+const SERVICE_RECORDING_PLUGIN_POLLER_FREQUENCY = 300000;
+// const SERVICE_RECORDING_PLUGIN_POLLER_FREQUENCY = 7000;//ttodob debug every 7 seconds
 const DEST_HOME = 101;
 const DEST_WORK = 102;
 
@@ -112,7 +112,7 @@ function starttrip(e) {
 }
 
 /**
- * poller func that polls server for trip. calls itself
+ * poller func that polls server for trip that current id and has is_end_of_trip = true
  */
 function trip_verified_poller(trip_id) {
     $.get(MWCOG_GEO_API, {trip_id: trip_id, 'is_end_of_trip': true},
@@ -134,7 +134,7 @@ function trip_verified_poller(trip_id) {
 }
 
 /**
- * poller func that polls server for trip. calls itself
+ * poller func that polls plugin for trip's is_end_of_trip
  */
 function trip_verified_plugin_poller() {
     backgroundGeolocation.getIsEndOfTrip((response) => {
@@ -150,9 +150,9 @@ function trip_verified_plugin_poller() {
 }
 
 /**
- * poller func that polls plugin to see if bg process is running
+ * poller func that polls plugin to see if bg process is recording
  */
-function service_running_plugin_poller() {
+function service_recording_plugin_poller() {
     backgroundGeolocation.getIsServiceRunning((response) => {
         let is_service_stopped = (typeof response !== 'undefined' && response !== null && response.length === 1 && (response.pop() === false));
         if (is_service_stopped) {
@@ -161,11 +161,11 @@ function service_running_plugin_poller() {
                 switch_mode('initial');
                 window.location = 'search.html';
             }, 'Trip logging ended');
-            clearTimeout(service_running_plugin_poller_timeout);
+            clearTimeout(service_recording_plugin_poller_timeout);
         } else {
-            window.service_running_plugin_poller_timeout = setTimeout(() => {
-                service_running_plugin_poller();
-            }, SERVICE_RUNNING_PLUGIN_POLLER_FREQUENCY);
+            window.service_recording_plugin_poller_timeout = setTimeout(() => {
+                service_recording_plugin_poller();
+            }, SERVICE_RECORDING_PLUGIN_POLLER_FREQUENCY);
         }
     });
 }
@@ -181,14 +181,14 @@ function switch_mode(mode, trip_id = null) {
         $('#starttrip_form').hide();
         trip_verified_poller(trip_id);
         trip_verified_plugin_poller();
-        setTimeout(service_running_plugin_poller, 2000);//wait for bg process to start before making first poll
+        setTimeout(service_recording_plugin_poller, 2000);//wait for bg process to start before making first poll
     } else if (mode === 'initial') {
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
         clearTimeout(window.trip_verified_poller_timeout);
         clearTimeout(window.trip_verified_poller_plugin_timeout);
-        clearTimeout(window.service_running_plugin_poller_timeout);
+        clearTimeout(window.service_recording_plugin_poller_timeout);
         if (typeof backgroundGeolocation === "object" && backgroundGeolocation.hasOwnProperty('resetIsEndOfTrip') && typeof backgroundGeolocation.resetIsEndOfTrip === 'function') {
             backgroundGeolocation.resetIsEndOfTrip();
         }
