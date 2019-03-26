@@ -355,6 +355,7 @@ if (isInWeb) {
         },
         getIsEndOfTrip: ()=>{},
         getIsServiceRecording: ()=>{},
+        getIsServiceRunning: ()=>{},
     };
     onDeviceReady();
 }
