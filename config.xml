@@ -165,6 +165,9 @@
         <variable name="ACCOUNT_LABEL" value="@string/app_name" />
         <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
         <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app requires background location tracking" />
+        <variable name="LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION" value="This app requires background location tracking" />
+        <variable name="LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION" value="Always use is required for background location tracking" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.6" />
