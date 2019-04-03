@@ -67,14 +67,15 @@ var app = {
                 hashed = false;
             }
             if (IS_DEBUG) {
-                u = 'redgar942';//tdm only, type 0
+                // alert('debug mode on');
+                // u = 'redgar942';//tdm only, type 0
                 // u = 'sfinafroc246';//tdm only, type ??
                 // u = 'fakehemrycc';//mwcog type 0
                 // u = 'jitubats';//mwcog type 1
                 // u = 'cpnowtest';//tdm type 2
                 // u = 'SteveOsborn';//mwcog type 2
-                p = 'changeme4';
-                hashed = false;
+                // p = 'changeme4';
+                // hashed = false;
             }
 
             if (u !== '' && p !== '') {
