@@ -35,6 +35,14 @@ function build_query(extra_params) {
     return $.param(params);
 }
 
+/**
+ * Basic param object
+ * @return {{hashedpassword: string, username: string}}
+ */
+function build_basic_params() {
+    return {username: window.localStorage.getItem('userName'), hashedpassword: window.localStorage.getItem('hashedPassword')};
+}
+
 function triggerDialogClose() {
     $('div.ui-dialog-contain a.ui-icon-delete').trigger('click');
 }

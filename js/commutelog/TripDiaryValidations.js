@@ -364,18 +364,6 @@ function save_commute_logs_ajax(formObj, is_update) {
                     v.value = moment(v.value, 'M/DD/YYYY').format('MM/DD/YYYY');
                 }
             });
-            if (User.trips[0].legs.length === 1) {
-                extra_params = $.extend(extra_params, {
-                    toHomeleg2From: 0,
-                    toHomeleg2To: 0,
-                    toHomeleg2Mode: 0,
-                    toHomeleg2Distance: 0,
-                    toWorkleg2From: 0,
-                    toWorkleg2To: 0,
-                    toWorkleg2Mode: 0,
-                    toWorkleg2Distance: 0
-                });
-            }
             break;
         case 1:
             extra_params.action += 'CIP';
@@ -417,8 +405,19 @@ function save_commute_logs_ajax(formObj, is_update) {
             });
             break;
     }
-    var params = build_query(extra_params) + '&' + $.param(form_array);
-    $.get(url + '?' + params, {}, function (result) {
+    let params = build_basic_params();
+    $.extend(params, extra_params, flat_array_to_assoc(form_array));
+    //to match with API requirements, even if we don't have some legs, we need to set them as 0
+    if (User.type === 0)
+    {
+        for (let property_name of ['toHomeleg2From','toHomeleg2To','toHomeleg2Mode','toHomeleg2Distance','toWorkleg2From','toWorkleg2To','toWorkleg2Mode','toWorkleg2Distance']) {
+            if (!params.hasOwnProperty(property_name)) {
+                params[property_name] = 0;
+            }
+        }
+    }
+    //end to match with API requirements, even if we don't have some legs, we need to set them as 0
+    $.get(url, params, function (result) {
         console.info(result);
         if (result.status === 200 ||
             (typeof result.status === 'string' && result.status.indexOf('success') !== -1)) {

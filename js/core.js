@@ -317,3 +317,76 @@ window.stop_heartbeat = function () {
     clearInterval(heartbeat.interval);
     heartbeat.interval = -1;
 };
+
+/**
+ * Convert jQuery's serializeArray() array into assoc array
+ * Also merge input of the same name into array, e.g. union_memberships = Agent & union_memberships = Other
+ * becomes union_memberships = [Agent, Other]
+ * Also parse money value
+ * @param arr
+ * @returns assoc array, e.g. {'name': 'John', 'age': 22, 'array': ['a','b'] }
+ */
+function flat_array_to_assoc(arr) {
+    if (!_.isArray(arr)) {
+        return {};
+    }
+    var result = {};
+    arr.forEach(function (e) {
+        if (_.isObject(e)) {
+            e = _.toArray(e);
+            var key = e[0];
+            if (e.length == 2) // ["first_name", "John"]
+            {
+                var val = e[1];
+                if (typeof val == 'string') {
+                    val = val.replace('$', '');
+                }
+                if (isNumeric(val)) {
+                    val = Number(val.replace(/[^0-9\.]+/g, ""));
+                    val = parseFloat(val);
+                }
+                if (!_.has(result, key)) {
+                    result[key] = val;
+                } else {
+                    if (_.isString(result[key])) {
+                        result[key] = new Array(result[key]);
+                    }
+                    result[key].push(val);
+                }
+
+            }
+        }
+    });
+    return result;
+}
+
+/**
+ * Plain javascript isNumeric
+ **/
+function isNumeric(n) {
+    var parsed_string_match_original = false;
+    var parsed = parseFloat(n);
+    var parsed_string = parsed.toString();//100.5
+    //check if parsed_string == n; //here n is 100.50 preg must discard trailing zero after dot
+    var parsed_string_int_decimal = parsed_string.split('.');
+    if (n === null) {
+        return false;
+    }
+    var n_int_decimal = n.toString().split('.');
+    if (parsed_string_int_decimal.length !== n_int_decimal.length) {
+        return false;
+    }
+    if (n_int_decimal[0] !== parsed_string_int_decimal[0]) {
+        return false;
+    }
+    if (parsed_string_int_decimal.length == 2) {
+        //remove trailing zero from decimal
+        var parsed_decimal = parsed_string_int_decimal[1].replace(/([1-9]+)0+/gi, '$1');
+        var n_decimal = n_int_decimal[1].replace(/([1-9]+)0+/gi, '$1');
+        if (n_decimal !== parsed_decimal) {
+            return false;
+        }
+    }
+
+    return !isNaN(parsed) && isFinite(parsed);
+}
