@@ -140,19 +140,6 @@ function toggle_auto_commute_log() {
 }
 
 $(document).ready(function () {
-    //start polling for current_address
-    window.navigator.geolocation.getCurrentPosition(() => {
-        console.log(`Success. Starting heartbeat..`);
-        start_heartbeat();
-    }, () => {
-        console.log(`Error. Starting heartbeat..`);
-        start_heartbeat();
-    }, GEOLOCATION_OPTIONS);//ask for permission
-    /*if (heartbeat.interval === -1) {
-        console.log(`Seems like asking for permission didn't work..`);
-        start_heartbeat();
-    }*/
-
     var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
 
     window.localStorage.setItem("startingTime", "9:00 AM");

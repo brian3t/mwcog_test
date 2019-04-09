@@ -214,6 +214,19 @@ var app = {
         // The scope of 'this' is the event. In order to call the 'receivedEvent'
         // function, we must explicity call 'app.receivedEvent(...);'
         onDeviceReady: function () {
+            //start polling for current_address
+            window.navigator.geolocation.getCurrentPosition(() => {
+                console.log(`Success. Starting heartbeat..`);
+                start_heartbeat();
+            }, () => {
+                console.log(`Error. Starting heartbeat..`);
+                start_heartbeat();
+            }, GEOLOCATION_OPTIONS);//ask for permission
+            /*if (heartbeat.interval === -1) {
+                console.log(`Seems like asking for permission didn't work..`);
+                start_heartbeat();
+            }*/
+
             if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768 ||
                 (device.platform === 'iOS' && device.model.indexOf('iPad') !== -1)) {
                 window.screen.lockOrientation('portrait');

@@ -21,7 +21,7 @@ if (USE_MWCOG) {
     // baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
     baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
 }
-var HEARTBEAT_INTERVAL = 30000;
+var HEARTBEAT_INTERVAL = 15000;
 
 function showSpinner() {
     var $this = $(this),

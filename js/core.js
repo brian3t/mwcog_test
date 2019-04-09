@@ -235,7 +235,7 @@ var Address = Model.extend({
      */
     is_close_to_current_geo: function () {
         let cur_pos = ls('cur_pos');
-        if (typeof cur_pos !== "object" || (!cur_pos.hasOwnProperty('lat'))) {
+        if (typeof cur_pos !== "object" || cur_pos === null || (!cur_pos.hasOwnProperty('lat'))) {
             return false;
         }
         let result = Math.abs((this.lat - cur_pos.lat) * (this.lng - cur_pos.lng)) < GEOLOCATION_THRESHOLD;
