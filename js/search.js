@@ -43,14 +43,14 @@ function goto_commute_log() {
 }
 
 function start_flextimetrip() {
-    if (isInWeb){
+    if (isInWeb) {
         return goto_start_flextime_trip();
     }
     if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
     backgroundGeolocation.isLocationEnabled(
         function (result) {
             console.log(`isLocationEnabled result: ` + result);
-            if (!result){
+            if (!result) {
                 app_alert('Please go to Settings and allow Commuter Connections to access geolocation', () => {
                 }, '', 'OK');
             } else {
@@ -141,7 +141,17 @@ function toggle_auto_commute_log() {
 
 $(document).ready(function () {
     //start polling for current_address
-    start_heartbeat();
+    window.navigator.geolocation.getCurrentPosition(() => {
+        console.log(`Success. Starting heartbeat..`);
+        start_heartbeat();
+    }, () => {
+        console.log(`Error. Starting heartbeat..`);
+        start_heartbeat();
+    }, GEOLOCATION_OPTIONS);//ask for permission
+    /*if (heartbeat.interval === -1) {
+        console.log(`Seems like asking for permission didn't work..`);
+        start_heartbeat();
+    }*/
 
     var addressArray = JSON.parse(window.localStorage.getItem("addresses"));
 
@@ -196,7 +206,7 @@ $(document).ready(function () {
             mins_options += '<option value="' + mins[i] + '"' + ((window.localStorage.getItem("arriveAfter") == mins[i]) ? ' selected="selected"' : '') + '>' + mins[i] + ' Minutes</option>';
         }
 
-        setTimeout(()=>$('#flexibility').html(mins_options).selectmenu("refresh"), 1500);
+        setTimeout(() => $('#flexibility').html(mins_options).selectmenu("refresh"), 1500);
         if (User.hasOwnProperty('commuter_data') && User.commuter_data.hasOwnProperty('firstName')) {
             $('#first_name').html(_.upperFirst(User.commuter_data.firstName.toLowerCase()));
         }

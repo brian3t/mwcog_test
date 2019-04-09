@@ -86,6 +86,7 @@ function starttrip(e) {
     e.stopImmediatePropagation();
     e.preventDefault();
     //try to start verified trip
+    let cur_pos = ls('cur_pos');
     if (typeof cur_pos !== "object" || ! cur_pos.hasOwnProperty('lat') || ! cur_pos.hasOwnProperty('lat')) {
         return app_alert('Please allow geolocation access and try again. Thank you');
     }
@@ -94,8 +95,8 @@ function starttrip(e) {
     let home_or_work = ($('#destination').val() === "101" ? 'home' : 'work');
     config.commuter_id = parseInt(user.commuter_data.idCommuter);
     config.trip_id = config.commuter_id + $('#destination option:selected').text() + today.format('YYMMDDHHmmss');
-    config.start_lat = -1;
-    config.start_lng = -1;
+    config.start_lat = cur_pos.lat;
+    config.start_lng = cur_pos.lng;
     if (home_or_work === 'home') {
         config.end_lat = home_addr_obj.lat;
         config.end_lng = home_addr_obj.lng;
@@ -106,8 +107,8 @@ function starttrip(e) {
         config.end_lat = work_addr_obj.lat;
         config.end_lng = work_addr_obj.lng;
     }
-    if (config.start_lat === -1 || config.start_lng === -1) {
-        app_alert("Your home/work addresses are invalid, please update your addresses first. Thank you");
+    if (config.end_lat === -1 || config.end_lng === -1) {
+        app_alert("Your destination address is invalid, please update it first. Thank you");
         return;
     }
     $.get(FLEX_TRIP_API_URL, {
