@@ -85,32 +85,64 @@ function starttrip(e) {
     e.stopPropagation();
     e.stopImmediatePropagation();
     e.preventDefault();
-    app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
-        '. If your device remains turned on with geolocation services active',
-        () => {
-            let config = bgOptions;
-            let today = moment();
-            let home_or_work = ($('#destination').val() === "101" ? 'home' : 'work');
-            config.commuter_id = parseInt(user.commuter_data.idCommuter);
-            config.trip_id = config.commuter_id + $('#destination option:selected').text() + today.format('YYMMDDHHmmss');
-            config.start_lat = -1;
-            config.start_lng = -1;
-            if (home_or_work === 'home') {
-                config.end_lat = home_addr_obj.lat;
-                config.end_lng = home_addr_obj.lng;
-            }
-            if (home_or_work === 'work') {
-                config.end_lat = work_addr_obj.lat;
-                config.end_lng = work_addr_obj.lng;
-            }
-            // config.end_lat: 51.5099,//london uk
-            // config.end_lng: 0.1337,//london uk
+    //try to start verified trip
+    if (typeof cur_pos !== "object" || ! cur_pos.hasOwnProperty('lat') || ! cur_pos.hasOwnProperty('lat')) {
+        return app_alert('Please allow geolocation access and try again. Thank you');
+    }
+    let config = bgOptions;
+    let today = moment();
+    let home_or_work = ($('#destination').val() === "101" ? 'home' : 'work');
+    config.commuter_id = parseInt(user.commuter_data.idCommuter);
+    config.trip_id = config.commuter_id + $('#destination option:selected').text() + today.format('YYMMDDHHmmss');
+    config.start_lat = -1;
+    config.start_lng = -1;
+    if (home_or_work === 'home') {
+        config.end_lat = home_addr_obj.lat;
+        config.end_lng = home_addr_obj.lng;
+        // config.end_lat: 51.5099,//london uk
+        // config.end_lng: 0.1337,//london uk
+    }
+    if (home_or_work === 'work') {
+        config.end_lat = work_addr_obj.lat;
+        config.end_lng = work_addr_obj.lng;
+    }
+    if (config.start_lat === -1 || config.start_lng === -1) {
+        app_alert("Your home/work addresses are invalid, please update your addresses first. Thank you");
+        return;
+    }
+    $.get(FLEX_TRIP_API_URL, {
+        action: 'startVerifiedTrip',
+        idCommuter: config.commuter_id,
+        startLat: cur_pos.lat,
+        startLng: cur_pos.lng,
+        tripId: config.trip_id,
+        tripDate: today.format('MM/DD/YYYY'),
+        tripNum: (home_or_work === 'home' ? 1 : 2),
+        tripMode: $('#travelmode').val()
+    }, (response) => {
+        console.log(`startVerifiedTrip result: `);
+        console.log(response);
+        if (typeof response !== "object") {
+            app_alert("Cannot contact FlexTrip API. Please try again");
+            console.error(response);
+            return;
+        }
+        if (! response.hasOwnProperty('Success')) {
+            app_toast('Failed to send starting signal to FlexTrip API. Please try again later or contact our support. Thank you.' + response.toString());
+        } else {
+            app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
+                '. If your device remains turned on with geolocation services active',
+                () => {
+                    bgConfigure(config);
+                    startTracking();
+                    switch_mode('trip_active', config.trip_id);
+                },
+                '', 'OK');
+        }
+    });
+    //try to start verified trip end
 
-            bgConfigure(config);
-            startTracking();
-            switch_mode('trip_active', config.trip_id);
-        },
-        '', 'OK');
+
 }
 
 /**
@@ -267,10 +299,10 @@ function data_availability_watcher() {
     let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0";
     let selected_dest = parseInt($('#destination').val());
     if (selected_dest === DEST_HOME) {
-        all_ready = all_ready && (!home_addr_obj.is_close_to_current_geo());
+        all_ready = all_ready && (! home_addr_obj.is_close_to_current_geo());
     }
     if (selected_dest === DEST_WORK) {
-        all_ready = all_ready && (!work_addr_obj.is_close_to_current_geo());
+        all_ready = all_ready && (! work_addr_obj.is_close_to_current_geo());
     }
     if (all_ready) {
         $('#starttrip_btn').removeAttr('disabled');

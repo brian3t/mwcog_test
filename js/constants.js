@@ -11,6 +11,7 @@ var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
 var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
 // var IS_SHOW_BG_POPUP = true;//ttodob debug
+var FLEX_TRIP_API_URL = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol';
 
 if (IS_LOCAL){
     // USE_MWCOG = true;
