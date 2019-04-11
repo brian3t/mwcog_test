@@ -134,6 +134,8 @@ function starttrip(e) {
             app_alert('Please begin your commute now and your trip will be saved automatically once you reach your destination' +
                 '. If your device remains turned on with geolocation services active',
                 () => {
+                    console.log(`starting recording.. config: `);
+                    console.info(config);
                     bgConfigure(config);
                     startTracking();
                     switch_mode('trip_active', config.trip_id);
