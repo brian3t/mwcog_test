@@ -8,10 +8,12 @@ var MAX_IMAGES_IN_BG = 3;
 var IS_LOCAL = (window.location.host.indexOf('mwcog') !== -1);
 
 var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
-var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
+
+var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';  // deprecated, replaced with FLEX_TRIP_API_URL
 var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
 // var IS_SHOW_BG_POPUP = true;//ttodob debug
-var FLEX_TRIP_API_URL = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol';
+var FLEX_TRIP_API_URL = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol'; // mkwan: change here when ready for production
+var BASEURL_CALENDAR = 'http://mwcog2.mediabeef.com/mwcog/calendarservicecontrol'; // mkwan: change here when ready for production
 
 if (IS_LOCAL){
     // USE_MWCOG = true;

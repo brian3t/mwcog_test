@@ -10,10 +10,8 @@ var User = User || {
 };
 var today = moment.utc(), _10_days_ago = moment.utc().subtract(10, "days"), _11_days_ago = moment.utc().subtract(11, "days");
 
-var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol';
-if (USE_MWCOG) {
-    mwcog_root = baseUrl + 'calendarservicecontrol';
-}
+var mwcog_root = BASEURL_CALENDAR;
+
 var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80,
     CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
