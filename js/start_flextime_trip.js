@@ -30,7 +30,7 @@ $(document).ready(function () {
                     break;
             }
         }
-
+        start_heartbeat();
         let [home_addr, work_addr] = user_get_home_work();
         _.extend(home_addr_obj, home_addr);
         home_addr_obj.trim_data();
@@ -39,6 +39,7 @@ $(document).ready(function () {
         work_addr_obj.trim_data();
         work_addr_obj.geocode(GEOCODER);
         $('#travelmode').on('change', data_availability_watcher);
+        $('#destination').on('change', data_availability_watcher);
 
 
         $('.popup_dismiss').click(function (e) {
@@ -251,6 +252,7 @@ function service_running_plugin_poller() {
  */
 function switch_mode(mode, trip_id = null) {
     if (mode === 'trip_active') {
+        stop_heartbeat();
         $('#trip_active').show();
         $('#starttrip_form').hide();
         trip_verified_poller(trip_id);
@@ -258,6 +260,7 @@ function switch_mode(mode, trip_id = null) {
         setTimeout(service_running_plugin_poller, 2000);//wait for bg process to start before making first poll
         setTimeout(service_recording_plugin_poller, 4000);//wait for bg process to start before making first poll
     } else if (mode === 'initial') {
+        start_heartbeat();
         $('#trip_active').hide();
         $('#starttrip_form').show();
         $('#travelmode').val(0).trigger('change');
@@ -300,12 +303,17 @@ function goto_commute_log() {
  */
 function data_availability_watcher() {
     let all_ready = home_addr_obj.is_latlng_ready() && work_addr_obj.is_latlng_ready() && $('#travelmode').val() !== "0";
-    let selected_dest = parseInt($('#destination').val());
-    if (selected_dest === DEST_HOME) {
-        all_ready = all_ready && (! home_addr_obj.is_close_to_current_geo());
+    if (! all_ready) {
+        return false;
     }
-    if (selected_dest === DEST_WORK) {
-        all_ready = all_ready && (! work_addr_obj.is_close_to_current_geo());
+    let selected_dest = parseInt($('#destination').val());
+    if (selected_dest === DEST_HOME && home_addr_obj.is_close_to_current_geo()) {
+        app_toast('You are already at home! Flextime Trip does not work if you are already to close to your destination. Please try later or choose another destination');
+        return false;
+    }
+    if (selected_dest === DEST_WORK && work_addr_obj.is_close_to_current_geo()) {
+        app_toast('You are already at work! Flextime Trip does not work if you are already to close to your destination. Please try later or choose another destination');
+        return false;
     }
     if (all_ready) {
         $('#starttrip_btn').removeAttr('disabled');
