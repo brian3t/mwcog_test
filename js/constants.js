@@ -12,8 +12,11 @@ var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
 var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';  // deprecated, replaced with FLEX_TRIP_API_URL
 var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
 // var IS_SHOW_BG_POPUP = true;//ttodob debug
+
 var FLEX_TRIP_API_URL = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol'; // mkwan: change here when ready for production
+//var FLEX_TRIP_API_URL = 'https://tdm.commuterconnections.org/mwcog/verifiedtripservicecontrol'; // production
 var BASEURL_CALENDAR = 'http://mwcog2.mediabeef.com/mwcog/calendarservicecontrol'; // mkwan: change here when ready for production
+//var BASEURL_CALENDAR = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol'; // production
 
 if (IS_LOCAL){
     // USE_MWCOG = true;
