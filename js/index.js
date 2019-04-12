@@ -80,7 +80,7 @@ var app = {
 
             if (u !== '' && p !== '') {
                 showSpinner();
-                $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
+                $.get(BASEURL_LOGIN + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
                     // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
                     if (res.statusCode === 1) {
                         // fix for saving wrong hashed pw
