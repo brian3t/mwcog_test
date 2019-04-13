@@ -212,6 +212,7 @@ function get_commute_type(log_date, is_update_html) {
                     if (User.type !== C.TYPE_FLEX) {
                         break;
                     }
+                    //extra logic for TYPE_FLEX
                     if (User.hasOwnProperty('trip1alternateDepartTime')) {
                         var trip1AlterDepartTime = military_time_to_moment(User.trip1alternateDepartTime);
                         trip_form.find('input[name="toWorkLegAlternateDepartureTime_hour"]').val(trip1AlterDepartTime.format('hh'));
@@ -224,6 +225,17 @@ function get_commute_type(log_date, is_update_html) {
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_minute"]').val(_.padStart(trip2AlterDepartTime.minute(), 2, '0'));
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_ampm"]').val(trip2AlterDepartTime.hour() >= 12);
                     }
+                    let trip1_verified = User.hasOwnProperty('trip1Verified') && User.trip1Verified === 'Y';
+                    trip_form.find('.trip_table[data-trip-index="1"] :input').prop('disabled', trip1_verified);
+                    trip_form.find('.trip_table[data-trip-index="1"] div.ui-select').toggleClass('ui-state-disabled', trip1_verified);//this is for jQM
+                    trip_form.find('button.addLegButton').toggle(! trip1_verified);//remove add leg buttons
+                    trip_form.find('.trip_table_wrapper[data-trip-index="1"]').find('.verified_span').toggle(trip1_verified);//show -verified- span
+
+                    let trip2_verified = User.hasOwnProperty('trip2Verified') && User.trip2Verified === 'Y';
+                    trip_form.find('.trip_table[data-trip-index="2"] :input').prop('disabled', trip2_verified);
+                    trip_form.find('.trip_table[data-trip-index="2"] div.ui-select').toggleClass('ui-state-disabled', trip2_verified);//this is for jQM
+                    trip_form.find('button.addLegButton').toggle(! trip2_verified);//remove add leg buttons
+                    trip_form.find('.trip_table_wrapper[data-trip-index="2"]').find('.verified_span').toggle(trip2_verified);//show -verified- span
                     break;
                 }
                 case C.TYPE_VIEW_ONLY_VIP:

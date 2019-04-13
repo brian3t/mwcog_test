@@ -12,8 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Merge autocommute log to master">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commute_log_calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/commute_log_calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/start_flextime_trip.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start_flextime_trip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/commute_log_calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commute_log_calendar.js" afterDir="false" />
     </list>
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
@@ -28,72 +29,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="146" column="42" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/core.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="309" column="2" lean-forward="true" selection-start-line="309" selection-start-column="2" selection-end-line="309" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="222" column="34" lean-forward="true" selection-start-line="222" selection-start-column="34" selection-end-line="222" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/constants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="68" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/park_and_ride.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="121" column="53" selection-start-line="121" selection-start-column="53" selection-end-line="121" selection-end-column="53" />
+            <state relative-caret-position="329">
+              <caret line="231" column="101" selection-start-line="231" selection-start-column="101" selection-end-line="231" selection-end-column="101" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/commute_log.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -107,11 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fr</find>
-      <find>scheduleNoti</find>
-      <find>mmEnd</find>
-      <find>issame</find>
-      <find>cancel</find>
       <find>boots</find>
       <find>this.plugin.cancel</find>
       <find>schedule</find>
@@ -137,6 +74,11 @@
       <find>closet</find>
       <find>data_availability_watcher</find>
       <find>heartbea</find>
+      <find>getcommutelogt</find>
+      <find>trip_table_wrapper</find>
+      <find>class=&quot;TripHeader&quot;</find>
+      <find>trip_form</find>
+      <find>trip1_verified</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -148,6 +90,7 @@
       <replace>from</replace>
       <replace>app_toast</replace>
       <replace>data-user_types</replace>
+      <replace>trip2_verified</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -172,7 +115,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/js/lib/lodash.js" />
         <option value="$PROJECT_DIR$/css/layout.css" />
-        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/park_and_ride.html" />
         <option value="$PROJECT_DIR$/rideshare.html" />
@@ -186,14 +128,15 @@
         <option value="$PROJECT_DIR$/js/browserify.js" />
         <option value="$PROJECT_DIR$/js/noti.js" />
         <option value="$PROJECT_DIR$/search.html" />
-        <option value="$PROJECT_DIR$/commute_log_calendar.html" />
-        <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
         <option value="$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/constants.js" />
         <option value="$PROJECT_DIR$/js/core.js" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/start_flextime_trip.js" />
+        <option value="$PROJECT_DIR$/commute_log_calendar.html" />
+        <option value="$PROJECT_DIR$/css/sass/layout.scss" />
+        <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
       </list>
     </option>
   </component>
@@ -221,23 +164,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
@@ -253,6 +196,17 @@
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
           </expand>
           <select />
@@ -478,17 +432,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1055" extended-state="6" />
+    <frame x="-1" y="-1" width="1922" height="1065" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3552" visible="true" weight="0.18210863" />
-      <window_info id="Structure" order="1" sideWeight="0.6448" side_tool="true" visible="true" weight="0.18210863" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3535032" visible="true" weight="0.18530351" />
+      <window_info id="Structure" order="1" sideWeight="0.64649683" side_tool="true" visible="true" weight="0.18530351" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286638" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946752" visible="true" weight="0.3265086" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" weight="0.3265086" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -600,17 +554,6 @@
     <MESSAGE value="Merge autocommute log to master" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge autocommute log to master" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/commute_log_calendar.html</url>
-          <line>149</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -673,13 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
           <caret line="2397" column="5" lean-forward="true" selection-start-line="2397" selection-start-column="5" selection-end-line="2397" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36405">
-          <caret line="2427" column="1" selection-start-line="2427" selection-start-column="1" selection-end-line="2427" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -820,16 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5700">
-          <caret line="380" column="64" selection-start-line="380" selection-start-column="64" selection-end-line="380" selection-end-column="64" />
-          <folding>
-            <element signature="n#form#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
@@ -863,6 +789,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commute_log_calendar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="660" lean-forward="true" selection-start-line="660" selection-end-line="660" />
+          <folding>
+            <element signature="n#table#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#form#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#form#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/park_and_ride.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -870,48 +815,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="121" column="53" selection-start-line="121" selection-start-column="53" selection-end-line="121" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/commute_log.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/park_and_ride.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="35" column="18" lean-forward="true" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
+        <state relative-caret-position="859">
           <caret line="222" column="34" lean-forward="true" selection-start-line="222" selection-start-column="34" selection-end-line="222" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="146" column="42" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="309" column="2" lean-forward="true" selection-start-line="309" selection-start-column="2" selection-end-line="309" selection-end-column="2" />
+        <state relative-caret-position="859">
+          <caret line="309" column="2" selection-start-line="309" selection-start-column="2" selection-end-line="309" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="859">
+          <caret line="146" column="42" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/circle_marker_blue.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/commute_log.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sass/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="3741" column="1" selection-start-line="3741" selection-start-column="1" selection-end-line="3741" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start_flextime_trip.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
-          <caret line="263" column="33" lean-forward="true" selection-start-line="263" selection-start-column="33" selection-end-line="263" selection-end-column="33" />
+          <caret line="266" column="33" selection-start-line="266" selection-start-column="33" selection-end-line="266" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/commute_log_calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="231" column="101" selection-start-line="231" selection-start-column="101" selection-end-line="231" selection-end-column="101" />
         </state>
       </provider>
     </entry>
