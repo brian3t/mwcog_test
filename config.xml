@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-versionCode="419" id="com.mediabeef.mwcog" version="2.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Commuter Connections</name>
+    <name>Commuter Connections Production API</name>
     <description>
         Commuter Connections Mobile
     </description>

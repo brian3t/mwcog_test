@@ -1,6 +1,6 @@
 isInWeb = !(document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1);
-var cur_pos = {};
 const GEOLOCATION_THRESHOLD = 1e-8;
+const GEOLOCATION_OPTIONS = {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true};
 var heartbeat = {interval: -1};
 var C = {
     TYPE_GENERAL: 0,
@@ -234,7 +234,8 @@ var Address = Model.extend({
      * @returns {boolean}
      */
     is_close_to_current_geo: function () {
-        if (typeof cur_pos !== "object" || (!cur_pos.hasOwnProperty('lat'))) {
+        let cur_pos = ls('cur_pos');
+        if (typeof cur_pos !== "object" || cur_pos === null || (!cur_pos.hasOwnProperty('lat'))) {
             return false;
         }
         let result = Math.abs((this.lat - cur_pos.lat) * (this.lng - cur_pos.lng)) < GEOLOCATION_THRESHOLD;
@@ -296,8 +297,9 @@ window.geolocation = {
         let extra_param = {};
         let current_pos = position.coords;
         //save it to cur pos. Save lat lng to cur_user and publish to API
-        if (_.isObject(cur_pos)) {
-            cur_pos = {lat: current_pos.latitude, lng: current_pos.longitude};
+        if (_.isObject(current_pos)) {
+            let cur_pos = {lat: current_pos.latitude, lng: current_pos.longitude};
+            ls('cur_pos', cur_pos);
         }
     },
 // onError Callback receives a PositionError object
@@ -307,10 +309,10 @@ window.geolocation = {
     }
 };
 window.start_heartbeat = function () {
-    navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError);
+    navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError, GEOLOCATION_OPTIONS);
     heartbeat.interval = setInterval(function () {
         //get current pos
-        navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError);
+        navigator.geolocation.getCurrentPosition(geolocation.onSuccess, geolocation.onError, GEOLOCATION_OPTIONS);
     }, HEARTBEAT_INTERVAL);
 };
 window.stop_heartbeat = function () {

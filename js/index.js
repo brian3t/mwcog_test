@@ -80,7 +80,7 @@ var app = {
 
             if (u !== '' && p !== '') {
                 showSpinner();
-                $.get(baseUrl + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
+                $.get(BASEURL_LOGIN + "json?action=login&username=" + u + "&password=" + p + '&password_saved=' + hashed, function (res) {
                     // var passwordToSave = '';//0407 fix saving both hashed pw and plain pw. Because API fails to process hashed pw
                     if (res.statusCode === 1) {
                         // fix for saving wrong hashed pw
@@ -214,6 +214,19 @@ var app = {
         // The scope of 'this' is the event. In order to call the 'receivedEvent'
         // function, we must explicity call 'app.receivedEvent(...);'
         onDeviceReady: function () {
+            //start polling for current_address
+            window.navigator.geolocation.getCurrentPosition(() => {
+                console.log(`Success. Starting heartbeat..`);
+                start_heartbeat();
+            }, () => {
+                console.log(`Error. Starting heartbeat..`);
+                start_heartbeat();
+            }, GEOLOCATION_OPTIONS);//ask for permission
+            /*if (heartbeat.interval === -1) {
+                console.log(`Seems like asking for permission didn't work..`);
+                start_heartbeat();
+            }*/
+
             if (window.width < 768 || window.height < 768 || window.innerWidth < 768 || window.innerHeight < 768 ||
                 (device.platform === 'iOS' && device.model.indexOf('iPad') !== -1)) {
                 window.screen.lockOrientation('portrait');

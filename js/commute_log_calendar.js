@@ -10,10 +10,8 @@ var User = User || {
 };
 var today = moment.utc(), _10_days_ago = moment.utc().subtract(10, "days"), _11_days_ago = moment.utc().subtract(11, "days");
 
-var mwcog_root = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol';
-if (USE_MWCOG) {
-    mwcog_root = baseUrl + 'calendarservicecontrol';
-}
+var mwcog_root = BASEURL_CALENDAR;
+
 var CM_HOME = 101, CM_WORK = 102, CM_PNR_LOT = 103, CM_BUS_STOP = 104, CM_TELEWORK = 106, CM_OTHER = 107, CM_DRIVE_ALONE = 78, CM_TRANSIT = 79, CM_CARPOOL = 80,
     CM_VANPOOL = 81
     , CM_BIKE = 82, CM_WALK = 83, CM_TRAVEL_TELEWORK = 84;
@@ -214,6 +212,7 @@ function get_commute_type(log_date, is_update_html) {
                     if (User.type !== C.TYPE_FLEX) {
                         break;
                     }
+                    //extra logic for TYPE_FLEX
                     if (User.hasOwnProperty('trip1alternateDepartTime')) {
                         var trip1AlterDepartTime = military_time_to_moment(User.trip1alternateDepartTime);
                         trip_form.find('input[name="toWorkLegAlternateDepartureTime_hour"]').val(trip1AlterDepartTime.format('hh'));
@@ -226,6 +225,17 @@ function get_commute_type(log_date, is_update_html) {
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_minute"]').val(_.padStart(trip2AlterDepartTime.minute(), 2, '0'));
                         trip_form.find('input[name="toHomeLegAlternateDepartureTime_ampm"]').val(trip2AlterDepartTime.hour() >= 12);
                     }
+                    let trip1_verified = User.hasOwnProperty('trip1Verified') && User.trip1Verified === 'Y';
+                    trip_form.find('.trip_table[data-trip-index="1"] :input').prop('disabled', trip1_verified);
+                    trip_form.find('.trip_table[data-trip-index="1"] div.ui-select').toggleClass('ui-state-disabled', trip1_verified);//this is for jQM
+                    trip_form.find('button.addLegButton').toggle(! trip1_verified);//remove add leg buttons
+                    trip_form.find('.trip_table_wrapper[data-trip-index="1"]').find('.verified_span').toggle(trip1_verified);//show -verified- span
+
+                    let trip2_verified = User.hasOwnProperty('trip2Verified') && User.trip2Verified === 'Y';
+                    trip_form.find('.trip_table[data-trip-index="2"] :input').prop('disabled', trip2_verified);
+                    trip_form.find('.trip_table[data-trip-index="2"] div.ui-select').toggleClass('ui-state-disabled', trip2_verified);//this is for jQM
+                    trip_form.find('button.addLegButton').toggle(! trip2_verified);//remove add leg buttons
+                    trip_form.find('.trip_table_wrapper[data-trip-index="2"]').find('.verified_span').toggle(trip2_verified);//show -verified- span
                     break;
                 }
                 case C.TYPE_VIEW_ONLY_VIP:

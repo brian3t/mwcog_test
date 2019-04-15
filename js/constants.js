@@ -7,10 +7,20 @@ var USE_MWCOG = false;
 var MAX_IMAGES_IN_BG = 3;
 var IS_LOCAL = (window.location.host.indexOf('mwcog') !== -1);
 
-var baseUrl = 'https://tdm.commuterconnections.org/mwcog/';
-var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';
+var MWCOG_GEO_API = 'http://mwcogapi.mediabeef.com/v1/geolocation';  // deprecated, replaced with FLEX_TRIP_API_URL
 var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
 // var IS_SHOW_BG_POPUP = true;//ttodob debug
+
+
+var baseUrl             = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
+//var baseUrl           = 'https://tdm.commuterconnections.org/mwcog/'; // production
+var BASEURL_LOGIN       = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
+//var BASEURL_LOGIN     = 'https://tdm.commuterconnections.org/mwcog/'; // production
+var BASEURL_CALENDAR    = 'http://mwcog2.mediabeef.com/mwcog/calendarservicecontrol'; // DEV
+//var BASEURL_CALENDAR  = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol'; // production
+var FLEX_TRIP_API_URL   = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol'; // DEV
+//var FLEX_TRIP_API_URL = 'https://tdm.commuterconnections.org/mwcog/verifiedtripservicecontrol'; // production
+
 
 if (IS_LOCAL){
     // USE_MWCOG = true;
@@ -20,7 +30,7 @@ if (USE_MWCOG) {
     // baseUrl = 'http://mwcog3.mediabeef.com/mwcog/';
     baseUrl = 'http://mwcog.mediabeef.com/mwcog/';
 }
-var HEARTBEAT_INTERVAL = 30000;
+var HEARTBEAT_INTERVAL = 15000;
 
 function showSpinner() {
     var $this = $(this),
