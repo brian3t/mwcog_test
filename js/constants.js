@@ -12,14 +12,14 @@ var IS_SHOW_BG_POPUP = false;//turn the popup to quickly launch BG geo
 // var IS_SHOW_BG_POPUP = true;//ttodob debug
 
 
-var baseUrl             = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
-//var baseUrl           = 'https://tdm.commuterconnections.org/mwcog/'; // production
-var BASEURL_LOGIN       = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
-//var BASEURL_LOGIN     = 'https://tdm.commuterconnections.org/mwcog/'; // production
-var BASEURL_CALENDAR    = 'http://mwcog2.mediabeef.com/mwcog/calendarservicecontrol'; // DEV
-//var BASEURL_CALENDAR  = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol'; // production
-var FLEX_TRIP_API_URL   = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol'; // DEV
-//var FLEX_TRIP_API_URL = 'https://tdm.commuterconnections.org/mwcog/verifiedtripservicecontrol'; // production
+var baseUrl           = 'https://tdm.commuterconnections.org/mwcog/'; // production
+var BASEURL_LOGIN     = 'https://tdm.commuterconnections.org/mwcog/'; // production
+var BASEURL_CALENDAR  = 'https://tdm.commuterconnections.org/mwcog/calendarservicecontrol'; // production
+var FLEX_TRIP_API_URL = 'https://tdm.commuterconnections.org/mwcog/verifiedtripservicecontrol'; // production
+//var baseUrl             = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
+//var BASEURL_LOGIN       = 'http://mwcog2.mediabeef.com/mwcog/'; // DEV
+//var BASEURL_CALENDAR    = 'http://mwcog2.mediabeef.com/mwcog/calendarservicecontrol'; // DEV
+//var FLEX_TRIP_API_URL   = 'http://mwcog2.mediabeef.com/mwcog/verifiedtripservicecontrol'; // DEV
 
 
 if (IS_LOCAL){
