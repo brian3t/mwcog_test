@@ -129,6 +129,21 @@
                 <string>applinks:*.ie511.org</string>
             </array>
         </config-file>
+        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
+            <array>
+                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
+            </array>
+        </config-file>
+        <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
+            <array>
+                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
+            </array>
+        </config-file>
+        <config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist">
+            <array>
+                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
+            </array>
+        </config-file>
     </platform>
     <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
