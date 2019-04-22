@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="421" id="com.mediabeef.mwcog" ios-CFBundleVersion="2.1.0.2" version="2.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget android-versionCode="421" id="com.mediabeef.mwcog" ios-CFBundleVersion="2.1.0.3" version="2.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Commuter Connections</name>
     <description>
         Commuter Connections Mobile
@@ -130,19 +130,13 @@
             </array>
         </config-file>
         <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
-            <array>
-                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
-            </array>
+            <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
         </config-file>
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
-            <array>
-                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
-            </array>
+            <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
         </config-file>
         <config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist">
-            <array>
-                <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
-            </array>
+            <string>Commuter Connections will only read your location data if you select the Log Verified Trip button in order to confirm the start/destination address and departure time information for your commute.  Once your trip has been completed we will cease location monitoring.</string>
         </config-file>
     </platform>
     <preference name="android-windowSoftInputMode" value="stateHidden|adjustResize" />
