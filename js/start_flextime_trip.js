@@ -119,7 +119,7 @@ function starttrip(e) {
         startLng: cur_pos.lng,
         tripId: config.trip_id,
         tripDate: today.format('MM/DD/YYYY'),
-        tripNum: (home_or_work === 'home' ? 1 : 2),
+        tripNum: (home_or_work === 'home' ? 2 : 1),
         tripMode: $('#travelmode').val()
     }, (response) => {
         console.log(`startVerifiedTrip result: `);
