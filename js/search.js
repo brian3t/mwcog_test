@@ -46,11 +46,11 @@ function start_flextimetrip() {
     if (isInWeb) {
         return goto_start_flextime_trip();
     }
-    if (typeof backgroundGeolocation !== "object" || !backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
+    if (typeof backgroundGeolocation !== "object" || ! backgroundGeolocation.hasOwnProperty('isLocationEnabled')) return;
     backgroundGeolocation.isLocationEnabled(
         function (result) {
             console.log(`isLocationEnabled result: ` + result);
-            if (!result) {
+            if (! result) {
                 app_alert('Please go to Settings and allow Commuter Connections to access geolocation', () => {
                 }, '', 'OK');
             } else {
@@ -230,6 +230,10 @@ $(document).ready(function () {
     $('#save_autocomlog_setting_btn').on('click', function (e) {
         // console.log(`checked: ` + window.auto_commute_log_sw.isChecked());
     });
+
+    document.addEventListener('deviceready', function () {
+        service_recording_plugin_prober();
+    });
 });
 
 window.handleOpenURL = function (url) {
@@ -268,3 +272,27 @@ window.handleOpenURL = function (url) {
     }
 
 };
+
+/**
+ * poller func that polls plugin to see if bg process is recording
+ * Note: this is similar to service_recording_plugin_poller in file start_flextime_trip.js
+ */
+function service_recording_plugin_prober() {
+    backgroundGeolocation.getIsServiceRecording((response) => {
+        let is_service_recording_stopped = (typeof response !== 'undefined' && response !== null && response.length === 1 && (response.pop() === false));
+        //if we have flex trip bg process actively recording
+        //show button to stop it
+        $('#stop_flextime_trip').closest('.ui-btn').toggle(! is_service_recording_stopped);
+        $('#start_flextime_trip').closest('.ui-btn').toggle( is_service_recording_stopped);
+    });
+}
+
+function stop_flextime_trip_logging() {
+    app_confirm('Are you sure you want to stop logging this trip?', (response) => {
+        if (response) {
+            backgroundGeolocation.stop();
+            $('#stop_flextime_trip').closest('.ui-btn').hide();
+            $('#start_flextime_trip').closest('.ui-btn').show();
+        }
+    }, 'Stop Logging Flextime Trip');
+}

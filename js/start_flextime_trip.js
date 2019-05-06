@@ -77,6 +77,11 @@ $(document).ready(function () {
             switch_mode('initial');
         }
     });
+    /*document.addEventListener('backbutton', function (evt) {
+        if (device.platform === 'Android' && $('#trip_active:visible').length === 1) {//trip is active. maybe show a reminder text here
+        }
+    }, false);*/
+
 });
 
 /**

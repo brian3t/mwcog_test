@@ -2418,7 +2418,8 @@ button,
   padding-right: 3px; }
 
 .ui-btn.big {
-  padding: 20px 18px; }
+  padding: 17px 18px;
+  }
 
 .ui-btn.big[class*=ui-icon] {
   padding-left: 40px; }
