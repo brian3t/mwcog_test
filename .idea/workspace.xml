@@ -75,11 +75,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="129" column="58" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="58" />
+            <state relative-caret-position="2115">
+              <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="176" column="70" lean-forward="true" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -97,11 +106,7 @@
         <entry file="file://$PROJECT_DIR$/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -196,7 +201,6 @@
         <option value="$PROJECT_DIR$/js/browserify.js" />
         <option value="$PROJECT_DIR$/js/noti.js" />
         <option value="$PROJECT_DIR$/js/commutelog/TripDiaryValidations.js" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/core.js" />
         <option value="$PROJECT_DIR$/commute_log_calendar.html" />
         <option value="$PROJECT_DIR$/css/sass/layout.scss" />
@@ -205,6 +209,7 @@
         <option value="$PROJECT_DIR$/js/start_flextime_trip.js" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/constants.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -531,8 +536,8 @@
     <frame x="-1" y="-1" width="1922" height="1065" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.33700788" visible="true" weight="0.14270501" />
-      <window_info id="Structure" order="1" sideWeight="0.6629921" side_tool="true" visible="true" weight="0.14270501" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3301738" visible="true" weight="0.1485623" />
+      <window_info id="Structure" order="1" sideWeight="0.6698262" side_tool="true" visible="true" weight="0.1485623" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
@@ -546,8 +551,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49361023" weight="0.31495228" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Migrations" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50159746" side_tool="true" visible="true" weight="0.32590234" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49893504" visible="true" weight="0.3280255" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50106496" side_tool="true" visible="true" weight="0.3280255" />
       <window_info active="true" anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32799146" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -821,13 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/settings.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -946,6 +944,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2115">
+          <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -956,18 +961,14 @@
     <entry file="file://$PROJECT_DIR$/js/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search.html">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="129" column="58" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="58" />
+        <state relative-caret-position="416">
+          <caret line="176" column="70" lean-forward="true" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
         </state>
       </provider>
     </entry>
