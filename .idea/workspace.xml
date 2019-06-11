@@ -12,9 +12,9 @@
     <bookmark url="file://$PROJECT_DIR$/js/search.js" line="144" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Merge autocommute log to master">
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Testing Stop flextime in Search page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/search.js" afterDir="false" />
     </list>
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
@@ -66,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3240">
-              <caret line="216" column="34" selection-start-line="216" selection-start-column="34" selection-end-line="216" selection-end-column="34" />
+            <state relative-caret-position="432">
+              <caret line="293" column="89" selection-start-line="293" selection-start-column="89" selection-end-line="293" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -78,17 +78,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
-              <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
+            <state relative-caret-position="327">
+              <caret line="126" column="74" lean-forward="true" selection-start-line="126" selection-start-column="74" selection-end-line="126" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="176" column="70" lean-forward="true" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
+            <state relative-caret-position="251">
+              <caret line="153" column="69" lean-forward="true" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -106,7 +106,20 @@
         <entry file="file://$PROJECT_DIR$/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+              <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/soft/utilities/start_emu.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -122,8 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app_to</find>
-      <find>showToast</find>
       <find>device</find>
       <find>sound</find>
       <find>getScheduledIds</find>
@@ -152,6 +163,8 @@
       <find>stoptracking</find>
       <find>isStarted</find>
       <find>ready</find>
+      <find>stop_flextime_trip_logging()</find>
+      <find>stop_flextime_trip</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -205,11 +218,12 @@
         <option value="$PROJECT_DIR$/commute_log_calendar.html" />
         <option value="$PROJECT_DIR$/css/sass/layout.scss" />
         <option value="$PROJECT_DIR$/js/commute_log_calendar.js" />
-        <option value="$PROJECT_DIR$/search.html" />
         <option value="$PROJECT_DIR$/js/start_flextime_trip.js" />
-        <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/constants.js" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$USER_HOME$/soft/utilities/start_emu.sh" />
+        <option value="$PROJECT_DIR$/search.html" />
+        <option value="$PROJECT_DIR$/js/search.js" />
       </list>
     </option>
   </component>
@@ -238,17 +252,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,6 +278,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,7 +297,7 @@
     <property name="SearchEverywhereHistoryKey" value="navigate&#9;ACTION&#9;GoToMenu&#10;recent&#9;ACTION&#9;RecentFiles" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../node_modules/cordova-plugin-local-notification/www" />
+    <property name="last_opened_file_path" value="$USER_HOME$/soft/utilities/start_emu.sh" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -529,30 +543,37 @@
       <option name="project" value="LOCAL" />
       <updated>1557178743685</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Testing Stop flextime in Search page">
+      <created>1560235019944</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1560235019944</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-1" width="1922" height="1065" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3301738" visible="true" weight="0.1485623" />
-      <window_info id="Structure" order="1" sideWeight="0.6698262" side_tool="true" visible="true" weight="0.1485623" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.32913387" visible="true" weight="0.15015975" />
+      <window_info id="Structure" order="1" sideWeight="0.67086613" side_tool="true" visible="true" weight="0.15015975" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286638" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840257" visible="true" weight="0.32590234" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978701" visible="true" weight="0.32590234" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49361023" weight="0.31495228" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49307775" weight="0.31422505" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Migrations" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49893504" visible="true" weight="0.3280255" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50106496" side_tool="true" visible="true" weight="0.3280255" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49840257" weight="0.32767764" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5021299" side_tool="true" visible="true" weight="0.32590234" />
       <window_info active="true" anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32799146" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -667,7 +688,8 @@
     <MESSAGE value="Fix tripnum 04/30" />
     <MESSAGE value="Apply: Fix tripnum 04/30" />
     <MESSAGE value="Testing start trip and stop in within search.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing start trip and stop in within search.html" />
+    <MESSAGE value="Testing Stop flextime in Search page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Stop flextime in Search page" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
@@ -937,20 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3240">
-          <caret line="216" column="34" selection-start-line="216" selection-start-column="34" selection-end-line="216" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
-          <caret line="141" column="50" selection-start-line="141" selection-start-column="50" selection-end-line="141" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -958,17 +966,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/constants.js">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+        <state relative-caret-position="251">
+          <caret line="153" column="69" lean-forward="true" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$USER_HOME$/soft/utilities/start_emu.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="176" column="70" lean-forward="true" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
+        <state relative-caret-position="210">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="126" column="74" lean-forward="true" selection-start-line="126" selection-start-column="74" selection-end-line="126" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="293" column="89" selection-start-line="293" selection-start-column="89" selection-end-line="293" selection-end-column="89" />
         </state>
       </provider>
     </entry>

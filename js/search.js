@@ -291,7 +291,7 @@ function stop_flextime_trip_logging() {
     app_confirm('Are you sure you want to stop logging this trip?', (response) => {
         if (response) {
             backgroundGeolocation.stop();
-            $('#stop_flextime_trip').closest('.ui-btn').hide();
+            $('#stop_flextime_trip').closest('.ui-btn').hide();//todob change id to class
             $('#start_flextime_trip').closest('.ui-btn').show();
         }
     }, 'Stop Logging Flextime Trip');
