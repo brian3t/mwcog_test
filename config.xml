@@ -144,8 +144,6 @@
     <gap:config-file parent="/manifest" platform="android">
         <application android:debuggable="true" />
     </gap:config-file>
-    <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="^6.4.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
@@ -160,7 +158,7 @@
     </plugin>
     <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
     <plugin name="cordova-plugin-appavailability" spec="^0.4.2" />
-    <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="git+https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
+    <plugin name="cordova-add-whitelist-app-availability-info-plist-cpn" spec="https://github.com/brian3t/cordova_app_avail_whitelist_cpn.git" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-android-support-gradle-release" spec="^2.1.0">
@@ -169,7 +167,7 @@
     <plugin name="cordova-plugin-appminimize" spec="^1.0.1" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="com-darryncampbell-cordova-plugin-intent" spec="^1.1.7" />
-    <plugin name="cordova-plugin-mediabeef-background-geolocation" spec="git+https://github.com/mediabeef/mwcog-phonegap-background-geo.git">
+    <plugin name="cordova-plugin-mediabeef-background-geolocation" spec="https://github.com/mediabeef/mwcog-phonegap-background-geo.git">
         <variable name="ICON" value="@mipmap/icon" />
         <variable name="SMALL_ICON" value="@mipmap/icon" />
         <variable name="ACCOUNT_NAME" value="@string/app_name" />
@@ -180,4 +178,6 @@
         <variable name="LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION" value="This app requires background location tracking" />
         <variable name="LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION" value="Always use is required for background location tracking" />
     </plugin>
+    <engine name="ios" spec="^4.5.5" />
+    <engine name="android" spec="^6.4.0" />
 </widget>
