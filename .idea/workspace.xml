@@ -12,10 +12,8 @@
     <bookmark url="file://$PROJECT_DIR$/js/search.js" line="144" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Testing Stop flextime in Search page">
+    <list default="true" id="4079b11b-8c59-4d64-8873-957316c3052d" name="Default" comment="Done: Stop flextime in Search page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/search.js" afterDir="false" />
     </list>
     <list id="ce6757a1-71e9-449c-b2d8-7f1e5c9c7f29" name="ignored" comment="" />
     <ignored path=".idea/php.xml" />
@@ -67,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="287" column="1" lean-forward="true" selection-start-line="287" selection-start-column="1" selection-end-line="287" selection-end-column="1" />
+            <state relative-caret-position="306">
+              <caret line="282" column="59" selection-start-line="282" selection-start-column="59" selection-end-line="282" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -79,17 +77,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="1860">
               <caret line="124" column="138" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="138" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2685">
-              <caret line="179" column="13" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
+            <state relative-caret-position="439">
+              <caret line="179" column="13" lean-forward="true" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -123,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>device</find>
       <find>sound</find>
       <find>getScheduledIds</find>
       <find>phonegap</find>
@@ -153,6 +150,7 @@
       <find>ready</find>
       <find>stop_flextime_trip_logging()</find>
       <find>stop_flextime_trip</find>
+      <find>notification</find>
     </findStrings>
     <replaceStrings>
       <replace>);</replace>
@@ -210,8 +208,8 @@
         <option value="$PROJECT_DIR$/js/constants.js" />
         <option value="$USER_HOME$/soft/utilities/start_emu.sh" />
         <option value="$PROJECT_DIR$/search.html" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/search.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -239,18 +237,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,6 +258,18 @@
             <path>
               <item name="mwcog" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="mwcog" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="mwcog" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
           </expand>
           <select />
@@ -539,21 +537,35 @@
       <option name="project" value="LOCAL" />
       <updated>1560235019944</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Done: Stop flextime in Search page">
+      <created>1560282918213</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1560282918213</updated>
+    </task>
+    <task id="LOCAL-00028" summary="try localnot beta3">
+      <created>1560453278469</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1560453278469</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="0" width="1922" height="1081" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.32453415" visible="true" weight="0.15654951" />
-      <window_info id="Structure" order="1" sideWeight="0.6754658" side_tool="true" visible="true" weight="0.15654951" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.32312405" visible="true" weight="0.15814696" />
+      <window_info id="Structure" order="1" sideWeight="0.67687595" side_tool="true" visible="true" weight="0.15814696" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.5010593" side_tool="true" weight="0.19169329" />
       <window_info active="true" id="Repositories" order="4" sideWeight="0.49895832" visible="true" weight="0.18796591" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286638" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49627262" visible="true" weight="0.3249476" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49627262" weight="0.3249476" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -562,7 +574,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Migrations" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49840257" weight="0.32767764" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5037274" side_tool="true" visible="true" weight="0.3249476" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5037274" side_tool="true" visible="true" weight="0.31551364" />
       <window_info active="true" anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.32799146" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
@@ -654,8 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Trying to fix change month bug." />
-    <MESSAGE value="Trying to fix change month bug. Upgrade fullcalendar to 3.9" />
     <MESSAGE value="Weinre debugging. Fix other month." />
     <MESSAGE value="Fix text align webkit." />
     <MESSAGE value="Testing android/ios mobile detect." />
@@ -679,7 +689,9 @@
     <MESSAGE value="Apply: Fix tripnum 04/30" />
     <MESSAGE value="Testing start trip and stop in within search.html" />
     <MESSAGE value="Testing Stop flextime in Search page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Stop flextime in Search page" />
+    <MESSAGE value="Done: Stop flextime in Search page" />
+    <MESSAGE value="try localnot beta3" />
+    <option name="LAST_COMMIT_MESSAGE" value="try localnot beta3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/lib/fullcalendar.min.js">
@@ -950,10 +962,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$PROJECT_DIR$/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2685">
-          <caret line="179" column="13" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
+        <state relative-caret-position="1860">
+          <caret line="124" column="138" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="138" />
         </state>
       </provider>
     </entry>
@@ -971,17 +983,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search.html">
+    <entry file="file://$PROJECT_DIR$/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="124" column="138" selection-start-line="124" selection-start-column="113" selection-end-line="124" selection-end-column="138" />
+        <state relative-caret-position="306">
+          <caret line="282" column="59" selection-start-line="282" selection-start-column="59" selection-end-line="282" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="287" column="1" lean-forward="true" selection-start-line="287" selection-start-column="1" selection-end-line="287" selection-end-column="1" />
+        <state relative-caret-position="439">
+          <caret line="179" column="13" lean-forward="true" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
         </state>
       </provider>
     </entry>
